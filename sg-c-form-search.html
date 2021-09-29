@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
 
-        <title>Zone de texte - Design System ANS</title>
+        <title>Champ de recherche - Design System ANS</title>
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -333,184 +333,36 @@
         <div class="o-sg-block-title">
     
      <p class="o-sg-block-title__subtitle">Composants - Formulaire</p> 
-            <h1>Zone de texte</h1>
+            <h1>Champ de recherche</h1>
     
     
-    <p>Représentée par l'élément <code>textarea</code>, il s'agit d'une zone permettant la saisie d'un texte sur plusieurs lignes.</p>
+    <p>Il s'agit d'une balise <code>&lt;input type='search'&gt;</code>.</p>
 </div>
 
         <div class="sg-block-space">
-            <h2>Le champ « zone de texte »</h2>
-            <h3>Par défaut</h3>
-            <p>Afin de garantir une certaine homogénéité entre les navigateurs, il peut être utile de définir les attributs <code>rows</code> et <code>cols</code> pour fixer une taille unique à l'élément.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
 
-                    <div class="form-group">
-                          <label for="formTextarea">Textarea label</label>
+<div class="input-group search-group">
+      <label for="formInput" class="sr-only">Recherche</label>
 
-                          <textarea class="form-control" name="formTextarea" id="formTextarea"></textarea>
+          <input class="form-control" name="formInput" type="search"   placeholder="Nom, N° RPPS, …" id="formInput"/>
 
-                    </div>
-                
+    <button type="submit"     class=" btn btn--plain btn--primary btn--icon-before"><svg class="svg-icon svg-search" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#search"></use></svg>Rechercher</button></div>                
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1815114735" aria-expanded="false" aria-controls="collapse_1815114735">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1608139103" aria-expanded="false" aria-controls="collapse_1608139103">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1815114735">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1608139103">
             
-<script type="text/plain" class="language-html">                    <div class="form-group">
-                          <label for="formTextarea">Textarea label</label>
+<script type="text/plain" class="language-html"><div class="input-group search-group">
+      <label for="formInput" class="sr-only">Recherche</label>
 
-                          <textarea class="form-control" name="formTextarea" id="formTextarea"></textarea>
+          <input class="form-control" name="formInput" type="search"   placeholder="Nom, N° RPPS, …" id="formInput"/>
 
-                    </div>
-                </script>
-        </div>
-    </div>
-    </div>        </div>
-
-        <div class="sg-block-space">
-            <h2>Les différents états</h2>
-            <p>Tout comme les champs de saisie, plusieurs états sont possibles.</p>
-
-            <h3>Champ obligatoire</h3>
-            <p>Une fois l'attribut <code>required</code> ajouté au textarea, ce dernier doit comporter une <code>value</code> non nulle pour que le formulaire puisse être validé.</p>
-            
-<div class="o-sg-prism">
-    <div class="o-sg-prism__content">
-
-                    <div class="form-group">
-                          <label for="formTextareaRequired">Textarea label <span class="form-required" title="Ce champ est requis">*</span></label>
-
-                          <textarea class="form-control" name="formTextareaRequired" required="required" id="formTextareaRequired"></textarea>
-
-                    </div>
-                
-    </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1109050853" aria-expanded="false" aria-controls="collapse_1109050853">
-            <span>Code HTML</span>
-        </button>
-
-        <div class="collapse o-sg-prism__collapse" id="collapse_1109050853">
-            
-<script type="text/plain" class="language-html">                    <div class="form-group">
-                          <label for="formTextareaRequired">Textarea label <span class="form-required" title="Ce champ est requis">*</span></label>
-
-                          <textarea class="form-control" name="formTextareaRequired" required="required" id="formTextareaRequired"></textarea>
-
-                    </div>
-                </script>
-        </div>
-    </div>
-    </div>        </div>
-
-        <div class="sg-block-space">
-            <h3>Désactivé</h3>
-            <p>L'ajout de l'attribut booléen <code>disabled</code> empêche la saisie de texte et la prise de focus de l'élément.</p>
-            
-<div class="o-sg-prism">
-    <div class="o-sg-prism__content">
-
-                    <div class="form-group">
-                          <label for="formTextareaDisabled">Textarea label</label>
-
-                          <textarea class="form-control" name="formTextareaDisabled" disabled="disabled" id="formTextareaDisabled"></textarea>
-
-                    </div>
-                
-    </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_205919812" aria-expanded="false" aria-controls="collapse_205919812">
-            <span>Code HTML</span>
-        </button>
-
-        <div class="collapse o-sg-prism__collapse" id="collapse_205919812">
-            
-<script type="text/plain" class="language-html">                    <div class="form-group">
-                          <label for="formTextareaDisabled">Textarea label</label>
-
-                          <textarea class="form-control" name="formTextareaDisabled" disabled="disabled" id="formTextareaDisabled"></textarea>
-
-                    </div>
-                </script>
-        </div>
-    </div>
-    </div>        </div>
-
-        <div class="sg-block-space">
-            <h3>Message</h3>
-            <p>Peut être utile pour spécifier le type d'informations requises pour la prise en compte de la demande.</p>
-            
-<div class="o-sg-prism">
-    <div class="o-sg-prism__content">
-
-                    <div class="form-group">
-                          <label for="formTextareaDesc">Textarea label</label>
-
-                          <textarea class="form-control" name="formTextareaDesc" aria-describedby="formTextareaDesc-desc" id="formTextareaDesc"></textarea>
-
-                            
-    <p class="description" id="formTextareaDesc-desc">Description helper text</p>
-
-                    </div>
-                
-    </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1401512507" aria-expanded="false" aria-controls="collapse_1401512507">
-            <span>Code HTML</span>
-        </button>
-
-        <div class="collapse o-sg-prism__collapse" id="collapse_1401512507">
-            
-<script type="text/plain" class="language-html">                    <div class="form-group">
-                          <label for="formTextareaDesc">Textarea label</label>
-
-                          <textarea class="form-control" name="formTextareaDesc" aria-describedby="formTextareaDesc-desc" id="formTextareaDesc"></textarea>
-
-                            
-    <p class="description" id="formTextareaDesc-desc">Description helper text</p>
-
-                    </div>
-                </script>
-        </div>
-    </div>
-    </div>        </div>
-
-        <div class="sg-block-space">
-            <h3>Message d’erreur</h3>
-            <p>Si une erreur est détectée dans la valeur saisie, la classe <code>is-invalid</code> peut être ajoutée au <code>div.form-group</code> ainsi qu'au <code>textarea</code>. </b> Le message d'erreur doit être explicite et si possible prévoir des suggestions de correction.</p>
-            
-<div class="o-sg-prism">
-    <div class="o-sg-prism__content">
-
-                    <div class="form-group is-invalid">
-                          <label for="formTextareaError">Textarea label</label>
-
-                          <textarea class="form-control is-invalid" name="formTextareaError" aria-invalid="true" aria-describedby="formTextareaError-error" class="is-invalid" id="formTextareaError"></textarea>
-
-                            
-    <p class="description" id="formTextareaError-error">Error helper text</p>
-
-                    </div>
-                
-    </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1135555896" aria-expanded="false" aria-controls="collapse_1135555896">
-            <span>Code HTML</span>
-        </button>
-
-        <div class="collapse o-sg-prism__collapse" id="collapse_1135555896">
-            
-<script type="text/plain" class="language-html">                    <div class="form-group is-invalid">
-                          <label for="formTextareaError">Textarea label</label>
-
-                          <textarea class="form-control is-invalid" name="formTextareaError" aria-invalid="true" aria-describedby="formTextareaError-error" class="is-invalid" id="formTextareaError"></textarea>
-
-                            
-    <p class="description" id="formTextareaError-error">Error helper text</p>
-
-                    </div>
-                </script>
+    <button type="submit"     class=" btn btn--plain btn--primary btn--icon-before"><svg class="svg-icon svg-search" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#search"></use></svg>Rechercher</button></div>                </script>
         </div>
     </div>
     </div>        </div>

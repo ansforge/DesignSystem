@@ -243,6 +243,10 @@
                     </li>
             <li class="nav-item common-nav-item">
             
+                            <a class="nav-link" href="sg-c-form-search.html">Champs de recherche</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
                             <a class="nav-link" href="sg-c-form-use.html">Usages</a>
                     </li>
             <li class="nav-item common-nav-item">
@@ -257,7 +261,15 @@
                     </li>
             <li class="nav-item common-nav-item">
             
+                            <a class="nav-link" href="sg-c-lists.html">Listes</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
                             <a class="nav-link" href="sg-c-links.html">Liens</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-table.html">Tableau</a>
                     </li>
             <li class="nav-item common-nav-item">
             
@@ -291,6 +303,14 @@
             
                             <a class="nav-link" href="sg-c-modal.html">Modale</a>
                     </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-accordeon.html">Accordéon</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-breadcrumb.html">Fil d'ariane</a>
+                    </li>
     </ul>
                     </div>
                 </div>
@@ -316,13 +336,14 @@
             <h1>Liste déroulante</h1>
     
     
-    <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+    <p>La liste déroulante permet à l'utilisateur de choisir un élément dans une liste préétablie.</p>
 </div>
 
         <div class="sg-block-space">
-            <h2>Le champs liste déroulante</h2>
+            <h2>Le champ liste déroulante</h2>
+            <p>C'est l'élément <code>select</code> qui est la base de toute liste déroulante.</p>
             <h3>Par défaut</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Elle se compose d'une liste de <code>option</code> contenues dans le <code>select</code>. Celui-ci doit obligatoirement comporter un <code>label</code>.</p>
 
             
 <div class="o-sg-prism">
@@ -340,11 +361,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_149769538" aria-expanded="false" aria-controls="collapse_149769538">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_422377637" aria-expanded="false" aria-controls="collapse_422377637">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_149769538">
+        <div class="collapse o-sg-prism__collapse" id="collapse_422377637">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                           <label for="formSelect">Select label</label>
@@ -365,8 +386,8 @@
             <h2>Les différents états</h2>
             <p>Les champs de saisie permettent à un utilisateur d'entrer du contenu et des données.</p>
 
-            <h3>Champs obligatoire</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <h3>Champ obligatoire</h3>
+            <p>Ajoutez un astérisque au <code>label</code> pour informer qu’un élément est obligatoire (en précisant en haut ou en bas du formulaire que l'astérisque pointe les champs obligatoires). Si tous les éléments sont obligatoires, indiquez-le au début du formulaire.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -383,11 +404,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1678985352" aria-expanded="false" aria-controls="collapse_1678985352">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1104535310" aria-expanded="false" aria-controls="collapse_1104535310">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1678985352">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1104535310">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                           <label for="formSelectRequired">Select label <span class="form-required" title="Ce champ est requis">*</span></label>
@@ -406,7 +427,7 @@
 
         <div class="sg-block-space">
             <h3>Désactivé</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>L'attribut <code>disabled</code> rend impossible la sélection d'un <code>option</code> ainsi que le focus sur l'élément <code>select</code>, par exemple jusqu'à ce qu'une certaine condition ait été remplie (par exemple, qu'une action soit terminée comme cocher un <code>checkbox</code>).</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -423,11 +444,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1857744644" aria-expanded="false" aria-controls="collapse_1857744644">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_964975810" aria-expanded="false" aria-controls="collapse_964975810">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1857744644">
+        <div class="collapse o-sg-prism__collapse" id="collapse_964975810">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                           <label for="formSelectDisabled">Select label</label>
@@ -446,7 +467,7 @@
 
         <div class="sg-block-space">
             <h3>Message</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Un texte d’aide sous le <code>label</code> est une bonne pratique pour faciliter le choix de l’utilisateur. Il doit être affiché en-dessous.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -461,16 +482,16 @@
       </select>
 
                             
-    <p class="description" id="formSelectDesc-desc">Description helper text</p>
+    <p class="description" id="formSelectDesc-desc">Message d'aide à la saisie</p>
 
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1854208200" aria-expanded="false" aria-controls="collapse_1854208200">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1191902334" aria-expanded="false" aria-controls="collapse_1191902334">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1854208200">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1191902334">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                           <label for="formSelectDesc">Select label</label>
@@ -482,7 +503,7 @@
       </select>
 
                             
-    <p class="description" id="formSelectDesc-desc">Description helper text</p>
+    <p class="description" id="formSelectDesc-desc">Message d'aide à la saisie</p>
 
                     </div>
                 </script>
@@ -492,7 +513,7 @@
 
         <div class="sg-block-space">
             <h3>Message d’erreur</h3>
-            <p><b style="color: red">[TODO Edito] </b> Prévoir des messages d’erreur explicites et des suggestions de correction</p>
+            <p>Comme pour les autres éléments de formulaire, l'état d'erreur est matérialisé par l'ajout de la classe <code>is-invalid</code> sur le <code>div</code> englobant et le <code>select</code>. Cela colore en rouge les bordures et le texte. Les messages d’erreur doivent être explicites et des suggestions de correction doivent être apportées.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -507,16 +528,16 @@
       </select>
 
                             
-    <p class="description" id="formSelectError-error">Error helper text</p>
+    <p class="description" id="formSelectError-error">Message d'erreur explicite</p>
 
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_909483116" aria-expanded="false" aria-controls="collapse_909483116">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1557032516" aria-expanded="false" aria-controls="collapse_1557032516">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_909483116">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1557032516">
             
 <script type="text/plain" class="language-html">                    <div class="form-group is-invalid">
                           <label for="formSelectError">Select label</label>
@@ -528,7 +549,7 @@
       </select>
 
                             
-    <p class="description" id="formSelectError-error">Error helper text</p>
+    <p class="description" id="formSelectError-error">Message d'erreur explicite</p>
 
                     </div>
                 </script>

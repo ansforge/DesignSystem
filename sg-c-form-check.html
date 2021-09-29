@@ -243,6 +243,10 @@
                     </li>
             <li class="nav-item common-nav-item">
             
+                            <a class="nav-link" href="sg-c-form-search.html">Champs de recherche</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
                             <a class="nav-link" href="sg-c-form-use.html">Usages</a>
                     </li>
             <li class="nav-item common-nav-item">
@@ -257,7 +261,15 @@
                     </li>
             <li class="nav-item common-nav-item">
             
+                            <a class="nav-link" href="sg-c-lists.html">Listes</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
                             <a class="nav-link" href="sg-c-links.html">Liens</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-table.html">Tableau</a>
                     </li>
             <li class="nav-item common-nav-item">
             
@@ -291,6 +303,14 @@
             
                             <a class="nav-link" href="sg-c-modal.html">Modale</a>
                     </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-accordeon.html">Accordéon</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-breadcrumb.html">Fil d'ariane</a>
+                    </li>
     </ul>
                     </div>
                 </div>
@@ -316,15 +336,19 @@
             <h1>Case à cocher et radio</h1>
     
     
-    <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+    <p>Ces deux éléments autorisent à faire un choix parmi plusieurs options.
+            <br>La différence entre les deux réside dans le nombre d'options : le bouton <code>radio</code> n'autorise qu'un seul choix, alors que le <code>checkbox</code> autorise un ou plusieurs choix.</p>
 </div>
 
         <div class="sg-block-space">
-            <h2>Les cases à  cocher</h2>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <h2>Les cases à cocher</h2>
+            <p>Constituées par l'élément <code>input type="checkbox"</code>, elles peuvent être uniques ou multiples.
+            <br>Dans le cas d'un groupe de cases à cocher, elles doivent toutes être regroupées dans une balise <code>fieldset</code>, dont le premier enfant doit être un <code>legend</code>. Ce dernier constitue donc l'en-tête du groupe de cases à cocher, et doit décrire leur rôle.
+            
+            <br>Plusieurs mises en forme sont possibles.</p>
 
             <h3>Liste verticale</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>L'usage du div englobant de base avec les classes <code>.custom-control.custom-checkbox</code> ordonne verticalement les cases à cocher.</p>
 
             
 <div class="o-sg-prism">
@@ -415,11 +439,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_838547242" aria-expanded="false" aria-controls="collapse_838547242">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_225188905" aria-expanded="false" aria-controls="collapse_225188905">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_838547242">
+        <div class="collapse o-sg-prism__collapse" id="collapse_225188905">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                         <fieldset>
@@ -511,7 +535,7 @@
 
         <div class="sg-block-space">
             <h3>Liste horizontale</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Pour une disposition horizontale, ajoutez la classe <code>custom-control-inline</code> aux deux classes déjà présentes sur l'élément parent.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -601,11 +625,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_239050375" aria-expanded="false" aria-controls="collapse_239050375">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_313817030" aria-expanded="false" aria-controls="collapse_313817030">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_239050375">
+        <div class="collapse o-sg-prism__collapse" id="collapse_313817030">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                         <fieldset>
@@ -697,10 +721,10 @@
 
         <div class="sg-block-space">
             <h2>Les boutons radios</h2>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Ils n'autorisent l'utilisateur qu'à sélectionner une seule option dans une liste.</p>
 
             <h3>Liste verticale</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Comme pour les <code>checkbox</code>, la disposition par défaut est verticale.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -770,11 +794,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_968040972" aria-expanded="false" aria-controls="collapse_968040972">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1240772524" aria-expanded="false" aria-controls="collapse_1240772524">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_968040972">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1240772524">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                         <fieldset>
@@ -846,7 +870,7 @@
 
         <div class="sg-block-space">
             <h3>Liste horizontale</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Pour une disposition en ligne, ajouter sur chaque <code>div</code> parent la classe <code>custom-control-inline</code> aux deux préexistantes que sont <code>custom-control</code> et <code>custom-radio</code>.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -917,11 +941,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1697130917" aria-expanded="false" aria-controls="collapse_1697130917">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_61621425" aria-expanded="false" aria-controls="collapse_61621425">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1697130917">
+        <div class="collapse o-sg-prism__collapse" id="collapse_61621425">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                         <fieldset>
@@ -994,7 +1018,7 @@
 
         <div class="sg-block-space">
             <h3>Erreur</h3>
-            <p><b style="color: red">[TODO Edito] </b> Si un bouton radio doit obligatoirement être sélectionné et que ce n'est pas le cas à l'envoi du formulaire, la méthode la plus robuste pour informer les lecteurs d'écran avec un timing adapté est d'ajouter le message d'erreur au contenu de <code>&lt;legend&gt;</code>.</p>
+            <p>Si un bouton radio doit obligatoirement être sélectionné et que ce n'est pas le cas à l'envoi du formulaire, la méthode la plus robuste pour informer les lecteurs d'écran avec un timing adapté est d'ajouter le message d'erreur au contenu de <code>&lt;legend&gt;</code>.</p>
             <p>Si le message d'erreur n'est pas visuellement proche de la légende, la technique est d'avoir 2 messages: un pour les lecteurs d'écran uniquement, dans la légende; et un affiché, pour les utilisateurs voyants, mais caché aux lecteurs d'écran pour éviter toute répétition. Voici un exemple :</p>
             
 <div class="o-sg-prism">
@@ -1038,11 +1062,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1156752688" aria-expanded="false" aria-controls="collapse_1156752688">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1499656230" aria-expanded="false" aria-controls="collapse_1499656230">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1156752688">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1499656230">
             
 <script type="text/plain" class="language-html">                    <div class="form-group is-invalid">
                         <fieldset>
@@ -1089,7 +1113,7 @@
 
         <div class="sg-block-space">
             <h3>Radio sous forme de boîte</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Pour obtenir cette apparence, il faut englober l'ensemble des <code>div.custom-radio.custom-control</code> dans un parent portant la classe <code>.custom-radio-box</code>.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -1131,11 +1155,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1861450910" aria-expanded="false" aria-controls="collapse_1861450910">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1134637362" aria-expanded="false" aria-controls="collapse_1134637362">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1861450910">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1134637362">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                         <fieldset>

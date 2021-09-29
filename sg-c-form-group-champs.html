@@ -243,6 +243,10 @@
                     </li>
             <li class="nav-item common-nav-item">
             
+                            <a class="nav-link" href="sg-c-form-search.html">Champs de recherche</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
                             <a class="nav-link" href="sg-c-form-use.html">Usages</a>
                     </li>
             <li class="nav-item common-nav-item">
@@ -257,7 +261,15 @@
                     </li>
             <li class="nav-item common-nav-item">
             
+                            <a class="nav-link" href="sg-c-lists.html">Listes</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
                             <a class="nav-link" href="sg-c-links.html">Liens</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-table.html">Tableau</a>
                     </li>
             <li class="nav-item common-nav-item">
             
@@ -291,6 +303,14 @@
             
                             <a class="nav-link" href="sg-c-modal.html">Modale</a>
                     </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-accordeon.html">Accordéon</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-breadcrumb.html">Fil d'ariane</a>
+                    </li>
     </ul>
                     </div>
                 </div>
@@ -316,58 +336,75 @@
             <h1>Groupe de champs</h1>
     
     
-    <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+    <p>Dans certains cas, il peut être justifié de grouper des champs de formulaire pour les rendre plus faciles à comprendre et à utiliser. La présence d'un lien sémantique entre ces différents champs conditionne l'utilisation ou non d'un élément englobant <code>fieldset</code>.</p>
 </div>
 
         <div class="sg-block-space">
             <h2>Groupe de champs avec sémantique</h2>
-            <p><b style="color: red">[TODO Edito] </b> - "provide a semantic grouping for related form controls" ( https://www.accessibility-developer-guide.com/examples/forms/grouping-with-fieldset-legend/)</p>
-            <p>Les balises <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code> sont systématiquement à utiliser lorsque plusieurs groupes de champs disposent d’intitulés identiques ou pour grouper des champs qui portent sur un même sujet.</p>
+            <p>Lorsqu'il existe un lien sémantique entre ces différents champs, on utilise l'élément <code>fieldset</code>. 
+            <br>Le fieldset contient obligatoirement un legend comme premier enfant.</p>
+
+            <h3>Groupe de champs par rapprochement sémantique</h3>
+            <p>C'est le cas général où l'on va rapprocher plusieurs champs qui portent sur un même sujet.</p>
 
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
 
                     <fieldset class="form-box">
-                        <legend class="form-box__title">Fieldset legend</legend>
+                        <legend class="form-box__title">Votre adresse</legend>
 
                         <div class="form-group">
-                              <label for="formInput3">Input label 1</label>
+                              <label for="formInput3">Rue</label>
 
                                   <input class="form-control" name="formInput3" type="text"   id="formInput3"/>
 
 
                         </div>
                         <div class="form-group">
-                              <label for="formInput4">Input label 2</label>
+                              <label for="formInput4">Ville</label>
 
                                   <input class="form-control" name="formInput4" type="text"   id="formInput4"/>
+
+
+                        </div>
+                        <div class="form-group">
+                              <label for="formInput5">Pays</label>
+
+                                  <input class="form-control" name="formInput5" type="text"   id="formInput5"/>
 
 
                         </div>
                     </fieldset>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_524955242" aria-expanded="false" aria-controls="collapse_524955242">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1847174633" aria-expanded="false" aria-controls="collapse_1847174633">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_524955242">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1847174633">
             
 <script type="text/plain" class="language-html">                    <fieldset class="form-box">
-                        <legend class="form-box__title">Fieldset legend</legend>
+                        <legend class="form-box__title">Votre adresse</legend>
 
                         <div class="form-group">
-                              <label for="formInput3">Input label 1</label>
+                              <label for="formInput3">Rue</label>
 
                                   <input class="form-control" name="formInput3" type="text"   id="formInput3"/>
 
 
                         </div>
                         <div class="form-group">
-                              <label for="formInput4">Input label 2</label>
+                              <label for="formInput4">Ville</label>
 
                                   <input class="form-control" name="formInput4" type="text"   id="formInput4"/>
+
+
+                        </div>
+                        <div class="form-group">
+                              <label for="formInput5">Pays</label>
+
+                                  <input class="form-control" name="formInput5" type="text"   id="formInput5"/>
 
 
                         </div>
@@ -377,41 +414,377 @@
     </div>
     </div>        </div>
 
+        <h3>Pour différencier des champs aux mêmes intitulés</h3>
+        <p>Par ailleurs, les balises <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code> sont systématiquement à utiliser lorsque plusieurs groupes de champs disposent d’intitulés identiques.</p>
+
+        
+<div class="o-sg-prism">
+    <div class="o-sg-prism__content">
+
+                    <fieldset class="form-box">
+                        <legend class="form-box__title">Adresse de facturation</legend>
+
+                        <div class="form-group">
+                              <label for="formInput6">Prénom</label>
+
+                                  <input class="form-control" name="formInput6" type="text"   id="formInput6"/>
+
+
+                        </div>
+                        <div class="form-group">
+                              <label for="formInput7">Nom</label>
+
+                                  <input class="form-control" name="formInput7" type="text"   id="formInput7"/>
+
+
+                        </div>
+                        <div class="form-group">
+                              <label for="formInput8">Ville</label>
+
+                                  <input class="form-control" name="formInput8" type="text"   id="formInput8"/>
+
+
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-box">
+                        <legend class="form-box__title">Adresse de livraison</legend>
+
+                        <div class="form-group">
+                              <label for="formInput9">Prénom</label>
+
+                                  <input class="form-control" name="formInput9" type="text"   id="formInput9"/>
+
+
+                        </div>
+                        <div class="form-group">
+                              <label for="formInput10">Nom</label>
+
+                                  <input class="form-control" name="formInput10" type="text"   id="formInput10"/>
+
+
+                        </div>
+                        <div class="form-group">
+                              <label for="formInput11">Ville</label>
+
+                                  <input class="form-control" name="formInput11" type="text"   id="formInput11"/>
+
+
+                        </div>
+                    </fieldset>
+                
+    </div>    <div class="o-sg-prism__code">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1154666706" aria-expanded="false" aria-controls="collapse_1154666706">
+            <span>Code HTML</span>
+        </button>
+
+        <div class="collapse o-sg-prism__collapse" id="collapse_1154666706">
+            
+<script type="text/plain" class="language-html">                    <fieldset class="form-box">
+                        <legend class="form-box__title">Adresse de facturation</legend>
+
+                        <div class="form-group">
+                              <label for="formInput6">Prénom</label>
+
+                                  <input class="form-control" name="formInput6" type="text"   id="formInput6"/>
+
+
+                        </div>
+                        <div class="form-group">
+                              <label for="formInput7">Nom</label>
+
+                                  <input class="form-control" name="formInput7" type="text"   id="formInput7"/>
+
+
+                        </div>
+                        <div class="form-group">
+                              <label for="formInput8">Ville</label>
+
+                                  <input class="form-control" name="formInput8" type="text"   id="formInput8"/>
+
+
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-box">
+                        <legend class="form-box__title">Adresse de livraison</legend>
+
+                        <div class="form-group">
+                              <label for="formInput9">Prénom</label>
+
+                                  <input class="form-control" name="formInput9" type="text"   id="formInput9"/>
+
+
+                        </div>
+                        <div class="form-group">
+                              <label for="formInput10">Nom</label>
+
+                                  <input class="form-control" name="formInput10" type="text"   id="formInput10"/>
+
+
+                        </div>
+                        <div class="form-group">
+                              <label for="formInput11">Ville</label>
+
+                                  <input class="form-control" name="formInput11" type="text"   id="formInput11"/>
+
+
+                        </div>
+                    </fieldset>
+                </script>
+        </div>
+    </div>
+    </div>            
+
+            <h3>Groupe de certains champs spécifiques</h3>
+            <p>Il s'agit des boutons <code>radio</code> et des <code>checkbox</code>.</p>
+            <ul>
+                <li>Les <code>radio</code>, qui doivent être au minimum de deux, sont toujours groupés dans un <code>fieldset</code>. Le <code>legend</code> pose alors la question, à laquelle les <code>radio</code> apportent les réponses possibles.</li>
+                <li>Les <code>checkbox</code> d'un même groupe sémantique doivent être englobés d'un <code>fieldset</code>, mais il est également possible d'avoir des checkboxes qui se suivent sans lien entre eux ; dans ce dernier cas, le <code>fieldset</code> n'est pas requis.</li>
+            </ul>
+
+            <h3>Sous-groupes de champs</h3>
+
+            <p>Il est tout à fait possible d'avoir des imbrications de <code>fieldset</code>.</p>
+            
+<div class="o-sg-prism">
+    <div class="o-sg-prism__content">
+
+                <fieldset class="form-box">
+                    <legend class="form-box__title">Identité</legend>
+
+                    <div class="form-group">
+                          <label for="formInput12">Prénom</label>
+
+                              <input class="form-control" name="formInput12" type="text"   id="formInput12"/>
+
+
+                    </div>
+                    <div class="form-group">
+                          <label for="formInput13">Nom</label>
+
+                              <input class="form-control" name="formInput13" type="text"   id="formInput13"/>
+
+
+                    </div>
+                    <fieldset>
+                        <legend>Sexe</legend>
+                                
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio"
+            class="custom-control-input"
+            name="formRadioInline"
+                         id="formRadioInlineDefault"                                >
+        <label class="custom-control-label" for="formRadioInlineDefault">Féminin</label>
+            </div>
+
+                                
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio"
+            class="custom-control-input"
+            name="formRadioInline"
+                         id="formRadioInlineChecked"                                >
+        <label class="custom-control-label" for="formRadioInlineChecked">Masculin</label>
+            </div>
+
+                    </fieldset>
+                </fieldset>
+            
+    </div>    <div class="o-sg-prism__code">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1572606702" aria-expanded="false" aria-controls="collapse_1572606702">
+            <span>Code HTML</span>
+        </button>
+
+        <div class="collapse o-sg-prism__collapse" id="collapse_1572606702">
+            
+<script type="text/plain" class="language-html">                <fieldset class="form-box">
+                    <legend class="form-box__title">Identité</legend>
+
+                    <div class="form-group">
+                          <label for="formInput12">Prénom</label>
+
+                              <input class="form-control" name="formInput12" type="text"   id="formInput12"/>
+
+
+                    </div>
+                    <div class="form-group">
+                          <label for="formInput13">Nom</label>
+
+                              <input class="form-control" name="formInput13" type="text"   id="formInput13"/>
+
+
+                    </div>
+                    <fieldset>
+                        <legend>Sexe</legend>
+                                
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio"
+            class="custom-control-input"
+            name="formRadioInline"
+                         id="formRadioInlineDefault"                                >
+        <label class="custom-control-label" for="formRadioInlineDefault">Féminin</label>
+            </div>
+
+                                
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio"
+            class="custom-control-input"
+            name="formRadioInline"
+                         id="formRadioInlineChecked"                                >
+        <label class="custom-control-label" for="formRadioInlineChecked">Masculin</label>
+            </div>
+
+                    </fieldset>
+                </fieldset>
+            </script>
+        </div>
+    </div>
+    </div>
+
         <div class="sg-block-space">
-            <h2>Groupe de champs sans sémantique</h2>
-            <p><b style="color: red">[TODO Edito] </b> S'il n'y a pas de raison sémantique, utiliser les balises <code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> pour titrer les groupes de champs.</p>
+            <h2>Groupe de champs sans lien sémantique</h2>
+            <p>Dans certains cas particuliers, il peut être nécessaire de subdiviser un formulaire en différentes parties, sans pour autant que les champs d'une même partie soient liés sémantiquement. L'utilisation de <code>fieldset</code> n'est alors pas forcément justifiée.
+            <br>Dans ce cas, il est toujours possible d'utiliser les balises <code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> pour titrer les groupes de champs, comme les <code>h2</code> dans l'exemple ci-dessous. À noter : cela n'empêche pas d'utiliser des <code>fieldset</code> pour les éléments qui le justifient, comme les boutons <code>radio</code> ci-dessous.</p>
 
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
 
                     <div class="form-box">
-                        <h2 class="form-box__title">Titre</h2>
+                        <h2 class="form-box__title">Vos informations</h2>
+                        
+                        <div class="form-group">
+                              <label for="formInput14">Votre région</label>
+
+                                  <input class="form-control" name="formInput14" type="text"   id="formInput14"/>
+
+
+                        </div>
 
                         <div class="form-group">
-                              <label for="formInput1">Input label 1</label>
+                              <label for="formInput15">Votre message</label>
 
-                                  <input class="form-control" name="formInput1" type="text"   id="formInput1"/>
+                              <textarea class="form-control" name="formInput15" id="formInput15"></textarea>
 
+                        </div>
+
+                        <div class="form-group">
+                            <fieldset>
+                                <legend>Votre sexe</legend>
+                                    
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio"
+            class="custom-control-input"
+            name="formRadioInline"
+                         id="formRadioInlineDefault"                                >
+        <label class="custom-control-label" for="formRadioInlineDefault">Féminin</label>
+            </div>
+
+                                    
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio"
+            class="custom-control-input"
+            name="formRadioInline"
+                         id="formRadioInlineChecked"                                >
+        <label class="custom-control-label" for="formRadioInlineChecked">Masculin</label>
+            </div>
+
+                            </fieldset>
+                        </div>
+
+                        <h2 class="form-box__title">Vos choix</h2>
+                        
+                        <div class="form-group">
+                              <label for="formSelect">Mon choix d&#039;affectation</label>
+
+                              <select class="form-control" name="formSelect" id="formSelect">
+        <option value="1">affectation 1</option>
+        <option value="2">affectation 2</option>
+        <option value="3">affectation 3</option>
+      </select>
+
+                        </div>
+                        <div class="form-group">
+                                
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox"
+            class="custom-control-input"
+            name="formCheckbox"
+                                     id="formCheckbox"                    >
+        <label class="custom-control-label" for="formCheckbox">J'accepte que mes données soient publiées</label>
+            </div>
 
                         </div>
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1623828002" aria-expanded="false" aria-controls="collapse_1623828002">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_733315421" aria-expanded="false" aria-controls="collapse_733315421">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1623828002">
+        <div class="collapse o-sg-prism__collapse" id="collapse_733315421">
             
 <script type="text/plain" class="language-html">                    <div class="form-box">
-                        <h2 class="form-box__title">Titre</h2>
+                        <h2 class="form-box__title">Vos informations</h2>
+                        
+                        <div class="form-group">
+                              <label for="formInput14">Votre région</label>
+
+                                  <input class="form-control" name="formInput14" type="text"   id="formInput14"/>
+
+
+                        </div>
 
                         <div class="form-group">
-                              <label for="formInput1">Input label 1</label>
+                              <label for="formInput15">Votre message</label>
 
-                                  <input class="form-control" name="formInput1" type="text"   id="formInput1"/>
+                              <textarea class="form-control" name="formInput15" id="formInput15"></textarea>
 
+                        </div>
+
+                        <div class="form-group">
+                            <fieldset>
+                                <legend>Votre sexe</legend>
+                                    
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio"
+            class="custom-control-input"
+            name="formRadioInline"
+                         id="formRadioInlineDefault"                                >
+        <label class="custom-control-label" for="formRadioInlineDefault">Féminin</label>
+            </div>
+
+                                    
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio"
+            class="custom-control-input"
+            name="formRadioInline"
+                         id="formRadioInlineChecked"                                >
+        <label class="custom-control-label" for="formRadioInlineChecked">Masculin</label>
+            </div>
+
+                            </fieldset>
+                        </div>
+
+                        <h2 class="form-box__title">Vos choix</h2>
+                        
+                        <div class="form-group">
+                              <label for="formSelect">Mon choix d&#039;affectation</label>
+
+                              <select class="form-control" name="formSelect" id="formSelect">
+        <option value="1">affectation 1</option>
+        <option value="2">affectation 2</option>
+        <option value="3">affectation 3</option>
+      </select>
+
+                        </div>
+                        <div class="form-group">
+                                
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox"
+            class="custom-control-input"
+            name="formCheckbox"
+                                     id="formCheckbox"                    >
+        <label class="custom-control-label" for="formCheckbox">J'accepte que mes données soient publiées</label>
+            </div>
 
                         </div>
                     </div>
@@ -419,6 +792,11 @@
         </div>
     </div>
     </div>        </div>
+        <div class="sg-block-space">
+            <h2>Ressources utiles</h2>
+            <p><a href="https://www.accessibility-developer-guide.com/examples/forms/grouping-with-fieldset-legend/" target="_blank">Page d'information sur l'utilisation des <code>fieldset</code></a></p>
+        </div>
+        
     </div>
 
             </main>

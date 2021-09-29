@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
 
-        <title>Zone de texte - Design System ANS</title>
+        <title>Accordéon - Design System ANS</title>
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -332,184 +332,106 @@
     <div class="sg-container-content">
         <div class="o-sg-block-title">
     
-     <p class="o-sg-block-title__subtitle">Composants - Formulaire</p> 
-            <h1>Zone de texte</h1>
+     <p class="o-sg-block-title__subtitle">Composants</p> 
+            <h1>Accordéon</h1>
     
     
-    <p>Représentée par l'élément <code>textarea</code>, il s'agit d'une zone permettant la saisie d'un texte sur plusieurs lignes.</p>
+    <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
 </div>
 
         <div class="sg-block-space">
-            <h2>Le champ « zone de texte »</h2>
-            <h3>Par défaut</h3>
-            <p>Afin de garantir une certaine homogénéité entre les navigateurs, il peut être utile de définir les attributs <code>rows</code> et <code>cols</code> pour fixer une taille unique à l'élément.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
 
-                    <div class="form-group">
-                          <label for="formTextarea">Textarea label</label>
+                    <div class="js-accordion" data-accordion-prefix-classes="o" data-accordion-multiselectable="none">
+            <h3 class="js-accordion__header">Accordion 01<svg class="svg-icon svg-angle-down" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-down"></use></svg>
+        </h3>
 
-                          <textarea class="form-control" name="formTextarea" id="formTextarea"></textarea>
+        <div class="js-accordion__panel">
+            <div class="wysiwyg">
+                <h2>H2 lorem ipsum</h2><h3>H3 lorem ipsum</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+                                    <ul>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum</li>
+                                    </ul>
+                                    <ol>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum</li>
+                                    </ol>
+                                    
+            </div>
+        </div>
+            <h3 class="js-accordion__header">Accordion 02 Lorem ipsum dolor sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit<svg class="svg-icon svg-angle-down" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-down"></use></svg>
+        </h3>
 
-                    </div>
-                
-    </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1815114735" aria-expanded="false" aria-controls="collapse_1815114735">
-            <span>Code HTML</span>
-        </button>
+        <div class="js-accordion__panel">
+            <div class="wysiwyg">
+                <p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p><p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p><p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+            </div>
+        </div>
+            <h3 class="js-accordion__header">Accordion 03<svg class="svg-icon svg-angle-down" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-down"></use></svg>
+        </h3>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1815114735">
-            
-<script type="text/plain" class="language-html">                    <div class="form-group">
-                          <label for="formTextarea">Textarea label</label>
-
-                          <textarea class="form-control" name="formTextarea" id="formTextarea"></textarea>
-
-                    </div>
-                </script>
+        <div class="js-accordion__panel">
+            <div class="wysiwyg">
+                <p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+            </div>
         </div>
     </div>
-    </div>        </div>
-
-        <div class="sg-block-space">
-            <h2>Les différents états</h2>
-            <p>Tout comme les champs de saisie, plusieurs états sont possibles.</p>
-
-            <h3>Champ obligatoire</h3>
-            <p>Une fois l'attribut <code>required</code> ajouté au textarea, ce dernier doit comporter une <code>value</code> non nulle pour que le formulaire puisse être validé.</p>
-            
-<div class="o-sg-prism">
-    <div class="o-sg-prism__content">
-
-                    <div class="form-group">
-                          <label for="formTextareaRequired">Textarea label <span class="form-required" title="Ce champ est requis">*</span></label>
-
-                          <textarea class="form-control" name="formTextareaRequired" required="required" id="formTextareaRequired"></textarea>
-
-                    </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1109050853" aria-expanded="false" aria-controls="collapse_1109050853">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1649985633" aria-expanded="false" aria-controls="collapse_1649985633">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1109050853">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1649985633">
             
-<script type="text/plain" class="language-html">                    <div class="form-group">
-                          <label for="formTextareaRequired">Textarea label <span class="form-required" title="Ce champ est requis">*</span></label>
+<script type="text/plain" class="language-html">                    <div class="js-accordion" data-accordion-prefix-classes="o" data-accordion-multiselectable="none">
+            <h3 class="js-accordion__header">Accordion 01<svg class="svg-icon svg-angle-down" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-down"></use></svg>
+        </h3>
 
-                          <textarea class="form-control" name="formTextareaRequired" required="required" id="formTextareaRequired"></textarea>
+        <div class="js-accordion__panel">
+            <div class="wysiwyg">
+                <h2>H2 lorem ipsum</h2><h3>H3 lorem ipsum</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+                                    <ul>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum</li>
+                                    </ul>
+                                    <ol>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum</li>
+                                    </ol>
+                                    
+            </div>
+        </div>
+            <h3 class="js-accordion__header">Accordion 02 Lorem ipsum dolor sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit<svg class="svg-icon svg-angle-down" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-down"></use></svg>
+        </h3>
 
-                    </div>
-                </script>
+        <div class="js-accordion__panel">
+            <div class="wysiwyg">
+                <p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p><p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p><p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+            </div>
+        </div>
+            <h3 class="js-accordion__header">Accordion 03<svg class="svg-icon svg-angle-down" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-down"></use></svg>
+        </h3>
+
+        <div class="js-accordion__panel">
+            <div class="wysiwyg">
+                <p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+            </div>
         </div>
     </div>
-    </div>        </div>
-
-        <div class="sg-block-space">
-            <h3>Désactivé</h3>
-            <p>L'ajout de l'attribut booléen <code>disabled</code> empêche la saisie de texte et la prise de focus de l'élément.</p>
-            
-<div class="o-sg-prism">
-    <div class="o-sg-prism__content">
-
-                    <div class="form-group">
-                          <label for="formTextareaDisabled">Textarea label</label>
-
-                          <textarea class="form-control" name="formTextareaDisabled" disabled="disabled" id="formTextareaDisabled"></textarea>
-
-                    </div>
-                
-    </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_205919812" aria-expanded="false" aria-controls="collapse_205919812">
-            <span>Code HTML</span>
-        </button>
-
-        <div class="collapse o-sg-prism__collapse" id="collapse_205919812">
-            
-<script type="text/plain" class="language-html">                    <div class="form-group">
-                          <label for="formTextareaDisabled">Textarea label</label>
-
-                          <textarea class="form-control" name="formTextareaDisabled" disabled="disabled" id="formTextareaDisabled"></textarea>
-
-                    </div>
-                </script>
-        </div>
-    </div>
-    </div>        </div>
-
-        <div class="sg-block-space">
-            <h3>Message</h3>
-            <p>Peut être utile pour spécifier le type d'informations requises pour la prise en compte de la demande.</p>
-            
-<div class="o-sg-prism">
-    <div class="o-sg-prism__content">
-
-                    <div class="form-group">
-                          <label for="formTextareaDesc">Textarea label</label>
-
-                          <textarea class="form-control" name="formTextareaDesc" aria-describedby="formTextareaDesc-desc" id="formTextareaDesc"></textarea>
-
-                            
-    <p class="description" id="formTextareaDesc-desc">Description helper text</p>
-
-                    </div>
-                
-    </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1401512507" aria-expanded="false" aria-controls="collapse_1401512507">
-            <span>Code HTML</span>
-        </button>
-
-        <div class="collapse o-sg-prism__collapse" id="collapse_1401512507">
-            
-<script type="text/plain" class="language-html">                    <div class="form-group">
-                          <label for="formTextareaDesc">Textarea label</label>
-
-                          <textarea class="form-control" name="formTextareaDesc" aria-describedby="formTextareaDesc-desc" id="formTextareaDesc"></textarea>
-
-                            
-    <p class="description" id="formTextareaDesc-desc">Description helper text</p>
-
-                    </div>
-                </script>
-        </div>
-    </div>
-    </div>        </div>
-
-        <div class="sg-block-space">
-            <h3>Message d’erreur</h3>
-            <p>Si une erreur est détectée dans la valeur saisie, la classe <code>is-invalid</code> peut être ajoutée au <code>div.form-group</code> ainsi qu'au <code>textarea</code>. </b> Le message d'erreur doit être explicite et si possible prévoir des suggestions de correction.</p>
-            
-<div class="o-sg-prism">
-    <div class="o-sg-prism__content">
-
-                    <div class="form-group is-invalid">
-                          <label for="formTextareaError">Textarea label</label>
-
-                          <textarea class="form-control is-invalid" name="formTextareaError" aria-invalid="true" aria-describedby="formTextareaError-error" class="is-invalid" id="formTextareaError"></textarea>
-
-                            
-    <p class="description" id="formTextareaError-error">Error helper text</p>
-
-                    </div>
-                
-    </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1135555896" aria-expanded="false" aria-controls="collapse_1135555896">
-            <span>Code HTML</span>
-        </button>
-
-        <div class="collapse o-sg-prism__collapse" id="collapse_1135555896">
-            
-<script type="text/plain" class="language-html">                    <div class="form-group is-invalid">
-                          <label for="formTextareaError">Textarea label</label>
-
-                          <textarea class="form-control is-invalid" name="formTextareaError" aria-invalid="true" aria-describedby="formTextareaError-error" class="is-invalid" id="formTextareaError"></textarea>
-
-                            
-    <p class="description" id="formTextareaError-error">Error helper text</p>
-
-                    </div>
                 </script>
         </div>
     </div>

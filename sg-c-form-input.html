@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
 
-        <title>Champs de saisie - Design System ANS</title>
+        <title>Champ de saisie - Design System ANS</title>
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -243,6 +243,10 @@
                     </li>
             <li class="nav-item common-nav-item">
             
+                            <a class="nav-link" href="sg-c-form-search.html">Champs de recherche</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
                             <a class="nav-link" href="sg-c-form-use.html">Usages</a>
                     </li>
             <li class="nav-item common-nav-item">
@@ -257,7 +261,15 @@
                     </li>
             <li class="nav-item common-nav-item">
             
+                            <a class="nav-link" href="sg-c-lists.html">Listes</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
                             <a class="nav-link" href="sg-c-links.html">Liens</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-table.html">Tableau</a>
                     </li>
             <li class="nav-item common-nav-item">
             
@@ -291,6 +303,14 @@
             
                             <a class="nav-link" href="sg-c-modal.html">Modale</a>
                     </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-accordeon.html">Accordéon</a>
+                    </li>
+            <li class="nav-item common-nav-item">
+            
+                            <a class="nav-link" href="sg-c-breadcrumb.html">Fil d'ariane</a>
+                    </li>
     </ul>
                     </div>
                 </div>
@@ -313,16 +333,17 @@
         <div class="o-sg-block-title">
     
      <p class="o-sg-block-title__subtitle">Composants - Formulaire</p> 
-            <h1>Champs de saisie</h1>
+            <h1>Champ de saisie</h1>
     
     
-    <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+    <p>Les champs de saisie autorisent l\'utilisateur à interagir avec le site ou l\'application, en lui permettant de saisir des données (le plus souvent textuelles) qui seront ensuite traitées.</p>
 </div>
 
         <div class="sg-block-space">
             <h2>Les types de champs</h2>
+            L'élément de base prend la forme d'un <code>input type="text"</code>.
             <h3>Par défaut</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Il s'agit du champ basique de recueil d'information textuelle.</p>
 
             
 <div class="o-sg-prism">
@@ -337,11 +358,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_261753312" aria-expanded="false" aria-controls="collapse_261753312">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1357980060" aria-expanded="false" aria-controls="collapse_1357980060">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_261753312">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1357980060">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                           <label for="formInput">Input label</label>
@@ -357,7 +378,7 @@
 
         <div class="sg-block-space">
             <h3>Avec une icône contextuelle</h3>
-            <p><b style="color: red">[TODO Edito] </b> Icône de décoration.</p>
+            <p>Il est possible d'agrémenter le champ de saisie d'une icône. <br> Dans ce cas, ne pas oublier de cacher l'icone pour les lecteurs d'écran via l'attribut <code>aria-hidden="true"</code></p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -385,11 +406,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1683067158" aria-expanded="false" aria-controls="collapse_1683067158">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_727637920" aria-expanded="false" aria-controls="collapse_727637920">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1683067158">
+        <div class="collapse o-sg-prism__collapse" id="collapse_727637920">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                           <label for="inputIconLeft">Input label</label>
@@ -421,7 +442,14 @@
 
         <div class="sg-block-space">
             <h3>Le champ de saisie « mail »</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Ce type de champ contrôle automatiquement que la valeur saisie correspond bien à l'un des 3 formats considérés comme valides :</p>
+            <div class="wysiwyg">
+                <ul>
+                    <li> chaîne de caractères vide ;</li>
+                    <li> adresse mail correctement formée (chaîne de caractères - arobase - nom de domaine - extension) ;</li>
+                    <li> éventuellement une suite d'adresses mail correctes (si et seulement si l'attribut <code>multiple</code> est utilisé).</li>
+                </ul>
+            </div>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -435,11 +463,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_650685082" aria-expanded="false" aria-controls="collapse_650685082">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_805553559" aria-expanded="false" aria-controls="collapse_805553559">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_650685082">
+        <div class="collapse o-sg-prism__collapse" id="collapse_805553559">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                           <label for="inputEmail">Input email (ex.: jean@gmail.com)</label>
@@ -455,7 +483,8 @@
 
         <div class="sg-block-space">
             <h3>Le champ de saisie « date »</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Il autorise la saisie d'une date composée d'une année, d'un mois et d'un jour. <br>
+            La prise de charge native est très variable en fonction du navigateur.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -472,11 +501,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1594512187" aria-expanded="false" aria-controls="collapse_1594512187">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1688055551" aria-expanded="false" aria-controls="collapse_1688055551">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_1594512187">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1688055551">
             
 <script type="text/plain" class="language-html">                    <div class="form-group form-group--date">
                           <label for="formDate">Input date (jj/mm/aaaa)</label>
@@ -495,10 +524,10 @@
 
         <div class="sg-block-space">
             <h2>Les différents états</h2>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>En fonction du degré d'interaction souhaité avec l'utilisateur, ces champs peuvent passer par différents états.</p>
 
-            <h3>Champs obligatoire</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <h3>Champ obligatoire</h3>
+            <p>Une fois l'attribut <code>required</code> ajouté à l'input, ce champ doit comporter une <code>value</code> non nulle pour que le formulaire puisse être validé.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -512,11 +541,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_550548658" aria-expanded="false" aria-controls="collapse_550548658">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1911481418" aria-expanded="false" aria-controls="collapse_1911481418">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_550548658">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1911481418">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                           <label for="formInputRequired">Input label <span class="form-required" title="Ce champ est requis">*</span></label>
@@ -532,7 +561,7 @@
 
         <div class="sg-block-space">
             <h3>Désactivé</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>L'ajout de l'attribut booléen <code>disabled</code> rend impossible la saisie d'une valeur par l'utilisateur.<br>L'élément est également non mutable et non focusable.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -546,11 +575,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_38211067" aria-expanded="false" aria-controls="collapse_38211067">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1105011881" aria-expanded="false" aria-controls="collapse_1105011881">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_38211067">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1105011881">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                           <label for="formInputDisabled">Input label</label>
@@ -566,7 +595,7 @@
 
         <div class="sg-block-space">
             <h3>Message</h3>
-            <p><b style="color: red">[TODO Edito] </b> Certe inquam pertinax non numquam eius modi tempora incidunt ut perspiciatis unde omnis iste natus error sit sentiri haec putat ut calere ignem nivem esse appetendum alterum esse fugiendum itaque negat opus esse expetendam</p>
+            <p>Permet notamment de spécifier une aide à la saisie pour l'utilisateur (format, exemples, etc.).</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -583,11 +612,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_374911845" aria-expanded="false" aria-controls="collapse_374911845">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_764340027" aria-expanded="false" aria-controls="collapse_764340027">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_374911845">
+        <div class="collapse o-sg-prism__collapse" id="collapse_764340027">
             
 <script type="text/plain" class="language-html">                    <div class="form-group">
                           <label for="formInputDesc">Input label</label>
@@ -606,7 +635,7 @@
 
         <div class="sg-block-space">
             <h3>Message d’erreur</h3>
-            <p><b style="color: red">[TODO Edito] </b> Prévoir des messages d’erreur explicites et des suggestions de correction</p>
+            <p>Si une erreur est détectée dans la valeur saisie, la classe <code>is-invalid</code> peut être ajoutée au <code>div.form-group</code> ainsi qu'à l'<code>input</code>. </b> Le message d'erreur doit être explicite et si possible prévoir des suggestions de correction.</p>
             
 <div class="o-sg-prism">
     <div class="o-sg-prism__content">
@@ -623,11 +652,11 @@
                     </div>
                 
     </div>    <div class="o-sg-prism__code">
-        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_24244929" aria-expanded="false" aria-controls="collapse_24244929">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_1679597072" aria-expanded="false" aria-controls="collapse_1679597072">
             <span>Code HTML</span>
         </button>
 
-        <div class="collapse o-sg-prism__collapse" id="collapse_24244929">
+        <div class="collapse o-sg-prism__collapse" id="collapse_1679597072">
             
 <script type="text/plain" class="language-html">                    <div class="form-group is-invalid">
                           <label for="formInputError">Input label</label>
