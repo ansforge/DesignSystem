@@ -1,0 +1,75 @@
+// Aspect Ratio
+// See: https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+
+// *
+// * Create an aspect ratio
+// *
+// * @param $width: Width of the element
+// * @param $height: Height of the element
+// *
+// * @example
+// *  @include aspect-ratio(16, 9);
+// *
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        display: block;
+        padding-top: ($height / $width) * 100%;
+    }
+}
+
+// *
+// * Change the value of the aspect ratio
+// *
+// * @info Use this mixin only if an aspect ratio is already defined
+// *
+// * @param $width: New width of the element
+// * @param $height: New height of the element
+// *
+// * @example
+// *  @include change-aspect-ratio(250, 125);
+// *
+@mixin change-aspect-ratio($width, $height) {
+    &::before {
+        padding-top: ($height / $width) * 100%;
+    }
+}
+
+// *
+// * Keep element inside the aspect ratio
+// *
+// * @info To apply to the child of the aspect ratio
+// *
+// * @example
+// *  .parent { @include aspect-ratio(16, 9); }
+// *  .parent .child { @include aspect-ratio--item(); }
+// *
+@mixin aspect-ratio--item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// *
+// * Allow the aspect ratio to extend if the content exceeds
+// * https://keithjgrant.com/posts/2017/03/aspect-ratios/
+// *
+// * @example
+// *  @include aspect-ratio(16, 9);
+// *  @include aspect-ratio-exceeds();
+// *
+@mixin aspect-ratio-exceeds {
+    &::before {
+        float: left;
+    }
+    &::after {
+        content: " ";
+        display: table;
+        clear: left;
+    }
+}

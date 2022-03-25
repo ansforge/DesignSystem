@@ -1,0 +1,14 @@
+<ul class="m-sg-palette">
+    {% for item in palette %}
+        <li class="m-sg-palette__col">
+            <div class="m-sg-palette__item">
+                <span class="m-sg-palette__color bg-{{ item.class }}"></span>
+                <div class="m-sg-palette__info">
+                    {% if item.title %}<p class="m-sg-palette__title">{{ item.title }}</p>{% endif %}
+                    {% if item.hex %}<p class="m-sg-palette__hex">{{ item.hex }}</p>{% endif %}
+                    {% if item.rgb %}<p class="m-sg-palette__rgb">RGB : {{ item.rgb }}</p>{% endif %}
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

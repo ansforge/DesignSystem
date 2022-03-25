@@ -1,0 +1,148 @@
+{#
+/**
+ * Image
+ *
+ * ! Caution: Avoid putting loading="lazy" on above-the-fold images
+ *
+ * Options:
+ *  - imgUrl: src="" value
+ *  - imgAlt: alt="" value
+ *  - imgWidth: width="" value
+ *  - imgHeight: height="" value
+ *  - imgFigcaption: text of the <figcaption>
+ *  - imgLazy: add lazy loading. Avoid putting loading=lazy on above-the-fold images
+ *  - imgSrcset and imgSizes: define different size for the same image. Aspect ratio is the same
+        Twig example:
+            imgSrcset: "http://placeimg.com/708/273/arch 708w,
+                        http://placeimg.com/1040/402/nature 1040w",
+            imgSizes: "(min-width: 48em) 931px, // when viewport width is minimum 48em (768px), img width is max 931px
+                        (min-width: 62em) 1040px,
+                        100vw"
+
+        HTML output:
+            <img srcset="http://placeimg.com/708/273/arch 708w,
+                         http://placeimg.com/1040/402/nature 1040w"
+                 sizes="(min-width: 48em) 931px,
+                        (min-width: 62em) 1040px,
+                        100vw"
+                 src="http://placeimg.com/1040/402/nature" alt="">
+
+ *  - imgSources: define different <sources>. Aspect ratio is different
+        Twig example:
+            imgSources: [
+                {
+                    media: "(min-width: 62em)",
+                    srcsets: [
+                        {
+                            url: "http://placeimg.com/1240/330/nature",
+                            width: "1240w"
+                        }
+                    ]
+                },
+                {
+                    media: "(min-width: 36em)",
+                    srcsets: [
+                        {
+                            url: "http://placeimg.com/991/264/nature",
+                            width: "991w"
+                        }
+                    ]
+                }
+            ]
+
+        HTML output:
+            <picture>
+                <source media="(min-width: 62em)" srcset="http://placeimg.com/1240/330/nature 1240w">
+                <source media="(min-width: 36em)" srcset="http://placeimg.com/991/264/nature 991w">
+                <img src="http://placeimg.com/576/333/nature" alt="">
+            </picture>
+ */
+#}
+{% if imgFigcaption %}
+{# Note: At the time of writing, WAI-ARIA attributes role="group" and aria-labelledby are used to provide the information to assistive technologies in a consistent way.
+    https://www.w3.org/WAI/tutorials/images/groups/#a-collection-of-images
+#}
+{% set imgFigcaptionID = random() %}
+<figure role="group" aria-labelledby="figcaption-{{ imgFigcaptionID }}">
+{% endif %}
+
+{% if imgSources %}
+    <picture>
+        {%- for source in imgSources %}
+        <source
+            media="{{ source.media }}"
+            srcset="
+                {%- for srcset in source.srcsets -%}
+                    {{- srcset.url }} {{ srcset.width -}},
+                {%- endfor -%}
+            "
+            {%- if source.sizes %} sizes="{{ source.sizes }}"{% endif -%}
+        >
+        {% endfor -%}
+{% endif %}
+
+    <img {%- if imgSrcset %} srcset="{{ imgSrcset }}"{% endif -%}
+        {%- if imgSizes %} sizes="{{ imgSizes }}"{% endif %}
+        src="{{ imgUrl }}" alt="{{ imgAlt }}"
+        {%- if imgWidth %} width="{{ imgWidth }}"{% endif -%}
+        {%- if imgHeight %} height="{{ imgHeight }}"{% endif -%}
+        {%- if imgLazy %} loading="lazy"{% endif -%}
+    >
+    {% if imgFigcaption %}<figcaption id="figcaption-{{ imgFigcaptionID }}">{{ imgFigcaption }}</figcaption>{% endif -%}
+
+{% if imgSources %}
+    </picture>
+{% endif %}
+
+{% if imgFigcaption %}
+</figure>
+{% endif %}
+
+{# Figure usage
+https://www.w3.org/WAI/tutorials/page-structure/content/#figures
+
+<figure role="group" aria-labelledby="fig-t3-capt">
+    <figcaption id="fig-t3-capt">G3: SpaceBear sales volume</figcaption>
+    <img src="…"
+         alt="SpaceBear sales diagram, showing the huge success in Q4"
+         longdesc="…">
+    <a href="…">Long Description</a>
+</figure>
+#}
+
+{# Examples responsive image
+https://css-tricks.com/planning-for-responsive-images/
+https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/
+https://alistapart.com/article/responsive-images-in-practice/
+https://medium.com/@elad/a-complete-guide-for-responsive-images-b13db359c6c7
+
+<picture>
+    <!-- 16:9 crop -->
+    <source
+        media="(min-width: 36em)"
+        srcset="quilt_2/detail/large.jpg  1920w,
+                quilt_2/detail/medium.jpg  960w,
+                quilt_2/detail/small.jpg   480w" />
+    <!-- square crop -->
+    <source
+        srcset="quilt_2/square/large.jpg  822w,
+                quilt_2/square/medium.jpg 640w,
+                quilt_2/square/small.jpg  320w" />
+    <img
+        src="quilt_2/detail/medium.jpg"
+        alt="Detail of the above quilt, highlighting the embroidery and exotic stitchwork." />
+</picture>
+
+<picture>
+   <source
+        media="(min-width: 36em)"
+        srcset="large.jpg  1024w,
+                medium.jpg 640w,
+                small.jpg  320w"
+        sizes="33.3vw" />
+   <source
+        srcset="cropped-large.jpg 2x,
+                cropped-small.jpg 1x" />
+   <img src="small.jpg" alt="A rad wolf" />
+</picture>
+#}

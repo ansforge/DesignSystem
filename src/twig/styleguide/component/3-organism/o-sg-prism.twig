@@ -1,0 +1,31 @@
+{% set collapse_id = random() %}
+{% set prismCollapse = prismCollapse ?? true %}
+
+<div class="o-sg-prism {%- if prismLarge %} o-sg-prism--full{% endif %} {%- if prismCollapse == false %} o-sg-prism--nocode{% endif %}">
+    <div class="o-sg-prism__content">
+{# Element to include #}
+{%- if twigToInclude -%}
+    {%- include twigToInclude -%}
+{%- endif -%}
+
+{# If there is no twig to include (like Hn for example), use HTML inside {% block embedToInclude %} #}
+{% block embedToInclude %}{% endblock %}
+{# END Element to include #}
+    </div>
+
+    {% if prismCollapse %}
+    <div class="o-sg-prism__code">
+        <button type="button" class="o-sg-prism__button" data-toggle="collapse" data-target="#collapse_{{collapse_id}}" aria-expanded="false" aria-controls="collapse_{{collapse_id}}">
+            <span>Code HTML</span>
+        </button>
+
+        <div class="collapse o-sg-prism__collapse" id="collapse_{{collapse_id}}">
+            {# script tag needed for prism JS (write markup without having to escape anything) see: https://prismjs.com/plugins/unescaped-markup/ #}
+<script type="text/plain" class="language-html">
+{%- if twigToInclude -%}{%- include twigToInclude -%}{%- endif -%}
+{%- block embedToInclude -%}{%- endblock -%}
+</script>
+        </div>
+    </div>
+    {% endif %}
+</div>

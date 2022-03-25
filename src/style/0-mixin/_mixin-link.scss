@@ -1,0 +1,102 @@
+// *
+// * Link inverse
+// *
+@mixin link-inverse() {
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+// *
+// * Link underline
+// *
+// * @info Link have to be inline
+// *
+// * @param $color: Color of underline. Default to currentColor
+// * @param $underline: If true, link is underlined by default. Default to false
+// * @param $element: Element that has the hover effet. Can be a child. Default to &
+// * @param $distance: Distance between text and underline. Default to 0.3rem
+// * @param $underline-height: Height of underline. Default to 0.2rem
+// *
+// * @example
+// *  @include link-underline();
+// *  @include link-underline($color: "red");
+// *  @include link-underline($underline: true);
+// *  @include link-underline($element: ".child");
+// *  @include link-underline($distance: 0.1rem);
+// *  @include link-underline($underline-height: 0.1rem);
+// *
+@mixin link-underline($color: currentColor, $underline: false, $element: "&", $distance: 0.3rem, $underline-height: 0.2rem) {
+    text-decoration: none;
+    transition: color 250ms ease;
+
+    #{$element} {
+        padding-bottom: $distance;
+        border-bottom: $underline-height solid transparent;
+    }
+
+    @if $underline {
+        #{$element} {
+            border-bottom-color: $color;
+        }
+    } @else {
+        &:hover,
+        &:focus,
+        &:active {
+            #{$element} {
+                border-bottom-color: $color;
+            }
+        }
+    }
+}
+
+// *
+// * Link underline hover effect
+// *
+// * @info Link can't be multiline
+// *
+// * @param $color: Color of underline. Default to currentColor
+// * @param $distance: Distance between text and underline. Default to 0.3rem
+// * @param $underline-height: Height of underline. Default to 0.2rem
+// *
+// * @example
+// *  @include link-underline-hover-effect();
+// *  @include link-underline-hover-effect($color: "red");
+// *  @include link-underline-hover-effect($distance: 0.1rem);
+// *  @include link-underline-hover-effect($underline-height: 0.1rem);
+// *
+@mixin link-underline-hover-effect($color: $primary, $distance: 0.9rem, $underline-height: 0.3rem) {
+    position: relative;
+    display: inline-block;
+    padding-bottom: $distance;
+
+    text-decoration: none;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: $underline-height;
+        background-color: $color;
+        border-radius: 0.3rem;
+
+        transition: left 250ms ease-in-out;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        &::before {
+            left: 3rem;
+        }
+    }
+}

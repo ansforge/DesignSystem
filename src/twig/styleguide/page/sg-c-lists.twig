@@ -1,0 +1,29 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Listes' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "Le type d'élément liste varie en fonction du type de liste : ordonnée ou non ordonnée. Ajouter un <code>div.wysiwyg</code> autour du contenu texte pour pouvoir afficher le style des listes."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Liste non ordonnée UL</h2>
+            {% include "../component/3-organism/o-sg-prism.twig" with {
+                twigToInclude: '../../../site/component/2-molecule/m-list--ul.twig'
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Liste ordonnée OL</h2>
+            {% include "../component/3-organism/o-sg-prism.twig" with {
+                twigToInclude: '../../../site/component/2-molecule/m-list--ol.twig'
+            } %}
+        </div>
+    </div>
+
+{% endblock %}

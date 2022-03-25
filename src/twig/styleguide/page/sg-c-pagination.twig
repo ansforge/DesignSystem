@@ -1,0 +1,37 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Pagination' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "La pagination est une méthode de navigation par laquelle l'utilisateur peut naviguer d'une page à l'autre au moyen des numéros de ces pages."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Pagination simple</h2>
+            <p>Elle est contenue dans une <code>nav</code>, et est centrée horizontalement à la fin du contenu.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-pagination.twig" %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Utilisations</h2>
+            <p>Elle est nécessaire lorsque l'on souhaite éviter un défilement (scroll) trop long : ainsi, il est préférable de montrer le contenu sur plusieurs pages.</p>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p>Il est nécessaire d'ajouter un <code>aria-label="pagination"</code> sur l'élément <code>&lt;nav&gt;</code>, afin que l'utilisateur de lecteur d'écran soit informé qu'il quittera la page en cas de clic sur un lien.</p>
+            <p>Par ailleurs, il faut ajouter <code>aria-current="page"</code> au lien pointant vers la page actuelle.</p>
+        </div>
+    </div>
+
+{% endblock %}

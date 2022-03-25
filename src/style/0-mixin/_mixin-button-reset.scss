@@ -1,0 +1,53 @@
+//  *
+//  * @example
+//  *  @include reset-btn();
+//  *
+
+@mixin reset-btn($margin: 0, $padding: 0, $border: 0, $bg: none) {
+
+    appearance: none;
+
+    margin: $margin;
+    padding: $padding;
+
+    border: $border;
+    background: $bg;
+
+}
+
+@mixin btn($bgcolor: $black, $color: $white, $bgcolor-hover: false, $color-hover: false) {
+
+    @include reset-btn();
+
+    // @include opacity;
+
+    display: inline-block;
+    padding: 1rem 2rem;
+
+    background-color: $bgcolor;
+    color: $color;
+    border-radius: 2rem;
+    cursor: pointer;
+
+    transition: 0.3s ease-out background-color;
+
+    // @include with-icon(0.5rem);
+
+    // [class^="icon-"]:last-of-type {
+    //     margin-right: 0;
+    //     margin-left: .5rem;
+    // }
+
+    * {
+        vertical-align: middle;
+    }
+
+    @include hover {
+        background: $bgcolor-hover;
+        color: $color-hover;
+    }
+
+    @include active {
+        transform: translateY(0.1rem);
+    }
+}

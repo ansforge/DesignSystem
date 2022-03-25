@@ -1,0 +1,33 @@
+{#
+/**
+ * Accordion
+ *  use plugin/a11y/van11y-accessible-accordion-aria.min.js
+ *  https://van11y.net/fr/accordeon-accessible/
+ *
+ * Options:
+ *  - accordionItems: list of accordion items. For each:
+ *      - accordionHn: Heading level. Default H3
+ *      - id: id for anchor in url
+ *      - title: title of the item
+ *      - content: content of the item
+ */
+#}
+{% if accordionItems %}
+<div class="js-accordion" data-accordion-prefix-classes="o" data-accordion-multiselectable="none">
+    {% for item in accordionItems %}
+        <{{ accordionHn|default("h3") }} class="js-accordion__header"
+            {%- if item.id %} id="{{ item.id }}"{% endif -%}
+            {%- if item.openByDefault %} data-accordion-opened="true"{% endif -%}
+        >
+            {{- item.title -}}
+            {{ macro.svg("angle-down") }}
+        </{{ accordionHn|default("h3") }}>
+
+        <div class="js-accordion__panel">
+            <div class="wysiwyg">
+                {{ item.content }}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}

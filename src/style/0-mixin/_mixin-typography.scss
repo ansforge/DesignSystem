@@ -1,0 +1,29 @@
+// *
+// * Transformation classes
+// *
+@mixin text-lowercase() {
+    text-transform: lowercase;
+}
+
+@mixin text-uppercase() {
+    text-transform: uppercase;
+}
+
+@mixin text-capitalize() {
+    text-transform: capitalize;
+}
+
+// *
+// * Transformation classes - RESET
+// *
+@mixin no-text-lowercase() {
+    text-transform: none;
+}
+
+@mixin no-text-uppercase() {
+    text-transform: none;
+}
+
+@mixin no-text-capitalize() {
+    text-transform: none;
+}

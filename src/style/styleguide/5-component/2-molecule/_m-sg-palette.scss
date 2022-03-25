@@ -1,0 +1,48 @@
+@each $color, $value in $palette-colors {
+    .bg-#{$color} {
+        background-color: $value;
+    }
+}
+
+.m-sg-palette {
+    @include aw-make-row($grid-gutter-width);
+}
+
+.m-sg-palette__col {
+    @include aw-make-col-ready($grid-gutter-width);
+    @include aw-make-col-value(13rem + $grid-gutter-width);
+    margin-bottom: $grid-gutter-width;
+}
+
+.m-sg-palette__item {
+    display: flex;
+    flex-direction: column;
+    border: .1rem solid $border-color;
+    border-radius: 1.2rem;
+    overflow: hidden;
+}
+
+.m-sg-palette__color {
+    width: 100%;
+    min-height: 10rem;
+    border-bottom: .1rem solid $border-color;
+}
+
+.m-sg-palette__info {
+    padding: 1rem;
+    font-size: 1.4rem;
+    line-height: normal;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.m-sg-palette__title {
+    color: $gray-700;
+}
+
+.m-sg-palette__hex {
+    color: $black;
+    font-weight: $fw-medium;
+}

@@ -1,0 +1,77 @@
+.table-responsive {
+    margin-bottom: 3rem;
+}
+
+.table {
+    border-collapse: separate;
+    border-radius: $border-radius;
+
+    caption {
+        caption-side: top;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    th, td {
+        padding: 1.8rem 3rem;
+        border-right: 0;
+        border-bottom: 0;
+        background-color: $white;
+
+        &:first-child {
+            border-left-width: 0;
+        }
+    }
+
+    th {
+        background-color: $table-head-bg;
+        color: $table-head-color;
+    }
+
+    thead {
+        th, td {
+            background-color: $table-head-bg;
+            border-bottom-width: 0;
+        }
+    }
+
+    // add top rounded radius
+    thead,
+    caption + tbody,
+    tbody:first-child {
+        tr:first-child {
+            th,
+            td {
+                border-top-width: 0;
+
+                &:first-child {
+                    border-top-left-radius: $border-radius;
+                }
+                &:last-child {
+                    border-top-right-radius: $border-radius;
+                }
+            }
+        }
+    }
+
+    // add bottom rounded radius
+    tbody {
+        tr:last-child {
+            th,
+            td {
+                &:first-child {
+                    border-radius: 0 0 0 $border-radius;
+                }
+                &:last-child {
+                    border-radius: 0 0 $border-radius 0;
+                }
+            }
+        }
+    }
+}
+
+.table-responsive > .table-bordered {
+    border: $table-border-width solid $table-border-color;
+}

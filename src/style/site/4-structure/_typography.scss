@@ -1,0 +1,128 @@
+::-webkit-input-placeholder { color: var(--input-placeholder-color); font-style:italic; }
+:-moz-placeholder { color: var(--input-placeholder-color); font-style:italic; }
+::-moz-placeholder { color: var(--input-placeholder-color); opacity: 1; font-style:italic; }
+:-ms-input-placeholder { color: var(--input-placeholder-color); font-style:italic; }
+
+::-moz-selection {
+    color: var(--white);
+    background-color: var(--body-color);
+}
+
+::selection {
+    color: var(--white);
+    background-color: var(--body-color);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+em {
+    font-style: italic;
+}
+
+h1, .h1 {
+    margin-bottom: 2rem;
+    font-family: $font-futura-bold;
+    line-height: 1;
+
+    @include media-breakpoint-up(lg) {
+        font-size: $h1-font-size-desktop;
+    }
+}
+
+h2, .h2 {
+    font-family: $font-futura-bold;
+    line-height: 1.125;
+
+    @include media-breakpoint-up(lg) {
+        font-size: $h2-font-size-desktop;
+    }
+}
+
+h3, .h3 {
+    font-weight: $fw-semiBold;
+
+    @include media-breakpoint-up(lg) {
+        font-size: $h3-font-size-desktop;
+    }
+}
+
+h4, .h4 {
+    font-weight: $fw-semiBold;
+
+    @include media-breakpoint-up(lg) {
+        font-size: $h4-font-size-desktop;
+    }
+}
+
+h5, .h5 {
+    @include media-breakpoint-up(lg) {
+        font-size: $h5-font-size-desktop;
+    }
+}
+
+h6, .h6 {
+    @include media-breakpoint-up(lg) {
+        font-size: $h6-font-size-desktop;
+    }
+}
+
+.lead {
+    margin-bottom: $lead-margin-bottom;
+}
+
+.mark, mark {
+    color: var(--primary);
+    font-weight: bolder;
+}
+
+.title--icon {
+    margin-bottom: 1.4rem;
+    display: flex;
+    font-size: 2rem;
+    font-weight: $fw-semiBold;
+
+    svg {
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+        margin-right: 1.3rem;
+        fill: var(--primary);
+    }
+}
+
+.subtitle {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: $fw-semiBold;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+// add icons for specific links
+a.external-link,
+a.mailto-link,
+a.file-link {
+    &::after {
+        @include svg-css();
+        margin: 0 .4rem 0 .8rem;
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+}
+
+a.external-link {
+    @include svg-css-icon-change-color(external-link);
+
+    &::after {
+        margin-top: -0.4rem;
+    }
+}
+
+a.mailto-link {
+    @include svg-css-icon-change-color(mail);
+}
+
+a.file-link {
+    @include svg-css-icon-change-color(download);
+}

@@ -1,0 +1,138 @@
+.o-progress-bar {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+
+    ul, ol {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        position: relative;
+        @include aw-make-col-auto();
+
+        &:not(.o-progress-bar--checked):not(.o-progress-bar--current) {
+            img {
+                opacity: 0.4;
+            }
+
+            .o-progress-bar__img::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: var(--gray-600);
+                mix-blend-mode: color;
+            }
+        }
+
+        &:first-child {
+            &.o-progress-bar--current .o-progress-bar__indicator {
+                --progress-bar-indicator-width: 5rem;
+            }
+
+            .o-progress-bar__indicator {
+                margin-left: 3rem;
+
+                &, &::after {
+                    border-top-left-radius: var(--border-radius);
+                    border-bottom-left-radius: var(--border-radius);
+                }
+            }
+            .o-progress-bar__img {
+                margin-left: 3rem;
+            }
+            .o-progress-bar__name {
+                margin-left: 0;
+            }
+        }
+        &:last-child {
+            &.o-progress-bar--current .o-progress-bar__indicator {
+                --progress-bar-indicator-width: 100%;
+            }
+
+            .o-progress-bar__indicator {
+                margin-right: 3rem;
+
+                &, &::after {
+                    border-top-right-radius: var(--border-radius);
+                    border-bottom-right-radius: var(--border-radius);
+                }
+            }
+            .o-progress-bar__img {
+                margin-right: 3rem;
+            }
+            .o-progress-bar__name {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.o-progress-bar__img {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2.5rem auto;
+    width: var(--progress-bar-img-width);
+    height: var(--progress-bar-img-height);
+}
+
+.o-progress-bar__name {
+    max-width: 15rem;
+    margin: auto;
+    padding: 0 1rem;
+    line-height: 1.2;
+}
+
+.o-progress-bar__indicator {
+    position: relative;
+    display: block;
+    margin-bottom: 2rem;
+    height: 1rem;
+    background-color: var(--border-color);
+
+    &::after {
+        content: "";
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: var(--primary);
+        width: var(--progress-bar-indicator-width);
+        z-index: 1;
+    }
+
+    .o-progress-bar--checked & {
+        --progress-bar-indicator-width: calc(100% + 3px); // fix Safari display 1px between items and it cuts the progress bar
+
+        &::after {
+            display: block;
+        }
+    }
+
+    .o-progress-bar--current & {
+        --progress-bar-indicator-width: 50%;
+
+        &::after {
+            display: block;
+            border-top-right-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .o-progress-bar {
+        margin-top: 6rem;
+        margin-bottom: 7.5rem;
+    }
+}

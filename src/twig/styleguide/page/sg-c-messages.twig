@@ -1,0 +1,73 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Messages de statut' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "Ces messages, qui doivent être rapidement identifiés par l'utilisateur, utilisent les <a href='sg-colors.html'>couleurs fonctionnelles</a> communes à la plupart des sites."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Message d'erreur</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-alert.twig" with {
+                        alertType: "error",
+                        alertTitle: "Error message",
+                        alertText: "Probabo inquit modo dixi constituto ut ad eam non numquam eius modi tempora incidunt ut calere ignem nivem esse ratione intellegi"
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Message d'attention</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-alert.twig" with {
+                        alertType: "warning",
+                        alertTitle: "Warning message",
+                        alertText: "Probabo inquit modo dixi constituto ut ad eam non numquam eius modi tempora incidunt ut calere ignem nivem esse ratione intellegi"
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Message d'information</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-alert.twig" with {
+                        alertType: "info",
+                        alertTitle: "Info message",
+                        alertText: "Probabo inquit modo dixi constituto ut ad eam non numquam eius modi tempora incidunt ut calere ignem nivem esse ratione intellegi"
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Message de réussite</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-alert.twig" with {
+                        alertType: "success",
+                        alertTitle: "Success message",
+                        alertText: "Probabo inquit modo dixi constituto ut ad eam non numquam eius modi tempora incidunt ut calere ignem nivem esse ratione intellegi"
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p>Si le message informe de la réussite, du résultat d’une action ou bien de l’état d’une application, ajouter un <code>role=”status”</code>.</p>
+            <p>Si le message présente une suggestion, ou avertit de l’existence d’une erreur, ajouter un <code>role=”alert”</code>. </p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+.o-sg-do-dont {
+    margin-bottom: $grid-gutter-width;
+    padding: 1.9rem;
+    border: solid 0.1rem $border-color;
+    border-radius: 1.8rem;
+}
+
+.o-sg-do-dont__content {
+    display: flex;
+    margin-top: 3rem;
+}
+
+.o-sg-do-dont__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-right: 1.5rem;
+    @include aw-make-col-value(4.5rem);
+    border-radius: 100%;
+    background-color: $success;
+
+    svg {
+        fill: $white;
+    }
+
+    .svg-close {
+        width: 1.3rem;
+    }
+}
+
+.o-sg-do-dont--dont {
+    background-color: $danger;
+}

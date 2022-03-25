@@ -1,0 +1,39 @@
+// Font weight
+@each $weight, $value in $typo-familles-weight {
+    $italic: "-i";
+
+    .fw-#{$weight} {
+        font-weight: $value;
+
+        // Futura webfont
+        // the font weight 'bold' is not in the same @font-face declaration
+        // when using font-weight: bold; we must change the font-family to $font-futura-bold
+        @if ($weight == "bold") {
+            font-family: $font-futura-bold;
+        }
+    }
+    .fw-#{$weight}#{$italic} {
+        @extend .fw-#{$weight};
+        font-style: italic;
+    }
+}
+
+// Responsive alignment
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .text#{$infix}-left   { text-align: left !important; }
+        .text#{$infix}-right  { text-align: right !important; }
+        .text#{$infix}-center { text-align: center !important; }
+    }
+}
+
+// Transformation
+.text-lowercase  { text-transform: lowercase !important; }
+.text-uppercase  { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+.fz-16 {
+    font-size: 1.6rem;
+}

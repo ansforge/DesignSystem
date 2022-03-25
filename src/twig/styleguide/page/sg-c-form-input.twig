@@ -1,0 +1,192 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Champ de saisie' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: "Les champs de saisie autorisent l'utilisateur à interagir avec le site ou l'application, en lui permettant de saisir des données (le plus souvent textuelles) qui seront ensuite traitées."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Les types de champs</h2>
+            L'élément de base prend la forme d'un <code>input type="text"</code>.
+            <h3>Par défaut</h3>
+            <p>Il s'agit du champ basique de recueil d'information textuelle.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formInput', "Input label") }}
+                        {{ form.text('formInput', null) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Avec une icône contextuelle</h3>
+            <p>Il est possible d'agrémenter le champ de saisie d'une icône. <br> Dans ce cas, ne pas oublier de cacher l'icone pour les lecteurs d'écran via l'attribut <code>aria-hidden="true"</code></p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('inputIconLeft', "Input label") }}
+                        <div class="form-group-wrap form-group-wrap--left">
+                            {{ form.text('inputIconLeft', null) }}
+                            {{ macro.svg('user') }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.label('inputIconRight', "Input label") }}
+                        <div class="form-group-wrap form-group-wrap--right">
+                            {{ form.text('inputIconRight', null) }}
+                            {{ macro.svg('calendar') }}
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        {# <div class="sg-block-space">
+            <h3><b style="color: red">[TODO Edito] </b> Avec une icône fonctionnelle</h3>
+            <p><b style="color: red">[TODO Edito] </b> Bouton fonctionnel.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('inputWithButton', "Input label") }}
+                        <div class="form-group-wrap">
+                            {{ form.text('inputWithButton', null) }}
+                            {% include "../../site/component/1-atom/a-link.twig" with {
+                                links: [
+                                    {
+                                        style: "plain",
+                                        color: "primary",
+                                        svgBefore: "search",
+                                        text: "Rechercher",
+                                    }
+                                ]
+                            } %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.label('inputWithButtonIcon', "Input label") }}
+                        <div class="form-group-wrap">
+                            {{ form.text('inputWithButtonIcon', null) }}
+                            {% include "../../site/component/1-atom/a-link.twig" with {
+                                links: [
+                                    {
+                                        style: "plain",
+                                        color: "primary",
+                                        iconOnly: true,
+                                        svgBefore: "search",
+                                        textAccessAfter: "Rechercher"
+                                    }
+                                ]
+                            } %}
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div> #}
+
+        <div class="sg-block-space">
+            <h3>Le champ de saisie « mail »</h3>
+            <p>Ce type de champ contrôle automatiquement que la valeur saisie correspond bien à l'un des 3 formats considérés comme valides :</p>
+            <div class="wysiwyg">
+                <ul>
+                    <li> chaîne de caractères vide ;</li>
+                    <li> adresse mail correctement formée (chaîne de caractères - arobase - nom de domaine - extension) ;</li>
+                    <li> éventuellement une suite d'adresses mail correctes (si et seulement si l'attribut <code>multiple</code> est utilisé).</li>
+                </ul>
+            </div>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('inputEmail', "Input email (ex.: jean@gmail.com)") }}
+                        {{ form.email('inputEmail', null) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Le champ de saisie « date »</h3>
+            <p>Il autorise la saisie d'une date composée d'une année, d'un mois et d'un jour. <br>
+            La prise de charge native est très variable en fonction du navigateur.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group form-group--date">
+                        {{ form.label('formDate', "Input date (jj/mm/aaaa)") }}
+                        <div class="form-group-wrap form-group-wrap--right">
+                            {{ form.date('formDate', null) }}
+                            {{ macro.svg('calendar') }}
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Les différents états</h2>
+            <p>En fonction du degré d'interaction souhaité avec l'utilisateur, ces champs peuvent passer par différents états.</p>
+
+            <h3>Champ obligatoire</h3>
+            <p>Une fois l'attribut <code>required</code> ajouté à l'input, ce champ doit comporter une <code>value</code> non nulle pour que le formulaire puisse être validé.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formInputRequired', "Input label", true) }}
+                        {{ form.text('formInputRequired', null, {"required": "required"}) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Désactivé</h3>
+            <p>L'ajout de l'attribut booléen <code>disabled</code> rend impossible la saisie d'une valeur par l'utilisateur.<br>L'élément est également non mutable et non focusable.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formInputDisabled', "Input label") }}
+                        {{ form.text('formInputDisabled', null, {"disabled": "disabled"}) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Message</h3>
+            <p>Permet notamment de spécifier une aide à la saisie pour l'utilisateur (format, exemples, etc.).</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formInputDesc', "Input label") }}
+                        {{ form.text('formInputDesc', null, {"aria-describedby": "formInputDesc-desc"}) }}
+                        {{ form.msg('formInputDesc-desc',  "Description helper text") }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Message d’erreur</h3>
+            <p>Si une erreur est détectée dans la valeur saisie, la classe <code>is-invalid</code> peut être ajoutée au <code>div.form-group</code> ainsi qu'à l'<code>input</code>. </b> Le message d'erreur doit être explicite et si possible prévoir des suggestions de correction.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group is-invalid">
+                        {{ form.label('formInputError', "Input label") }}
+                        {{ form.text('formInputError', null, {"aria-invalid": "true", "aria-describedby": "formInputError-error", "class": "is-invalid"}) }}
+                        {{ form.msg('formInputError-error',  "Error helper text") }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

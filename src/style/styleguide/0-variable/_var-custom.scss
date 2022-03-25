@@ -1,0 +1,37 @@
+:root {
+    --body-bg: $white;
+    --sg-block-space: 5rem;
+    --sg-header-height: 9.2rem;
+    --sg-nav-left-width: 0rem;
+
+    @include media-breakpoint-up(lg) {
+        --sg-block-space: 8rem;
+        --sg-nav-left-width: 27.1rem;
+    }
+}
+
+$palette-colors: (
+    "primary":          var(--primary),
+    "primary-dark":     var(--primary-dark),
+    "primary-darker":   var(--primary-darker),
+
+    "secondary":        var(--brand-2),
+
+    "danger":           $danger,
+    "warning":          $warning,
+    "success":          $success,
+    "info":             $info,
+
+    "white":    var(--white),
+    "gray-100": var(--gray-100),
+    "gray-200": var(--gray-200),
+    "gray-300": var(--gray-300),
+    "gray-400": var(--gray-400),
+    "gray-500": var(--gray-500),
+    "gray-600": var(--gray-600),
+    "gray-700": var(--gray-700),
+    "gray-800": var(--gray-800),
+    "black":    var(--black)
+);
+
+$prism-component-max-width: 57rem;

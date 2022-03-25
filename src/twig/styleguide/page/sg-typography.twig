@@ -1,0 +1,131 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = "Typographie" %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Guide de style - Typographie",
+            blockTitle: title,
+            blockAccroche_text: "Il est d'usage d'attribuer à chaque élément textuel une police, une taille et une font-weight par défaut (ceux-ci peuvent toujours être surchargés si besoin par une <a href='sg-utilities.html'>classe utilitaire</a> ou une personnalisation en CSS)."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Famille de police</h2>
+            <p>La police retenue et appliquée dans tout ce Système de Design est la Futura PT.</p>
+
+            {% include "../component/3-organism/o-sg-typo-block.twig" with {
+                typoBlockTitle: "Futura PT",
+                typoBlockVariantes: [
+                    {
+                        title: "Book (400)",
+                        class: "fw-regular"
+                    },
+                    {
+                        title: "Medium (500)",
+                        class: "fw-medium"
+                    },
+                    {
+                        title: "Demi (600)",
+                        class: "fw-semiBold"
+                    },
+                    {
+                        title: "Bold (700)",
+                        class: "fw-bold"
+                    }
+                ]
+            }%}
+
+            <p>La police de substitution est l'Arial.</p>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Titres</h2>
+            <p>Les titres sont utilisés pour créer une hiérarchie visuelle dans la page, et permettent de trouver facilement une information. Cette hiérarchisation est également importante pour le référencement naturel de la page et l'accessibilité.</p>
+            <p><strong>Attention&nbsp;</strong>: les couleurs, tailles de police et graisse des titres ne doivent jamais être modifiés par une classe utilitaire ni par une surcharge CSS.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with {
+                componentName: "H1"
+            } %}
+                {% block embedToInclude %}<h1>Titre H1 - Lorem ipsum dolor sit amet</h1>{% endblock %}
+            {% endembed %}
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with {
+                componentName: "H2"
+            } %}
+                {% block embedToInclude %}<h2>Titre H2 - Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>{% endblock %}
+            {% endembed %}
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with {
+                componentName: "H3"
+            } %}
+                {% block embedToInclude %}<h3>Titre H3 - Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>{% endblock %}
+            {% endembed %}
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with {
+                componentName: "H4"
+            } %}
+                {% block embedToInclude %}<h4>Titre H4 - Lorem ipsum dolor sit amet consectetur adipisicing elit</h4>{% endblock %}
+            {% endembed %}
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with {
+                componentName: "H5"
+            } %}
+                {% block embedToInclude %}<h5>Titre H5 - Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit</h5>{% endblock %}
+            {% endembed %}
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with {
+                componentName: "H6"
+            } %}
+                {% block embedToInclude %}<h6>Titre H6 - Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>{% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Surtitre et Chapô</h2>
+            <p>Ils viennent apporter un complément d'information aux titres et sous-titres.</p>
+            <p><strong>Attention&nbsp;</strong>: les couleurs, tailles de police et graisse des surtitres et chapôs ne doivent jamais être modifiés par une classe utilitaire ni par une surcharge CSS.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p class="subtitle">Surtitre. Lorem ipsum dolor</p>
+                {% endblock %}
+            {% endembed %}
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p class="lead">Chapô. Lorem ipsum dolor sit amet consectetur adipisicing elit. <b>[b] Magni ab soluta eligendi</b> sed earum <strong>[strong] maxime possimus</strong> quae vero <em>[em] sapiente voluptates minima</em> at cum nisi quia, <i>[i] porro in temporibus</i> quas obcaecati.</p>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Corps de texte</h2>
+
+
+            <h3>Paragraphe par défaut</h3>
+            <p>Par défaut, le style de texte du paragraphe a un <code>font-size: 18px;</code> et un <code>color: $gray-700; (#697097)</code>.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <b>[b] Magni ab soluta eligendi</b> sed earum <strong>[strong] maxime possimus</strong> quae vero <em>[em] sapiente voluptates minima</em> at cum nisi quia, <i>[i] porro in temporibus</i> quas obcaecati.</p>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Autres tailles de paragraphe</h3>
+            <p>La classe utilitaire <code>.ftz-16</code> donne un <code>font-size: 16px;</code>, utile pour les mentions, notes, etc.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p class="fz-16">Le symbole * indique les champs obligatoires</p>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Lien</h2>
+            <p>Les liens contextualisés héritent du style du texte, ils sont présentés sur la <a href="sg-c-links.html">page lien</a>.</p>
+        </div>
+    </div>
+
+{% endblock %}

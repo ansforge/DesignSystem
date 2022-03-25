@@ -1,0 +1,33 @@
+.m-user {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.m-user__name {
+    margin-bottom: 0;
+    font-size: 2rem;
+    font-weight: $fw-medium;
+    line-height: 1.3;
+    color: var(--body-color-darker);
+}
+
+.m-user__info {
+    margin-bottom: 2.5rem;
+    line-height: 1.3;
+}
+
+.m-user__icon {
+    margin-bottom: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.1rem;
+    height: 6.6rem;
+    clip-path: path('M30.376 66h-.002C13.6 66 0 52.36 0 35.532V0c2.375 2.652 7.143 4.91 16.823 5.064h13.553c16.775 0 30.374 13.64 30.374 30.468C60.75 52.36 47.151 66 30.376 66');
+    background-color: var(--brand-2);
+    color: var(--white);
+
+    svg {
+        font-size: 2.5rem;
+    }
+}

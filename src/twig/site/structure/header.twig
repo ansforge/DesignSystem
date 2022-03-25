@@ -1,0 +1,153 @@
+<header class="header header-principal" role="banner">
+    <div class="header-principal__inner">
+        <div class="header-principal-left">
+            {% include "logos.twig" with {
+                logos: [
+                    {
+                        logoUrl: "img/logo-ministere.svg",
+                        logoAlt: 'Ministère des Solidarités et de la Santé',
+                        logoHref: "https://solidarites-sante.gouv.fr/",
+                        logoWidth: "84",
+                        logoHeight: "62"
+                    },
+                    {
+                        logoUrl: siteLogo,
+                        logoAlt: 'Accueil ' ~ siteName,
+                        logoHref: "index.html",
+                        logoWidth: "166",
+                        logoHeight: "50"
+                    }
+                ]
+            } %}
+
+            {% if headerTitle %}
+                <p class="header__title">{{ headerTitle }}</p>
+            {% endif %}
+        </div>
+        <div class="header-principal-right">
+            <div class="header-principal__nav">
+
+                {# Zone top - masquée du header en mobile et dupliquée dans le menu mobile #}
+                {% if headerTop %}
+                    <div class="header-principal__top d-none d-xl-block">
+                        <ul class="nav-top">
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Carrières</a></li>
+                            <li><a href="#" target="_blank">Site international</a></li>
+                        </ul>
+                    </div>
+                {% endif %}
+                {# END Zone top #}
+
+                <div class="navbar navbar-expand-xl navbar-light" tabindex="-1" id="menuPrincipalTarget">
+                    <button type="button" class="navbar-toggler btn btn--icon-only btn-icon--header" data-toggle="collapse" data-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false">
+                        {{ macro.svg('menu') }}
+                        <span class="sr-only">Menu</span>
+                    </button>
+
+                    {# Tout ce qui est dans .navbar-collapse se retrouve dans le menu mobile #}
+                    <div class="collapse navbar-collapse" id="menuPrincipal">
+                        <button type="button" class="navbar-toggler-close d-xl-none btn btn--icon-only btn-icon--header" data-toggle="collapse" data-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false">
+                            {{ macro.svg('close') }}
+                            <span class="sr-only">Fermer le menu</span>
+                        </button>
+
+                        {# Menu Principal #}
+                        <nav role="navigation" aria-label="Menu principal">
+                            {% include "_nav-primary.twig" %}
+                        </nav>
+                        {# END Menu Principal #}
+
+                        {# Zone top - dupliquée dans le menu mobile #}
+                        {% if headerTop %}
+                            <div class="header-principal__top d-xl-none">
+                                <ul class="nav-top">
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Carrières</a></li>
+                                    <li><a href="#" target="_blank">Site international</a></li>
+                                </ul>
+                            </div>
+                        {% endif %}
+                        {# END Zone top #}
+
+                        {% if headerLinkStyleButton %}
+                            <a href="#" class="btn btn--plain btn--primary mt-2 mt-xl-0 mr-xl-1 mr-xxl-2">Presidency of EU Council</a>
+                        {% endif %}
+
+                        {# Boutons icônes qui se retrouvent dans le menu mobile également #}
+                        <ul class="nav-right">
+                            <li class="nav-right-item collapse-wrapper common-nav-item">
+                                <button type="button" class="btn btn--icon-only btn-icon--header" aria-label="Accessibilité" data-toggle="collapse" data-target="#collapseAccess" aria-controls="collapseAccess" aria-expanded="false">
+                                    {{ macro.svg('access') }}
+                                    <span class="title-responsive">Accessibilité</span>
+                                </button>
+                                <div class="collapse nav-collapse nav-collapse--right" id="collapseAccess">
+                                    {% include "../component/3-organism/o-widget-access.twig" %}
+                                </div>
+                            </li>
+                            {% if hasNotif %}
+                            <li class="nav-right-item collapse-wrapper common-nav-item">
+                                 <button type="button" class="btn btn--icon-only btn-icon--header" aria-label="Mes messages (3)">
+                                    {{ macro.svg('mail') }}
+                                    <span class="mail-counter">3</span>
+                                    <span class="title-responsive">Mes messages</span>
+                                </button>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        {# END Boutons icônes qui se retrouvent dans le menu mobile également #}
+                    </div>
+
+                    {# Boutons icônes hors menu mobile #}
+                    {% if hasAccount %}
+                    <div class="collapse-wrapper common-nav-item">
+                        <button type="button" class="btn btn--icon-only btn-icon--header" aria-label="Menu utilisateur" data-toggle="collapse" data-target="#collapseUser" aria-controls="collapseUser" aria-expanded="false">
+                            {{ macro.svg('user') }}
+                            <span class="sr-only">Menu utilisateur</span>
+                        </button>
+                        <div class="collapse nav-collapse nav-collapse--right" id="collapseUser">
+                            <div class="m-user">
+                                <div class="m-user__icon">
+                                    {{ macro.svg('user') }}
+                                </div>
+                                <p class="m-user__name">Bernard Morin</p>
+                                <p class="m-user__info">Infirmier</p>
+                                {% include "../../site/component/1-atom/a-link.twig" with {
+                                    links: [
+                                        {
+                                            link: "#",
+                                            style: "ghost",
+                                            color: "default",
+                                            size: "xs",
+                                            text: "Déconnexion"
+                                        }
+                                    ]
+                                } %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if hasSearch %}
+                    <div class="collapse-wrapper common-nav-item collapse-wrapper--search" role="search">
+                        <button type="button" class="btn btn--icon-only btn-icon--header" aria-label="Recherche" data-toggle="collapse" data-target="#collapseSearch" aria-controls="collapseSearch" aria-expanded="false">
+                            {{ macro.svg('search') }}
+                            <span class="sr-only">Recherche</span>
+                        </button>
+                        <div class="collapse nav-collapse nav-collapse--right nav-collapse--search" id="collapseSearch">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-10 col-lg-8">
+                                        {% include "../component/2-molecule/m-search-group.twig" %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {# END Boutons icônes hors menu mobile #}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

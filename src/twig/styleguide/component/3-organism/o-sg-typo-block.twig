@@ -1,0 +1,21 @@
+<div class="o-sg-typo-block">
+	<div class="o-sg-typo-block__row">
+		<div class="o-sg-typo-block__col">
+			<p class="o-sg-typo-block__title mb-0">{{ typoBlockTitle }}</p>
+			{% if typoBlockVariantes %}
+			<div class="o-sg-typo-block__list {%- if typoBlockFont %} {{ typoBlockFont }}{% endif %}">
+				{% for item in typoBlockVariantes %}
+					<p class={{ item.class ? item.class : "" }}>{{ item.title }}</p>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+		<div class="o-sg-typo-block__col">
+			<p class="o-sg-typo-block__caracteres {%- if typoBlockFont %} {{ typoBlockFont }}{% endif %}">
+				AÀÂBCÇDEÈÉÊËFGHIÎÏJKLMNOÔPQRSTUÙÛÜVWXYŸZ<br>
+				aàâbcçdeèéêëfghiîïjklmnoôpqrstuùûüvwxyÿz<br>
+				1234567890‘?’“!”(%)[#]{@}/&\<-+÷×=>®©$€£¥¢:;,.*
+			</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,86 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Zone de texte' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: "Représentée par l'élément <code>textarea</code>, il s'agit d'une zone permettant la saisie d'un texte sur plusieurs lignes."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Le champ « zone de texte »</h2>
+            <h3>Par défaut</h3>
+            <p>Afin de garantir une certaine homogénéité entre les navigateurs, il peut être utile de définir les attributs <code>rows</code> et <code>cols</code> pour fixer une taille unique à l'élément.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formTextarea', "Textarea label") }}
+                        {{ form.textarea('formTextarea', null) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Les différents états</h2>
+            <p>Tout comme les champs de saisie, plusieurs états sont possibles.</p>
+
+            <h3>Champ obligatoire</h3>
+            <p>Une fois l'attribut <code>required</code> ajouté au textarea, ce dernier doit comporter une <code>value</code> non nulle pour que le formulaire puisse être validé.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formTextareaRequired', "Textarea label", true) }}
+                        {{ form.textarea('formTextareaRequired', null, {"required": "required"}) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Désactivé</h3>
+            <p>L'ajout de l'attribut booléen <code>disabled</code> empêche la saisie de texte et la prise de focus de l'élément.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formTextareaDisabled', "Textarea label") }}
+                        {{ form.textarea('formTextareaDisabled', null, {"disabled": "disabled"}) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Message</h3>
+            <p>Peut être utile pour spécifier le type d'informations requises pour la prise en compte de la demande.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formTextareaDesc', "Textarea label") }}
+                        {{ form.textarea('formTextareaDesc', null, {"aria-describedby": "formTextareaDesc-desc"}) }}
+                        {{ form.msg('formTextareaDesc-desc',  "Description helper text") }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Message d’erreur</h3>
+            <p>Si une erreur est détectée dans la valeur saisie, la classe <code>is-invalid</code> peut être ajoutée au <code>div.form-group</code> ainsi qu'au <code>textarea</code>. </b> Le message d'erreur doit être explicite et si possible prévoir des suggestions de correction.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group is-invalid">
+                        {{ form.label('formTextareaError', "Textarea label") }}
+                        {{ form.textarea('formTextareaError', null, {"aria-invalid": "true", "aria-describedby": "formTextareaError-error", "class": "is-invalid"}) }}
+                        {{ form.msg('formTextareaError-error',  "Error helper text") }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

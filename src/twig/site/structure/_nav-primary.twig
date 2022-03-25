@@ -1,0 +1,194 @@
+{% if navDefault %}
+{% include "navbar-nav.twig" with {
+    navItemsParent: "#menuPrincipal",
+    navItems: [
+        {
+            text: "Label menu 1",
+            link: "#"
+        },
+        {
+            isActive: true,
+            text: "Label menu actif",
+            link: "#"
+        },
+        {
+            text: "Label menu 3",
+            isCollapsed: true,
+            hasChild: [
+                {
+                    isActive: true,
+                    text: "[Active] Label menu",
+                    link: "#"
+                },
+                {
+                    text: "Label menu with long text lorem ipsum",
+                    link: "#"
+                },
+                {
+                    text: "Label menu",
+                    link: "#",
+                    hasChild: [
+                        {
+                            text: "Label menu with long text lorem ipsum",
+                            link: "#"
+                        },
+                        {
+                            isActive: true,
+                            text: "[Active] Label menu",
+                            link: "#"
+                        },
+                        {
+                            text: "Label menu",
+                            link: "#",
+                        }
+                    ]
+                },
+                {
+                    text: "Label menu sans lien",
+                    hasChild: [
+                        {
+                            text: "Label menu with long text lorem ipsum",
+                            link: "#"
+                        },
+                        {
+                            isActive: true,
+                            text: "[Active] Label menu",
+                            link: "#"
+                        },
+                        {
+                            text: "Label menu",
+                            link: "#",
+                        }
+                    ]
+                },
+                {
+                    text: "Label menu",
+                    link: "#"
+                }
+            ]
+        },
+        {
+            text: "Label menu 4",
+            isCollapsed: true,
+            hasChild: [
+                {
+                    text: "Label menu sans lien",
+                    hasChild: [
+                        {
+                            text: "Label menu",
+                            link: "#"
+                        },
+                        {
+                            text: "Label menu with long text lorem ipsum",
+                            link: "#",
+                        },
+                        {
+                            text: "Label menu",
+                            link: "#"
+                        }
+                    ]
+                },
+                {
+                    text: "Label menu sans lien",
+                    hasChild: [
+                        {
+                            text: "Label menu",
+                            link: "#"
+                        },
+                        {
+                            text: "Label menu with long text lorem ipsum",
+                            link: "#",
+                        },
+                        {
+                            text: "Label menu",
+                            link: "#"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+} %}
+{% endif %}
+
+{% if navInternational %}
+{% include "navbar-nav.twig" with {
+    navItemsParent: "#menuPrincipal",
+    navItems: [
+        {
+            text: "The Agency",
+            isCollapsed: true,
+            hasChild: [
+                {
+                    isActive: true,
+                    text: "[Active] Label menu",
+                    link: "#"
+                },
+                {
+                    text: "Label menu with long text lorem ipsum",
+                    link: "#"
+                },
+                {
+                    text: "Label menu",
+                    link: "#",
+                    hasChild: [
+                        {
+                            text: "Label menu with long text lorem ipsum",
+                            link: "#"
+                        },
+                        {
+                            isActive: true,
+                            text: "[Active] Label menu",
+                            link: "#"
+                        },
+                        {
+                            text: "Label menu",
+                            link: "#",
+                        }
+                    ]
+                },
+                {
+                    text: "Label menu sans lien",
+                    hasChild: [
+                        {
+                            text: "Label menu with long text lorem ipsum",
+                            link: "#"
+                        },
+                        {
+                            isActive: true,
+                            text: "[Active] Label menu",
+                            link: "#"
+                        },
+                        {
+                            text: "Label menu",
+                            link: "#",
+                        }
+                    ]
+                },
+                {
+                    text: "Label menu",
+                    link: "#"
+                }
+            ]
+        },
+        {
+            text: "Europe & International",
+            isCollapsed: true,
+            hasChild: [
+                {
+                    text: "Label menu",
+                    link: "#"
+                },
+                {
+                    text: "Label menu with long text lorem ipsum",
+                    link: "#",
+                },
+                {
+                    text: "Label menu",
+                    link: "#"
+                }
+            ]
+        }
+    ]
+} %}
+{% endif %}

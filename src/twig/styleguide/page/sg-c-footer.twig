@@ -1,0 +1,43 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Pied de page' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "Le pied de page est matérialisé par la balise <code>footer</code> et est destiné à recevoir les informations sur l'auteur du site, ou encore des liens vers d'autres sites en relation."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>{{ title }} desktop</h2>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/structure/footer.twig" %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} mobile</h2>
+            <p>Comprend les mêmes informations que la version desktop.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/1-atom/a-img.twig" with {
+                        imgUrl: 'img/footer/Footer-mobile.png',
+                        imgSrcset: 'img/footer/Footer-mobile@2x.png 2x',
+                        imgAlt: 'footer version mobile',
+                        imgWidth: '375',
+                        imgHeight: '616',
+                        imgLazy: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

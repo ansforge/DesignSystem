@@ -1,0 +1,40 @@
+{% if alertType == "error" %}
+    {% set alertIcon = "circle-cross" %}
+    {% set alertRole = "alert" %}
+{% elseif alertType == "warning" %}
+    {% set alertIcon = "warning" %}
+    {% set alertRole = "alert" %}
+{% elseif alertType == "info" %}
+    {% set alertIcon = "circle-info" %}
+    {% set alertRole = "status" %}
+{% elseif alertType == "success" %}
+    {% set alertIcon = "circle-check" %}
+    {% set alertRole = "status" %}
+{% endif %}
+
+<div class="o-alert {%- if alertType %} o-alert--{{ alertType }}{% endif %}" role="{{ alertRole }}">
+    {% if alertType %}
+        <div class="o-alert__icon">
+            {{ macro.svg(alertIcon) }}
+        </div>
+    {% endif %}
+
+    {% if alertTitle %}
+        <h2 class="o-alert__title">{{ alertTitle }}</h2>
+    {% endif %}
+
+    {% if alertText %}
+        <p>{{ alertText }}</p>
+    {% endif %}
+
+    {% include "../1-atom/a-link.twig" with {
+        links: [
+            {
+                style: "close",
+                iconOnly: true,
+                svgBefore: "close",
+                textAccessAfter: "Masquer ce message"
+            }
+        ]
+    } %}
+</div>

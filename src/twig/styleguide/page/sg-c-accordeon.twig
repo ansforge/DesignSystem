@@ -1,0 +1,54 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Accordéon' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "Les accordéons donnent la possibilité à l'utilisateur d'afficher ou de masquer le contenu d'une section. Ce faisant, ils permettent de réduire l'espace occupé par le contenu, tout en permettant de le dé-masquer au besoin."
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-accordion.twig" with {
+                        accordionItems: [
+                            {
+                                title: "Accordion 01",
+                                content: '<h2>H2 lorem ipsum</h2><h3>H3 lorem ipsum</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+                                    <ul>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum</li>
+                                    </ul>
+                                    <ol>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum</li>
+                                    </ol>
+                                    '
+                            },
+                            {
+                                title: "Accordion 02 Lorem ipsum dolor sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit",
+                                content: "<p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p><p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p><p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>"
+                            },
+                            {
+                                title: "Accordion 03",
+                                content: "<p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+        <h2>Accessibilité</h2>
+        <p>Un <code>aria-hidden="true"</code> est apposée sur la zone de contenu de l'accordéon lorsqu'elle est masquée, puis retirée à son affichage.</p>
+    </div>
+
+{% endblock %}

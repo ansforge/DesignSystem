@@ -1,0 +1,35 @@
+.wysiwyg {
+    ul, ol, dl {
+        margin: 0 0 $paragraph-margin-bottom 1.3rem;
+
+        ul, ol, dl {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    ul {
+        @include list-ul($primary);
+    }
+
+    ol {
+        @include list-ol($primary);
+    }
+
+    dd {
+        margin-bottom: 2rem;
+        margin-left: 2rem;
+    }
+
+    li {
+        overflow: auto; // fix list marker position when there is a floating element next to a list
+    }
+
+    :last-child {
+        margin-bottom: 0;
+    }
+
+    .m-sg-file + .m-sg-file {
+        margin-top: 2rem;
+    }
+}

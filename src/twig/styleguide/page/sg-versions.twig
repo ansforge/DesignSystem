@@ -1,0 +1,40 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Versions' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockTitle: title,
+        } %}
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Version 1.0.2 - 03/2022</h2>
+
+            <ul>
+                <li>Page Comment utiliser le Système de Design</li>
+                <li>Page Designer : Ajout du lien vers la librairie sketch + Mode d'emploi</li>
+                <li>Page Logotype : Restructuration page + Nouvelle version logo ANS Desktop & Mobile + Ajout logo Ministère header </li>
+                <li>Page Utilisations couleurs : Suppression des espaces en trop dans la colonne Noms + ajout d'une introduction</li>
+                <li>Page Typographie usages : ajout d'une partie "couleur de texte"</li>
+                <li>Page Icônes : Renommage en page Pictogrammes + Mise à jour des icônes + création des fichiers zip</li>
+                <li>Page Boutons : Traduction des textes</li>
+                <li>Page En-tête : Ajout de la Marianne + changement du logo ANS + ajout de l'ombre portée + évolution du responsive</li>
+                <li>Page Liens : Suppression du lien "CTA rose" et du lien "souligné"</li>
+                <li>Page Liens : Changement du style du lien "mis en exergue"</li>
+                <li>Page Bloc récapitulatif : Changement de l'icône alert en couleur primaire</li>
+                <li>Page Class utilitaires : Ajout des graisses de typographie</li>
+                <li>Page Widget accessibilité : Amélioration de l'accessibilité</li>
+                <li>Page Typographie Usages : Ajout du cas "couleur de texte"</li>
+                <li>Page Logotype : Changement du logo ANS</li>
+            </ul>
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Version 1.0.1 - 05/10/2021</h2>
+            <p>Initiation du Système de design de l'ANS</p>
+        </div>
+    </div>
+
+{% endblock %}

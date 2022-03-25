@@ -1,0 +1,15 @@
+<div class="logos">
+    {% for item in logos %}
+        <div class="logo logo--{{ loop.index0 }}">
+            {% if item.logoHref %}
+                <a href="{{ item.logoHref }}" {%- if item.logoTarget == "_blank" %} title="{{ item.logoAlt }} (nouvelle fenêtre)" target="{{ item.logoTarget }}"{% endif -%}{%- if item.logoRel %} rel="{{ item.logoRel }}"{% endif -%}>
+            {% endif %}
+
+            <img src="{{ item.logoUrl }}" alt="{{ item.logoAlt }}" {%- if item.logoWidth %} width="{{ item.logoWidth }}"{% endif %} {%- if item.logoHeight %} height="{{ item.logoHeight }}"{% endif %} {%- if item.logoLazyload %} loading="lazy"{% endif %}>
+
+            {% if item.logoHref %}
+                </a>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

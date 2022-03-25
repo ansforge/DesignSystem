@@ -1,0 +1,72 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, em, img, ol, ul, li, label, table, tbody, tfoot, thead, tr, th, td, article, aside, footer, header, menu, nav, output, section, audio, video, figcaption, figure, fieldset {
+    margin: 0px;
+    padding:0px;
+
+    border: 0;
+
+    font: inherit;
+    vertical-align: baseline;
+
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+
+    -webkit-margin-start: 0em;
+    -webkit-margin-end: 0em;
+
+    -webkit-padding-start: 0em;
+    -webkit-padding-end: 0em;
+
+    -webkit-padding-before: 0em;
+    -webkit-padding-after: 0em;
+}
+
+ol, ul{ list-style: none; }
+
+blockquote, q{ quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input[type="radio"],
+input[type="checkbox"],
+input[type="button"] {
+    margin: 0;
+    padding:0;
+    height: auto;
+}
+
+input {
+    box-shadow: none;
+}
+
+u {
+    text-decoration: none;
+
+    border-bottom: 1px solid;
+}
+
+address {
+    font-style: normal;
+}
+
+a, button, input, select {
+    border-radius: 0;
+}
+
+iframe {
+    border: 0;
+}
+
+button {
+    @include reset-btn;
+}

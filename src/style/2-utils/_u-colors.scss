@@ -1,0 +1,31 @@
+@each $color, $value in $project-colors {
+    .text-#{$color} {
+        color: $value;
+    }
+
+    .bg-#{$color} {
+        background-color: $value;
+    }
+}
+
+.bg-gray-100 {
+    background-color: var(--gray-100, $gray-100);
+}
+
+.text-white {
+    a:not(.btn) {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            color: inherit;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .wysiwyg ul > li::before,
+    .wysiwyg ol > li:before,
+    .svg-icon {
+        color: var(--white, $white);
+    }
+}

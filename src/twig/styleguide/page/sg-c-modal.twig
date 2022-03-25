@@ -1,0 +1,72 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Modale' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "Une fenêtre modale est une zone de contenu qui s'affiche par-dessus la page web en cours. L'interaction étant alors limitée à ce seul contenu, l'objectif est de concentrer exclusivement l'attention de l'utilisateur sur une information à prendre en compte ou une tâche à accomplir."
+        } %}
+
+        <div class="sg-block-space">
+            <p>Une fois son ouverture déclenchée au clic sur son bouton correspondant, une modale se compose de 4 éléments principaux :</p>
+            <div class="wysiwyg">
+                <ul>
+                    <li>un titre ;</li>
+                    <li>une zone de contenu ;</li>
+                    <li>un bouton "fermer" ;</li>
+                    <li>un overlay, qui permet l'affichage au-dessus de la page courante.</li>
+                </ul>
+            </div>
+            <p>Il est conseillé de placer toutes les modales à la fin de la balise body, juste avant les scripts.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <!-- Bouton d'ouverture de la modale -->
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "plain",
+                                color: "primary",
+                                text: "Afficher la modale",
+                                attributes: {
+                                    "data-toggle": "modal",
+                                    "data-target": "#modal1"
+                                }
+                            }
+                        ]
+                    } %}
+
+                    <!-- Il est conseillé de placer toutes les modales à la fin de la balise body -->
+                    {% embed  "../../site/component/3-organism/o-modal.twig" with {
+                        modalId: "modal1",
+                        modalLabelId: "modal1Label",
+                        modalLabel: "Titre de la modale"
+                    } %}
+                        {% block modalBody %}
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam corrupti obcaecati nobis nihil illo. Quo dicta consequatur a repellendus expedita sapiente impedit molestias laborum quisquam error sequi blanditiis, quas sit?</p>
+                        {% endblock %}
+                    {% endembed %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p>Pour fermer la modale, l'utilisateur doit avoir 3 possibilités :</p>
+            <div class="wysiwyg">
+                <ul>
+                    <li>cliquer sur le bouton "fermer" ;</li>
+                    <li>cliquer à l'extérieur de la modale ;</li>
+                    <li>presser le bouton "esc".</li>
+                </ul>
+            </div>
+            <p>Pour les utilisateurs au clavier, le focus ne doit jamais sortir de la modale. Lors de sa fermeture, le focus se replace sur le bouton qui avait permis son ouverture.</p>
+            <p>La balise principale de la modale, qui doit contenir le <code>role="dialog"</code>, doit également être liée à son titre par un <code>aria-labelledby="..."</code> où "..." est l'<code>id</code> de celui-ci.</p>
+            <p>Le texte masqué du bouton de fermeture doit rappeler le titre de la modale: "Fermer : Titre de la modale".</p>
+        </div>
+    </div>
+
+{% endblock %}

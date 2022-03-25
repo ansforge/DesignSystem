@@ -1,0 +1,260 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Utilisations' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Guide de style - Couleurs",
+            blockTitle: title,
+            blockAccroche_text: "Dans la palette de couleurs du Système de Design, chaque groupe de couleurs correspond à un certain type d'usages. Ce mode de fonctionnement garantit le maintien d'une cohérence entre les différentes interfaces, afin d'optimiser l'expérience de l'utilisateur."
+        } %}
+
+        {# Couleurs primaires #}
+        <div class="sg-block-space">
+            <h2>Couleurs primaires</h2>
+
+            {% include "../../styleguide/component/3-organism/o-sg-table.twig" with {
+                caption: "Couleurs primaires",
+                thead: [
+                    {theadHead: "Couleurs"},
+                    {theadHead: "Noms"},
+                    {theadHead: "Usages"},
+                ],
+                tbody: [
+                {
+                    tbodyColor: "primary",
+                    tbodyCode_name: "Primary",
+                    tbodyCode_hex: "#1D71B8",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Boutons primaires" },
+                        {tbodyUsage_list: "Boutons primaires outline" },
+                        {tbodyUsage_list: "Liens" },
+                        {tbodyUsage_list: "Illustrations, pictogrammes" },
+                        {tbodyUsage_list: "Éléments graphiques / patterns" },
+                        {tbodyUsage_list: "État actif sur les textes" },
+                        {tbodyUsage_list: "Checkbox actifs et boutons radio actifs" },
+                        {tbodyUsage_list: "Listes à puces et listes numérotées" }
+                    ]
+                },
+                {
+                    tbodyColor: "primary-darker",
+                    tbodyCode_name: "Primary Darker",
+                    tbodyCode_hex: "#0F3F68",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "État « Pressé » du bouton principal" },
+                        {tbodyUsage_list: "Illustrations/pictogrammes" }
+                    ]
+                },
+                {
+                    tbodyColor: "primary-dark",
+                    tbodyCode_name: "Primary Dark",
+                    tbodyCode_hex: "#155891",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "État « Hover » du bouton principal" },
+                        {tbodyUsage_list: "Illustrations/pictogrammes" }
+                    ]
+                }
+                ]} %}
+        </div>
+
+        {# Couleurs secondaires #}
+        <div class="sg-block-space">
+            <h2>Couleurs secondaires</h2>
+
+            {% include "../../styleguide/component/3-organism/o-sg-table.twig" with {
+                caption: "Couleurs secondaires",
+                thead: [
+                    {theadHead: "Couleurs"},
+                    {theadHead: "Noms"},
+                    {theadHead: "Usages"},
+                ],
+                tbody: [
+                {
+                    tbodyColor: "secondary",
+                    tbodyCode_name: "Secondary",
+                    tbodyCode_hex: "#D20050",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Illustrations/pictogrammes" },
+                        {tbodyUsage_list: "Éléments graphiques" },
+                        {tbodyUsage_list: 'Liens "serviciels"' }
+                    ]
+                }
+            ]} %}
+        </div>
+
+        {# Couleurs neutres #}
+        <div class="sg-block-space">
+            <h2>Couleurs neutres</h2>
+
+            {% include "../../styleguide/component/3-organism/o-sg-table.twig" with {
+                caption: "Couleurs neutres",
+                thead: [
+                    {theadHead: "Couleurs"},
+                    {theadHead: "Noms"},
+                    {theadHead: "Usages"},
+                ],
+                tbody: [
+                {
+                    tbodyColor: "black",
+                    tbodyCode_name: "Black",
+                    tbodyCode_hex: "#343852",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Titres (du H1 au H6)" },
+                        {tbodyUsage_list: "Boutons secondaires outline" },
+                        {tbodyUsage_list: "Pictogrammes/illustrations" }
+                    ]
+                },
+                {
+                    tbodyColor: "gray-800",
+                    tbodyCode_name: "Gray-800",
+                    tbodyCode_hex: "#464C6D",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Pictogrammes/illustrations" }
+                    ]
+                },
+                {
+                    tbodyColor: "gray-700",
+                    tbodyCode_name: "Gray-700",
+                    tbodyCode_hex: "#697097",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Chapôs" },
+                        {tbodyUsage_list: "Paragraphes" },
+                        {tbodyUsage_list: "Surtitres" },
+                        {tbodyUsage_list: "Pictogrammes/illustrations" }
+                    ]
+                },
+                {
+                    tbodyColor: "gray-600",
+                    tbodyCode_name: "Gray-600",
+                    tbodyCode_hex: "#969CBB",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Bordures de champs" },
+                        {tbodyUsage_list: "Pictogrammes/illustrations" },
+                        {tbodyUsage_list: "Bordure des <a href='sg-c-form-button-add.html'>boutons d'ajout</a>" }
+                    ]
+                },
+                {
+                    tbodyColor: "gray-500",
+                    tbodyCode_name: "Gray-500",
+                    tbodyCode_hex: "#C5C8DA",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Pictogrammes/illustrations" }
+                    ]
+                },
+                {
+                    tbodyColor: "gray-400",
+                    tbodyCode_name: "Gray-400",
+                    tbodyCode_hex: "#DEE0EA",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Bordures et séparateurs" },
+                        {tbodyUsage_list: "Pictogrammes/illustrations" }
+                    ]
+                },
+                {
+                    tbodyColor: "gray-300",
+                    tbodyCode_name: "Gray-300",
+                    tbodyCode_hex: "#EDEEF3",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Pictogrammes/illustrations" }
+                    ]
+                },
+                {
+                    tbodyColor: "gray-200",
+                    tbodyCode_name: "Gray-200",
+                    tbodyCode_hex: "#F2F3F7",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Pictogrammes/illustrations" }
+                    ]
+                },
+                {
+                    tbodyColor: "gray-100",
+                    tbodyCode_name: "Gray-100",
+                    tbodyCode_hex: "#F8F9FB",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Arrière-plans" },
+                        {tbodyUsage_list: "Pictogrammes/illustrations" }
+                    ]
+                },
+                {
+                    tbodyColor: "white",
+                    tbodyCode_name: "White",
+                    tbodyCode_hex: "#FFFFFF",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Arrière-plans" },
+                        {tbodyUsage_list: "Pictogrammes/illustrations" }
+                    ]
+                }
+            ]} %}
+        </div>
+
+        {# Couleurs fonctionnelles #}
+        <div class="sg-block-space">
+            <h2>Couleurs fonctionnelles</h2>
+
+            {% include "../../styleguide/component/3-organism/o-sg-table.twig" with {
+                caption: "Couleurs fonctionnelles",
+                thead: [
+                    {theadHead: "Couleurs"},
+                    {theadHead: "Noms"},
+                    {theadHead: "Usages"},
+                ],
+                tbody: [
+                {
+                    tbodyColor: "danger",
+                    tbodyCode_name: "Error",
+                    tbodyCode_hex: "#D20024",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Textes d'erreur" },
+                        {tbodyUsage_list: "Bordure des champs en erreur" },
+                        {tbodyUsage_list: "Éléments graphiques des messages de statut" }
+                    ]
+                },
+                {
+                    tbodyColor: "warning",
+                    tbodyCode_name: "Warning",
+                    tbodyCode_hex: "#E69215",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Éléments graphiques des messages de statut" }
+                    ]
+                },
+                {
+                    tbodyColor: "success",
+                    tbodyCode_name: "Success",
+                    tbodyCode_hex: "#9AB938",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Éléments graphiques des messages de statut" }
+                    ]
+                },
+                {
+                    tbodyColor: "info",
+                    tbodyCode_name: "Information",
+                    tbodyCode_hex: "#369AEE",
+
+                    tbodyUsage: [
+                        {tbodyUsage_list: "Éléments graphiques des messages de statut" }
+                    ]
+                }
+            ]} %}
+        </div>
+    </div>
+
+{% endblock %}

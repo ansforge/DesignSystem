@@ -1,0 +1,41 @@
+{# Modal
+    Mandatory fields:
+        - modalId: ID of the modal, linked to the button that opens the modal with the attribute data-target="#modalId"
+        - modalLabelId + modalLabel (if the title of the modal is visible) or modalAriaLabel (if the title of the modal is not visible)
+#}
+{% if modalLabel %}
+    {% set btnCloseLabel = modalLabel %}
+{% elseif modalAriaLabel %}
+    {% set btnCloseLabel = modalAriaLabel %}
+{% endif %}
+
+<div class="modal fade" id="{{ modalId }}" tabindex="-1" role="dialog" aria-hidden="true"
+    {%- if modalLabelId %} aria-labelledby="{{ modalLabelId }}"{% endif -%}
+    {%- if modalAriaLabel %} aria-label="{{ modalAriaLabel }}"{% endif -%}
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                {% if modalLabel %}<h1 class="modal-title" id="{{ modalLabelId }}">{{ modalLabel }}</h1>{% endif %}
+
+                {% include "../1-atom/a-link.twig" with {
+                    links: [
+                        {
+                            style: "close",
+                            iconOnly: true,
+                            svgBefore: "close",
+                            textAccessAfter: "Fermer : " ~ btnCloseLabel,
+                            attributes: {
+                                "data-dismiss": "modal"
+                            }
+
+                        }
+                    ]
+                } %}
+            </div>
+            <div class="modal-body">
+                {% block modalBody %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>

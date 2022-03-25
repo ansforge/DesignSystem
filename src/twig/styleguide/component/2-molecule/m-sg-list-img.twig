@@ -1,0 +1,14 @@
+<div class="m-sg-list-img">
+    {% for item in items %}
+        <div class="m-sg-list-img__col {%- if itemsSize %} m-sg-list-img--{{ itemsSize }}{% endif %}">
+            <div class="m-sg-list-img__item">
+                {% include "../../../site/component/1-atom/a-img.twig" with {
+                    imgUrl: itemsPath ~ item,
+                    imgLazy: true,
+                    imgWidth: itemsImgWidth,
+                    imgHeight: itemsImgHeight,
+                } %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

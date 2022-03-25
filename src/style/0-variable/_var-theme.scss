@@ -1,0 +1,68 @@
+// Colors
+:root {
+    --white:    #{$white};
+    --gray-100: #{$gray-100};
+    --gray-200: #{$gray-200};
+    --gray-300: #{$gray-300};
+    --gray-400: #{$gray-400};
+    --gray-500: #{$gray-500};
+    --gray-600: #{$gray-600};
+    --gray-700: #{$gray-700};
+    --gray-800: #{$gray-800};
+    --gray-900: #{$gray-900};
+    --black:    #{$black};
+
+    --primary:            #{$primary};
+    --primary-dark:     #155891;
+    --primary-darker:   #0F3F68;
+    --brand-2:          #D20050;
+
+    --body-color: #{$body-color};
+    --body-color-darker: var(--black, $black);
+    --body-bg: #{$body-bg};
+    --input-placeholder-color: #{$input-placeholder-color};
+    --input-border-color: var(--gray-500, $gray-500);
+    --border-color: #{$border-color};
+
+    --border-radius: #{$border-radius};
+    --border-radius-sm: #{$border-radius-sm};
+    --border-radius-md: 5rem; // variable not present in bootstrap
+    --border-radius-lg: #{$border-radius-lg};
+    --box-shadow: #{$box-shadow};
+    --box-shadow-lg: #{$box-shadow-lg};
+
+    --main-margin-top: 4rem;
+    --main-margin-bottom: 4rem;
+    --btn-height: 5rem;
+    --alert-icon-bg: var(--body-color);
+
+    --header-min-height: 7.8rem;
+    --header-padding: 1.4rem 2rem;
+    --header-logo-space-x: 1.2rem;
+
+    --progress-bar-img-width: 6.5rem;
+    --progress-bar-img-height: 5rem;
+    --progress-bar-indicator-width: 0;
+
+    @include media-breakpoint-up(lg) {
+        --main-margin-top: 9.5rem;
+        --main-margin-bottom: 9rem;
+
+        --progress-bar-img-width: 9.2rem;
+        --progress-bar-img-height: 7.8rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        --header-min-height: 10.6rem;
+        --header-padding: 1.4rem 3rem;
+        --header-logo-space-x: 2rem;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        --header-logo-space-x: 2.5rem;
+    }
+}
+
+[data-contrast="high-c"] {
+    --input-border-color: var(--gray-700);
+}

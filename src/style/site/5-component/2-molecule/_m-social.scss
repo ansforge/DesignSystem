@@ -1,0 +1,41 @@
+.m-social__list {
+    @include aw-make-row();
+    margin-bottom: 3rem;
+
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+.m-social__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    height: 4.4rem;
+
+    &.external-link:after {
+        display: none;
+    }
+
+    .svg-rss {
+        font-size: 1.5rem;
+    }
+}
+
+.m-social__icon {
+    line-height: 1;
+}
+
+@include media-breakpoint-down(sm) {
+    .m-social__list {
+        justify-content: center;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .m-social__link {
+        padding: 0;
+        margin-right: 2rem;
+    }
+}

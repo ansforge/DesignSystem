@@ -1,0 +1,127 @@
+<footer class="footer footer-principal" role="contentinfo">
+    <div class="footer__region1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 text-center text-md-left">
+                    {% include "logos.twig" with {
+                        logos: [
+                            {
+                                logoUrl: "img/logo-ministere.svg",
+                                logoAlt: "Ministère des Solidarités et de la Santé",
+                                logoHref: "https://solidarites-sante.gouv.fr",
+                                logoTarget: "_blank",
+                                logoRel: "nofollow",
+                                logoWidth: "111",
+                                logoHeight: "82",
+                                logoLazyload: true
+                            },
+                            {
+                                logoUrl: "img/logo-ANS-footer.svg",
+                                logoAlt: "Agence du numérique en santé",
+                                logoHref: "https://esante.gouv.fr/",
+                                logoTarget: "_blank",
+                                logoRel: "nofollow",
+                                logoWidth: "118",
+                                logoHeight: "82",
+                                logoLazyload: true
+                            }
+                        ]
+                    } %}
+                </div>
+                <div class="col-md-6 col-lg-3 text-center text-md-left">
+                    <p class="footer__title">Agence du Numérique en Santé</p>
+                    <p>9, rue Georges Pitard 75015 Paris</p>
+
+                    {% include "../component/2-molecule/m-social.twig" %}
+                </div>
+                <div class="col-6 col-lg-3">
+                    {% include "footer-list.twig" with {
+                        footerListItems: [
+                            {
+                                link: "#",
+                                text: "Actualités",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "ANS",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "Sécurité",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "Interopérabilité lorem ipsum long text",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "Labels et certifications",
+                                icon: "angle-right"
+                            }
+                        ]
+                    } %}
+                </div>
+                <div class="col-6 col-lg-3">
+                    {% include "footer-list.twig" with {
+                        footerListItems: [
+                            {
+                                link: "#",
+                                text: "Projets nationaux",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "Virage numérique",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "Assistance",
+                                icon: "angle-right"
+                            }
+                        ]
+                    } %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer__region2">
+        <div class="container">
+            <div class="footer-contentinfo">
+                {% include "footer-list.twig" with {
+                    footerListInline: true,
+                    footerListItems: [
+                        {
+                            link: "#",
+                            text: "Ministère des Solidarités et de la Santé",
+                            target: "_blank"
+                        },
+                        {
+                            link: "#",
+                            text: "Legifrance.gouv.fr",
+                            target: "_blank"
+                        },
+                        {
+                            link: "#",
+                            text: "Service-public.fr",
+                            target: "_blank"
+                        },
+                        {
+                            link: "#",
+                            text: "Mentions légales"
+                        },
+                        {
+                            link: "#",
+                            text: "Déclaration d’accessibilité"
+                        }
+                    ]
+                } %}
+            </div>
+        </div>
+    </div>
+</footer>

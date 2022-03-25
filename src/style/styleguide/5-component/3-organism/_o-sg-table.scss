@@ -1,0 +1,23 @@
+.sg-table {
+    --token-width: 5.5rem;
+
+    .tbody-color {
+        width: 1%;
+
+        span {
+            display: block;
+            height: var(--token-width);
+            width: var(--token-width);
+            border: 0.1rem solid transparent;
+            border-radius: 1.2rem;
+        }
+
+        .bg-white {
+            border-color: $border-color;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        --token-width: 7.4rem;
+    }
+}
