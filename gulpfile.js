@@ -346,7 +346,7 @@ function zipLogos(){
         target.src + 'img/logo-ministere.svg',
     ])
         .pipe(zip('logotype.zip'))
-        .pipe(dest(target.buildStyleguide));
+        .pipe(dest(target.buildStyleguide + 'zip'));
 }
 
 function zipSizes(){
