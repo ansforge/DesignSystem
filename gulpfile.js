@@ -1,7 +1,7 @@
 // https://github.com/thecodercoder/frontend-boilerplate
 /*
 |--------------------------------------------------------------------------
-| DEPENDENCIES
+| DEPENDENCIES 
 |--------------------------------------------------------------------------
 */
 // Initialize modules
@@ -47,11 +47,12 @@ const
 | CONFIGURATION
 |--------------------------------------------------------------------------
 */
+
 const target = {
     'src': './src/',
-    'buildFolder': './__public/',
-    'buildSite': './__public/site/',
-    'buildStyleguide': './__public/styleguide/',
+    'buildFolder': './public/',
+    'buildSite': './public/site/',
+    'buildStyleguide': './docs/',
     'devFolder': './../'
 };
 // File paths
@@ -345,7 +346,7 @@ function zipLogos(){
         target.src + 'img/logo-ministere.svg',
     ])
         .pipe(zip('logotype.zip'))
-        .pipe(dest(target.buildStyleguide + 'zip'));
+        .pipe(dest(target.buildStyleguide));
 }
 
 function zipSizes(){
