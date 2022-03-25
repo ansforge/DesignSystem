@@ -1,0 +1,165 @@
+.header-principal {
+    position: relative; // position relative needed for z-index to works in case position sticky isn't supported by the browser
+    /* autoprefixer: off */
+    position: -webkit-sticky;
+    position: sticky;
+    /* autoprefixer: on */
+    top: 0;
+    z-index: $zindex-sticky;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow-lg);
+
+    .logos {
+        display: flex;
+        align-items: center;
+        margin-right: var(--header-logo-space-x);
+
+        @include media-breakpoint-up(sm) {
+            &:not(:last-child) {
+                padding-right: var(--header-logo-space-x);
+                border-right: .1rem solid $border-color;
+            }
+        }
+
+        a {
+            display: block;
+        }
+
+        img {
+            height: 3.5rem;
+            width: auto;
+
+            @include media-breakpoint-up(xxl) {
+                height: 5rem;
+            }
+        }
+
+        .logo {
+            &:not(:last-child) {
+                margin-right: 2.5rem;
+            }
+
+            // 1er logo
+            &--0 {
+                img {
+                    height: 4.4rem;
+
+                    @include media-breakpoint-up(xxl) {
+                        height: 6.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.header-principal__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: var(--header-padding);
+    min-height: var(--header-min-height);
+}
+
+.header-principal-left {
+    display: flex;
+    align-items: center;
+}
+
+.header__title {
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    line-height: 1.14;
+    font-family: $font-futura-bold;
+    color: var(--body-color-darker);
+
+    @include media-breakpoint-up(xxl) {
+        font-size: 2rem;
+        margin-right: var(--header-logo-space-x);
+    }
+}
+
+.header-principal-right {
+    margin-left: auto;
+}
+
+.btn.btn-icon--header {
+    position: relative;
+    color: var(--body-color-darker);
+    border-radius: 0;
+
+    &:hover,
+    &[aria-expanded="true"] {
+        color: var(--primary);
+    }
+
+    .collapse-wrapper & svg,
+    .svg-user {
+        font-size: 2rem;
+    }
+
+    .title-responsive {
+        padding-left: 1.8rem;
+    }
+
+    .mail-counter {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.5rem;
+        width: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: $fw-semiBold;
+        background-color: var(--brand-2);
+        color: $white;
+        border-radius: 0.75rem 0 0.75rem 0.75rem;
+    }
+
+    @include media-breakpoint-down(lg) {
+        width: 4rem;
+
+        .nav-right .collapse-wrapper & {
+            width: auto;
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .collapse-wrapper & {
+            --btn-height: 4.4rem;
+        }
+
+        .title-responsive {
+            @include sr-only;
+        }
+
+        .mail-counter {
+            top: 0.8rem;
+            left: 2.2rem;
+        }
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .header-principal-left {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .header__title {
+        margin-top: 1.5rem;
+        margin-left: -2rem;
+        margin-right: -2rem;
+        flex: 0 0 calc(100% + 4rem);
+        padding: 1rem 2rem 0rem 2rem;
+        border-top: solid 0.1rem $border-color;
+    }
+
+    .header-principal-right {
+        position: absolute;
+        top: 1.4rem;
+        right: 1.5rem;
+    }
+}

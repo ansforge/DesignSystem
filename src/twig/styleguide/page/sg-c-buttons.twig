@@ -1,0 +1,203 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Boutons' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "L'élément button représente un bouton cliquable, que l'on utilise soit pour soumettre des formulaires, soit pour n'importe quelle autre fonctionnalité d'action."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Type de boutons</h2>
+            <h3>Bouton primaire</h3>
+            <p>Le bouton principal sert à mettre en avant l'action principale de l'écran. Il ne doit y avoir qu'un seul bouton principal par écran.
+            <br>La version classique "colorée" du bouton primaire est obtenue via la classe <code>btn--plain</code>.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "plain",
+                                color: "primary",
+                                text: "Bouton primaire",
+                            }
+                        ]
+                    } -%}
+                {% endblock %}
+            {% endembed %}
+
+            <p>Les différents états du bouton primaire :</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/buttons/btn-primary-etats.png',
+                imgSrcset: "img/buttons/btn-primary-etats@2x.png 2x",
+                imgAlt: 'les différents états du bouton primaire',
+                imgWidth: '484',
+                imgHeight: '54',
+                imgLazy: true
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Variante du bouton primaire</h3>
+            <p>Vous pouvez choisir de rendre les boutons primaires contourés plutôt que pleins, pour des actions qui font partie du parcours utilisateur. Il s'agit d'une variante du bouton primaire. La version principale ci-dessus est néanmoins à privilégier.</p>
+            <p>Pour utiliser cette variante, utilisez la classe <code>btn--ghost</code>.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "ghost",
+                                color: "primary",
+                                text: "Bouton primaire alternatif",
+                            }
+                        ]
+                    } -%}
+                {% endblock %}
+            {% endembed %}
+
+            <p>Les différents états de la variante du bouton primaire :</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/buttons/btn-primary-variante-etats.png',
+                imgSrcset: "img/buttons/btn-primary-variante-etats@2x.png 2x",
+                imgAlt: 'les différents états du bouton primaire contouré',
+                imgWidth: '484',
+                imgHeight: '54',
+                imgLazy: true
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Bouton secondaire</h3>
+            <p>Le bouton secondaire est utilisé pour les actions secondaires. Il est possible d'avoir plusieurs boutons secondaires par écran.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "ghost",
+                                color: "default",
+                                text: "Bouton secondaire",
+                            }
+                        ]
+                    } -%}
+                {% endblock %}
+            {% endembed %}
+
+            <p>Les différents états du bouton secondaire :</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/buttons/btn-secondaire-etats.png',
+                imgSrcset: 'img/buttons/btn-secondaire-etats@2x.png 2x',
+                imgAlt: 'les différents états du bouton secondaire',
+                imgWidth: '484',
+                imgHeight: '54',
+                imgLazy: true
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Boutons désactivés</h2>
+            <p>L'état <code>disabled</code> empêche le bouton d'être cliqué ou focusé, ce qui permet d'empêcher l'action correspondante pour l'utilisateur.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                disabled: true,
+                                style: "ghost",
+                                color: "primary",
+                                text: "Désactivé",
+                            }
+                        ]
+                    } -%}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Boutons avec pictogrammes</h2>
+            <p>Les boutons de pictogrammes fournissent à l'utilisateur une iconographie visuelle pour indiquer ce que fait le bouton (gardez la même couleur entre votre pictogramme et votre label).</p>
+            <p>Veuillez noter de ne pas utiliser deux pictogrammes dans le même bouton.</p>
+            <p>Accessibilité : Si un bouton contient uniquement un pictogramme, il faut lui ajouter un <code>aria-label</code> ou un <code>&lt;span class=&quot;sr-only&quot;&gt;</code> précisant son action.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "plain",
+                                color: "primary",
+                                svgBefore: "search",
+                                text: "Rechercher",
+                            },
+                            {
+                                style: "plain",
+                                color: "primary",
+                                iconOnly: true,
+                                svgBefore: "user",
+                                textAccessAfter: "Button label"
+                            }
+                        ]
+                    } -%}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Groupe de boutons</h2>
+            <p>Si vous souhaitez apposer plusieurs boutons au même endroit, entourez-les d'un élément portant la classe <code>.btn-group</code>.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="btn-group">
+                        {% include "../../site/component/1-atom/a-link.twig" with {
+                            links: [
+                                {
+                                    style: "ghost",
+                                    color: "default",
+                                    text: "Bouton secondaire",
+                                },
+                                {
+                                    style: "plain",
+                                    color: "primary",
+                                    text: "Bouton primaire",
+                                }
+                            ]
+                        } %}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Bouton petite taille</h2>
+            <p>Réduit la taille du bouton via la classe <code>btn-xs</code>. Cette classe se combine avec les autres classes de bouton.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "plain",
+                                color: "primary",
+                                text: "Bouton primaire",
+                                size: "xs"
+                            }
+                        ]
+                    } -%}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Utilisation</h2>
+            <p>Les boutons sont destinés à soumettre des formulaires ou à actionner des interactions JS. En revanche, ils ne doivent pas se substituer aux liens, qui ont pour rôle de renvoyer vers une autre page web (ou à une autre zone de la page en cours.</p>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p>Pour les critères d'accessibilité des boutons, vous pouvez vous rendre sur ces deux sources externes : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#accessibility_concerns" target="_blank">source 1</a> et <a href="https://www.lalutineduweb.fr/boutons-accessibles-html/" target="_blank">source 2</a>.</p>
+        </div>
+    </div>
+
+{% endblock %}

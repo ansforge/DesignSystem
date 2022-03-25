@@ -1,0 +1,278 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Usages' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: "Certaines bonnes pratiques générales sont à respecter pour que les formulaires restent intelligibles et faciles d'utilisation."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Les champs erreur</h2>
+            <p>Ils doivent comporter une indication précise sur le format de saisie attendue.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-erreur-DO.png',
+                        imgSrcset: 'img/form/Champ-erreur-DO@2x.png 2x',
+                        imgAlt: "Champ avec message d'erreur : Le format saisi n'est pas conforme",
+                        imgWidth: '330',
+                        imgHeight: '310',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Message d’erreur clair permettant une correction aisée"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-erreur-DONT.png',
+                        imgSrcset: 'img/form/Champ-erreur-DONT@2x.png 2x',
+                        imgAlt: "Champ avec message d'erreur : Bad request 83",
+                        imgWidth: '330',
+                        imgHeight: '310',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Pas de message d’erreur incompréhensible pour l’utilisateur"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Largeur et proximité</h2>
+            <p>Bien qu'une grande partie de l'apparence soit prise en charge par la feuille de style, une vigilance reste nécessaire dans la disposition des champs entre eux.</p>
+
+            <h3>Largeur des champs</h3>
+            <p>Les champs de saisie doivent être proportionnés à la quantité de texte qu'ils seront amenés à recevoir.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-largeur-DO.png',
+                        imgSrcset: 'img/form/Champ-largeur-DO@2x.png 2x',
+                        imgAlt: "Champ adapté à un texte court.",
+                        imgWidth: '330',
+                        imgHeight: '290',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Largeur adaptée"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-largeur-DONT.png',
+                        imgSrcset: 'img/form/Champ-largeur-DONT@2x.png 2x',
+                        imgAlt: "Largeur disproportionnée par rapport au nombre de caractères attendu.",
+                        imgWidth: '330',
+                        imgHeight: '290',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Largeur disproportionnée"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Proximité des champs</h3>
+            <p>Pour éviter toute confusion entre le <code>label</code> d'un champ et un autre champ, un écart raisonnable doit être maintenu entre ceux-ci.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-proximite-DO.png',
+                        imgSrcset: 'img/form/Champ-proximite-DO@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '490',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Écart raisonnable pour distinguer chaque couple champ-étiquette"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-proximite-DONT.png',
+                        imgSrcset: 'img/form/Champ-proximite-DONT@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '490',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Risque de confusion entre le premier champ et la seconde étiquette"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Labels</h2>
+            <p>Les <code>label</code> sont porteurs d'informations pour tous les types d'utilisateurs. À ce titre il est important de soigner leur contenu comme leur format.</p>
+
+            <h3>Explicites</h3>
+            <p>Quand c'est justifié, ne pas hésiter à préciser le format de saisie attendue. Être suffisamment précis pour lever toute incertitude quant au type d'information attendu.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-explicite-DO.png',
+                        imgSrcset: 'img/form/Champ-explicite-DO@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '380',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Format et type d'informations clairement spécifiés"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-explicite-DONT.png',
+                        imgSrcset: 'img/form/Champ-explicite-DONT@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '380',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Risque d'incertitudes"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Capitales</h3>
+            <p>Pour une question de cohérence d'ensemble, évitez les <code>label</code> en capitales.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-capitales-DO.png',
+                        imgSrcset: 'img/form/Champ-capitales-DO@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '290',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Label en casse de phrase"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-capitales-DONT.png',
+                        imgSrcset: 'img/form/Champ-capitales-DONT@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '290',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Label en capitales"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Champ obligatoire</h2>
+            <p>Le symbole avec l'astérisque doit être explicité avant d'être utilisé. Si tous les champs sont obligatoires, le mentionner en début de formulaire (les astérisques ne sont dès lors plus utiles).</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-obligatoire-DO.png',
+                        imgSrcset: 'img/form/Champ-obligatoire-DO@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '340',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Mention explicite"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Champ-obligatoire-DONT.png',
+                        imgSrcset: 'img/form/Champ-obligatoire-DONT@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '340',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Mention non explicite"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Checkbox, radios, select</h2>
+            <h3>Utilisation des boutons radios</h3>
+            <p>De façon générale, pour une question d'ergonomie, on préférera un <code>input type="radio"</code> pour une liste de choix courte et un <code>select</code> pour une liste de choix longue.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Radio-max-DO.png',
+                        imgSrcset: 'img/form/Radio-max-DO@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '460',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Select adapté"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Radio-max-DONT.png',
+                        imgSrcset: 'img/form/Radio-max-DONT@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '460',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Radio peu pratique avec de nombreuses options"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Zone de clic</h3>
+            <p>Pour les <code>input type="checkbox"</code> et les <code>input type="radio"</code>, le <code>label</code> doit être cliquable au même titre que l'<code>input</code> lui-même.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Radio-clic-DO.png',
+                        imgSrcset: 'img/form/Radio-clic-DO@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '390',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Label cliquable"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/form/Radio-clic-DONT.png',
+                        imgSrcset: 'img/form/Radio-clic-DONT@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '390',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Label non cliquable"
+                    } %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

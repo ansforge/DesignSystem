@@ -1,0 +1,16 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = "Système de design de l'ANS" %}
+
+{% block main %}
+
+    {% include "../../styleguide/component/3-organism/o-sg-page-title.twig" with {
+        pageTitleH1: title
+    } %}
+
+    <div class="sg-container-content wysiwyg">
+        <p>Le Système de Design de l'ANS a pour vocation d'établir des règles de conception visuelle et technique, afin d'assurer une cohérence et une homogénéité sur le long-terme entre les différents projets de l'ANS.</p>
+        <p>Version 1.0.2 - Mise à jour le 18/03/2022</p>
+    </div>
+
+{% endblock %}

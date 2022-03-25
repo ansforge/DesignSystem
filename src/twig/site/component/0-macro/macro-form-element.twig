@@ -1,0 +1,151 @@
+{# Macro for form elements
+https://gist.github.com/iamkirkbater/970c354aa73302448f647676b83e52f7
+https://gist.github.com/goreilly/5756bc2b5ef1ef8e33e3
+https://gist.github.com/lantins/af9752f536ce087c9ef2
+
+Usage :
+    <div class="form-group">
+        {{ form.label('myForm[firstName]', "First Name", {"class": "myLabelClass"}) }}
+        {{ form.text('myForm[firstName]', data.firstName, {"required": true, "class": "some classes here"}) }}
+    </div>
+#}
+
+{% macro label(id, content, required, attributes) %}
+  <label for="{{ id }}"{% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %}>{{ content|e }}{% if required %} <span class="form-required" title="Ce champ est requis">*</span>{% endif %}</label>
+{% endmacro %}
+
+{% macro input(name, value, type, attributes) %}
+  <input class="form-control{% if attributes.class %} {{ attributes.class }}{% endif %}" name="{{ name }}" type="{{ type }}" {% if value %}value="{{ value }}"{% endif %} {% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %}{% if not attributes.id is defined %} id="{{ name }}"{% endif %}/>
+{% endmacro %}
+
+{% macro text(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "text", attributes) }}
+{% endmacro %}
+
+{% macro password(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "password", attributes) }}
+{% endmacro %}
+
+{% macro email(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "email", attributes) }}
+{% endmacro %}
+
+{% macro color(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "color", attributes) }}
+{% endmacro %}
+
+{% macro button(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "button", attributes) }}
+{% endmacro %}
+
+{% macro date(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "date", attributes) }}
+{% endmacro %}
+
+{% macro file(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "file", attributes) }}
+{% endmacro %}
+
+{% macro hidden(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "hidden", attributes) }}
+{% endmacro %}
+
+{% macro month(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "month", attributes) }}
+{% endmacro %}
+
+{% macro number(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "number", attributes) }}
+{% endmacro %}
+
+{% macro range(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "range", attributes) }}
+{% endmacro %}
+
+{% macro search(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "search", attributes) }}
+{% endmacro %}
+
+{% macro tel(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "tel", attributes) }}
+{% endmacro %}
+
+{% macro time(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "time", attributes) }}
+{% endmacro %}
+
+{% macro url(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "url", attributes) }}
+{% endmacro %}
+
+{% macro week(name, value, attributes) %}
+  {% from _self import input %}
+  {{ input(name, value, "week", attributes) }}
+{% endmacro %}
+
+{% macro textarea(name, value, attributes) %}
+  <textarea class="form-control{% if attributes.class %} {{ attributes.class }}{% endif %}" name="{{ name }}"{% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %}{% if not attributes.id is defined %} id="{{ name }}"{% endif %}>{{ value|e }}</textarea>
+{% endmacro %}
+
+{% macro select(name, values, value, attributes) %}
+  <select class="form-control{% if attributes.class %} {{ attributes.class }}{% endif %}" name="{{ name }}"{% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %}{% if not attributes.id is defined %} id="{{ name }}"{% endif %}>
+    {% for key, name in values %}
+    <option value="{{ key }}"{% if value == key %} selected="selected"{% endif %}>{{ name }}</option>
+    {% endfor %}
+  </select>
+{% endmacro %}
+
+{% macro checkbox(name, value, label, attributes, msg) %}
+    {% import _self as form %}
+
+    <div class="custom-control custom-checkbox{% if attributes.inline %} custom-control-inline{% endif %}">
+        <input type="checkbox"
+            class="custom-control-input{% if attributes.class %} {{ attributes.class }}{% endif %}"
+            name="{{ name }}"
+            {% if msg.msgName %} aria-describedby="{{ msg.msgName }}"{% endif %}
+            {% for attr, value in attributes if attr != 'inline' %} {{ attr }}="{{ value }}"{% endfor %}
+            {% if not attributes.id is defined %} id="{{ name }}"{% endif %}
+            {% if value %} checked="checked"{% endif %}
+        >
+        <label class="custom-control-label" for="{% if not attributes.id is defined %}{{ name }}{% else %}{{ attributes.id }}{% endif %}">{{ label }}{% if attributes.required %} <span class="form-required" title="Ce champ est requis">*</span>{% endif %}</label>
+        {% if msg %}{{ form.msg(msg.msgName, msg.msgText, msg.msgType) }}{% endif %}
+    </div>
+{% endmacro %}
+
+{% macro radio(name, value, label, attributes, msg) %}
+    {% import _self as form %}
+
+    <div class="custom-control custom-radio{% if attributes.inline %} custom-control-inline{% endif %}">
+        <input type="radio"
+            class="custom-control-input{% if attributes.class %} {{ attributes.class }}{% endif %}"
+            name="{{ name }}"
+            {% if msg.msgName %} aria-describedby="{{ msg.msgName }}"{% endif %}
+            {% for attr, value in attributes if attr != 'inline' %} {{ attr }}="{{ value }}"{% endfor %}
+            {% if not attributes.id is defined %} id="{{ name }}"{% endif %}
+            {% if value %} checked="checked"{% endif %}
+        >
+        <label class="custom-control-label" for="{% if not attributes.id is defined %}{{ name }}{% else %}{{ attributes.id }}{% endif %}">{{ label }}{% if attributes.required %} <span class="form-required" title="Ce champ est requis">*</span>{% endif %}</label>
+        {% if msg %}{{ form.msg(msg.msgName, msg.msgText, msg.msgType) }}{% endif %}
+    </div>
+{% endmacro %}
+
+{% macro msg(name, msg, type, attributes) %}
+    {# Help text should be explicitly associated with the form control it relates to using the aria-describedby attribute. This will ensure that assistive technologies—such as screen readers—will announce this help text when the user focuses or enters the control. #}
+    <p class="description{% if type == "error" %} is-invalid{% endif %}" id="{{ name }}"{% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %}>{{ msg }}</p>
+{% endmacro %}
+

@@ -1,0 +1,29 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Accessibilité' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: '(En cours de réalisation)'
+        } %}
+
+        <div class="sg-block-space">
+            {# <p><b style="color: red">[TODO Edito] </b> Voir <a href="https://a11y-guidelines.orange.com/fr/web/exemples-de-composants/formulaires/">https://a11y-guidelines.orange.com/fr/web/exemples-de-composants/formulaires/</a></p>
+
+                Prévoir des messages d’erreur explicites et des suggestions de correction : https://www.accede-web.com/notices/fonctionnelle-graphique/formulaires/prevoir-des-messages-derreur-explicites-et-des-suggestions-de-correction/
+
+                ----
+
+                Sur chaque formulaire, les champs obligatoires doivent être clairement indiqués :
+
+                Un signe distinctif (symbole « * », mention « (obligatoire) », etc.) doit être prévu dans l’intitulé de chaque champ obligatoire.
+                Dans le cas où un symbole est utilisé pour déclarer les champs obligatoires, une légende placée au début du formulaire doit annoncer la fonction de ce dernier.
+            #}
+        </div>
+    </div>
+
+{% endblock %}

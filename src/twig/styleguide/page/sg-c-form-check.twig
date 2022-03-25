@@ -1,0 +1,198 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Case à cocher et radio' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: "Ces deux éléments autorisent à faire un choix parmi plusieurs options.
+            <br>La différence entre les deux réside dans le nombre d'options : le bouton <code>radio</code> n'autorise qu'un seul choix, alors que le <code>checkbox</code> autorise un ou plusieurs choix."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Les cases à cocher</h2>
+            <p>Constituées par l'élément <code>input type="checkbox"</code>, elles peuvent être uniques ou multiples.
+            <br>Dans le cas d'un groupe de cases à cocher, elles doivent toutes être regroupées dans une balise <code>fieldset</code>, dont le premier enfant doit être un <code>legend</code>. Ce dernier constitue donc l'en-tête du groupe de cases à cocher, et doit décrire leur rôle.
+            
+            <br>Plusieurs mises en forme sont possibles.</p>
+
+            <h3>Liste verticale</h3>
+            <p>L'usage du div englobant de base avec les classes <code>.custom-control.custom-checkbox</code> ordonne verticalement les cases à cocher.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Checkbox</legend>
+
+                            {{ form.checkbox('formCheckbox', null, 'Checkbox') }}
+                            {{ form.checkbox('formCheckboxChecked', true, 'Checkbox checked') }}
+                            {{ form.checkbox('formCheckboxRequired', null, 'Checkbox required', {"required": "required"}) }}
+                            {{ form.checkbox('formCheckboxLink', null, 'Checkbox with link. Oui j’accepte la <a href="#">politique de protection des données personnelles</a>', {"required": "required"}) }}
+                            {{ form.checkbox('formCheckboxDisabled', null, 'Checkbox disabled', {"disabled": "disabled"}) }}
+                            {{ form.checkbox('formCheckboxDisabledChecked', true, 'Checkbox disabled checked', {"disabled": "disabled"}) }}
+
+                            {{ form.checkbox('formCheckboxDesc', null, 'Checkbox with message', null, {
+                                "msgName": "formCheckboxDesc-desc",
+                                "msgText": "Description helper text"
+                            } ) }}
+                            {{ form.checkbox('formCheckboxError', null, 'Checkbox with error', {"aria-invalid": "true", "class": "is-invalid"}, {
+                                "msgName": "formCheckboxError-error",
+                                "msgText": "Error helper text",
+                                "msgType": "error"
+                            }) }}
+                        </fieldset>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Liste horizontale</h3>
+            <p>Pour une disposition horizontale, ajoutez la classe <code>custom-control-inline</code> aux deux classes déjà présentes sur l'élément parent.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Checkbox inline</legend>
+
+                            {{ form.checkbox('formCheckboxInline', null, 'Checkbox', {'inline': true}) }}
+                            {{ form.checkbox('formCheckboxInlineChecked', true, 'Checkbox checked', {'inline': true}) }}
+                            {{ form.checkbox('formCheckboxInlineRequired', null, 'Checkbox required', {"required": "required", 'inline': true}) }}
+                            {{ form.checkbox('formCheckboxInlineLink', null, 'Checkbox with link. Oui j’accepte la <a href="#">politique de protection des données personnelles</a>', {"required": "required", 'inline': true}) }}
+                            {{ form.checkbox('formCheckboxInlineDisabled', null, 'Checkbox disabled', {"disabled": "disabled", 'inline': true}) }}
+                            {{ form.checkbox('formCheckboxInlineDisabledChecked', true, 'Checkbox disabled checked', {"disabled": "disabled", 'inline': true}) }}
+
+                            {{ form.checkbox('formCheckboxInlineDesc', null, 'Checkbox with description', {'inline': true}, {
+                                "msgName": "formCheckboxInlineDesc-desc",
+                                "msgText": "Description helper text"
+                            } ) }}
+                            {{ form.checkbox('formCheckboxInlineError', null, 'Checkbox with error', {"aria-invalid": "true", "class": "is-invalid", 'inline': true}, {
+                                "msgName": "formCheckboxInlineError-error",
+                                "msgText": "Error helper text",
+                                "msgType": "error"
+                            }) }}
+                        </fieldset>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Les boutons radios</h2>
+            <p>Ils n'autorisent l'utilisateur qu'à sélectionner une seule option dans une liste.</p>
+
+            <h3>Liste verticale</h3>
+            <p>Comme pour les <code>checkbox</code>, la disposition par défaut est verticale.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Radio</legend>
+
+                            {{ form.radio('formRadio', null, 'Radio', {'id': 'formRadioDefault'}) }}
+                            {{ form.radio('formRadio', true, 'Radio checked', {'id': 'formRadioChecked'}) }}
+                            {{ form.radio('formRadio', null, 'Radio required', {'id': 'formRadioRequired', "required": "required"}) }}
+                            {{ form.radio('formRadio', null, 'Radio disabled', {'id': 'formRadioDisabled', "disabled": "disabled"}) }}
+                            {{ form.radio('formRadio2', true, 'Radio disabled checked', {'id': 'formRadioDisabledChecked', "disabled": "disabled"}) }}
+
+                            {{ form.radio('formRadio', null, 'Radio with description', {'id': 'formRadioDesc'}, {
+                                "msgName": "formRadioDesc-desc",
+                                "msgText": "Description helper text"
+                            } ) }}
+                        </fieldset>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Liste horizontale</h3>
+            <p>Pour une disposition en ligne, ajouter sur chaque <code>div</code> parent la classe <code>custom-control-inline</code> aux deux préexistantes que sont <code>custom-control</code> et <code>custom-radio</code>.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Radio inline</legend>
+
+                            {{ form.radio('formRadioInline', null, 'Radio', {'id': 'formRadioInlineDefault', 'inline': true}) }}
+                            {{ form.radio('formRadioInline', true, 'Radio checked', {'id': 'formRadioInlineChecked', 'inline': true}) }}
+                            {{ form.radio('formRadioInline', null, 'Radio required', {'id': 'formRadioInlineRequired', "required": "required", 'inline': true}) }}
+                            {{ form.radio('formRadioInline', null, 'Radio disabled', {'id': 'formRadioInlineDisabled', "disabled": "disabled", 'inline': true}) }}
+                            {{ form.radio('formRadioInline2', true, 'Radio disabled checked', {'id': 'formRadioInlineDisabledChecked', "disabled": "disabled", 'inline': true}) }}
+
+                            {{ form.radio('formRadioInline', null, 'Radio with description', {'id': 'formRadioInlineDesc', 'inline': true}, {
+                                "msgName": "formRadioInlineDesc-desc",
+                                "msgText": "Description helper text"
+                            } ) }}
+
+                        </fieldset>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Erreur</h3>
+            <p>Si un bouton radio doit obligatoirement être sélectionné et que ce n'est pas le cas à l'envoi du formulaire, la méthode la plus robuste pour informer les lecteurs d'écran avec un timing adapté est d'ajouter le message d'erreur au contenu de <code>&lt;legend&gt;</code>.</p>
+            <p>Si le message d'erreur n'est pas visuellement proche de la légende, la technique est d'avoir 2 messages: un pour les lecteurs d'écran uniquement, dans la légende; et un affiché, pour les utilisateurs voyants, mais caché aux lecteurs d'écran pour éviter toute répétition. Voici un exemple :</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group is-invalid">
+                        <fieldset>
+                            <legend>Radio legend <span class="form-required" title="Ce champ est requis">*</span> <span class="sr-only">Veuillez choisir une des options.</span></legend>
+
+                            {{ form.radio('formRadioInlineError', null, 'Option 1', {'id': 'formRadioInlineError1', "aria-invalid": "true", "class": "is-invalid", 'inline': true} ) }}
+                            {{ form.radio('formRadioInlineError', null, 'Option 2', {'id': 'formRadioInlineError2', "aria-invalid": "true", "class": "is-invalid", 'inline': true} ) }}
+                            {{ form.radio('formRadioInlineError', null, 'Option 3', {'id': 'formRadioInlineError3', "aria-invalid": "true", "class": "is-invalid", 'inline': true} ) }}
+                            {{ form.msg('formRadioInlineError-error',  "Veuillez choisir une des options.", 'error', {'aria-hidden': 'true'}) }}
+                        </fieldset>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        {#
+        <h2>Switches</h2>
+        <div class="form-group">
+            <fieldset>
+                <legend>Switches</legend>
+
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
+                    <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
+                </div>
+            </fieldset>
+        </div>
+        #}
+
+        <div class="sg-block-space">
+            <h3>Radio sous forme de boîte</h3>
+            <p>Pour obtenir cette apparence, il faut englober l'ensemble des <code>div.custom-radio.custom-control</code> dans un parent portant la classe <code>.custom-radio-box</code>.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Radio sous forme de boîte</legend>
+
+                            <div class="custom-radio-box">
+                                {{ form.radio('formRadioInlineBox', null, 'Radio', {'id': 'formRadioInlineDefaultBlock1', 'inline': true}) }}
+                                {{ form.radio('formRadioInlineBox', true, 'Radio checked', {'id': 'formRadioInlineDefaultBlock2', 'inline': true}) }}
+                                {{ form.radio('formRadioInlineBox', null, 'Radio', {'id': 'formRadioInlineDefaultBlock3', 'inline': true}) }}
+                            </div>
+                        </fieldset>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+    </div>
+
+{% endblock %}

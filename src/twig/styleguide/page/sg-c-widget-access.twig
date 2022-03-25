@@ -1,0 +1,29 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = "Widget d'accessibilité" %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "Ce composant est situé dans l'en-tête. Il permet de renforcer les contrastes de couleur afin d'être conforme au RGAA."
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-widget-access.twig" %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Utilisation</h2>
+            <p>Des attributs sont ajoutés sur le <code>html</code> pour modifier la CSS en conséquence.</p>
+            <p>Notamment, ajout de l'attribut <code>data-contrast="high-c"</code> quand l'option "constrastes renforcés" est activée, ce qui permet de faire les modifications de couleurs nécessaires.</p>
+        </div>
+    </div>
+
+{% endblock %}

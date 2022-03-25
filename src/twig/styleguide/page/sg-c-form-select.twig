@@ -1,0 +1,93 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Liste déroulante' %}
+{% set selectValues = {
+    '1': 'value 1',
+    '2': 'value 2',
+    '3': 'value 3'
+} %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: "La liste déroulante permet à l'utilisateur de choisir un élément dans une liste préétablie."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Le champ liste déroulante</h2>
+            <p>C'est l'élément <code>select</code> qui est la base de toute liste déroulante.</p>
+            <h3>Par défaut</h3>
+            <p>Elle se compose d'une liste de <code>option</code> contenues dans le <code>select</code>. Celui-ci doit obligatoirement comporter un <code>label</code>.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formSelect', "Select label") }}
+                        {{ form.select('formSelect', selectValues, null) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Les différents états</h2>
+            <p>Les champs de saisie permettent à un utilisateur d'entrer du contenu et des données.</p>
+
+            <h3>Champ obligatoire</h3>
+            <p>Ajoutez un astérisque au <code>label</code> pour informer qu’un élément est obligatoire (en précisant en haut ou en bas du formulaire que l'astérisque pointe les champs obligatoires). Si tous les éléments sont obligatoires, indiquez-le au début du formulaire.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formSelectRequired', "Select label", true) }}
+                        {{ form.select('formSelectRequired', selectValues, null, {"required": "required"}) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Désactivé</h3>
+            <p>L'attribut <code>disabled</code> rend impossible la sélection d'un <code>option</code> ainsi que le focus sur l'élément <code>select</code>, par exemple jusqu'à ce qu'une certaine condition ait été remplie (par exemple, qu'une action soit terminée comme cocher un <code>checkbox</code>).</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formSelectDisabled', "Select label") }}
+                        {{ form.select('formSelectDisabled', selectValues, null, {"disabled": "disabled"}) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Message</h3>
+            <p>Un texte d’aide sous le <code>label</code> est une bonne pratique pour faciliter le choix de l’utilisateur. Il doit être affiché en-dessous.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formSelectDesc', "Select label") }}
+                        {{ form.select('formSelectDesc', selectValues, null, {"aria-describedby": "formSelectDesc-desc"}) }}
+                        {{ form.msg('formSelectDesc-desc',  "Message d'aide à la saisie") }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Message d’erreur</h3>
+            <p>Comme pour les autres éléments de formulaire, l'état d'erreur est matérialisé par l'ajout de la classe <code>is-invalid</code> sur le <code>div</code> englobant et le <code>select</code>. Cela colore en rouge les bordures et le texte. Les messages d’erreur doivent être explicites et des suggestions de correction doivent être apportées.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group is-invalid">
+                        {{ form.label('formSelectError', "Select label") }}
+                        {{ form.select('formSelectError', selectValues, null, {"aria-invalid": "true", "aria-describedby": "formSelectError-error", "class": "is-invalid"}) }}
+                        {{ form.msg('formSelectError-error',  "Message d'erreur explicite") }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

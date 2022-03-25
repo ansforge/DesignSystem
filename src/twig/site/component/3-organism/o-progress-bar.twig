@@ -1,0 +1,41 @@
+<div class="o-progress-bar">
+    <span class="sr-only">Préparation de la carte, étape 2 sur 3</span>
+    <ol>
+        <li class="o-progress-bar--checked">
+            <div class="o-progress-bar__img">
+                {% include "../1-atom/a-img.twig" with {
+                    imgUrl: 'img/pictogrammes-illustratifs/Carte_CPS.svg',
+                    imgWidth: '89',
+                    imgHeight: '74'
+                } %}
+            </div>
+            <span class="o-progress-bar__indicator"></span>
+            <p class="o-progress-bar__number sr-only">Étape 1 validé</p>
+            <p class="o-progress-bar__name">Prise en compte de la commande</p>
+        </li>
+        <li class="o-progress-bar--current">
+            <div class="o-progress-bar__img">
+                {% include "../1-atom/a-img.twig" with {
+                    imgUrl: 'img/pictogrammes-illustratifs/Preparation.svg',
+                    imgWidth: '78',
+                    imgHeight: '78'
+                } %}
+            </div>
+            <span class="o-progress-bar__indicator"></span>
+            <p class="o-progress-bar__number sr-only">Étape 2 en cours</p>
+            <p class="o-progress-bar__name">Préparation de la carte</p>
+        </li>
+        <li>
+            <div class="o-progress-bar__img">
+                {% include "../1-atom/a-img.twig" with {
+                    imgUrl: 'img/pictogrammes-illustratifs/Expedition.svg',
+                    imgWidth: '92',
+                    imgHeight: '63'
+                } %}
+            </div>
+            <span class="o-progress-bar__indicator"></span>
+            <p class="o-progress-bar__number sr-only">Étape 3</p>
+            <p class="o-progress-bar__name">Expédition de la carte</p>
+        </li>
+    </ol>
+</div>

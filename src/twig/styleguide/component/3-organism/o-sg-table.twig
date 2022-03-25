@@ -1,0 +1,34 @@
+<table class="table table-bordered sg-table">
+    {% if caption %}<caption class="sr-only">{{ caption }}</caption>{% endif %}
+    <thead>
+        <tr>
+            {% for item in thead %}
+                <th scope="col"> {{ item.theadHead }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for item_body in tbody %}
+            <tr>
+                <td class="tbody-color">
+                    <span class="{% if item_body.tbodyColor %}bg-{{ item_body.tbodyColor }}{% endif %}"></span>
+                </td>
+                <td class="tbody-code">
+                    {% if item_body.tbodyCode_name %}
+                        <p class="fw-semiBold text-default mb-0">{{ item_body.tbodyCode_name }}</p>
+                    {% endif %}
+                    {% if item_body.tbodyCode_hex %}
+                        <p class="fz-16">{{ item_body.tbodyCode_hex }}</p>
+                    {% endif %}
+                </td>
+                <td class="tbody-usage wysiwyg">
+                    <ul>
+                        {% for usage in item_body.tbodyUsage %}
+                            <li>{{usage.tbodyUsage_list}}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

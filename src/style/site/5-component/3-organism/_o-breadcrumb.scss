@@ -1,0 +1,12 @@
+.breadcrumb-item {
+    font-size: 1.6rem;
+
+    svg {
+        margin-left: $breadcrumb-item-padding;
+        margin-top: -0.1rem;
+    }
+
+    a {
+        @include link-inverse;
+    }
+}

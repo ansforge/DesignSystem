@@ -1,0 +1,331 @@
+{% extends "../../_layout.twig" %}
+
+{% set title = 'Formulaire' %}
+
+{% block main %}
+
+    {# Reprise des composants en copiant le code fourni dans le design system #}
+    <div class="container">
+
+        {# Message d'erreur #}
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="o-alert o-alert--error" role="alert">
+                    <div class="o-alert__icon">
+                        <svg class="svg-icon svg-circle-cross" aria-hidden="true" focusable="false">
+                            <use xlink:href="svg-icons/icon-sprite.svg#circle-cross"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="o-alert__title">Error message</h2>
+
+                    <p>Probabo inquit modo dixi constituto ut ad eam non numquam eius modi tempora incidunt ut calere ignem nivem esse ratione intellegi</p>
+
+                    <button type="button" class=" btn btn--close btn--icon-only">
+                        <svg class="svg-icon svg-close" aria-hidden="true" focusable="false">
+                            <use xlink:href="svg-icons/icon-sprite.svg#close"></use>
+                        </svg>
+                        <span class="sr-only">Masquer ce message</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        {# Stepper #}
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="o-stepper">
+                    <ul>
+                        <li class="o-stepper--checked">
+                            <a href="#">
+                                <span class="o-stepper__indicator" aria-hidden="true"></span>
+                                <span class="o-stepper__number">Étape 1
+                                    <span class="sr-only">Etape validé</span>
+                                </span>
+                                <span class="o-stepper__name">Profession et justificatifs</span>
+                            </a>
+                        </li>
+                        <li class="o-stepper--current">
+                            <a href="#">
+                                <span class="o-stepper__indicator" aria-hidden="true">2</span>
+                                <span class="o-stepper__number">Étape 2
+                                    <span class="sr-only">Etape en cours</span>
+                                </span>
+                                <span class="o-stepper__name">Activités</span>
+                            </a>
+                        </li>
+                        <li>
+                            <span class="o-stepper__indicator" aria-hidden="true">3</span>
+                            <span class="o-stepper__number">Étape 3</span>
+                            <span class="o-stepper__name">Validation</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        {# Zone titre + chapô #}
+        <div class="row justify-content-center text-center">
+            <div class="col-md-10 col-lg-8">
+                <p class="subtitle">Surtitre. Lorem ipsum dolor</p>
+                <h1>Titre h1</h1>
+                <p class="lead">Chapô. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis itaque dolores alias iste hic, exercitationem perspiciatis beatae quaerat possimus doloribus maiores, cum aut ullam optio voluptatum <a href="#" target="_blank">veritatis assumenda</a> a odio?</p>
+                <p class="fz-16">Le symbole * indique les champs obligatoires</p>
+            </div>
+        </div>
+
+        {# Content #}
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                {# Progress bar #}
+                <div class="o-progress-bar">
+                    <ul>
+                        <li class="o-progress-bar--checked">
+                            <div class="o-progress-bar__img">
+
+
+                                <img src="img/pictogrammes-illustratifs/Carte_CPS.svg" alt="" width="89" height="74">
+
+
+                            </div>
+                            <span class="o-progress-bar__indicator"></span>
+                            <p class="o-progress-bar__number sr-only">Étape 1 validé</p>
+                            <p class="o-progress-bar__name">Prise en compte de la commande</p>
+                        </li>
+                        <li class="o-progress-bar--current">
+                            <div class="o-progress-bar__img">
+
+
+                                <img src="img/pictogrammes-illustratifs/Preparation.svg" alt="" width="78" height="78">
+
+
+                            </div>
+                            <span class="o-progress-bar__indicator"></span>
+                            <p class="o-progress-bar__number sr-only">Étape 2 en cours</p>
+                            <p class="o-progress-bar__name">Préparation de la carte</p>
+                        </li>
+                        <li>
+                            <div class="o-progress-bar__img">
+
+
+                                <img src="img/pictogrammes-illustratifs/Expedition.svg" alt="" width="92" height="63">
+
+
+                            </div>
+                            <span class="o-progress-bar__indicator"></span>
+                            <p class="o-progress-bar__number sr-only">Étape 3</p>
+                            <p class="o-progress-bar__name">Expédition de la carte</p>
+                        </li>
+                    </ul>
+                </div>
+
+                {# Form #}
+                <form>
+                    <fieldset class="form-box">
+                        <legend class="form-box__title">Votre profession</legend>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non aliquam odit ipsa dolor nam ut illum eius amet laboriosam id omnis alias, quasi, autem est, laudantium fugit. Alias, molestias? Tempore!</p>
+
+                        <div class="form-group">
+                            <label for="formSelectRequired">Sélection d'une profession
+                                <span class="form-required" title="Ce champ est requis">*</span>
+                            </label>
+
+                            <select class="form-control" name="formSelectRequired" required="required" id="formSelectRequired">
+                                <option value="1">value 1</option>
+                                <option value="2">value 2</option>
+                                <option value="3">value 3</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formNomEx">Nom d'exercice
+                                <span class="form-required" title="Ce champ est requis">*</span>
+                            </label>
+                            <button type="button" data-toggle="tooltip" data-placement="top" data-html="true" title="<h2>Titre de l'infobulle</h2><p>Epicurus in ea commodi consequatur quis autem vel illum qui dolorem</p>">
+                                <svg class="svg-icon svg-question-circle" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#question-circle"></use></svg>
+                                <span class="sr-only">Aide</span>
+                            </button>
+
+                            <input class="form-control" name="formNomEx" type="text" required="required" aria-describedby="formNomEx-desc" id="formNomEx"/>
+                            <p class="description" id="formNomEx-desc">Le nom d’exercice est public. Il sert à orem ipsum dolor sit amet, consectetur</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formPrenomEx2">Prénom d'exercice
+                                <span class="form-required" title="Ce champ est requis">*</span>
+                            </label>
+
+                            <input class="form-control" name="formPrenomEx2" type="text" value="Fabienne" required="required" id="formPrenomEx2"/>
+                        </div>
+
+                        <div class="form-group">
+                            <fieldset>
+                                <legend>
+                                    Radio sous forme de boîte
+                                    <button type="button" data-toggle="tooltip" data-placement="top" data-html="true" title="<h2>Titre de l'infobulle</h2><p>Epicurus in ea commodi consequatur quis autem vel illum qui dolorem</p>">
+                                        <svg class="svg-icon svg-question-circle" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#question-circle"></use></svg>
+                                        <span class="sr-only">Aide</span>
+                                    </button>
+                                </legend>
+
+                                <div class="custom-radio-box">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" name="formRadioInline1" id="formRadioInlineDefaultBlock1">
+                                        <label class="custom-control-label" for="formRadioInlineDefaultBlock1">DMP (Dossier Médical Partagé)</label>
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" name="formRadioInline1" id="formRadioInlineDefaultBlock2" checked="checked">
+                                        <label class="custom-control-label" for="formRadioInlineDefaultBlock2">MS Santé (Messagerie Sécurisée de Santé)</label>
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" name="formRadioInline1" id="formRadioInlineDefaultBlock3">
+                                        <label class="custom-control-label" for="formRadioInlineDefaultBlock3">Autre usage</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset class="form-box">
+                        <legend class="form-box__title">Informations sur votre diplôme ou votre autorisation d'exercice</legend>
+
+                        <div class="form-group">
+                            <fieldset>
+                                <legend>Quel document justifie l'exercice de cette profession ?</legend>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" name="formRadioInline" id="formRadioInlineDefault" checked="checked">
+                                    <label class="custom-control-label" for="formRadioInlineDefault">Diplôme</label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" name="formRadioInline" id="formRadioInlineChecked">
+                                    <label class="custom-control-label" for="formRadioInlineChecked">Autorisation d'exercice</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="form-group form-group--date">
+                            <label for="formDate">Date d’obtention du diplôme (jj/mm/aaaa)
+                                <span class="form-required" title="Ce champ est requis">*</span>
+                            </label>
+
+                            <div class="form-group-wrap form-group-wrap--right">
+                                <input class="form-control" name="formDate" type="date" id="formDate" required="required"/>
+                                <svg class="svg-icon svg-calendar" aria-hidden="true" focusable="false">
+                                    <use xlink:href="svg-icons/icon-sprite.svg#calendar"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="form-group is-invalid">
+                            <label for="formInputError">Input label avec champs en erreur</label>
+                            <input class="form-control is-invalid" name="formInputError" type="text" aria-invalid="true" aria-describedby="formInputError-error" class="is-invalid" id="formInputError"/>
+                            <p class="description" id="formInputError-error">Error helper text</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formInputDesc">Input label avec description</label>
+                            <input class="form-control" name="formInputDesc" type="text" aria-describedby="formInputDesc-desc" id="formInputDesc"/>
+                            <p class="description" id="formInputDesc-desc">Description helper text</p>
+                        </div>
+
+                        <p class="mb-1"><a href="#" class=" btn--icon-before"><svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use></svg>Quod maxime consuevit    </a></p>
+                        <p class="mb-1"><a href="#" target="_blank" class=" btn--icon-before"><svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use></svg>Lorem, ipsum dolor sit amet consectetur adipisicing elit</a></p>
+                    </fieldset>
+
+                    {# Form recap #}
+                    <div class="form-box">
+                        <h2 class="form-box__title">Récapitulatif du formulaire</h2>
+
+                        <div class="form-recap">
+                            <div class="form-recap-content">
+                                <p>
+                                    <span class="entitled">Profession sélectionnée :
+                                    </span>Psychomotricien</p>
+                                <p>
+                                    <span class="entitled">Nom d'exercice:
+                                    </span>Tobard</p>
+                                <p>
+                                    <span class="entitled">Prénom d'exercice:
+                                    </span>Fabienne</p>
+                                <p>
+                                    <span class="entitled">Adresse d'expédition:
+                                    </span>51 avenue Antoine Borrel - 73700 Bourg-Saint-Maurice</p>
+                            </div>
+                        </div>
+
+                        <div class="form-recap">
+                            <h3 class="form-recap-title">
+                                <span class="title">Profession</span>
+                            </h3>
+                            <div class="form-recap-content">
+                                <p>
+                                    <span class="entitled">Profession sélectionnée :
+                                    </span>Psychomotricien</p>
+                                <p>
+                                    <span class="entitled">Nom d'exercice:
+                                    </span>Tobard</p>
+                                <p>
+                                    <span class="entitled">Prénom d'exercice:
+                                    </span>Fabienne</p>
+                            </div>
+                        </div>
+
+                        <div class="form-recap">
+                            <h3 class="form-recap-title">
+                                <span class="title">Diplôme</span>
+                            </h3>
+                            <div class="form-recap-content">
+                                <p>
+                                    <span class="entitled">Justificatif :
+                                    </span>Diplôme de psychomotricien</p>
+                                <p>
+                                    <span class="entitled">Obtenu le :
+                                    </span>30 juin 2019</p>
+                                <p>
+                                    <span class="entitled">Lieu de formation :
+                                    </span>Île-de-France</p>
+                                <p>
+                                    <a href="#" class=" btn--icon-before">
+                                        <svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false">
+                                            <use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use>
+                                        </svg>Voir le diplôme
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h3 class="title--icon">
+                            <svg class="svg-icon svg-circle-info" aria-hidden="true" focusable="false">
+                                <use xlink:href="svg-icons/icon-sprite.svg#circle-info"></use>
+                            </svg>
+                            En cas d'information inexacte</h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime, sunt vitae quibusdam accusantium facere
+                            <a href="#" target="_blank">Rem, eveniet, atque asperiores sed quisquam quis esse</a>
+                        </p>
+
+                        {# Custom block #}
+                        <div class="bg-gray-100 border rounded p-3 mb-3">
+                            <h3 class="h5">Habilitations des Gestionnaires ARS (GARS)</h3>
+                            <p>Habilitation des GARS à l’enregistrement du personnel de santé.</p>
+                            {# Button add #}
+                            <button type="button"    class=" btn btn--add btn--icon-before"><svg class="svg-icon svg-circle-cross" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#circle-cross"></use></svg>Ajouter lorem ipsum    </button>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn--ghost btn--default">Bouton secondaire</button>
+                        <button type="submit" class="btn btn--plain btn--primary">Bouton primaire</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<div class="o-sg-do-dont">
+    {% if imgUrl %}
+        <div class="o-sg-do-dont__media">
+            {% include "../../../site/component/1-atom/a-img.twig" %}
+        </div>
+    {% endif %}
+
+    {% if doDontText %}
+        <div class="o-sg-do-dont__content">
+            {% if doDontStatus == 'do' %}
+                <div class="o-sg-do-dont__icon o-sg-do-dont--do">{{ macro.svg("check") }}</div>
+                <p class="sr-only">A faire :</p>
+            {% endif %}
+            {% if doDontStatus == 'dont' %}
+                <div class="o-sg-do-dont__icon o-sg-do-dont--dont">{{ macro.svg("close") }}</div>
+                <p class="sr-only">A ne pas faire :</p>
+            {% endif %}
+            <p>{{ doDontText }}</p>
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,41 @@
+<header class="header sg-header-principal" role="banner">
+    <div class="sg-header-principal--left">
+        <div class="sg-header-principal__logo">
+            {% include "../../site/structure/logos.twig" with {
+                logos: [
+                    {
+                        logoUrl: "img/logo-ministere.svg",
+                        logoAlt: 'Ministère des Solidarités et de la Santé',
+                        logoHref: "https://solidarites-sante.gouv.fr/",
+                        logoWidth: "84",
+                        logoHeight: "62"
+                    },
+                    {
+                        logoUrl: siteLogo,
+                        logoAlt: 'Accueil ' ~ siteName,
+                        logoHref: "index.html",
+                        logoWidth: "166",
+                        logoHeight: "50"
+                    }
+                ]
+            } %}
+        </div>
+        <div class="sg-header-principal__nav">
+            <nav class="navbar navbar-expand-lg navbar-light" role="navigation" aria-label="Menu principal mobile" tabindex="-1" id="SGmenuPrincipalMobileTarget">
+                <button class="navbar-toggler btn--plain btn--primary" type="button" data-toggle="collapse" data-target="#SGmenuPrincipalMobile" aria-controls="SGmenuPrincipalMobile" aria-expanded="false">
+                    {{ macro.svg("menu") }}
+                    <span class="navbar-toggler--text sr-only">Menu</span>
+                </button>
+
+                <div class="navbar-collapse collapse sg-navbar-collapse" id="SGmenuPrincipalMobile">
+                    <button class="navbar-toggler-close sg-navbar-toggler-close btn-close" type="button" data-toggle="collapse" data-target="#SGmenuPrincipalMobile" aria-controls="SGmenuPrincipalMobile" aria-expanded="false">
+                        {{ macro.svg("close") }}
+                        <span class="sr-only">Fermer le menu</span>
+                    </button>
+
+                    {% include "_nav-primary.twig" %}
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,22 @@
+// only suppress the focus ring once what-input has successfully started
+// suppress focus ring on form controls for mouse users
+
+// Note: If you remove outlines with outline: none;, be sure to provide clear visual :focus styles so the user can see which element they are on at any time for greater accessibility. Visit W3C's WCAG 2.0 2.4.7 Guideline to learn more.
+
+[data-whatintent='mouse'] *:focus,
+[data-whatintent='touch'] *:focus {
+    outline: none;
+}
+
+[data-whatintent='keyboard'] {
+    *:focus {
+        outline: 0.2rem dashed;
+        outline-offset: 0.3rem;
+    }
+
+    .custom-control-input:focus ~ .custom-control-label::before,
+    .o-widget-access input:focus ~ label {
+        outline: 0.2rem dashed var(--body-color);
+        outline-offset: 0.3rem;
+    }
+}

@@ -1,0 +1,49 @@
+// Copy bootstrap mixins and removing unnecessary code
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin aw-button-variant(
+    $default-color, $default-background, $default-border,
+    $hover-color, $hover-background, $hover-border,
+    $active-color, $active-background, $active-border,
+    $outline-color
+){
+    color: $default-color;
+    background-color: $default-background;
+    border-color: $default-border;
+    outline-color: $outline-color;
+
+    // Hover and active effects only when it's an <a> or <button>
+    // https://stackoverflow.com/questions/43485109/sass-scss-nest-selector-with-parent
+    @include hover() {
+        // @at-root a#{&}, button#{&}, input#{&}, label#{&} {
+            color: $hover-color;
+            background-color: $hover-background;
+            border-color: $hover-border;
+        // }
+    }
+
+    &:active {
+        // @at-root a#{&}, button#{&}, input#{&}, label#{&} {
+            color: $active-color;
+            background-color: $active-background;
+            border-color: $active-border;
+        // }
+    }
+
+    &:focus {
+        outline-color: $outline-color;
+    }
+}
+
+// Button sizes
+@mixin button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
+    padding: $padding-y $padding-x;
+    @include font-size($font-size);
+    line-height: $line-height;
+    // Manually declare to provide an override to the browser default
+    @include border-radius($border-radius, 0);
+}

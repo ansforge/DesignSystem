@@ -1,0 +1,75 @@
+{# Need JS for accessibility #}
+{% set counter = counter|default(1) %}
+
+{% if navItems %}
+<ul class="navbar-nav nav-lvl--{{ counter }}">
+    {% for item in navItems %}
+        <li class="nav-item {%- if item.isActive %} is-active{% endif %} common-nav-item">
+            {# Item has an href + has children #}
+            {% if item.hasChild and item.link %}
+                <a class="nav-link" href="{{ item.link }}"{% if item.target %} target="{{ item.target }}"{% endif %}>
+                    {{- item.text -}}
+                    {%- if item.isActive %} <span class="sr-only">(page courante)</span>{% endif -%}
+                </a>
+
+                {# If item is collapsed, add button to show/hide children #}
+                {% if item.isCollapsed %}
+                    <button class="btn nav-btn-collapse" type="button"
+                        data-toggle="collapse"
+                        data-target="#sg-nav-collapse-submenu-{{ loop.parent.loop.index }}-{{ loop.index0 }}"
+                        aria-controls="sg-nav-collapse-submenu-{{ loop.parent.loop.index}}-{{ loop.index0 }}"
+                        aria-expanded="false"
+                        data-is-opened-text="Fermer"
+                        data-is-closed-text="Déplier"
+                    >
+                        <span class="sr-only"><span class="nav-btn-collapse-action">Déplier</span> la rubrique {{ item.text }}</span>
+                        {{ macro.svg("angle-down") }}
+                    </button>
+
+                    <div class="collapse nav-collapse" id="sg-nav-collapse-submenu-{{ loop.parent.loop.index }}-{{ loop.index0 }}">
+                        <div class="nav-collapse-inner">
+                {% endif %}
+
+                        {% include "navbar-nav.twig" with {
+                            counter: counter + 1,
+                            navItems: item.hasChild,
+                        } %}
+
+                {% if item.isCollapsed %}
+                        </div>
+                    </div>
+                {% endif %}
+
+            {# Item has no href + has children #}
+            {% elseif item.hasChild %}
+                <button class="nav-link" type="button"
+                    data-toggle="collapse"
+                    data-target="#sg-nav-collapse-submenu-{{ loop.parent.loop.index }}-{{ loop.index0 }}"
+                    aria-controls="sg-nav-collapse-submenu-{{ loop.parent.loop.index}}-{{ loop.index0 }}"
+                    aria-expanded="false"
+                >
+                    {{- item.text -}}
+                    {%- if item.isActive %} <span class="sr-only">(page courante)</span>{% endif -%}
+                    {{ macro.svg("angle-down") }}
+                </button>
+
+                <div class="collapse nav-collapse" id="sg-nav-collapse-submenu-{{ loop.parent.loop.index }}-{{ loop.index0 }}">
+                    <div class="nav-collapse-inner">
+                        {% include "navbar-nav.twig" with {
+                            counter: counter + 1,
+                            navItems: item.hasChild,
+                        } %}
+                    </div>
+                </div>
+
+            {# Item has an href + no children #}
+            {% else %}
+                <a class="nav-link" href="{{ item.link }}"{% if item.target %} target="{{ item.target }}"{% endif %}>
+                    {{- item.text -}}
+                    {%- if item.isActive %} <span class="sr-only">(page courante)</span>{% endif -%}
+                </a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}

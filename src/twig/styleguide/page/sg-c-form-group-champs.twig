@@ -1,0 +1,166 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Groupe de champs' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: "Dans certains cas, il peut être justifié de grouper des champs de formulaire pour les rendre plus faciles à comprendre et à utiliser. La présence d'un lien sémantique entre ces différents champs conditionne l'utilisation ou non d'un élément englobant <code>fieldset</code>."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>{{ title }} avec sémantique</h2>
+            <p>Lorsqu'il existe un lien sémantique entre ces différents champs, on utilise l'élément <code>fieldset</code>. 
+            <br>Le fieldset contient obligatoirement un legend comme premier enfant.</p>
+
+            <h3>Groupe de champs par rapprochement sémantique</h3>
+            <p>C'est le cas général où l'on va rapprocher plusieurs champs qui portent sur un même sujet.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <fieldset class="form-box">
+                        <legend class="form-box__title">Votre adresse</legend>
+
+                        <div class="form-group">
+                            {{ form.label('formInput3', "Rue") }}
+                            {{ form.text('formInput3', null) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.label('formInput4', "Ville") }}
+                            {{ form.text('formInput4', null) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.label('formInput5', "Pays") }}
+                            {{ form.text('formInput5', null) }}
+                        </div>
+                    </fieldset>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <h3>Pour différencier des champs aux mêmes intitulés</h3>
+        <p>Par ailleurs, les balises <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code> sont systématiquement à utiliser lorsque plusieurs groupes de champs disposent d’intitulés identiques.</p>
+
+        {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <fieldset class="form-box">
+                        <legend class="form-box__title">Adresse de facturation</legend>
+
+                        <div class="form-group">
+                            {{ form.label('formInput6', "Prénom") }}
+                            {{ form.text('formInput6', null) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.label('formInput7', "Nom") }}
+                            {{ form.text('formInput7', null) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.label('formInput8', "Ville") }}
+                            {{ form.text('formInput8', null) }}
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-box">
+                        <legend class="form-box__title">Adresse de livraison</legend>
+
+                        <div class="form-group">
+                            {{ form.label('formInput9', "Prénom") }}
+                            {{ form.text('formInput9', null) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.label('formInput10', "Nom") }}
+                            {{ form.text('formInput10', null) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.label('formInput11', "Ville") }}
+                            {{ form.text('formInput11', null) }}
+                        </div>
+                    </fieldset>
+                {% endblock %}
+            {% endembed %}
+            
+
+            <h3>Groupe de certains champs spécifiques</h3>
+            <p>Il s'agit des boutons <code>radio</code> et des <code>checkbox</code>.</p>
+            <ul>
+                <li>Les <code>radio</code>, qui doivent être au minimum de deux, sont toujours groupés dans un <code>fieldset</code>. Le <code>legend</code> pose alors la question, à laquelle les <code>radio</code> apportent les réponses possibles.</li>
+                <li>Les <code>checkbox</code> d'un même groupe sémantique doivent être englobés d'un <code>fieldset</code>, mais il est également possible d'avoir des checkboxes qui se suivent sans lien entre eux ; dans ce dernier cas, le <code>fieldset</code> n'est pas requis.</li>
+            </ul>
+
+            <h3>Sous-groupes de champs</h3>
+
+            <p>Il est tout à fait possible d'avoir des imbrications de <code>fieldset</code>.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+            {% block embedToInclude %}
+                <fieldset class="form-box">
+                    <legend class="form-box__title">Identité</legend>
+
+                    <div class="form-group">
+                        {{ form.label('formInput12', "Prénom") }}
+                        {{ form.text('formInput12', null) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.label('formInput13', "Nom") }}
+                        {{ form.text('formInput13', null) }}
+                    </div>
+                    <fieldset>
+                        <legend>Sexe</legend>
+                            {{ form.radio('formRadioInline', null, 'Féminin', {'id': 'formRadioInlineDefault', 'inline': true}) }}
+                            {{ form.radio('formRadioInline', null, 'Masculin', {'id': 'formRadioInlineChecked', 'inline': true}) }}
+                    </fieldset>
+                </fieldset>
+            {% endblock %}
+            {% endembed %}
+
+
+        <div class="sg-block-space">
+            <h2>{{ title }} sans lien sémantique</h2>
+            <p>Dans certains cas particuliers, il peut être nécessaire de subdiviser un formulaire en différentes parties, sans pour autant que les champs d'une même partie soient liés sémantiquement. L'utilisation de <code>fieldset</code> n'est alors pas forcément justifiée.
+            <br>Dans ce cas, il est toujours possible d'utiliser les balises <code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> pour titrer les groupes de champs, comme les <code>h2</code> dans l'exemple ci-dessous. À noter : cela n'empêche pas d'utiliser des <code>fieldset</code> pour les éléments qui le justifient, comme les boutons <code>radio</code> ci-dessous.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-box">
+                        <h2 class="form-box__title">Vos informations</h2>
+                        
+                        <div class="form-group">
+                            {{ form.label('formInput14', "Votre région") }}
+                            {{ form.text('formInput14', null) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.label('formInput15', "Votre message") }}
+                            {{ form.textarea('formInput15', null) }}
+                        </div>
+
+                        <div class="form-group">
+                            <fieldset>
+                                <legend>Votre sexe</legend>
+                                {{ form.radio('formRadioInline', null, 'Féminin', {'id': 'formRadioInlineDefault', 'inline': true}) }}
+                                {{ form.radio('formRadioInline', null, 'Masculin', {'id': 'formRadioInlineChecked', 'inline': true}) }}
+                            </fieldset>
+                        </div>
+
+                        <h2 class="form-box__title">Vos choix</h2>
+                        
+                        <div class="form-group">
+                            {{ form.label('formSelect', "Mon choix d'affectation") }}
+                            {{ form.select('formSelect', {'1': 'affectation 1', '2' : 'affectation 2', '3' : 'affectation 3'}, null) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.checkbox('formCheckbox', null, "J'accepte que mes données soient publiées") }}
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+        <div class="sg-block-space">
+            <h2>Ressources utiles</h2>
+            <p><a href="https://www.accessibility-developer-guide.com/examples/forms/grouping-with-fieldset-legend/" target="_blank">Page d'information sur l'utilisation des <code>fieldset</code></a></p>
+        </div>
+        
+    </div>
+
+{% endblock %}

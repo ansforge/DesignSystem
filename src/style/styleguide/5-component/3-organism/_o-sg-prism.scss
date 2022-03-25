@@ -1,0 +1,176 @@
+.o-sg-prism {
+    margin-bottom: 4.6rem;
+    background-color: $gray-100;
+    border: solid 0.1rem $border-color;
+    border-radius: 1.8rem;
+
+    &--full {
+        position: relative;
+        width: calc(100vw - var(--sg-nav-left-width) - #{$grid-gutter-width}*2);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.o-sg-prism__content {
+    padding: 4.5rem $grid-gutter-width 1.5rem $grid-gutter-width;
+
+    .o-sg-prism--nocode & {
+        padding-bottom: 4.5rem;
+    }
+
+    // styles specific for design system to present components
+    > :first-child {
+        margin-top: 0;
+    }
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    > button + button {
+        margin-left: 5rem;
+    }
+
+    .pagination {
+        margin: 0;
+    }
+
+    // Show nav skip
+    .nav-skip {
+        position: relative;
+        transform: translateY(0);
+        opacity: 1;
+        z-index: $zindex-fixed + 1;
+    }
+}
+
+.o-sg-prism--nocode .o-sg-prism__content {
+    padding-bottom: 4.5rem;
+}
+
+.o-sg-prism__code {
+    text-align: right;
+    overflow: hidden;
+    border-bottom-left-radius: 1.8rem;
+    border-bottom-right-radius: 1.8rem;
+}
+
+.o-sg-prism__button {
+    margin-right: -0.1rem;
+    margin-bottom: -0.1rem;
+    padding: 0.4rem 1.2rem;
+    font-size: 1.2rem;
+    font-weight: $fw-medium;
+    color: $black;
+    background-color: $white;
+    border: solid 0.1rem $border-color;
+    border-radius: 0.4rem;
+
+    &:not([aria-expanded="true"]) {
+        border-bottom-right-radius: 1.8rem;
+    }
+}
+
+.o-sg-prism__options {
+    margin-top: $paragraph-margin-bottom;
+    margin-bottom: 10rem;
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+        background-color: $table-bg;
+    }
+
+    caption {
+        caption-side: top;
+        padding: 0;
+    }
+
+    th,
+    td {
+        padding: $table-cell-padding;
+        vertical-align: top;
+        border-top: $table-border-width solid $table-border-color;
+        border-bottom: $table-border-width solid $table-border-color;
+    }
+
+    th {
+        font-weight: 700;
+        color: $table-head-color;
+        background-color: $table-head-bg;
+        border-color: $table-border-color;
+    }
+
+    thead th {
+        vertical-align: bottom;
+        border-bottom: (2 * $table-border-width) solid $table-border-color;
+    }
+
+    .table-bordered {
+        border: $table-border-width solid $table-border-color;
+
+        th,
+        td {
+            border: $table-border-width solid $table-border-color;
+        }
+
+        thead {
+            th,
+            td {
+                border-bottom-width: 2 * $table-border-width;
+            }
+        }
+    }
+
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+.o-sg-prism__collapse {
+    padding-top: 0.1rem;
+}
+
+.sg-demo--border .o-sg-prism__content > div {
+    margin: 3rem;
+    height: 20rem;
+    width: 35rem;
+}
+
+.sg-demo {
+    .border {
+        background-color: $white;
+    }
+}
+
+.sg-demo--padding {
+    .border {
+        margin: 0.5rem;
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    // center components
+    .o-sg-prism:not(.o-sg-prism--full) {
+        display: flex;
+        flex-direction: column;
+
+        .o-sg-prism__content {
+            max-width: $prism-component-max-width + $grid-gutter-width*2;
+            margin: auto;
+
+            > .form-group .form-control,
+            .o-stepper,
+            .o-progress-bar,
+            > .btn--add,
+            .custom-radio-box {
+                width: $prism-component-max-width;
+            }
+        }
+    }
+}

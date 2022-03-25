@@ -1,0 +1,77 @@
+{% set siteName = (siteName|default("ANS")) %}
+{% set siteLogo = './img/logo-ANS.svg' %}
+{% set title = (title|default("")) %}
+{% set bodyclass = (bodyclass|default("")) %}
+
+<!DOCTYPE html>
+<html lang="fr" class="no-js {%- if isStyleguide %} sg{% endif -%}" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>{%- if title %}{{ title }} - {% endif -%}{{ siteName }}</title>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="https://use.typekit.net/jjx2ksb.css"> {# Futura PT #}
+        <link rel="stylesheet" href="./style/style-ans.css" type="text/css">
+        <link rel="stylesheet" href="./style/print.css" type="text/css" media="print">
+        {% block styles_more %}{% endblock %}
+
+        {% block script_top %}{% endblock %}
+    </head>
+    <body>
+        {# Call macros to use them on all pages #}
+        {% import './site/component/0-macro/macro-form-element.twig' as form %}
+        {% import './site/component/0-macro/macro-svg-icons.twig' as macro %}
+
+        <noscript>
+            <p class="js-off">Javascript est désactivé dans votre navigateur.</p>
+        </noscript>
+
+        {% block cookies %}{% endblock %}
+
+        {% block navskip %}
+            {% include "./site/structure/nav-skip.twig" %}
+        {% endblock %}
+
+        <div class="body-wrapper {%- if bodyclass %} {{ bodyclass }}{% endif -%}">
+            {% block header %}
+                {# {% include "./site/structure/header.twig" with {
+                    headerTop: true,
+                    navDefault: true,
+                    navName: "nav2",
+                    hasNotif: true,
+                    hasAccount: true,
+                    hasSearch: true
+                } %} #}
+                {% include "./site/structure/header.twig" with {
+                    headerTitle: "Nom du site",
+                    navDefault: true,
+                    navName: "nav1",
+                    hasNotif: true,
+                    hasAccount: true
+                } %}
+            {% endblock %}
+
+            <main class="main" role="main" id="main" tabindex="-1">
+                {% block main %}{% endblock %}
+            </main>
+
+            {% block footer %}
+                {% include "./site/structure/footer.twig" %}
+            {% endblock %}
+
+            {% block modal %}{% endblock %}
+        </div>
+        <!-- / body-wrapper -->
+
+        <script type="text/javascript" src="./script/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="./script/vendor.js"></script>
+        <script type="text/javascript" src="./script/app.js"></script>
+        {% block scripts_more %}{% endblock %}
+
+    </body>
+</html>

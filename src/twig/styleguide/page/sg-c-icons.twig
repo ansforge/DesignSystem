@@ -1,0 +1,184 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Pictogrammes' %}
+{% set pictosSprite = [
+    "access",
+    "angle-down",
+    "angle-left",
+    "angle-right",
+    "angle-up",
+    "arrow-down",
+    "arrow-left",
+    "arrow-right",
+    "arrow-up",
+    "calendar",
+    "check",
+    "close",
+    "download",
+    "duplicate",
+    "edit",
+    "external-link",
+    "eye",
+    "file",
+    "folder",
+    "mail",
+    "menu",
+    "play",
+    "photo",
+    "refresh",
+    "reset",
+    "save",
+    "search",
+    "upload",
+    "user",
+    "valid",
+    "circle-check",
+    "circle-cross",
+    "circle-info",
+    "warning",
+    "mapmarker",
+    "question-circle",
+    "facebook",
+    "twitter",
+    "linkedin",
+    "youtube",
+    "rss",
+    "time",
+    "telephone",
+    "circle-alert",
+    "circle-less",
+    "circle-plus",
+    "double-angle-left",
+    "double-angle-right",
+    "file-text",
+    "instagram",
+    "print",
+    "setting",
+    "share",
+    "star",
+    "table-sort",
+    "trash",
+    "maximize",
+    "minimize",
+    "link",
+] %}
+{% set pictosIllustratifs = [
+    "Autres_Agence_Bureaux.svg",
+    "Autres_Besoin_daide.svg",
+    "Autres_Cafeteria.svg",
+    "Autres_Cafe_The.svg",
+    "Autres_Calendrier.svg",
+    "Autres_Contact.svg",
+    "Autres_Courrier.svg",
+    "Autres_Documents.svg",
+    "Autres_Evenement_Conference.svg",
+    "Autres_Formation.svg",
+    "Autres_Horaires.svg",
+    "Autres_Informatique.svg",
+    "Autres_Interview.svg",
+    "Autres_Intranet.svg",
+    "Autres_Laptop.svg",
+    "Autres_Localisation.svg",
+    "Autres_Mail.svg",
+    "Autres_Newsletter.svg",
+    "Autres_Replay.svg",
+    "Autres_Ressources_humaines.svg",
+    "Autres_Telephone.svg",
+    "Autres_Teletravail.svg",
+    "Autres_Visio.svg",
+    "Autres_Webinaires.svg",
+    "Carte_CPS.svg",
+    "Certificats_logiciels.svg",
+    "Cesser_une_activite.svg",
+    "Changement_dactivite.svg",
+    "Cible_Biologie_medicale.svg",
+    "Cible_Centre_de_radiologie.svg",
+    "Cible_Entrepreneur_startup.svg",
+    "Cible_Etablissement_de_sante.svg",
+    "Cible_Etablissement_medico-social.svg",
+    "Cible_Industriel.svg",
+    "Cible_Infirmier.svg",
+    "Cible_Medecine_de_ville.svg",
+    "Cible_Officine.svg",
+    "Cible_Patient.svg",
+    "Commander_carte_CPS.svg",
+    "Consulter_carte_CPS.svg",
+    "Consulter_mes_demandes_en_cours.svg",
+    "Declarer_une_activite.svg",
+    "Enregistrer_professionnel.svg",
+    "Etablissements_de_sante.svg",
+    "Expedition.svg",
+    "Faire_opposition.svg",
+    "Habilitations_gestionnaires.svg",
+    "Offres_Accompagnement_SI.svg",
+    "Offres_Authentification.svg",
+    "Offres_Cybersecurite.svg",
+    "Offres_Europe.svg",
+    "Offres_International.svg",
+    "Offres_Portails_generiques.svg",
+    "Offres_Referentiels.svg",
+    "Offres_Repertoire.svg",
+    "Offres_Services_nationaux.svg",
+    "Preparation.svg",
+    "Recuperer_code_secret.svg",
+    "Telechargement_attestations.svg",
+    "Voir_le_dossier_professionnel.svg",
+    "Voir_mes_activites_professionnelles.svg",
+    "Voir_nouvelles_demandes.svg",
+    "Voir_toutes_les_demandes.svg",
+] %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Guide de style",
+            blockTitle: title,
+            blockAccroche_text: "Dans ce Système de Design, on distingue deux catégories de pictogrammes en fonction des usages."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Pictogrammes fonctionnels</h2>
+            <p>Les pictogrammes fonctionnels sont des symboles visuels qui accompagnent l’utilisateur dans ses actions et qui aident à sa compréhension de l’interface.</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-svg-icons.twig" with {
+                icons: pictosSprite|sort
+            } %}
+
+            <p>Vous pouvez télécharger toutes les pictogrammes fonctionnels :</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/pictogrammes-fonctionnels.zip",
+                fileName: "Pictogrammes fonctionnels",
+                fileWeight: "25Ko",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Pictogrammes illustratifs</h2>
+            <p>Les pictogrammes illustratifs permettent de dynamiser la présentation générale de la page et d’attirer l’attention de l’utilisateur sur une action importante à mener.</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-list-img.twig" with {
+                items: pictosIllustratifs,
+                itemsPath: 'img/pictogrammes-illustratifs/',
+                itemsSize: 'lg'
+            } %}
+
+            <p>Vous pouvez télécharger toutes les pictogrammes illustratifs :</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/pictogrammes-illustratifs.zip",
+                fileName: "Pictogrammes illustratifs",
+                fileWeight: "257Ko",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p>Quel que soit l'objectif du pictogramme (décoratif, informatif), il faut ajouter un <code>aria-hidden="true"</code> à la balise qui l'affiche, afin d'empêcher les lecteurs d’écran de la prendre en compte.</p>
+        </div>
+    </div>
+
+{% endblock %}

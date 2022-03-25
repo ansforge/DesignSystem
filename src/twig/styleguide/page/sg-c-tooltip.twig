@@ -1,0 +1,57 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Infobulle' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "L'infobulle est un message qui apparaît en surimpression au passage du curseur sur un élément graphique défini."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>{{ title }} par défaut</h2>
+            <p>Infobulle contenant une information succincte.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-tooltip.twig" with {
+                        tooltipContent: "<p>Contenu de l'infobulle</p>"
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} avec titre</h2>
+            <p>Là aussi, le contenu de l'infobulle est à insérer dans son <code>title</code>.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-tooltip.twig" with {
+                        tooltipContent: "<h2>Titre de l'infobulle</h2><p>Epicurus in ea commodi consequatur quis autem vel illum qui dolorem</p>"
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Exemple d'utilisation</h2>
+            <p>L'un des usages les plus courants est l'aide à la saisie dans un champ de formulaire. Attention en revanche : de l'information essentielle (ex : format de saisie attendue) ne saurait être exclusivement précisée en infobulle. Autrement dit, une infobulle est censée contenir uniquement des informations "non essentielles".</p>
+            <p>Consulter l'article d'Access42 sur l'<a href="https://access42.net/infobulle-wcag-21" target="_blank">accessibilté des infobulles</a>.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        {{ form.label('formInput', "Input label") }}
+                        {% include "../../site/component/3-organism/o-tooltip.twig" with {
+                            tooltipContent: "<h2>Titre de l'infobulle</h2><p>Epicurus in ea commodi consequatur quis autem vel illum qui dolorem</p>"
+                        } %}
+                        {{ form.text('formInput', null) }}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

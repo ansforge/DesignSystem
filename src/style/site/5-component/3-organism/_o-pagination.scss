@@ -1,0 +1,29 @@
+.pagination {
+    margin-top: 6rem;
+    flex-wrap: wrap;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    line-height: normal;
+    border-radius: 100%;
+    transition: color 250ms ease, border-color 250ms ease;
+
+    svg {
+        font-size: 0.8rem;
+        fill: $pagination-hover-color;
+    }
+}
+
+.page-item {
+    margin: 0.25rem;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    border-radius: 100%;
+}

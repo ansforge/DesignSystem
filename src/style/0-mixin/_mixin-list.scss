@@ -1,0 +1,93 @@
+//  *
+//  * @example
+//  *  @include reset-list();
+//  *  <ul class="reset-list"> ... </ul>
+//  *
+@mixin reset-list() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li,
+    ul li {
+        padding-left: 0;
+
+        &:before {
+            content: "";
+            display: none;
+            margin: 0;
+        }
+    }
+}
+
+//  *
+//  * @example
+//  *  @include list-ul(red);
+//  *  @include list-ol($primary);
+//  *
+@mixin list-ul($color: inherit, $li-margin-bottom: 0.5rem, $li-padding-left: 2.4rem) {
+    list-style: none; // level 1
+
+    > li {
+        position: relative;
+        margin-bottom: $li-margin-bottom;
+        padding-left: $li-padding-left;
+
+        &:before {
+            content: "\2022";
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: $color;
+        }
+    }
+}
+
+@mixin list-ol($color: inherit, $li-margin-bottom: 0.5rem) {
+    list-style: none;
+    counter-reset: list; // level 1
+
+    > li {
+        counter-increment: list;
+        counter-reset: subsection;
+        position: relative;
+        margin-bottom: $li-margin-bottom;
+        padding-left: 2.4rem;
+
+        &:before {
+            content: counter(list, decimal) ".";
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: $color;
+        }
+
+        // level 2
+        ol {
+            counter-reset: sublist;
+
+            > li {
+                counter-increment: sublist;
+                padding-left: 4rem;
+
+                &:before {
+                    content: counter(list, decimal) "." counter(sublist, decimal) ".";
+                }
+            }
+        }
+
+        // level 3
+        ol ol {
+            counter-reset: subsublist;
+
+            > li {
+                counter-increment: subsublist;
+                padding-left: 5.5rem;
+
+                &:before {
+                    content: counter(list, decimal) "." counter(sublist, decimal) "." counter(subsublist, decimal) ".";
+                }
+            }
+        }
+    }
+}

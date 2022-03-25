@@ -1,0 +1,172 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'En-tête' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "L'en-tête est matérialisé par la balise <code>header</code> et est utilisé pour englober du contenu d'introduction ou de navigation pour le site."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Version desktop</h2>
+
+            <h3>En-tête simple</h3>
+            <p>Version de l'en-tête sans la barre de recherche et le sur-menu.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/structure/header.twig" with {
+                        navDefault: true,
+                        navName: "nav1simple",
+                        hasNotif: true,
+                        hasAccount: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>En-tête avec option « Nom du site »</h3>
+            <p>Version de l'en-tête sans la barre de recherche et le sur-menu.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/structure/header.twig" with {
+                        headerTitle: "Nom du site",
+                        navDefault: true,
+                        navName: "nav1",
+                        hasNotif: true,
+                        hasAccount: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>En-tête avec option « Têtière »</h3>
+            <p>Il contient un logo, un sur-menu, une liste de liens, une barre de recherche.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/structure/header.twig" with {
+                        headerTop: true,
+                        navDefault: true,
+                        navName: "nav2",
+                        hasNotif: true,
+                        hasAccount: true,
+                        hasSearch: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>En-tête avec un lien en forme de bouton</h3>
+            <p>Variation obtenue par l'application des classes <code>btn</code>, <code>btn--plain</code>, <code>btn--primary</code>, ainsi que d'autres classes utilitaires de <code>margin</code> et <code>padding</code>.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/structure/header.twig" with {
+                        headerTitle: "Europe & <br>International",
+                        navInternational: true,
+                        navName: "nav3",
+                        headerLinkStyleButton: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Version mobile</h2>
+
+            <h3>En-tête simple</h3>
+            
+            <p>Un "menu hamburger" englobe l'essentiel des liens. Seuls le logo, le nom du site et l'accès au compte utilisateur sont visibles par défaut.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/1-atom/a-img.twig" with {
+                        imgUrl: 'img/header/Header-mobile.png',
+                        imgSrcset: 'img/header/Header-mobile@2x.png 2x',
+                        imgAlt: 'En-tête simple version mobile',
+                        imgWidth: '375',
+                        imgHeight: '78',
+                        imgLazy: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+
+            <h3>En-tête avec option « Nom du site »</h3>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/1-atom/a-img.twig" with {
+                        imgUrl: 'img/header/Header-mobile-titre.png',
+                        imgSrcset: 'img/header/Header-mobile-titre@2x.png 2x',
+                        imgAlt: 'En-tête simple avec titre version mobile',
+                        imgWidth: '376',
+                        imgHeight: '113',
+                        imgLazy: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Déroulant du menu</h2>
+            <p>Au clic sur les boutons du menu.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/1-atom/a-img.twig" with {
+                        imgUrl: 'img/header/Deroulant-menu.png',
+                        imgSrcset: 'img/header/Deroulant-menu@2x.png 2x',
+                        imgAlt: 'Déroulant du menu',
+                        imgWidth: '325',
+                        imgHeight: '178',
+                        imgLazy: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Déroulant accessibilité</h2>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/1-atom/a-img.twig" with {
+                        imgUrl: 'img/header/Deroulant-accessibilite.png',
+                        imgSrcset: 'img/header/Deroulant-accessibilite@2x.png 2x',
+                        imgAlt: 'Déroulant accessibilité',
+                        imgWidth: '376',
+                        imgHeight: '168',
+                        imgLazy: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Déroulant du compte</h2>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/1-atom/a-img.twig" with {
+                        imgUrl: 'img/header/Deroulant-compte.png',
+                        imgSrcset: 'img/header/Deroulant-compte@2x.png 2x',
+                        imgAlt: 'Déroulant du compte',
+                        imgWidth: '301',
+                        imgHeight: '323',
+                        imgLazy: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

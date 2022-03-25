@@ -1,0 +1,14 @@
+{% if footerListItems %}
+<ul class="footer-list
+    {%- if footerListInline %} footer-list--inline{% endif -%}
+">
+    {% for item in footerListItems %}
+    <li class="footer-list__item {%- if item.icon %} footer-list__item--hasIcon{% endif %}">
+        <a href="{{ item.link }}" {%- if item.target %} target="{{ item.target }}"{% endif -%}{%- if item.rel %} rel="{{ item.rel }}"{% endif -%}>
+            {% if item.icon %}{{ macro.svg(item.icon) }}{% endif %}
+            {{- item.text -}}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

@@ -1,0 +1,9 @@
+{%- macro svg(name, class) -%}
+  {% spaceless %}
+  <svg class="{{class|default('svg-icon')}} svg-{{ name }}" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#{{ name }}"></use></svg>
+  {% endspaceless %}
+{% endmacro %}
+
+{# usage :
+  {{ macro.svg("download") }}
+#}

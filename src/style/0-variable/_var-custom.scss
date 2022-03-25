@@ -1,0 +1,58 @@
+// var-custom.scss -- Variables for project
+
+// This map is used for loops (buttons, text-color, bg-color)
+$project-colors: (
+    "primary": var(--primary),
+    "default": var(--gray-900),
+    "white": var(--white)
+);
+
+// Font weight
+$fw-light:      300;
+$fw-regular:    400;
+$fw-medium:     500;
+$fw-semiBold:   600;
+$fw-bold:       700;
+$fw-extraBold:  800;
+$fw-black:      900;
+
+$typo-familles-weight: (
+    "light": $fw-light,
+    "regular": $fw-regular,
+    "medium": $fw-medium,
+    "semiBold": $fw-semiBold,
+    "bold": $fw-bold,
+    "extraBold": $fw-extraBold,
+    "black": $fw-black,
+);
+
+// Futura webfont
+// the font weight 'bold' is not in the same @font-face declaration
+// when using font-weight: bold; we must change the font-family to $font-futura-bold
+$font-futura-bold: "futura-pt-bold", Arial, sans-serif;
+
+// Typo
+$h1-font-size-desktop: 4.2rem;
+$h2-font-size-desktop: 3rem;
+$h3-font-size-desktop: null;
+$h4-font-size-desktop: null;
+$h5-font-size-desktop: null;
+$h6-font-size-desktop: null;
+
+$h1-font-size-mobile: 3.6rem;
+$h2-font-size-mobile: 2.8rem;
+$h3-font-size-mobile: 2.4rem;
+$h4-font-size-mobile: 2.2rem;
+$h5-font-size-mobile: 2rem;
+$h6-font-size-mobile: 1.8rem;
+
+$lead-font-size:        2rem;
+$lead-font-weight:      $fw-medium;
+$lead-margin-bottom:    null;
+
+$form-space-shift: 1rem;
+
+$accordion-padding-y: 1.7rem;
+$accordion-padding-x: 3.3rem;
+
+$nav-mobile-padding-x: 2.8rem;

@@ -1,0 +1,28 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Barre de progression' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "La barre de progression indique l'état d'avancement d'un processus (par exemple, l'état d'une commande). Elle est à bien différencier du <a href='sg-c-stepper.html'>stepper</a>, qui indique la position de l'utilisateur dans un formulaire long."
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-progress-bar.twig" %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p> Attention à bien modifier les alternatives textuelles masquées (au moyen d'un <code>sr-only</code>) qui sont restituées par les lecteurs d'écran. Préciser si l'étape est en cours ou validée, ainsi que son rang dans le nombre d'étapes totales.</p>
+        </div>
+    </div>
+
+{% endblock %}

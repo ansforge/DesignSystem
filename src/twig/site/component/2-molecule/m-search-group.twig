@@ -1,0 +1,16 @@
+<div class="input-group search-group">
+    {{ form.label('formInput', "Recherche", false, {"class": "sr-only"}) }}
+    {{ form.search('formInput', null, {"placeholder": "Nom, N° RPPS, …"}) }}
+
+    {%- include "../1-atom/a-link.twig" with {
+        links: [
+            {
+                btnType: "submit",
+                style: "plain",
+                color: "primary",
+                svgBefore: "search",
+                text: "Rechercher",
+            }
+        ]
+    } -%}
+</div>

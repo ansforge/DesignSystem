@@ -1,0 +1,144 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Liens' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: 'Un lien hypertexte crée un chemin vers une page web, un fichier, une adresse mail ou encore un emplacement (<code>id</code>) dans la page courante.'
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Liens dans le corps de texte</h2>
+            <p>Pour les liens qui renvoient vers une ressource externe (target="_blank"), le JS ajoute une icône ainsi qu'un title pour l'accessibilité.</p>
+            <p>La contextualisation des liens est importante : il convient donc d'éviter les ancres de lien du type "En savoir plus" ou "Lien".</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p>Filium morte multavit si sine causa quae fuerit causa mox videro interea hoc epicurus in voluptate ponit <a href="#">lien interne</a> iactare vestra se repellere idque facere possimus omnis</p>
+                    <p>Filium morte multavit si sine causa quae fuerit causa mox videro interea hoc epicurus in voluptate ponit <a href="#" target="_blank">lien externe</a> iactare vestra se repellere idque facere possimus omnis</p>
+                    <p>Filium morte multavit si sine causa quae fuerit causa mox videro interea hoc epicurus in voluptate ponit <a href="mailto:test@test.fr">lien mailto</a> iactare vestra se repellere idque facere possimus omnis</p>
+                    <p>Filium morte multavit si sine causa quae fuerit causa mox videro interea hoc epicurus in voluptate ponit <a href="document.pdf">lien vers un document (poids - type)</a> iactare vestra se repellere idque facere possimus omnis</p>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Liens simples</h2>
+            <p>Il est possible de sortir les liens des paragraphes, notamment pour faire des listes de liens.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p>
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                link: "#",
+                                svgBefore: "angle-right",
+                                text: "Lien interne"
+                            }
+                        ]
+                    } -%}
+                    </p>
+                    <p>
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                link: "#",
+                                svgBefore: "angle-right",
+                                text: "Lien externe",
+                                target: "_blank"
+                            }
+                        ]
+                    } -%}
+                    </p>
+                    <p>
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                link: "mailto:test@test.fr",
+                                svgBefore: "angle-right",
+                                text: "Lien mailto"
+                            }
+                        ]
+                    } -%}
+                    </p>
+                    <p>
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                link: "document.pdf",
+                                svgBefore: "angle-right",
+                                text: "Lien vers un document (poids - type)"
+                            }
+                        ]
+                    } -%}
+                    </p>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Liens mis en exergue</h2>
+            <p>Pour inciter davantage au clic, il a été créé ce type de lien de mise en exergue. Pour appliquer ce style, combiner les classes <code>btn</code>, <code>btn--style1</code> et <code>btn--white</code>.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p>
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "#",
+                                text: "Lien interne"
+                            }
+                        ]
+                    } -%}
+                    </p>
+                    <p>
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "#",
+                                text: "Lien externe",
+                                target: "_blank"
+                            }
+                        ]
+                    } -%}
+                    </p>
+                    <p>
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "mailto:test@test.fr",
+                                text: "Lien mailto"
+                            }
+                        ]
+                    } -%}
+                    </p>
+                    <p>
+                    {%- include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "document.pdf",
+                                text: "Lien vers un document Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab distinctio labore voluptate quod (poids - type)"
+                            }
+                        ]
+                    } -%}
+                    </p>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

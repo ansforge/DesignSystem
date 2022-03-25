@@ -1,0 +1,30 @@
+.m-sg-list-img {
+    --list-img-width: 5.9rem;
+
+    @include aw-make-row(2rem);
+}
+
+.m-sg-list-img__col {
+    @include aw-make-col-ready(2rem);
+    margin-bottom: 2rem;
+    width: auto;
+}
+
+.m-sg-list-img__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--list-img-width);
+    height: var(--list-img-width);
+    border-radius: 0.7rem;
+    border: 0.1rem solid $border-color;
+    color: var(--body-color-darker);
+
+    [class*=svg-icon] {
+        font-size: 2rem;
+    }
+}
+
+.m-sg-list-img--lg {
+    --list-img-width: 13.8rem;
+}
