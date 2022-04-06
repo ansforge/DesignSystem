@@ -1,7 +1,7 @@
 // https://github.com/thecodercoder/frontend-boilerplate
 /*
 |--------------------------------------------------------------------------
-| DEPENDENCIES 
+| DEPENDENCIES
 |--------------------------------------------------------------------------
 */
 // Initialize modules
@@ -47,11 +47,10 @@ const
 | CONFIGURATION
 |--------------------------------------------------------------------------
 */
-
 const target = {
     'src': './src/',
-    'buildFolder': './public/',
-    'buildSite': './public/site/',
+    'buildFolder': './__public/',
+    'buildSite': './__public/site/',
     'buildStyleguide': './docs/',
     'devFolder': './../'
 };
@@ -207,6 +206,7 @@ function scriptPlugin(){
         // * Others
         target.src + 'script/plugin/what-input/what-input.js',
         target.src + 'script/plugin/a11y/van11y-accessible-accordion-aria.min.js',
+        target.src + 'script/plugin/a11y/van11y-accessible-tab-panel-aria.min.js',
 
         //
         // CLOSE

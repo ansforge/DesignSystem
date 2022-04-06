@@ -4,7 +4,9 @@
     }
 
     .navbar-toggler-close {
-        margin-left: -1.5rem;
+        display: block;
+        margin-right: -1.5rem;
+        margin-left: auto;
     }
 
     .nav-top {
@@ -77,7 +79,7 @@
 
     // Lvl 1
     .nav-lvl--1 {
-        > li {
+        > .nav-item {
             > .nav-link {
                 font-weight: $fw-medium;
             }
@@ -265,8 +267,20 @@
         }
 
         // Lvl 1
-        .nav-lvl--1 > .nav-item {
-            margin-right: 2rem;
+        .nav-lvl--1 {
+            > .nav-item {
+                margin-right: 2rem;
+
+                > .nav-link {
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    border-bottom: 0.3rem solid transparent;
+                }
+
+                &.is-active > .nav-link {
+                    border-bottom-color: var(--primary);
+                }
+            }
         }
 
         // Lvl 2
@@ -283,7 +297,7 @@
 
         .navbar-nav {
             [aria-expanded]:after {
-                top: 1rem;
+                top: 2rem;
             }
 
             .nav-collapse {

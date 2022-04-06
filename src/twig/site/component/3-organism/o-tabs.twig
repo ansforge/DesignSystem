@@ -1,0 +1,24 @@
+{#
+/**
+ * Tabs
+ *  use script/plugin/van11y-accessible-tab-panel-aria.min.js
+ *  https://van11y.net/fr/onglets-accessibles/
+ */
+#}
+
+<div class="o-tabs js-tabs {%- if tabsHasCheck %} o-tabs--check{% endif -%}">
+    <ul class="js-tablist" data-hx="h2">
+        {% for item in tabs %}
+            <li class="js-tablist__item">
+                <a href="#{{ item.tabId }}" class="js-tablist__link">{{ item.tabTitle }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="js-tabcontent--container">
+        {% for item in tabs %}
+            <div id="{{ item.tabId }}" class="js-tabcontent">
+                {{ item.tabContent }}
+            </div>
+        {% endfor %}
+    </div>
+</div>

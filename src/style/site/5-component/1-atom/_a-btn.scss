@@ -76,6 +76,8 @@ button {
 }
 
 a[class*="btn--icon"]:not(.btn) {
+    position: relative;
+    padding-left: 1.5rem; // space for icon
     display: inline-block;
     text-align: left;
     line-height: normal;
@@ -83,8 +85,11 @@ a[class*="btn--icon"]:not(.btn) {
     color: var(--primary, $primary);
     @include link-inverse();
 
-    .svg-angle-right {
-        margin-top: -2px;
+    .svg-icon {
+        position: absolute;
+        top: 0.5rem;
+        left: 0;
+        max-width: 1rem; // icon can't exceed padding left
     }
 
     .text-white & {

@@ -111,7 +111,16 @@
                                     {{ macro.svg('user') }}
                                 </div>
                                 <p class="m-user__name">Bernard Morin</p>
-                                <p class="m-user__info">Infirmier</p>
+
+                                <ul class="navbar-nav m-user__nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Mes informations personnelles</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Modifier mon compte</a>
+                                    </li>
+                                </ul>
+
                                 {% include "../../site/component/1-atom/a-link.twig" with {
                                     links: [
                                         {
