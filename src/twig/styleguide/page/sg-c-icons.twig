@@ -11,145 +11,431 @@
     "arrow-left",
     "arrow-right",
     "arrow-up",
+    "attached-file",
+    "archive",
+    "archive-box",
     "calendar",
     "check",
+    "circle-alert",
+    "circle-check",
+    "circle-cross",
+    "circle-info",
+    "circle-less",
+    "circle-plus",
     "close",
+    "comments",
+    "double-angle-left",
+    "double-angle-right",
     "download",
     "duplicate",
     "edit",
     "external-link",
     "eye",
+    "facebook",
     "file",
+    "file-text",
+    "filter",
     "folder",
+    "instagram",
+    "link",
+    "linkedin",
     "mail",
+    "mapmarker",
+    "maximize",
     "menu",
-    "play",
+    "minimize",
+    "notification",
+    "pause",
     "photo",
+    "play",
+    "print",
+    "question-circle",
     "refresh",
     "reset",
+    "restore",
+    "rss",
     "save",
     "search",
+    "setting",
+    "share",
+    "slider-left",
+    "slider-right",
+    "star",
+    "table-sort",
+    "telephone",
+    "time",
+    "trash",
+    "twitter",
     "upload",
     "user",
     "valid",
-    "circle-check",
-    "circle-cross",
-    "circle-info",
-    "warning",
-    "mapmarker",
-    "question-circle",
-    "facebook",
-    "twitter",
-    "linkedin",
-    "youtube",
-    "rss",
-    "time",
-    "telephone",
-    "circle-alert",
-    "circle-less",
-    "circle-plus",
-    "double-angle-left",
-    "double-angle-right",
-    "file-text",
-    "instagram",
-    "print",
-    "setting",
-    "share",
-    "star",
-    "table-sort",
-    "trash",
-    "maximize",
-    "minimize",
-    "link",
-    "view-results",
     "view-projection",
-    "restore",
-    "filter",
-    "archive",
+    "view-results",
+    "warning",
+    "youtube",
 ] %}
 {% set pictosIllustratifs = [
-    "Autres_Agence_Bureaux.svg",
-    "Autres_Besoin_daide.svg",
-    "Autres_Cafeteria.svg",
-    "Autres_Cafe_The.svg",
-    "Autres_Calendrier.svg",
-    "Autres_Contact.svg",
-    "Autres_Courrier.svg",
-    "Autres_Documents.svg",
-    "Autres_Evenement_Conference.svg",
-    "Autres_Formation.svg",
-    "Autres_Horaires.svg",
-    "Autres_Informatique.svg",
-    "Autres_Interview.svg",
-    "Autres_Intranet.svg",
-    "Autres_Laptop.svg",
-    "Autres_Localisation.svg",
-    "Autres_Mail.svg",
-    "Autres_Newsletter.svg",
-    "Autres_Replay.svg",
-    "Autres_Ressources_humaines.svg",
-    "Autres_Telephone.svg",
-    "Autres_Teletravail.svg",
-    "Autres_Visio.svg",
-    "Autres_Webinaires.svg",
-    "Carte_CPS.svg",
-    "Certificats_logiciels.svg",
-    "Cesser_une_activite.svg",
-    "Changement_dactivite.svg",
-    "Cible_Biologie_medicale.svg",
-    "Cible_Centre_de_radiologie.svg",
-    "Cible_Entrepreneur_startup.svg",
-    "Cible_Etablissement_de_sante.svg",
-    "Cible_Etablissement_medico-social.svg",
-    "Cible_Industriel.svg",
-    "Cible_Infirmier.svg",
-    "Cible_Medecine_de_ville.svg",
-    "Cible_Officine.svg",
-    "Cible_Patient.svg",
-    "Commander_carte_CPS.svg",
-    "Consulter_carte_CPS.svg",
-    "Consulter_mes_demandes_en_cours.svg",
-    "Declarer_une_activite.svg",
-    "Enregistrer_professionnel.svg",
-    "Etablissements_de_sante.svg",
-    "Expedition.svg",
-    "Faire_opposition.svg",
-    "Habilitations_gestionnaires.svg",
-    "Offres_Accompagnement_SI.svg",
-    "Offres_Authentification.svg",
-    "Offres_Cybersecurite.svg",
-    "Offres_Europe.svg",
-    "Offres_International.svg",
-    "Offres_Portails_generiques.svg",
-    "Offres_Referentiels.svg",
-    "Offres_Repertoire.svg",
-    "Offres_Services_nationaux.svg",
-    "Preparation.svg",
-    "Recuperer_code_secret.svg",
-    "Telechargement_attestations.svg",
-    "Voir_le_dossier_professionnel.svg",
-    "Voir_mes_activites_professionnelles.svg",
-    "Voir_nouvelles_demandes.svg",
-    "Voir_toutes_les_demandes.svg",
-    "Charts-Aires.svg",
-    "Charts-Anneau.svg",
-    "Charts-Barres.svg",
-    "Charts-Batons.svg",
-    "Charts-Bulles.svg",
-    "Charts-Camembert.svg",
-    "Charts-Carte.svg",
-    "Charts-Compose.svg",
-    "Charts-Courbes.svg",
-    "Charts-Indicateurs.svg",
-    "Charts-KPI.svg",
-    "Charts-Liste.svg",
-    "Charts-Nuage.svg",
-    "Charts-Pictogrammes.svg",
-    "Charts-Polaire.svg",
-    "Charts-Pyramide.svg",
-    "Charts-Radar.svg",
-    "Charts-Semantique.svg",
-    "Charts-Tableau.svg",
+    {
+        title: "Profils",
+        icons: [
+            {
+                url: "Cible_Medecine_de_ville.svg",
+                name: "Professionel libéral",
+            },
+            {
+                url: "Cible_Infirmier.svg",
+                name: "Infirmier",
+            },
+            {
+                url: "Cible_Etablissement_medico-social.svg",
+                name: "Établissement médico-social",
+            },
+            {
+                url: "Cible_Biologie_medicale.svg",
+                name: "Biologie médicale",
+            },
+            {
+                url: "Cible_Etablissement_de_sante.svg",
+                name: "Établissement de santé",
+            },
+            {
+                url: "Cible_Centre_de_radiologie.svg",
+                name: "Centre de radiologie",
+            },
+            {
+                url: "Cible_Entrepreneur_startup.svg",
+                name: "Entrepreneur,<br>Start-up",
+            },
+            {
+                url: "Cible_Patient.svg",
+                name: "Patient",
+            },
+            {
+                url: "Cible_Industriel.svg",
+                name: "Industriel",
+            },
+            {
+                url: "Institutionnel.svg",
+                name: "Institutionnel",
+            },
+            {
+                url: "Cible_Officine.svg",
+                name: "Officine",
+            }
+        ]
+    },
+    {
+        title: "Offres",
+        icons: [
+            {
+                url: "Offres_Cybersecurite.svg",
+                name: "Cybersécurité",
+            },
+            {
+                url: "Offres_Authentification.svg",
+                name: "Authentification",
+            },
+            {
+                url: "Offres_Accompagnement_SI.svg",
+                name: "Accompagnement SI",
+            },
+            {
+                url: "Offres_Portails_generiques.svg",
+                name: "Portails génériques",
+            },
+            {
+                url: "Offres_Europe.svg",
+                name: "Europe",
+            },
+            {
+                url: "Offres_International.svg",
+                name: "International",
+            },
+            {
+                url: "Offres_Referentiels.svg",
+                name: "Référentiels",
+            },
+            {
+                url: "Offres_Services_nationaux.svg",
+                name: "Services nationaux",
+            },
+            {
+                url: "Offres_Repertoire.svg",
+                name: "Répertoire",
+            }
+        ]
+    },
+    {
+        title: "Serviciels",
+        icons: [
+            {
+                url: "Enregistrer_professionnel.svg",
+                name: "Enregistrer un professionnel",
+            },
+            {
+                url: "Voir_le_dossier_professionnel.svg",
+                name: "Voir le dossier professionnel",
+            },
+            {
+                url: "Voir_nouvelles_demandes.svg",
+                name: "Voir les nouvelles demandes",
+            },
+            {
+                url: "Voir_toutes_les_demandes.svg",
+                name: "Voir toutes les demandes",
+            },
+            {
+                url: "Carte_CPS.svg",
+                name: "Carte CPS",
+            },
+            {
+                url: "Certificats_logiciels.svg",
+                name: "Certificats logiciels",
+            },
+            {
+                url: "Cesser_une_activite.svg",
+                name: "Cesser une activité",
+            },
+            {
+                url: "Changement_dactivite.svg",
+                name: "Changer d’activité",
+            },
+            {
+                url: "Declarer_une_activite.svg",
+                name: "Déclarer une activité",
+            },
+            {
+                url: "Etablissements_de_sante.svg",
+                name: "Habilitations des GAE",
+            },
+            {
+                url: "Commander_carte_CPS.svg",
+                name: "Commander une carte CPS",
+            },
+            {
+                url: "Consulter_carte_CPS.svg",
+                name: "Consulter la carte CPS",
+            },
+            {
+                url: "Consulter_mes_demandes_en_cours.svg",
+                name: "Consulter mes demandes en cours",
+            },
+            {
+                url: "Expedition.svg",
+                name: "Expédition",
+            },
+            {
+                url: "Faire_opposition.svg",
+                name: "Faire opposition",
+            },
+            {
+                url: "Habilitations_gestionnaires.svg",
+                name: "Habilitations des gestionnaires ARS",
+            },
+            {
+                url: "Preparation.svg",
+                name: "Préparation",
+            },
+            {
+                url: "Recuperer_code_secret.svg",
+                name: "Récupérer le code secret",
+            },
+            {
+                url: "Telechargement_attestations.svg",
+                name: "Téléchargement d’attestations",
+            },
+            {
+                url: "Voir_mes_activites_professionnelles.svg",
+                name: "Voir mes activités professionnelles",
+            }
+        ]
+    },
+    {
+        title: "Données et graphiques",
+        icons: [
+            {
+                url: "Charts-Batons.svg",
+                name: "Bâtons",
+            },
+            {
+                url: "Charts-Barres.svg",
+                name: "Barres",
+            },
+            {
+                url: "Charts-Aires.svg",
+                name: "Aires",
+            },
+            {
+                url: "Charts-Compose.svg",
+                name: "Composés",
+            },
+            {
+                url: "Charts-Courbes.svg",
+                name: "Courbes",
+            },
+            {
+                url: "Charts-Pyramide.svg",
+                name: "Pyramide",
+            },
+            {
+                url: "Charts-Pictogrammes.svg",
+                name: "Pictogramme",
+            },
+            {
+                url: "Charts-Bulles.svg",
+                name: "Bulles",
+            },
+            {
+                url: "Charts-Nuage.svg",
+                name: "Nuage",
+            },
+            {
+                url: "Charts-Anneau.svg",
+                name: "Anneau",
+            },
+            {
+                url: "Charts-Camembert.svg",
+                name: "Camembert",
+            },
+            {
+                url: "Charts-Polaire.svg",
+                name: "Polaire",
+            },
+            {
+                url: "Charts-Radar.svg",
+                name: "Radar",
+            },
+            {
+                url: "Charts-KPI.svg",
+                name: "KPI",
+            },
+            {
+                url: "Charts-Semantique.svg",
+                name: "Sémantique",
+            },
+            {
+                url: "Charts-Tableau.svg",
+                name: "Tableau",
+            },
+            {
+                url: "Tree-Map.svg",
+                name: "Tree Map",
+            },
+            {
+                url: "Charts-Liste.svg",
+                name: "Liste",
+            },
+            {
+                url: "Charts-Indicateurs.svg",
+                name: "Indicateurs",
+            },
+            {
+                url: "Charts-Carte.svg",
+                name: "Carte",
+            }
+        ]
+    },
+    {
+        title: "Autres",
+        icons: [
+            {
+                url: "Autres_Agence_Bureaux.svg",
+                name: "Agence, bureaux",
+            },
+            {
+                url: "Autres_Besoin_daide.svg",
+                name: "Besoin d’aide",
+            },
+            {
+                url: "Autres_Cafe_The.svg",
+                name: "Café, thé",
+            },
+            {
+                url: "Autres_Cafeteria.svg",
+                name: "Caféteria",
+            },
+            {
+                url: "Autres_Calendrier.svg",
+                name: "Calendrier",
+            },
+            {
+                url: "Autres_Contact.svg",
+                name: "Contact",
+            },
+            {
+                url: "Autres_Courrier.svg",
+                name: "Courrier",
+            },
+            {
+                url: "Autres_Documents.svg",
+                name: "Documents",
+            },
+            {
+                url: "Autres_Evenement_Conference.svg",
+                name: "Événement, conférence",
+            },
+            {
+                url: "Autres_Formation.svg",
+                name: "Formation",
+            },
+            {
+                url: "Autres_Horaires.svg",
+                name: "Horaire",
+            },
+            {
+                url: "Autres_Informatique.svg",
+                name: "Informatique",
+            },
+            {
+                url: "Autres_Interview.svg",
+                name: "Interview",
+            },
+            {
+                url: "Autres_Intranet.svg",
+                name: "Intranet",
+            },
+            {
+                url: "Autres_Laptop.svg",
+                name: "Laptop",
+            },
+            {
+                url: "Autres_Localisation.svg",
+                name: "Localisation",
+            },
+            {
+                url: "Autres_Mail.svg",
+                name: "Mail",
+            },
+            {
+                url: "Autres_Newsletter.svg",
+                name: "Newsletter",
+            },
+            {
+                url: "Autres_Replay.svg",
+                name: "Replay",
+            },
+            {
+                url: "Autres_Ressources_humaines.svg",
+                name: "Ressources humaines",
+            },
+            {
+                url: "Autres_Telephone.svg",
+                name: "Téléphone",
+            },
+            {
+                url: "Autres_Teletravail.svg",
+                name: "Télétravail",
+            },
+            {
+                url: "Autres_Visio.svg",
+                name: "Visioconférence",
+            },
+            {
+                url: "Autres_Webinaires.svg",
+                name: "Webinaires",
+            }
+        ]
+    }
 ] %}
 
 {% block main %}
@@ -174,7 +460,7 @@
             {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
                 fileUrl: "zip/pictogrammes-fonctionnels.zip",
                 fileName: "Pictogrammes fonctionnels",
-                fileWeight: "28Ko",
+                fileWeight: "31Ko",
                 fileType: "ZIP"
             } %}
         </div>
@@ -194,7 +480,7 @@
             {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
                 fileUrl: "zip/pictogrammes-illustratifs.zip",
                 fileName: "Pictogrammes illustratifs",
-                fileWeight: "340Ko",
+                fileWeight: "346Ko",
                 fileType: "ZIP"
             } %}
         </div>

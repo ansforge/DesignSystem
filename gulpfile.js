@@ -119,6 +119,11 @@ function twigStyleguide(){
         .pipe(dest(target.buildStyleguide));
 }
 
+function phpStyleguide(){
+    return src(target.src + 'php/*.*')
+        .pipe(dest(target.buildStyleguide + 'php'));
+}
+
 // Sass Site task: compiles the style.scss file into style.css
 function styleSite(){
     return src(files.scssSite)
@@ -371,14 +376,14 @@ function watchTask(){
 // then watch task
 exports.default = series(
     clean,
-    parallel(twigSite, twigStyleguide, styleSite, styleStyleguide, scriptApp, scriptPlugin, scriptStyleguide, assets, createSvgSprite),
+    parallel(twigSite, twigStyleguide, phpStyleguide, styleSite, styleStyleguide, scriptApp, scriptPlugin, scriptStyleguide, assets, createSvgSprite),
     zipStarterKit, zipPictogrammesFonctionnels, zipPictogrammesIllustratifs, zipLogos,
     zipSizes
 );
 
 exports.watch = series(
     clean,
-    parallel(twigSite, twigStyleguide, styleSite, styleStyleguide, scriptApp, scriptPlugin, scriptStyleguide, assets, createSvgSprite),
+    parallel(twigSite, twigStyleguide, phpStyleguide, styleSite, styleStyleguide, scriptApp, scriptPlugin, scriptStyleguide, assets, createSvgSprite),
     zipStarterKit, zipPictogrammesFonctionnels, zipPictogrammesIllustratifs, zipLogos,
     zipSizes,
     watchTask

@@ -1,14 +1,19 @@
-<div class="m-sg-list-img">
-    {% for item in items %}
-        <div class="m-sg-list-img__col {%- if itemsSize %} m-sg-list-img--{{ itemsSize }}{% endif %}">
-            <div class="m-sg-list-img__item" title="{{ item }}">
-                {% include "../../../site/component/1-atom/a-img.twig" with {
-                    imgUrl: itemsPath ~ item,
-                    imgLazy: true,
-                    imgWidth: itemsImgWidth,
-                    imgHeight: itemsImgHeight,
-                } %}
+{% for section in items %}
+    {% if section.title %}<h3>{{ section.title }}</h3>{% endif %}
+
+    <div class="m-sg-list-img">
+        {% for item in section.icons %}
+            <div class="m-sg-list-img__col {%- if itemsSize %} m-sg-list-img--{{ itemsSize }}{% endif %}">
+                <div class="m-sg-list-img__item">
+                    {% include "../../../site/component/1-atom/a-img.twig" with {
+                        imgUrl: itemsPath ~ item.url,
+                        imgLazy: true,
+                        imgWidth: itemsImgWidth,
+                        imgHeight: itemsImgHeight,
+                    } %}
+                </div>
+                <p class="m-sg-list-img__name mb-0">{{ item.name }}</p>
             </div>
-        </div>
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
+{% endfor %}
