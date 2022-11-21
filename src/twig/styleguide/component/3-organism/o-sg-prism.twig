@@ -2,7 +2,7 @@
 {% set prismCollapse = prismCollapse ?? true %}
 
 <div class="o-sg-prism {%- if prismLarge %} o-sg-prism--full{% endif %} {%- if prismCollapse == false %} o-sg-prism--nocode{% endif %}">
-    <div class="o-sg-prism__content">
+    <div class="o-sg-prism__content{%- if prismCenter %} text-center{% endif %}">
 {# Element to include #}
 {%- if twigToInclude -%}
     {%- include twigToInclude -%}

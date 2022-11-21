@@ -1,8 +1,8 @@
 .wysiwyg {
-    ul, ol, dl {
+    ul, ol {
         margin: 0 0 $paragraph-margin-bottom 1.3rem;
 
-        ul, ol, dl {
+        ul, ol {
             margin-top: 1rem;
             margin-bottom: 1rem;
         }
@@ -16,13 +16,16 @@
         @include list-ol($primary);
     }
 
-    dd {
-        margin-bottom: 2rem;
-        margin-left: 2rem;
-    }
-
     li {
         overflow: auto; // fix list marker position when there is a floating element next to a list
+    }
+
+    dl {
+        margin-bottom: $paragraph-margin-bottom;
+    }
+
+    dd {
+        margin-bottom: 2rem;
     }
 
     :last-child {

@@ -1,0 +1,66 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'SEO & Webmarketing' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Charte éditoriale",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Conseils pour votre stratégie SEO</h2>
+
+            <p>Pour positionner les pages web, Google prend avant tout en compte la qualité du contenu proposé. C’est ce que l’on nomme le référencement naturel ou SEO (de l’anglais <i lang="en">Search Engine Optimization</i>).</p>
+            <p>Il est donc primordial de produire un contenu original et inédit, c’est-à-dire que vous devez veiller à ne pas dupliquer votre contenu en plusieurs endroits du site sous peine d’être pénalisé par les moteurs des différents navigateurs. <strong>Toute duplication est repérée par les robots d’indexation et sanctionnée</strong>.</p>
+            <p>L’utilisation de mots-clés est importante puisque c’est ce qui va permettre aux visiteurs surfant sur Google d’arriver sur votre site. La mise à jour des pages favorise la popularité d’un site dans les moteurs de recherche.<br>
+            Pour autant, ce n’est pas la peine d’inclure tous vos mots-clés dans le texte, au risque de rendre la lecture lourde et difficile. Cette forte accumulation pourrait même vous porter préjudice. N’oubliez pas, votre contenu doit être concis et clair pour être bien référencé.</p>
+            <p>Sans oublier de compléter la <b>meta description</b> de votre <span lang="en">webpage</span> qui consiste en une description de 240 caractères du contenu de votre page web.</p>
+            <p><strong>A noter :</strong> Pour les URLs, il est conseillé de ne pas dépasser 3 niveaux d’arborescence (Ex. www.monsite/niveau1/niveau2/niveau3). Privilégiez les tirets, ne pas mettre d’espace et évitez les caractères dans la composition des alias spéciaux « % » , « _ », « é », etc.</p>
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Le taux de conversion en webmarketing</h2>
+
+            <p>Concrètement, une campagne marketing a pour but d’attirer les internautes et d’en transformer le plus possible en « clients ».</p>
+            <p>Cette transformation, c’est la « conversion » qui manifeste une activité de l’utilisateur que l’on souhaite mesurer (cf. téléchargement d’un document, envoi d’un formulaire, etc.).</p>
+            <p>Le <strong>taux de conversion</strong> est un indicateur important, puisqu’il permet de mesurer la performance, l’efficacité d’une action.</p>
+            <p>Cela peut être une campagne d’information spécifique sur un site, un canal de communication ou encore un tunnel d’offres spécifiques ou de nouveaux services par exemple.</p>
+            <p>Le taux de conversion étant le ratio entre le nombre total d’internautes qui visitent un site web et ceux ayant réalisé une action (sur une période donnée), le calcul est le suivant :</p>
+            <p><strong>(Nombre de conversions <span aria-hidden="true">/</span><span class="sr-only">divisé par le</span> Nombre de visites) <span aria-hidden="true">X</span><span class="sr-only">multiplié par</span> 100</strong></p>
+            <p>Par exemple, si un site web mesure 15 000 visiteurs en 1 mois et que 1000 ont réalisé l’action attendue, le taux de conversion est (1000<span aria-hidden="true">/</span><span class="sr-only"> divisé par </span>15000) <span aria-hidden="true">X</span><span class="sr-only">multiplié par</span> 100 = 6,6 %.</p>
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Manier vos appels à action (CTA) pour augmenter le taux de conversion</h2>
+
+            <p><strong>Placez des boutons ou des formulaires pour encourager à la conversion.</strong></p>
+            <p>Les <b>CTA</b> (ou bouton d’appel à l’action) sont des boutons placés judicieusement sur une <span lang="en">webpage</span> ou une <span lang="en">landing page</span> afin d’encourager une action précise – comme la création d’un compte ou l’inscription à une <span lang="en">newsletter</span>. Il s’agit du principal outil marketing utilisé pour obtenir la <strong>conversion d’un visiteur</strong>.</p>
+            <p>On les placera généralement en fin de description ou dans la barre latérale. Le texte des boutons devrait toujours expliquer clairement quelle action va être réalisée (“Créez votre compte”, “Inscrivez-vous à la <span lang="en">newsletter</span>”, etc.), mais vous pouvez également vous permettre des CTA un peu plus personnel (“Je m’abonne”, etc.).</p>
+            <p>L’important est que le bouton CTA soit bien placé dans l’économie de la <span lang="en">webpage</span>, c’est-à-dire <strong>au-dessus de la ligne de flottaison</strong> sur un <span lang="en">mailing</span> par exemple.</p>
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Le taux de rebond en webmarketing</h2>
+
+            <p>Le <strong>taux de rebond</strong> est aussi important pour votre SEO (référencement naturel), car il agit directement sur votre <strong>classement dans les résultats de recherche</strong> Google.</p>
+            <p>40 % des internautes n’attendront pas l’ouverture d’une page de plus de 3 secondes !</p>
+            <p>Plus de la moitié du trafic web provient d’appareils mobiles. Souvent, un haut taux de rebond peut être expliqué pour une mauvaise expérience utilisateur et donc par un site qui ne serait <b>pas bien optimisé pour cet usage mobile</b> par exemple. Une stratégie de développement à visée <strong>mobile first</strong> est fortement recommandée.</p>
+            <p><strong>Quelques astuces :</strong></p>
+            <ul>
+                <li>Placez des liens internes pour permettre à vos visiteurs de rester sur votre site. </li>
+                <li>Evitez la duplication des contenus</li>
+                <li>Optimiser le temps de chargement de vos pages (partie technique dont l’hébergement, optimiser la mise en cache d’image ou de contenus ou de fichiers CSS, compresser les images, réduire la taille des medias).</li>
+                <li>Placez en header des boutons ou des formulaires pour encourager à une conversion rapide.</li>
+            </ul>
+            <dl>
+                <dt>Taux de rebond :</dt>
+                <dd>(nombre de visiteurs ayant consulté une seule page divisé par l’ensemble des visiteurs du site web) <span aria-hidden="true">X</span><span class="sr-only">multiplié par</span> 100</dd>
+            </dl>
+            <p><strong>Explication :</strong> les internautes vont “rebondir” d’un site (le quitter) parce que le contenu ne les intéresse pas. Mais parfois le problème est simplement qu’ils ne savent pas où aller, car vous ne leur proposez pas de liens qui vont les mener sur une autre page de votre site, ou encore que le contenu, leur a suffit – il faut donc pondéré avec le temps de visite (en fonction de la nature des pages).</p>
+        </div>
+    </div>
+
+{% endblock %}

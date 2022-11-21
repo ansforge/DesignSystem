@@ -58,6 +58,7 @@ const target = {
 const files = {
     scssSite: target.src + 'style/!(styleguide)*.scss', // cible uniquement les scss qu'il faut compiler dans le dossier __public/site/
     scssStyleguide: target.src + 'style/styleguide.scss',
+    scssTarteAuCitron: target.src + 'style/styleguide/3-plugin/tarteaucitron-ds-ans.scss',
     twigToWatch: target.src + 'twig/**/*.twig',
     scssToWatch: target.src + 'style/**/*.scss',
     jsAppToWatch: target.src + 'script/app/**/*.js',
@@ -149,6 +150,17 @@ function styleStyleguide(){
             cssnano()
         ])) // PostCSS plugins
         .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
+        .pipe(dest(target.buildStyleguide + 'style')); // put final CSS in dist folder
+}
+
+// Sass TarteAuCitron task: compiles the tarteaucitron-ds-ans.scss file into tarteaucitron-ds-ans.css
+function styleTarteAuCitron(){
+    return src(files.scssTarteAuCitron)
+        .pipe(sass().on('error', sass.logError)) // compile SCSS to CSS
+        .pipe(postcss([
+            autoprefixer(),
+            cssnano()
+        ])) // PostCSS plugins
         .pipe(dest(target.buildStyleguide + 'style')); // put final CSS in dist folder
 }
 
@@ -309,8 +321,11 @@ function assets(){
         .pipe(dest(target.buildStyleguide + 'font'));
 
     const assetsImg = src([
-        target.src + 'img/*.*',
         target.src + 'img/pictogrammes-illustratifs/*.*',
+        target.src + 'img/favicon.ico',
+        target.src + 'img/logo-ANS-footer.svg',
+        target.src + 'img/logo-ANS.svg',
+        target.src + 'img/logo-ministere.svg',
     ],  {base: './src/img/'}) // defines a base to keep folder structure: https://stackoverflow.com/questions/35845039/how-base-option-affects-gulp-src-gulp-dest/35848322#35848322
         .pipe(dest(target.buildSite + 'img'));
 
@@ -346,8 +361,14 @@ function zipPictogrammesIllustratifs(){
 function zipLogos(){
     return src([
         target.src + 'img/favicon.ico',
-        target.src + 'img/logo-ANS-footer.svg',
+        target.src + 'img/logo-ANS.jpg',
+        target.src + 'img/logo-ANS.png',
         target.src + 'img/logo-ANS.svg',
+        target.src + 'img/logo-ANS-footer.jpg',
+        target.src + 'img/logo-ANS-footer.png',
+        target.src + 'img/logo-ANS-footer.svg',
+        target.src + 'img/logo-ministere.jpg',
+        target.src + 'img/logo-ministere.png',
         target.src + 'img/logo-ministere.svg',
     ])
         .pipe(zip('logotype.zip'))
@@ -359,10 +380,23 @@ function zipSizes(){
         .pipe(size());
 }
 
+function zipVersions(){
+    return src(target.src + 'zip/*.zip')
+        .pipe(dest(target.buildStyleguide + 'zip'));
+}
+
+function zipTarteAuCitron(){
+    return src([
+        target.buildStyleguide + 'style/tarteaucitron-ds-ans.css',
+    ])
+        .pipe(zip('tarteaucitron-ds-ans.css.zip'))
+        .pipe(dest(target.buildStyleguide + 'zip'));
+}
+
 // Watch task: watch SCSS and JS files for changes
 function watchTask(){
     watch(files.twigToWatch, series(twigSite, twigStyleguide));
-    watch(files.scssToWatch, series(styleSite, styleStyleguide));
+    watch(files.scssToWatch, series(styleSite, styleStyleguide, styleTarteAuCitron));
     watch(files.jsAppToWatch, scriptApp);
     watch(files.jsPluginToWatch, scriptPlugin);
     watch(files.jsStyleguideToWatch, scriptStyleguide);
@@ -376,15 +410,12 @@ function watchTask(){
 // then watch task
 exports.default = series(
     clean,
-    parallel(twigSite, twigStyleguide, phpStyleguide, styleSite, styleStyleguide, scriptApp, scriptPlugin, scriptStyleguide, assets, createSvgSprite),
-    zipStarterKit, zipPictogrammesFonctionnels, zipPictogrammesIllustratifs, zipLogos,
-    zipSizes
+    parallel(twigSite, twigStyleguide, phpStyleguide, styleSite, styleStyleguide, styleTarteAuCitron, scriptApp, scriptPlugin, scriptStyleguide, assets, createSvgSprite),
+    zipStarterKit, zipPictogrammesFonctionnels, zipPictogrammesIllustratifs, zipLogos, zipVersions, zipTarteAuCitron, zipSizes
 );
 
 exports.watch = series(
     clean,
-    parallel(twigSite, twigStyleguide, phpStyleguide, styleSite, styleStyleguide, scriptApp, scriptPlugin, scriptStyleguide, assets, createSvgSprite),
-    zipStarterKit, zipPictogrammesFonctionnels, zipPictogrammesIllustratifs, zipLogos,
-    zipSizes,
-    watchTask
+    parallel(twigSite, twigStyleguide, phpStyleguide, styleSite, styleStyleguide, styleTarteAuCitron, scriptApp, scriptPlugin, scriptStyleguide, assets, createSvgSprite),
+    zipStarterKit, zipPictogrammesFonctionnels, zipPictogrammesIllustratifs, zipLogos, zipVersions, zipTarteAuCitron, zipSizes, watchTask
 );

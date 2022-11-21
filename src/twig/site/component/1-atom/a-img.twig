@@ -87,6 +87,7 @@
         {%- if imgWidth %} width="{{ imgWidth }}"{% endif -%}
         {%- if imgHeight %} height="{{ imgHeight }}"{% endif -%}
         {%- if imgLazy %} loading="lazy"{% endif -%}
+        {%- if imgClass %} class="{{ imgClass }}"{% endif -%}
     >
     {% if imgFigcaption %}<figcaption id="figcaption-{{ imgFigcaptionID }}">{{ imgFigcaption }}</figcaption>{% endif -%}
 

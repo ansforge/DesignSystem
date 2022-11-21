@@ -15,7 +15,8 @@
     }
 
     .custom-control-input:focus ~ .custom-control-label::before,
-    .o-widget-access input:focus ~ label {
+    .o-widget-access input:focus ~ label,
+    .custom-radio-button .custom-control-input:focus ~ .custom-control-label {
         outline: 0.2rem dashed var(--body-color);
         outline-offset: 0.3rem;
     }

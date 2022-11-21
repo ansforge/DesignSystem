@@ -1,0 +1,108 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Gestionnaire de consentement' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "<p>Le gestionnaire de consentement permet de récolter l'approbation des utilisateurs pour le dépôt de cookies ou de
+            traceurs. Il permet également d'informer les utilisateurs sur le type de récolte de données, l'utilisation de ces données ainsi
+            que les outils liés à la collecte des informations.</p>
+            <p>Mettre en place un gestionnaire de consentement dès le début de la navigation permet de rendre son site conforme au
+            <a href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees' target='_blank'>RGPD</a>
+            européen.</p>"
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Le gestionnaire de consentement via Tarteaucitron</h2>
+
+            <p>Le gestionnaire de consentement est assuré par la solution <a href='https://tarteaucitron.io/fr/' target='_blank'>Tarteaucitron</a>
+            dont le Design system ANS propose une feuille de style personnalisée que vous pouvez intégrer dans vos projets. Il ne faut pas que la CSS originale de Tarteaucitron soit chargée.</p>
+
+            <p>Téléchargez la feuille de style du Design System ANS pour Tarteaucitron en cliquant ci-dessous :</p>
+            <div class="mb-3">
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/tarteaucitron-ds-ans.css.zip",
+                fileName: "Feuille de Style Tarteaucitron Design System ANS",
+                fileWeight: "4 Ko",
+                fileType: "ZIP"
+            } %}
+            </div>
+
+            <p>Ce fichier a été testé sur la version 1.8.3 de Tarteaucitron.<br>
+            Toute autre version peut être incompatible.</p>
+
+            <div class="sg-block-space">
+                <h3>Bandeau de consentement</h3>
+                {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismCollapse: false, prismCenter: true } %}
+                    {% block embedToInclude %}
+                        {% include "../../site/component/1-atom/a-img.twig" with {
+                            imgUrl: 'img/cookies/bandeau-cookies.png',
+                            imgAlt: 'Gestionnaire de consentement',
+                            imgWidth: '1220',
+                            imgHeight: '155',
+                            imgLazy: true
+                        } %}
+                    {% endblock %}
+                {% endembed %}
+            </div>
+
+            <div class="sg-block-space">
+                <h4>Emplacement</h4>
+                <p>Sur desktop et sur mobile, le bandeau de consentement est situé en bas de page. Il occupe toute la largeur de la page. </p>
+            </div>
+
+            <div class="sg-block-space">
+                <h4>Accessibilité</h4>
+                <div class="wysiwyg">
+                    <ul>
+                        <li>Le bandeau de consentement doit être le premier élément sélectionné lors de la navigation au clavier ou avec un lecteur d'écran.
+                            C'est le premier élément de la balise <code>&lt;body&gt;</code> (avant les liens d'accès rapide).</li>
+                        <li>Gestion du focus : lorsque l'utilisateur confirme ses choix de cookies, repositionner l'utilisateur en haut de la page.</li>
+                        <li>La fenêtre de finalité étant une modale, elle suit les mêmes recommandations que cette dernière. Il en est de même pour
+                            les boutons radios permettant de choisir l'état des finalités.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sg-block-space">
+                <h4>Les bonnes pratiques</h4>
+                {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+                    {% block embedToInclude %}
+                    <div class="wysiwyg">
+                        <h5>L'information doit : </h5>
+                        <ul>
+                            <li>Être visible, mise en évidence et complète</li>
+                            <li>Être rédigée en de termes simples et compréhensibles par tout utilisateur</li>
+                            <li>Permettre aux internautes d'être parfaitement informés notamment s'agissant des différentes finalités des cookies et de l'identité des responsables du ou des traitements.</li>
+                        </ul>
+                    </div>
+                    {% endblock %}
+                {% endembed %}
+            </div>
+
+            <div class="sg-block-space">
+                <h3>Panneau de gestion de consentement</h3>
+
+                <p>Le panneau de gestion de consentement liste l'ensemble des cookies présents sur le site ainsi que leur finalité.
+                    Il permet à l'utilisateur d'accéder directement à la politique de gestion des cookies et d'accepter ou de refuser chaque cookie/traceur présent sur le site qu'il consulte.</p>
+
+                {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: false, prismCollapse: false, prismCenter: true } %}
+                    {% block embedToInclude %}
+                        {% include "../../site/component/1-atom/a-img.twig" with {
+                            imgUrl: 'img/cookies/panneau-cookies.png',
+                            imgAlt: 'Panneau de gestion de consentement',
+                            imgWidth: '900',
+                            imgHeight: '765',
+                            imgLazy: true
+                        } %}
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -16,7 +16,7 @@
             <h2>Les cases à cocher</h2>
             <p>Constituées par l'élément <code>input type="checkbox"</code>, elles peuvent être uniques ou multiples.
             <br>Dans le cas d'un groupe de cases à cocher, elles doivent toutes être regroupées dans une balise <code>fieldset</code>, dont le premier enfant doit être un <code>legend</code>. Ce dernier constitue donc l'en-tête du groupe de cases à cocher, et doit décrire leur rôle.
-            
+
             <br>Plusieurs mises en forme sont possibles.</p>
 
             <h3>Liste verticale</h3>
@@ -155,24 +155,6 @@
             {% endembed %}
         </div>
 
-        {#
-        <h2>Switches</h2>
-        <div class="form-group">
-            <fieldset>
-                <legend>Switches</legend>
-
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-                </div>
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
-                    <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
-                </div>
-            </fieldset>
-        </div>
-        #}
-
         <div class="sg-block-space">
             <h3>Radio sous forme de boîte</h3>
             <p>Pour obtenir cette apparence, il faut englober l'ensemble des <code>div.custom-radio.custom-control</code> dans un parent portant la classe <code>.custom-radio-box</code>.</p>
@@ -183,9 +165,28 @@
                             <legend>Radio sous forme de boîte</legend>
 
                             <div class="custom-radio-box">
-                                {{ form.radio('formRadioInlineBox', null, 'Radio', {'id': 'formRadioInlineDefaultBlock1', 'inline': true}) }}
-                                {{ form.radio('formRadioInlineBox', true, 'Radio checked', {'id': 'formRadioInlineDefaultBlock2', 'inline': true}) }}
-                                {{ form.radio('formRadioInlineBox', null, 'Radio', {'id': 'formRadioInlineDefaultBlock3', 'inline': true}) }}
+                                {{ form.radio('formRadioInlineBox', null, 'Radio', {'id': 'formRadioInlineBox1', 'inline': true}) }}
+                                {{ form.radio('formRadioInlineBox', true, 'Radio checked', {'id': 'formRadioInlineBox2', 'inline': true}) }}
+                                {{ form.radio('formRadioInlineBox', null, 'Radio', {'id': 'formRadioInlineBox3', 'inline': true}) }}
+                            </div>
+                        </fieldset>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Radio sous forme de bouton</h3>
+            <p>Pour obtenir cette apparence, il faut englober l'ensemble des <code>div.custom-radio.custom-control</code> dans un parent portant la classe <code>.custom-radio-button</code>.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Radio sous forme de bouton</legend>
+
+                            <div class="custom-radio-button">
+                                {{ form.radio('formRadioInlineButton', null, 'Radio', {'id': 'formRadioInlineButton1', 'inline': true}) }}
+                                {{ form.radio('formRadioInlineButton', true, 'Radio checked', {'id': 'formRadioInlineButton2', 'inline': true}) }}
                             </div>
                         </fieldset>
                     </div>

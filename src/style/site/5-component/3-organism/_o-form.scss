@@ -320,3 +320,55 @@ input.custom-control-input {
         border-color: $input-focus-border-color;
     }
 }
+
+.custom-radio-button {
+    margin-left: $form-space-shift;
+    display: flex;
+    flex-wrap: wrap;
+
+    .custom-control {
+        margin: 1.5rem 0 0 0;
+        padding-left: 0;
+    }
+
+    .custom-control-input {
+        @include sr-only;
+    }
+
+    label {
+        @extend .btn;
+        @extend .btn-sm;
+
+        &::before,
+        &::after {
+            content: none;
+        }
+
+        @include aw-button-variant(
+            $default-color: var(--primary), $default-background: transparent, $default-border: var(--primary),
+            $hover-color: var(--white), $hover-background: var(--primary-dark), $hover-border: var(--primary-dark),
+            $active-color: var(--white), $active-background: var(--primary-darker), $active-border: var(--primary-darker),
+            $outline-color: var(--primary)
+        );
+    }
+
+    input:checked ~ label {
+        @include aw-button-variant(
+            $default-color: var(--white), $default-background: var(--primary), $default-border: var(--primary),
+            $hover-color: var(--white), $hover-background: var(--primary-dark), $hover-border: var(--primary-dark),
+            $active-color: var(--white), $active-background: var(--primary-darker), $active-border: var(--primary-darker),
+            $outline-color: var(--primary)
+        );
+    }
+
+    .custom-control:first-of-type label {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .custom-control:not(:first-of-type):not(:last-child) label {
+        border-radius: 0;
+    }
+    .custom-control:not(:first-of-type) label {
+        border-bottom-left-radius: 0;
+    }
+}
