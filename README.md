@@ -67,3 +67,11 @@ Faire correspondre au maximum les noms de fichiers CSS et TWIG, ainsi que les cl
 Ex. du composant qui a pour class `.a-info` :
 - création du .twig : `twig/site/component/1-atom/a-info.twig`
 - création du .scss : `style/site/5-component/1-atom/_a-info.scss`
+
+## Mise à jour de version
+A chaque mise à jour de version :
+- Mettre à jour la date de livraison et le numéro de version sur la page `index.twig`
+- Lister tous les nouveaux éléments et les modifications apportées par la version sur la page `sg-versions.twig`
+- Lancer la commande `gulp` pour générer tous les fichiers puis zipper la version (les éléments du dossier `__public/styleguide`) **en retirant les zip des anciennes versions**
+- Vérifier le poids noté dans les twig de tous les fichiers zip. Vous obtiendrez ces informations dans la console en lançant la commande `gulp` (fonction zipSizes)
+- Taguer la branch master à chaque livraison de version
