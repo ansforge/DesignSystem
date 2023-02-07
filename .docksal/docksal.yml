@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  web:
+    extends:
+      file: ${HOME}/.docksal/stacks/services.yml
+      service: apache
+    extra_hosts:
+      - "${VIRTUAL_HOST}:${DOCKSAL_HOST_IP}"
+    labels:
+      - io.docksal.virtual-host=${VIRTUAL_HOST},*.${VIRTUAL_HOST},${VIRTUAL_HOST}.*,web.${VIRTUAL_HOST},*.dev.klee.lan.net
