@@ -25,7 +25,7 @@
     "gulp-uglify": "^3.0",
     "gulp-util": "^3.0.8",
     "gulp-zip": "^5.1.0",
-    "lighthouse": "^7.5",
+    "lighthouse": "^10.0",
     "merge-stream": "^2.0",
     "postcss": "^8.2.15"
   },
