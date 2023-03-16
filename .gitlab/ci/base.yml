@@ -37,8 +37,6 @@
 .css-lint:
   stage: tests
   needs: []
-  extends:
-    - .node_image
   script:
     - |
       cd ${CI_PROJECT_DIR}/web/themes/custom/${FOLDER}
