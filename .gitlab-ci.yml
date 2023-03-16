@@ -4,6 +4,7 @@
 
 include:
   - '/.gitlab/ci/base.yml'
+  - '/.gitlab/ci/images.yml'
   - '/.gitlab/ci/variables.yml'
   - '/.gitlab/ci/rules.yml'
   - '/.gitlab/ci/deploy.yml'
