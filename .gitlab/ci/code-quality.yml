@@ -1,0 +1,63 @@
+################################################################################
+# Code Quality template.
+################################################################################
+
+# Needs variables SONAR_HOST_URL and SONAR_TOKEN.
+# run Sonar scan for MR or develop or tags.
+#.sonar:
+#  stage: tests #move to tests stage to be run in parallel with over lint jobs.
+#  extends: .rui_runner
+#  rules:
+#    - !reference [.git_interne, rules]
+#
+#  image:
+#    name: sonarsource/sonar-scanner-cli:latest
+#    entrypoint: [""]
+#  variables:
+#    GIT_DEPTH: 0 # Tells git to fetch all the branches of the project, required by the analysis task (avoid "shallow clone" warning)
+#    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+#    BROWSERSLIST_IGNORE_OLD_DATA: "true"
+#    SONAR_SCANNER_OPTS: -Djavax.net.ssl.trustStore=/tmp/sonarqube-keystore.jks -Djavax.net.ssl.trustStorePassword=gitlabci
+#  cache:
+#    key: "$CI_COMMIT_REF_SLUG"
+#    paths:
+#      - .sonar/cache
+#  before_script:
+#    # Gitlab could not provide current tagged branch as variable, so develop is used as default.
+#    # @see https://github.com/mc1arke/sonarqube-community-branch-plugin/issues/678
+#    - if [ "${CI_COMMIT_TAG}" ]; then SONAR_OPTIONS="-Dsonar.projectVersion=$CI_COMMIT_TAG -Dsonar.branch.name=develop"; else SONAR_OPTIONS=""; fi
+#    - keytool -printcert -rfc -sslserver ki-sonarqube2.dev.klee.lan.net | keytool -import -noprompt -trustcacerts -alias sonarqube -storepass gitlabci -keystore /tmp/sonarqube-keystore.jks
+#  script:
+#    - echo "sonar-scanner ${SONAR_OPTIONS}"
+#    - sonar-scanner ${SONAR_OPTIONS}
+#  allow_failure: true
+#
+#
+#.owasp_dependency_check:
+#  stage: audits
+#  needs: []
+#  extends: .rui_runner
+#  rules:
+#    - !reference [.git_interne, rules]
+#    - !reference [.develop, rules]
+#    - !reference [.tags, rules]
+#  image:
+#    name: registry.gitlab.com/gitlab-ci-utils/docker-dependency-check:latest
+#    entrypoint: [""]
+#  script:
+#    # Job will scan the project root folder and fail if any vulnerabilities with CVSS > 0 are found
+#    - /usr/share/dependency-check/bin/dependency-check.sh --scan "./" --format ALL --project "$CI_PROJECT_NAME" --failOnCVSS 0
+#    # Dependency Check will only fail the job based on CVSS scores, and in some cases vulnerabilities do not
+#    # have CVSS scores (e.g. those from NPM audit), so they don't cause failure.  To fail for any vulnerabilities
+#    # grep the resulting report for any "vulnerabilities" sections and exit if any are found (count > 0).
+#    - if [ $(grep -c "vulnerabilities" dependency-check-report.json) -gt 0 ]; then exit 2; fi
+#  allow_failure: true
+#  artifacts:
+#    when: always
+#    paths:
+#      # Save the HTML and JSON report artifacts
+#      - "./dependency-check-report.html"
+#      - "./dependency-check-report.json"
+#      - "./dependency-check-report.xml"
+#    expire_in: 1 day
+#
