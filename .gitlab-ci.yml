@@ -10,7 +10,7 @@ include:
   - '/.gitlab/ci/jira.yml'
 
 default:
-  image: node:16.14-alpine
+  image: docksal/cli:php8.1
   tags:
     - ans-g2-g3
 
@@ -36,6 +36,7 @@ stages:
 #  stage: build
 #  needs: []
 #  extends:
+#    - .node_image
 #    - .build_rules
 #  variables:
 #    FOLDERS: g_nius

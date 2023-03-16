@@ -1,0 +1,9 @@
+################################################################################
+# Images template.
+#
+# Gitlab-CI image documentation:
+# @see https://docs.gitlab.com/ee/ci/yaml/#image
+################################################################################
+
+.node_image:
+  image: node:16.14-alpine
