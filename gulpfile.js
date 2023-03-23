@@ -48,10 +48,9 @@ const
 |--------------------------------------------------------------------------
 */
 const target = {
-    'src': './src/',
-    'buildFolder': './__public/',
-    'buildSite': './__public/site/',
-    'buildStyleguide': './__public/styleguide/',
+    'src': './web/src/',
+    'buildSite': './web/site/',
+    'buildStyleguide': './web/styleguide/',
 };
 // File paths
 const files = {
@@ -101,7 +100,7 @@ var svgSpriteconfig = {
 */
 // Clean task: delete generated files
 function clean(){
-    return del(target.buildFolder);
+    return del([target.buildSite, target.buildStyleguide]);
 }
 
 // Twig task: compiles the .twig files into .html
