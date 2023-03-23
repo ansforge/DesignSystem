@@ -40,9 +40,7 @@ build:site:
     - .node_image
     - .build_rules
   before_script:
-    - |
-      cd ${CI_PROJECT_DIR}/web
-      npm ci
+    - npm ci
   script:
     - ./node_modules/.bin/gulp
   artifacts:
