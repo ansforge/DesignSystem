@@ -33,26 +33,23 @@ stages:
 # Build job.
 ################################################################################
 
-#css-build:
-#  stage: build
-#  needs: []
-#  extends:
-#    - .node_image
-#    - .build_rules
-#  variables:
-#    FOLDERS: g_nius
-#  script:
-#    - |
-#      for FOLDER in $FOLDERS
-#        do
-#          cd ${CI_PROJECT_DIR}/web/themes/custom/${FOLDER}
-#          npm ci
-#          npm run prod:css
-#        done
-#  artifacts:
-#    paths:
-#      - web/themes/custom/g_nius/css
-#    expire_in: 1 hour
+build:site:
+  stage: build
+  needs: []
+  extends:
+    - .node_image
+    - .build_rules
+  before_script:
+    - |
+      cd ${CI_PROJECT_DIR}/web
+      npm ci
+  script:
+    - ./node_modules/.bin/gulp
+  artifacts:
+    paths:
+      - web/site
+      - web/styleguide
+    expire_in: 1 hour
 
 ################################################################################
 # Code quality jobs.
@@ -122,8 +119,8 @@ stages:
 
 generate_package:
   stage: build
-  needs: []
-  dependencies: []
+  needs: ["build:site"]
+  dependencies: ["build:site"]
   extends:
     - .ressources_variables
     - .tags_rules
