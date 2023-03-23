@@ -1,0 +1,36 @@
+{% if tweetItems %}
+    <div class="paragraph-space bg-gray-100 bg-drop bg-drop--reverse">
+        <div class="container">
+            <div class="paragraph__header row align-items-center">
+                {% if paragTwitterTitle %}
+                    <div class="col-7">
+                        <h2>{{ paragTwitterTitle }}</h2>
+                    </div>
+                {% endif %}
+                {% if paragTwitterBtnLabel %}
+                    <div class="col-5 text-right">
+                        {% include "../../component/1-atom/a-link.twig" with {
+                            links: [
+                                {
+                                    style: "ghost",
+                                    color: "default",
+                                    svgBefore: "twitter",
+                                    text: paragTwitterBtnLabel,
+                                    textAccessAfter: "sur Twitter",
+                                    link: paragTwitterBtnHref
+                                }
+                            ]
+                        } %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="row mt-3 col--eq-height">
+                {% for item in tweetItems %}
+                    <div class="col-sm-6 col-lg-4">
+                        {% include "../2-molecule/m-tweet.twig" %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}

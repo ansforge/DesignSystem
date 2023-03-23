@@ -1,0 +1,21 @@
+<div class="container paragraph-space">
+    <div class="paragraph__header row justify-content-center">
+        <div class="col-md-10 col-lg-8 text-center">
+            {% if paragFilesTitle %}<h2>{{ paragFilesTitle }}</h2>{% endif %}
+            {% if paragFilesDesc %}<p>{{ paragFilesDesc }}</p>{% endif %}
+        </div>
+    </div>
+    {% if paragFilesLinks %}
+    <div class="o-paragraph--files row col--eq-height mt-4">
+        {% for item in paragFilesLinks %}
+            <div class="o-paragraph--files__item col--eq-height col-md-6 mb-3">
+                {% include "../2-molecule/m-file.twig" with {
+                    fileLink: item.fileLink,
+                    fileTitle: item.fileTitle,
+                    fileInfo: item.fileInfo
+                } %}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>

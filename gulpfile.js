@@ -24,7 +24,7 @@ const
     // Clean and concat JS files
     concat = require('gulp-concat'),
     // Minify JS files
-    uglify = require('gulp-uglify'),
+    terser = require('gulp-terser'),
     // Generate sourcemaps
     sourcemaps = require('gulp-sourcemaps'),
     // Twig
@@ -52,18 +52,18 @@ const target = {
     'buildFolder': './__public/',
     'buildSite': './__public/site/',
     'buildStyleguide': './docs/',
-    'devFolder': './../'
 };
 // File paths
 const files = {
-    scssSite: target.src + 'style/!(styleguide)*.scss', // cible uniquement les scss qu'il faut compiler dans le dossier __public/site/
-    scssStyleguide: target.src + 'style/styleguide.scss',
+    scssSite: [target.src + 'style/print.scss', target.src + 'style/style-ans.scss'], // cible uniquement les scss qu'il faut compiler dans le dossier __public/site/
+    scssStyleguide: [target.src + 'style/*.scss', '!' + target.src + 'style/print.scss', '!' + target.src + 'style/style-ans.scss'],
     scssTarteAuCitron: target.src + 'style/styleguide/3-plugin/tarteaucitron-ds-ans.scss',
     twigToWatch: target.src + 'twig/**/*.twig',
     scssToWatch: target.src + 'style/**/*.scss',
     jsAppToWatch: target.src + 'script/app/**/*.js',
     jsPluginToWatch: target.src + 'script/plugin/**/*.js',
     jsStyleguideToWatch: target.src + 'script/styleguide/**/*.js',
+    jsBlocsToWatch: target.src + 'script/blocs/**/*.js',
     fontToWatch: target.src + 'font/**/*.*',
     imgToWatch: target.src + 'img/**/*.*',
     iconsToWatch: target.src + 'svg-icons/sprite/*.*'
@@ -128,14 +128,13 @@ function phpStyleguide(){
 // Sass Site task: compiles the style.scss file into style.css
 function styleSite(){
     return src(files.scssSite)
-        .pipe(sourcemaps.init()) // initialize sourcemaps first
+        // .pipe(sourcemaps.init()) // initialize sourcemaps first
         .pipe(sass().on('error', sass.logError)) // compile SCSS to CSS
         .pipe(postcss([
             autoprefixer(),
             cssnano()
         ])) // PostCSS plugins
-        .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
-        // .pipe(dest(target.devFolder + 'style'))
+        // .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
         .pipe(dest(target.buildSite + 'style'))
         .pipe(dest(target.buildStyleguide + 'style')); // put final CSS in dist folder
 }
@@ -143,13 +142,13 @@ function styleSite(){
 // Sass Styleguide task: compiles the style.scss file into style.css
 function styleStyleguide(){
     return src(files.scssStyleguide)
-        .pipe(sourcemaps.init()) // initialize sourcemaps first
+        // .pipe(sourcemaps.init()) // initialize sourcemaps first
         .pipe(sass().on('error', sass.logError)) // compile SCSS to CSS
         .pipe(postcss([
             autoprefixer(),
             cssnano()
         ])) // PostCSS plugins
-        .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
+        // .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
         .pipe(dest(target.buildStyleguide + 'style')); // put final CSS in dist folder
 }
 
@@ -193,8 +192,7 @@ function scriptApp(){
         // Not jquery
     ])
         .pipe(concat('app.js'))
-        .pipe(uglify())
-        // .pipe(dest(target.devFolder + 'script'))
+        .pipe(terser())
         .pipe(dest(target.buildSite + 'script'))
         .pipe(dest(target.buildStyleguide + 'script'));
 }
@@ -234,8 +232,7 @@ function scriptPlugin(){
         // target.src + 'script/plugin/svg-icons/svgxuse.js', // Pour l'utilisation du composant svg icons
     ])
         .pipe(concat('vendor.js'))
-        .pipe(uglify())
-        // .pipe(dest(target.devFolder + 'script'))
+        .pipe(terser())
         .pipe(dest(target.buildSite + 'script'))
         .pipe(dest(target.buildStyleguide + 'script'));
 }
@@ -247,25 +244,6 @@ function scriptStyleguide(){
         // OPEN
         target.src + 'script/app/_jquery-open.js',
         //
-        // > Appeler tous les autres scripts ici
-        // * Bootstrap
-        // target.src + 'script/plugin/popper/popper-min.js', // Nécessaire pour faire fonctionner les dropdown
-        // target.src + 'script/plugin/bootstrap/util.js',
-        // target.src + 'script/plugin/bootstrap/alert.js',
-        // target.src + 'script/plugin/bootstrap/button.js',
-        // target.src + 'script/plugin/bootstrap/collapse.js',
-        // target.src + 'script/plugin/bootstrap/dropdown.js',
-        // target.src + 'script/plugin/bootstrap/modal.js',
-        // target.src + 'script/plugin/bootstrap/tooltip.js', // Tooltip doit être appelé avant popover : https://stackoverflow.com/questions/18599382/twitter-bootstrap-popover-not-working
-        // target.src + 'script/plugin/bootstrap/popover.js',
-        // target.src + 'script/plugin/bootstrap/scrollspy.js',
-        // target.src + 'script/plugin/bootstrap/tab.js',
-        // target.src + 'script/plugin/bootstrap/affix-v336-modbs4.js',
-
-        // * Others
-        // target.src + 'script/plugin/what-input/what-input.js',
-        // target.src + 'script/plugin/objectFitPolyfill.min.js',
-
         // * Custom
         target.src + 'script/styleguide/_nav.js',
 
@@ -276,12 +254,20 @@ function scriptStyleguide(){
         //
         // CLOSE
         target.src + 'script/app/_jquery-close.js',
-
-        // Not jquery
-        // target.src + 'script/plugin/tiny-slider.js',
     ])
         .pipe(concat('styleguide.min.js'))
-        .pipe(uglify())
+        .pipe(terser())
+        .pipe(dest(target.buildStyleguide + 'script'));
+}
+
+// JS BLOCS task
+function scriptBlocs(){
+    return src([
+        target.src + 'script/plugin/jvectormap/jvectormap.min.js',
+        target.src + 'script/plugin/tiny-slider/tiny-slider.js',
+        target.src + 'script/blocs/*.js',
+    ])
+        .pipe(terser())
         .pipe(dest(target.buildStyleguide + 'script'));
 }
 
@@ -306,7 +292,6 @@ function assets(){
     const assetsJs = src([
         target.src + 'script/plugin/jquery/jquery-3.5.1.min.js',
     ])
-        // .pipe(dest(target.devFolder + 'script'))
         .pipe(dest(target.buildSite + 'script'))
         .pipe(dest(target.buildStyleguide + 'script'));
 
@@ -316,7 +301,6 @@ function assets(){
         .pipe(dest(target.buildStyleguide + 'script'));
 
     const assetsFont = src(files.fontToWatch)
-        // .pipe(dest(target.devFolder + 'font'))
         .pipe(dest(target.buildSite + 'font'))
         .pipe(dest(target.buildStyleguide + 'font'));
 
@@ -400,6 +384,7 @@ function watchTask(){
     watch(files.jsAppToWatch, scriptApp);
     watch(files.jsPluginToWatch, scriptPlugin);
     watch(files.jsStyleguideToWatch, scriptStyleguide);
+    watch(files.jsBlocsToWatch, scriptBlocs);
     watch(files.fontToWatch, assets);
     watch(files.imgToWatch, assets);
     watch(files.iconsToWatch, createSvgSprite);
@@ -410,12 +395,12 @@ function watchTask(){
 // then watch task
 exports.default = series(
     clean,
-    parallel(twigSite, twigStyleguide, phpStyleguide, styleSite, styleStyleguide, styleTarteAuCitron, scriptApp, scriptPlugin, scriptStyleguide, assets, createSvgSprite),
+    parallel(twigSite, twigStyleguide, phpStyleguide, styleSite, styleStyleguide, styleTarteAuCitron, scriptApp, scriptPlugin, scriptStyleguide, scriptBlocs, assets, createSvgSprite),
     zipStarterKit, zipPictogrammesFonctionnels, zipPictogrammesIllustratifs, zipLogos, zipVersions, zipTarteAuCitron, zipSizes
 );
 
 exports.watch = series(
     clean,
-    parallel(twigSite, twigStyleguide, phpStyleguide, styleSite, styleStyleguide, styleTarteAuCitron, scriptApp, scriptPlugin, scriptStyleguide, assets, createSvgSprite),
+    parallel(twigSite, twigStyleguide, phpStyleguide, styleSite, styleStyleguide, styleTarteAuCitron, scriptApp, scriptPlugin, scriptStyleguide, scriptBlocs, assets, createSvgSprite),
     zipStarterKit, zipPictogrammesFonctionnels, zipPictogrammesIllustratifs, zipLogos, zipVersions, zipTarteAuCitron, zipSizes, watchTask
 );

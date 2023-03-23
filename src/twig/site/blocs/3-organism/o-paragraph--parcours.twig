@@ -1,0 +1,21 @@
+<div class="container paragraph-space o-paragraph--parcours__wrapper">
+    <div class="o-paragraph--parcours {%- if paragPathItemNumber %} has-number{% endif %}">
+        {% if paragPathItemNumber %}
+            <div class="o-paragraph--parcours__petal"><p><b>{{ paragPathItemNumber }}</b></p></div>
+        {% endif %}
+        <div class="o-paragraph--parcours__container {%- if not paragPathItemNumber %} p-6 bg-white rounded-lg shadow-lg{% endif %}">
+            <div class="o-paragraph--parcours__content">
+                {% if paragPathItemTitle %}<h2>{{ paragPathItemTitle }}</h2>{% endif %}
+                {% for item in paragPathItemsParags %}
+                    {% if item.textContent %}
+                        <div class="wysiwyg">{{ item.textContent }}</div>
+                    {% elseif item.links %}
+                        {% include "o-paragraph--lien.twig" with {
+                            links: item.links
+                        }%}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

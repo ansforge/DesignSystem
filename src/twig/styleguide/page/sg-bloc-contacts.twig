@@ -1,0 +1,119 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Contacts' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-contact.css" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--contacts.twig" with {
+                        paragContactsTitle: title,
+                        paragContactsDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, corporis consequatur sapiente sequi quasi molestias placeat ullam excepturi nobis voluptas veniam amet dolor eligendi odio numquam possimus? Qui, dignissimos fuga",
+                        paragContactsItems: [
+                            {
+                                ctPhotoSrc: "https://picsum.photos/78/78",
+                                ctName: "Prénom Nom",
+                                ctJobTitle: "Fonction",
+                                ctSocials: [
+                                    {
+                                        socialName: "linkedin",
+                                        socialLink: "http://linkedin.com",
+                                        socialTarget: "_blank",
+                                        socialRel: "nofollow"
+                                    },
+                                    {
+                                        socialName: "twitter",
+                                        socialLink: "http://twitter.com",
+                                        socialTarget: "_blank",
+                                        socialRel: "nofollow"
+                                    },
+                                    {
+                                        socialName: "facebook",
+                                        socialLink: "http://facebook.com",
+                                        socialTarget: "_blank",
+                                        socialRel: "nofollow"
+                                    }
+                                ],
+                                ctAddress: "Departement 1 <br>12 rue de Granville 75001 Paris",
+                                ctEmail: "email@email.fr",
+                                ctTel: "01 00 00 00 00",
+                                ctWebSite: "#"
+                            },
+                            {
+                                ctPhotoSrc: "https://picsum.photos/78/78",
+                                ctName: "Prénom Nom",
+                                ctJobTitle: "Fonction",
+                                ctSocials: [
+                                    {
+                                        socialName: "linkedin",
+                                        socialLink: "http://linkedin.com",
+                                        socialTarget: "_blank",
+                                        socialRel: "nofollow"
+                                    }
+                                ],
+                                ctAddress: "Departement 1 <br>12 rue de Granville 75001 Paris",
+                                ctEmail: "email@email.fr",
+                                ctWebSite: "#"
+                            },
+                            {
+                                ctPhotoSrc: "https://picsum.photos/78/78",
+                                ctName: "Prénom Nom",
+                                ctJobTitle: "Fonction",
+                                ctSocials: [
+                                    {
+                                        socialName: "twitter",
+                                        socialLink: "http://twitter.com",
+                                        socialTarget: "_blank",
+                                        socialRel: "nofollow"
+                                    },
+                                    {
+                                        socialName: "facebook",
+                                        socialLink: "http://facebook.com",
+                                        socialTarget: "_blank",
+                                        socialRel: "nofollow"
+                                    }
+                                ],
+                                ctAddress: "Departement 1 <br>12 rue de Granville 75001 Paris",
+                                ctTel: "01 00 00 00 00",
+                                ctWebSite: "#"
+                            },
+                            {
+                                ctPhotoSrc: "https://picsum.photos/78/78",
+                                ctName: "Prénom Nom",
+                                ctJobTitle: "Fonction",
+                                ctAddress: "Departement 1 <br>12 rue de Granville 75001 Paris",
+                                ctEmail: "email@email.fr",
+                                ctTel: "01 00 00 00 00",
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Taille de l'image : 78*78</p>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-contact.css" target="_blank" class="file-link">CSS de la carte Contact (0,31Ko - CSS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

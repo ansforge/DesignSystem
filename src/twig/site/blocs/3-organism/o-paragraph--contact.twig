@@ -1,0 +1,19 @@
+<div class="container paragraph-space">
+    <div class="o-paragraph--contact bg-white rounded-lg top-right-radius-0 shadow-lg">
+        <div class="row align-items-center">
+            <div class="col-md-3 d-none d-md-block">
+                {% include "../../component/1-atom/a-img.twig" with {
+                    imgUrl: imgUrl,
+                    imgLazy: true,
+                    imgWidth: imgWidth,
+                    imgHeight: imgHeight
+                } %}
+            </div>
+            <div class="col-md-8">
+                {% if paragContactTitle %}<h2>{{ paragContactTitle }}</h2>{% endif %}
+                {% if paragContactDesc %}<div class="wysiwyg mb-3">{{ paragContactDesc }}</div>{% endif %}
+                {% if links %}{% include "o-paragraph--lien.twig" %}{% endif %}
+             </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="paragraph-space o-paragraph--key-figures">
+    <div class="container">
+        <div class="paragraph__header row justify-content-center">
+            <div class="col-md-10 col-lg-8 text-center">
+                {% if paragKeyfiguresTitle %}<h2>{{ paragKeyfiguresTitle }}</h2>{% endif %}
+            </div>
+        </div>
+
+        {% if cards %}
+            <div class="paragraph--columns__cards row justify-content-center col--eq-height mt-4">
+                {% for item in cards %}
+                    <div class="mb-3
+                        {%- if paragColumnsby2 %} col-sm-6{% endif -%}
+                        {%- if paragColumnsby3 %} col-sm-6 col-lg-4{% endif -%}
+                        {%- if paragColumnsby4 %} col-sm-6 col-lg-3{% endif -%}
+                        {%- if paragColumnsby5 %} col-sm-6 col-md-4 aw-col-lg-20{% endif -%}
+                    ">
+                        {% include "../2-molecule/m-key-figure.twig" with {
+                            value1: item.value1,
+                            keyfigureBeforeNumber: item.keyfigureBeforeNumber,
+                            keyfigureNumber: item.keyfigureNumber,
+                            keyfigureAfterNumber: item.keyfigureAfterNumber,
+                            keyfigureDesc: item.keyfigureDesc,
+                        } %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>

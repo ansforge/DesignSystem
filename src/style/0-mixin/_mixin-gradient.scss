@@ -1,0 +1,18 @@
+// *
+// * Gradient overlay
+// *
+// * @example
+// *  @include gradient-overlay(to right, $primary 0%, $brand-2 100%)
+// *
+@mixin gradient-overlay($direction, $list...) {
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient($direction, $list);
+        @content;
+    }
+}

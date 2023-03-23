@@ -1,0 +1,46 @@
+<div class="m-contact rounded-md top-left-radius-0 p-3 shadow-lg">
+    <div class="row">
+        {# Photo #}
+        {% if contact.ctPhotoSrc %}
+            <div class="col-sm-auto">
+                <div class="m-contact__img border rounded-md top-left-radius-0">
+                    <img src="{{ contact.ctPhotoSrc }}" width="78" height="78" alt="" loading="lazy">
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="col-sm">
+            {% if contact.ctName %}<h3 class="h4 mt-1 mb-0">{{ contact.ctName }}</h3>{% endif %}
+            {% if contact.ctJobTitle %}<p class="mt-0 mb-0">{{ contact.ctJobTitle }}</p>{% endif %}
+            {% if contact.ctAddress %}<p class="mt-1 mb-0">{{ contact.ctAddress }}</p>{% endif %}
+
+            {% include "../../component/2-molecule/m-social.twig" with {
+                socials: contact.ctSocials
+            } %}
+
+            {% if contact.ctEmail or contact.ctTel or contact.ctWebSite %}
+                <div class="m-contact__details mt-1">
+                    {% if contact.ctEmail %}
+                        <p class="mb-0">
+                            <a href="mailto:{{ contact.ctEmail }}" class="btn--icon-before">{{ macro.svg("angle-right") }}Contacter par email</a>
+                        </p>
+                    {% endif %}
+
+                    {% if contact.ctTel %}
+                        <p class="mb-0">
+                            <a href="tel:{{ contact.ctTel|replace({' ': ''}) }}" class=" btn--icon-before">
+                                {{ macro.svg("angle-right") }}{{ contact.ctTel }}{{ macro.svg("telephone") }}
+                            </a>
+                        </p>
+                    {% endif %}
+
+                    {% if contact.ctWebSite %}
+                        <p class="mb-0">
+                            <a href="{{ contact.ctWebSite }}" target="_blank" class=" btn--icon-before">{{ macro.svg("angle-right") }}Voir le site web</a>
+                        </p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -31,11 +31,38 @@
                 <div class="col-md-6 col-lg-3 text-center text-md-left">
                     <p class="footer__title">
                        <strong> Agence du Numérique en Santé</strong>
-                       <br> 2-10 Rue d'Oradour-sur-Glane 
+                       <br> 2-10 Rue d'Oradour-sur-Glane
                        <br> 75015 Paris
                     </p>
 
-                    {% include "../component/2-molecule/m-social.twig" %}
+                    {% include "../component/2-molecule/m-social.twig" with {
+                        socials: [
+                            {
+                                socialName: "linkedin",
+                                socialLink: "http://linkedin.com",
+                                socialTarget: "_blank",
+                                socialRel: "nofollow"
+                            },
+                            {
+                                socialName: "twitter",
+                                socialLink: "http://twitter.com",
+                                socialTarget: "_blank",
+                                socialRel: "nofollow"
+                            },
+                            {
+                                socialName: "youtube",
+                                socialLink: "http://youtube.com",
+                                socialTarget: "_blank",
+                                socialRel: "nofollow"
+                            },
+                            {
+                                socialName: "rss",
+                                socialLink: "#",
+                                socialTarget: "_blank",
+                                socialRel: "nofollow"
+                            }
+                        ]
+                    } %}
                 </div>
                 <div class="col-6 col-lg-3">
                     {% include "footer-list.twig" with {

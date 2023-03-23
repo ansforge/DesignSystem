@@ -1,0 +1,345 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Colonnes 2/3/4/5' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-card.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-colonnes.css" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title,
+            blockAccroche_text: "Ce composant permet de mettre un ou plusieurs éléments Card et de choisir leur répartition sur 2, 3, 4 ou 5 colonnes."
+        } %}
+
+        <div class="sg-block-space wyswiyg">
+            <h2>Card</h2>
+
+            <table>
+                <caption>Les options d'un élément Card</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Option</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Position texte</th>
+                        <td>Gauche/Centré</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Gestion de l'image</th>
+                        <td>Simple/Fond/Haut</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Couleur de fond</th>
+                        <td>Transparent/Bleu/Gris/Rose/Blanc</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Radius - Arrondis sur la carte</th>
+                        <td>Aucun/Rond/Goutte</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Card entièrement cliquable&nbsp;?</th>
+                        <td>Si oui, alors possibilité de mettre une flèche pour inciter au clic. <br>Si non, alors possibilité de mettre un lien en bas de la carte.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} - 2 colonnes - un élément</h2>
+            <p>S'il y a un seul élément Card, il est centré dans la page.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--columns.twig" with {
+                        paragColumnsTitle: title ~ " - 2 colonnes - un élément",
+                        paragColumnsDesc: "Options de la carte ci-dessous : Position texte centré, Gestion de l'image simple, Couleur de fond gris, Radius rond, Card entièrement cliquable sans flèche",
+                        paragColumnsby2: true,
+                        cards: [
+                            {
+                                bgColor: "bg-gray-700 text-white",
+                                textAlignment: "center",
+                                cardRadiusRounded: true,
+                                cardImgUrl: "https://picsum.photos/277/170",
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                cardUrl: "#",
+                            }
+                        ],
+                        paragColumnsLinks: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "#",
+                                text: "Lien interne"
+                            }
+                        ],
+                        paragColumnsTextBottom : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} - 2 colonnes - 2 élements</h2>
+            <p>Il est possible de mettre un fond gris avec ou sans ornement grâce aux class <code>bg-gray-100</code> (fond gris) et <code>bg-drop</code> (ornement).</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--columns.twig" with {
+                        paragColumnsBgGray: true,
+                        paragColumnsBgDrop: true,
+                        paragColumnsTitle: title ~ " - 2 colonnes - 2 élements",
+                        paragColumnsDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                        paragColumnsby2: true,
+                        cards: [
+                            {
+                                bgColor: "bg-white",
+                                cardRadiusDrop: true,
+                                cardImgUrl: "https://picsum.photos/77/70",
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Option de cette carte : Position texte à gauche, Gestion de l'image simple, Couleur de fond blanc, Radius rond, Card non entièrement cliquable avec un lien.",
+                                cardLinks: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ]
+                            },
+                            {
+                                bgColor: "bg-white",
+                                textAlignment: "center",
+                                cardRadiusRounded: true,
+                                cardImgUrl: "https://picsum.photos/77/70",
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Option de cette carte : Position texte centré, Gestion de l'image simple, Couleur de fond blanc, Radius rond, Card non entièrement cliquable avec un lien.",
+                                cardLinks: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien externe",
+                                        target: "_blank"
+                                    }
+                                ]
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} - 3 colonnes</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--columns.twig" with {
+                        paragColumnsTitle: title ~ " - 3 colonnes",
+                        paragColumnsDesc: "Options des cartes ci-dessous : Position texte à gauche, Gestion de l'image fond, Radius rond, Card entièrement cliquable sans flèche",
+                        paragColumnsby3: true,
+                        cards: [
+                            {
+                                cardRadiusRounded: true,
+                                cardImgBg: true,
+                                cardImgUrl: "https://picsum.photos/370/208",
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.",
+                                cardUrl: "#",
+                            },
+                            {
+                                cardRadiusRounded: true,
+                                cardImgBg: true,
+                                cardImgUrl: "https://picsum.photos/370/208",
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.",
+                                cardUrl: "#",
+                                cardTarget: "_blank"
+                            },
+                            {
+                                cardRadiusRounded: true,
+                                cardImgBg: true,
+                                cardImgUrl: "https://picsum.photos/370/208",
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                cardUrl: "#",
+                            }
+                        ],
+                        paragColumnsLinks: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "#",
+                                text: "Lien interne"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} - 4 colonnes</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--columns.twig" with {
+                        paragColumnsTitle: title ~ " - 4 colonnes",
+                        paragColumnsDesc: "Options des cartes ci-dessous : Position texte à gauche, Gestion de l'image Haut, Couleur de fond bleu, Card entièrement cliquable sans flèche",
+                        paragColumnsby4: true,
+                        cards: [
+                            {
+                                bgColor: "bg-primary text-white",
+                                cardImgTop: true,
+                                cardImgUrl: "https://picsum.photos/370/208",
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.",
+                                cardUrl: "#",
+                            },
+                            {
+                                bgColor: "bg-primary text-white",
+                                cardImgTop: true,
+                                cardImgUrl: "https://picsum.photos/370/208",
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.",
+                                cardUrl: "#",
+                                cardTarget: "_blank"
+                            },
+                            {
+                                bgColor: "bg-primary text-white",
+                                cardImgTop: true,
+                                cardImgUrl: "https://picsum.photos/370/208",
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                cardUrl: "#",
+                            },
+                            {
+                                bgColor: "bg-primary text-white",
+                                cardImgTop: true,
+                                cardImgUrl: "https://picsum.photos/370/208",
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                cardUrl: "#",
+                            }
+                        ],
+                        paragColumnsLinks: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "#",
+                                text: "Lien interne"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} - 5 colonnes</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--columns.twig" with {
+                        paragColumnsBgGray: true,
+                        paragColumnsTitle: title ~ " - 5 colonnes",
+                        paragColumnsDesc: "Options des cartes ci-dessous : Position texte centré, Couleur de fond transparent, Card entièrement cliquable avec flèche",
+                        paragColumnsby5: true,
+                        cards: [
+                            {
+                                textAlignment: "center",
+                                cardHasArrow: true,
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.",
+                                cardUrl: "#",
+                            },
+                            {
+                                textAlignment: "center",
+                                cardHasArrow: true,
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                cardUrl: "#",
+                                cardTarget: "_blank"
+                            },
+                            {
+                                textAlignment: "center",
+                                cardHasArrow: true,
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                cardUrl: "#",
+                            },
+                            {
+                                textAlignment: "center",
+                                cardHasArrow: true,
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.",
+                                cardUrl: "#",
+                            },
+                            {
+                                textAlignment: "center",
+                                cardHasArrow: true,
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                cardUrl: "#",
+                            },
+                            {
+                                textAlignment: "center",
+                                cardHasArrow: true,
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                cardUrl: "#",
+                            },
+                            {
+                                textAlignment: "center",
+                                cardHasArrow: true,
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.",
+                                cardUrl: "#",
+                            },
+                            {
+                                textAlignment: "center",
+                                cardHasArrow: true,
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                cardUrl: "#",
+                            },
+                            {
+                                textAlignment: "center",
+                                cardHasArrow: true,
+                                cardTitle: "Ségur du numérique en santé",
+                                cardDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                cardUrl: "#",
+                            }
+                        ],
+                        paragColumnsLinks: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "#",
+                                text: "Lien interne"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-card.css" target="_blank" class="file-link">CSS de la carte Card (3,4Ko - CSS)</a></li>
+                <li><a href="./style/bloc-o-colonnes.css" target="_blank" class="file-link">CSS du bloc {{ title }} (0,76Ko - CSS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<div class="m-card m-key-figure bg-white text-center rounded-md">
+    <p class="mb-0">
+        <span class="m-key-figure__number fw-bold text-primary">
+            {# if text before number here #}
+            {% if keyfigureBeforeNumber %}
+                {{ keyfigureBeforeNumber }}
+            {% endif %}
+            {# if number here (animation)#}
+            {% if keyfigureNumber %}
+                <span class="m-key-figure--animated">{{ keyfigureNumber }}</span>
+            {% endif %}
+            {# if text after number here #}
+            {% if keyfigureAfterNumber %}
+                {{ keyfigureAfterNumber }}
+            {% endif %}
+        </span>
+        {% if keyfigureDesc %}
+            {{ keyfigureDesc }}
+        {% endif %}
+    </p>
+</div>

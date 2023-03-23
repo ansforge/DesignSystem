@@ -1,0 +1,15 @@
+<div class="container paragraph-space">
+    <div class="paragraph__header row justify-content-center">
+        <div class="col-md-10 col-lg-8 text-center">
+            {% if paragContactsTitle %}<h2>{{ paragContactsTitle }}</h2>{% endif %}
+            {% if paragContactsDesc %}<p>{{ paragContactsDesc }}</p>{% endif %}
+        </div>
+    </div>
+    <div class="row mt-4 col--eq-height">
+        {% for contact in paragContactsItems %}
+            <div class="col-md-6 mb-3 {%- if loop.length == 1 %} mx-auto{% endif %}">
+                {% include "../2-molecule/m-contact.twig" %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

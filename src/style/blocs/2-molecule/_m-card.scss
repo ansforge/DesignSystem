@@ -1,0 +1,203 @@
+.m-card {
+    display: flex; // flex to align paragraph--lien to flex-end of the card
+    flex-direction: column;
+
+    &[class*="bg-"] {
+        padding: 4rem;
+    }
+
+    &[class*="bg-"]:not(.m-card--img-bg) {
+        box-shadow: 0 1.5rem 4rem 0 rgba(#000, .1);
+    }
+
+    .lead {
+        margin-bottom: 1rem;
+    }
+
+    .paragraph--lien {
+        margin-top: auto;
+    }
+
+    &:not(.text-center) {
+        .paragraph--lien {
+            text-align: right;
+        }
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+a.m-card,
+button.m-card {
+    display: flex; // flex to align paragraph--lien to flex-end of the card
+    text-decoration: none;
+
+    &:hover {
+        .m-card__title {
+            text-decoration: underline;
+        }
+    }
+
+    &:not(.text-white) {
+        .svg-arrow-right,
+        .svg-external-link {
+            color: var(--primary);
+        }
+
+        &:hover {
+            color: inherit;
+        }
+    }
+
+    &.text-white {
+        outline-color: var(--body-color);
+
+        &:hover {
+            color: var(--white);
+        }
+    }
+}
+
+
+.m-card__title {
+    margin-bottom: 1rem;
+}
+
+.m-card__img {
+    margin-bottom: 2rem;
+}
+
+.m-card--img-top {
+    overflow: hidden;
+
+    .m-card__img {
+        margin: -4rem -4rem 3rem -4rem;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    // fix bug Safari: duplicate border radius on parent image
+    &.rounded-md {
+        .m-card__img {
+            border-top-right-radius: var(--border-radius-md);
+        }
+    }
+}
+
+.m-card--img-bg {
+    position: relative;
+    overflow: hidden;
+
+    &.m-card {
+        padding-top: 47%; // ratio of the available space (height divided by width)
+    }
+
+    // fix bug Safari: duplicate border radius on parent image
+    &.rounded-md {
+        .m-card__img {
+            border-radius: var(--border-radius-md);
+        }
+    }
+
+    .m-card__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-bottom: 0;
+
+        @include gradient-overlay(to bottom, rgba(#000, 0) 0, rgba(32,41,65,0.05) 14%, #000 100%) {
+            [data-contrast="high-c"] & {
+                background: rgba(#000, 0.8);
+            }
+        }
+
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    > *:not(.m-card__img) {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+a.m-card--img-top,
+a.m-card--img-bg,
+button.m-card--img-bg {
+    .m-card__img {
+        overflow: hidden;
+
+        // fix Safari bug: transform with border radius
+        backface-visibility: hidden;
+        transform: translateZ(0);
+    }
+
+    img {
+        transition: transform .8s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+        .m-card__img {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+a.m-card.external-link {
+    &:after {
+        position: relative;
+        z-index: 1;
+        margin-top: auto;
+        margin-left: auto;
+        background-size: 1.8rem;
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    &.text-center {
+        &:after {
+            margin-right: auto;
+        }
+    }
+}
+
+a.m-card.external-link:not(.m-card--has-arrow) {
+    position: relative;
+
+    &:after {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        opacity: 0;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 100%;
+        background-size: 1.5rem;
+        background-color: var(--gray-200);
+        transition: opacity 250ms ease;
+    }
+
+    &:hover, &:focus {
+        &:after {
+            opacity: 1;
+        }
+    }
+}
+
+a.m-card--has-arrow.external-link {
+    &:after {
+        content: none;
+    }
+}

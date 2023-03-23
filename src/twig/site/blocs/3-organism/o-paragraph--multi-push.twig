@@ -1,0 +1,55 @@
+<div class="paragraph-space o-paragraph--multi-push">
+    <div class="container">
+        {% if paragMultiPushTitle %}<h2 class="mb-4">{{ paragMultiPushTitle }}</h2>{% endif %}
+
+        <div class="row">
+            {% for item in teasers %}
+                {% if loop.first %}
+                    <div class="col-md-6">
+                        <article class="m-teaser">
+                            <a href="{{ item.teaserUrl }}">
+                                <div class="m-teaser__img rounded-md bottom-left-radius-0">
+                                    <img src="{{ item.teaserImgUrl }}" width="585" height="329" alt="" loading="lazy">
+                                </div>
+                                <div class="m-teaser__content">
+                                    <h3 class="m-teaser__title h4 mb-0">{{ item.teaserTitle }}</h3>
+                                    <div class="m-teaser__info d-flex flex-wrap align-items-center order-first">
+                                        {% if item.teaserType %}<p class="m-teaser__type border rounded-lg mr-1 mb-1 text-uppercase">{{ item.teaserType }}</p>{% endif %}
+                                        <p class="m-teaser__date mb-1">{{ item.teaserDate }}</p>
+                                    </div>
+                                    {% if item.teaserDesc %}<p class="mt-1 mb-0">{{ item.teaserDesc }}</p>{% endif %}
+                                    <hr aria-hidden="true" class="d-md-none">
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                    <div class="col-md-6">
+                {% else %}
+                    <article class="m-teaser mx-2 mr-md-0">
+                        <a href="{{ item.teaserUrl }}">
+                            <div class="m-teaser__content p-0">
+                                <h3 class="m-teaser__title h4 mb-0">{{ item.teaserTitle }}</h3>
+                                <div class="m-teaser__info d-flex flex-wrap align-items-center order-first">
+                                    {% if item.teaserType %}<p class="m-teaser__type border rounded-lg mr-1 mb-1 text-uppercase">{{ item.teaserType }}</p>{% endif %}
+                                    <p class="m-teaser__date mb-1">{{ item.teaserDate }}</p>
+                                </div>
+                            </div>
+                        </a>
+                        {% if loop.last == false %}
+                        <hr aria-hidden="true">
+                        {% endif %}
+                    </article>
+                {% endif %}
+            {% endfor %}
+                    </div> {# END .col-md-6 #}
+        </div>
+
+        {% if paragMultiPushLinks %}
+            <div class="paragraph__footer row justify-content-center mt-4">
+                <div class="col-md-10 col-lg-8 text-center">
+                    {% if paragMultiPushLinks %}{% include "o-paragraph--lien.twig" with { links: paragMultiPushLinks } %}{% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,76 @@
+.o-paragraph--image-texte-cta__content {
+    padding: 6.5rem;
+    width: 100%;
+
+    @include esante-petal();
+}
+
+@media (min-width: 48em) {
+    .o-paragraph--image-texte-cta__img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 42.2rem;
+        height: 39rem;
+        clip-path: url(#mask-mise-en-avant);
+        overflow: hidden; // fix Safari: need to add overflow: hidden with clip-path
+
+        img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .o-paragraph--image-texte-cta {
+        position: relative; // needed to position the image
+        display: flex;
+        align-items: flex-end;
+
+        &.rightVisual {
+            min-height: 39rem;
+
+            .o-paragraph--image-texte-cta__content {
+                padding-right: 33rem;
+                width: calc(100% - 12rem);
+            }
+        }
+
+        &.leftVisual {
+            min-height: 39rem;
+
+            .o-paragraph--image-texte-cta__content {
+                padding-left: 33rem;
+                width: calc(100% - 12rem);
+                margin-left: auto;
+                border-top-right-radius: 0 !important;
+                border-top-left-radius: 10rem !important;
+
+                // petal
+                &::before {
+                    right: -2.5rem;
+                    left: auto;
+                }
+            }
+
+            .o-paragraph--image-texte-cta__img {
+                left: 0;
+                right: auto;
+                transform: scaleX(-1);
+
+                img {
+                    transform: scaleX(-1);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 62em) {
+    .o-paragraph--image-texte-cta__content {
+        padding: 6.5rem 14rem;
+    }
+}

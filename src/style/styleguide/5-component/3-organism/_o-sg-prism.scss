@@ -1,8 +1,17 @@
 .o-sg-prism {
     margin-bottom: 4.6rem;
-    background-color: $gray-100;
     border: solid 0.1rem $border-color;
     border-radius: 1.8rem;
+
+    &:not([class*="bg-"]) {
+        background-color: $gray-100;
+    }
+
+    &.bg-white {
+        .o-sg-prism__collapse {
+            border-top: solid 0.1rem $border-color;
+        }
+    }
 
     &--full {
         position: relative;
@@ -41,6 +50,10 @@
         transform: translateY(0);
         opacity: 1;
         z-index: $zindex-fixed + 1;
+    }
+
+    .o-banner {
+        overflow: hidden;
     }
 }
 

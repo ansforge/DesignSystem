@@ -1,0 +1,35 @@
+// slider is not init yet
+@include media-breakpoint-up(sm) {
+    .o-paragraph--mixed-push__slider:not(.tns-slider) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 $grid-gutter-width;
+
+        > .m-teaser {
+            @include aw-make-col-value(38rem);
+        }
+    }
+}
+
+// slider overflows the container
+.o-paragraph--mixed-push {
+    .container {
+        padding-top: 2rem; // add space to align title and tns-controls
+    }
+}
+
+// slider items height alignement
+.o-paragraph--mixed-push__slider.tns-slider {
+    display: flex;
+
+    > .tns-item {
+        display: flex;
+    }
+}
+
+// slider controls position
+.o-paragraph--mixed-push .tns-controls {
+    position: absolute;
+    top: -8.5rem; // button height + space
+    right: 0;
+}

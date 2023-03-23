@@ -1,0 +1,106 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Remontées diverses' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-global-sliders.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-remontee.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-remontees-diverses.css" type="text/css" />
+{% endblock %}
+{% block scripts_more %}
+    {{ parent() }}
+    <script type="text/javascript" src="./script/tiny-slider.js"></script>
+    <script type="text/javascript" src="./script/bloc-o-remontees-diverses.js"></script>
+    <script type="text/javascript" src="./script/bloc-global-sliders.js"></script>
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--mixed-push.twig" with {
+                        paragMultiNewsPushTitle: title,
+                        paragMultiNewsPushDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                        teasers: [
+                            {
+                                teaserType: "news",
+                                teaserTypeLabel: "Actualité",
+                                teaserDate: "01 Juillet 2021",
+                                teaserTitle: "Lorem ipsum",
+                                teaserDesc: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>",
+                                teaserLink: "#"
+                            },
+                            {
+                                teaserType: "press-release",
+                                teaserTypeLabel: "Communiqué de presse",
+                                teaserImgUrl: "https://picsum.photos/378/213",
+                                teaserDate: "20 Aout 2021",
+                                teaserTitle: "Lorem ipsum dolor sit amet",
+                                teaserDesc: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>",
+                                teaserLink: "#"
+                            },
+                            {
+                                teaserType: "event",
+                                teaserTypeLabel: "Événement",
+                                teaserImgUrl: "https://picsum.photos/378/213",
+                                teaserDate: "12 Septembre 2021",
+                                teaserTitle: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+                                teaserDesc: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>",
+                                teaserLink: "#"
+                            },
+                            {
+                                teaserType: "webinar",
+                                teaserTypeLabel: "Webinaire",
+                                teaserImgUrl: "https://picsum.photos/378/213",
+                                teaserDate: "07 Octobre 2021",
+                                teaserTitle: "Consectetur adipisicing elit",
+                                teaserDesc: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>",
+                                teaserLink: "#"
+                            },
+                            {
+                                teaserType: "news",
+                                teaserTypeLabel: "Actualité",
+                                teaserImgUrl: "https://picsum.photos/378/213",
+                                teaserDate: "10 Novembre 2021",
+                                teaserTitle: "Lorem ipsum",
+                                teaserDesc: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>",
+                                teaserLink: "#"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Taille de l'image : 378*213</p>
+
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-global-sliders.css" target="_blank" class="file-link">CSS globale pour les sliders (3,8Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-remontee.css" target="_blank" class="file-link">CSS de la carte Remontée (1,3Ko - CSS)</a></li>
+                <li><a href="./style/bloc-o-remontees-diverses.css" target="_blank" class="file-link">CSS du bloc {{ title }} (0,54Ko - CSS)</a></li>
+            </ul>
+            <p>Charger les JS suivants :</p>
+            <ul>
+                <li>JS du Système de Design</li>
+                <li><a href="./script/tiny-slider.js" target="_blank" class="file-link">Librairie JS tiny-slider (32,4Ko - JS)</a></li>
+                <li><a href="./script/bloc-o-remontees-diverses.js" target="_blank" class="file-link">JS du bloc {{ title }} (0,13Ko - JS)</a></li>
+                <li><a href="./script/bloc-global-sliders.js" target="_blank" class="file-link">JS global pour les sliders (1,2Ko - JS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+.m-teaser__img {
+    overflow: hidden;
+    min-height: 5rem;
+
+    img {
+        width: 100%;
+        transition: transform .8s ease-in-out;
+    }
+}
+
+.m-teaser__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3rem 2.5rem 0 2.5rem;
+}
+
+.m-teaser {
+    position: relative;
+
+    a {
+        display: block;
+        text-decoration: none;
+        overflow: hidden;
+
+        .m-teaser__img {
+            // fix Safari bug: transform with border radius
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        &:hover,
+        &:focus {
+            color: inherit;
+
+            .m-teaser__title {
+                text-decoration: underline;
+            }
+
+            .m-teaser__img {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+.m-teaser__type {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    &.border {
+        color: var(--gray-800);
+        border-color: var(--gray-800) !important;
+    }
+}
+
+// fix bug Safari: duplicate border radius on parent image
+.m-teaser--news {
+    .rounded-md .m-teaser__img {
+        border-top-right-radius: var(--border-radius-md);
+    }
+
+    .m-teaser__content {
+        padding: 3rem;
+    }
+
+    .m-teaser__type {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+}

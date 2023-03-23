@@ -1,0 +1,37 @@
+{#
+/**
+ * Teaser
+ *
+ * Options:
+ *  - teaserUrl: link of the teaser
+ *  - teaserImgUrl: url of the image. More options in a-img.twig
+ *  - teaserTitle: text of the title
+ *  - teaserDesc: text of the description
+ */
+#}
+<article class="m-teaser">
+    {% if teaserUrl %}
+    <a href="{{ teaserUrl }}">
+    {% endif %}
+        {% if teaserImgUrl %}
+            <div class="m-teaser__img rounded-md bottom-left-radius-0">
+                {% include "../../component/1-atom/a-img.twig" with {
+                    imgUrl: teaserImgUrl,
+                    imgLazy: true
+                } %}
+            </div>
+        {% endif %}
+
+        <div class="m-teaser__content">
+            {% if teaserTitle %}
+                <h3 class="m-teaser__title h4">{{- teaserTitle -}}</h3>
+            {% endif %}
+
+            {% if teaserDesc %}
+                <div class="wysiwyg mb-2">{{- teaserDesc -}}</div>
+            {% endif %}
+        </div>
+    {% if teaserUrl %}
+    </a>
+    {% endif %}
+</article>

@@ -1,0 +1,58 @@
+{#
+/**
+ * Quote
+ *
+ * Options:
+ *  - quoteFirstName
+ *  - quoteLastName
+ *  - quoteJobTitle
+ *  - quoteText
+ *  - quoteImgUrl
+ *  - quoteLinks
+ */
+#}
+<article class="m-quote mb-2">
+    <div class="m-quote__img mx-auto{% if quoteImgUrl %} m-quote__img--clip">
+        {% include "../../component/1-atom/a-img.twig" with {
+            imgUrl: quoteImgUrl,
+            imgWidth: quoteImgWidth,
+            imgHeight: quoteImgHeight,
+            imgLazy: true
+        } %}
+    {% else %}
+        ">
+        {% include "../../component/1-atom/a-img.twig" with {
+            imgUrl: "img/blocs/quote.svg",
+            imgWidth: 142,
+            imgHeight: 133,
+            imgLazy: true
+        } %}
+    {% endif %}
+    </div>
+
+    {% if quoteText %}
+        <div class="wysiwyg">
+            {{ quoteText }}
+        </div>
+    {% endif %}
+
+    {% if quoteFirstName or quoteLastName %}
+        <div class="m-quote__author text-center mt-2">
+            {% include "../../component/2-molecule/m-social.twig" with {
+                socials: quoteSocials
+            } %}
+
+            <p class="mb-0">{{ quoteFirstName | capitalize }} {{ quoteLastName | capitalize }}{% if quoteJobTitle %}, {{ quoteJobTitle }}{% endif %}</p>
+        </div>
+    {% endif %}
+
+    {% if quoteLinks %}
+        <div class="paragraph__footer row justify-content-center my-1">
+            <div class="col-md-10 col-lg-8 text-center">
+                {% include "../3-organism/o-paragraph--lien.twig" with {
+                    links: quoteLinks
+                } %}
+            </div>
+        </div>
+    {% endif %}
+</article>

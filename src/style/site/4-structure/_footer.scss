@@ -28,6 +28,14 @@
     p:not(:last-child) {
         margin-bottom: 0;
     }
+
+    .m-social__list {
+        margin-bottom: 3rem;
+
+        @include media-breakpoint-down(sm) {
+            justify-content: center;
+        }
+    }
 }
 
 .footer__title {

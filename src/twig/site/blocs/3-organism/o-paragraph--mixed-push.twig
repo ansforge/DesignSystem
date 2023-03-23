@@ -1,0 +1,30 @@
+<div class="paragraph-space o-paragraph--mixed-push">
+    <div class="container">
+        <div class="paragraph__header row">
+            <div class="col-8 col-sm-9 col-md-10 col-lg-8">
+                {% if paragMultiNewsPushTitle %}<h2>{{ paragMultiNewsPushTitle }}</h2>{% endif %}
+                {% if paragMultiNewsPushDesc %}<p>{{ paragMultiNewsPushDesc }}</p>{% endif %}
+            </div>
+        </div>
+
+        {% if teasers %}
+            <div class="o-paragraph--mixed-push__teasers mt-4">
+                <div class="o-paragraph--mixed-push__slider col--eq-height">
+                    {% for item in teasers %}
+                        {% include "../2-molecule/m-teaser--news.twig" with {
+                            teaserType: item.teaserType,
+                            teaserTypeLabel: item.teaserTypeLabel,
+                            teaserImgUrl: item.teaserImgUrl,
+                            imgWidth: 378,
+                            imgHeight: 213,
+                            teaserDate: item.teaserDate,
+                            teaserTitle: item.teaserTitle,
+                            teaserDesc: item.teaserDesc,
+                            teaserLink: item.teaserLink
+                        } %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

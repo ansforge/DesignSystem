@@ -1,0 +1,77 @@
+{#
+/**
+ * Card
+ *
+ * Options:
+ *  - bgColor: add a background color. Default empty (transparent).
+ *             Options: 'bg-white', 'bg-gray-700 text-white', 'bg-primary text-white', 'bg-brand-2 text-white'
+ *  - textAlignment: left/center. Default empty (left alignment)
+ *  - cardRadiusRounded: add a radius to the card. Boolean
+ *  - cardRadiusDrop: add a radius to the card but remove the top left radius. Boolean
+ *  - cardImgUrl: url of the image. It is displayed inside the content box. More options in a-img.twig
+ *  - cardImgTop: display the image on top of the card. Boolean
+ *  - cardImgBg: display the image as the background of the card. Boolean
+ *  - cardTitle: text of the title
+ *  - cardSubtitle: text of the subtitle
+ *  - cardDesc: text of the description
+ *  - cardUrl: link of the card
+ *  - cardTarget: target of the link
+ *  - cardHasArrow: display icon at the end of the card
+ *  - cardLinks: paragraph link
+ */
+#}
+{% if cardUrl %}
+<a href="{{ cardUrl }}" {%- if cardTarget %} target="{{ cardTarget }}"{% endif %}
+{% else %}
+<div
+{% endif %}
+    class="m-card
+    {%- if bgColor %} {{ bgColor }}{% endif -%}
+    {%- if textAlignment %} text-{{ textAlignment }}{% endif -%}
+    {%- if cardRadiusRounded %} rounded-md{% endif -%}
+    {%- if cardRadiusDrop %} rounded-md top-left-radius-0{% endif -%}
+    {%- if cardImgTop %} m-card--img-top rounded-md top-left-radius-0{% endif -%}
+    {%- if cardImgBg %} m-card--img-bg bg-primary text-white{% endif -%}
+    {%- if cardHasArrow %} m-card--has-arrow{% endif -%}
+    {%- if cardTarget == "_blank" %} external-link{% endif -%}
+">
+    {% if cardImgUrl %}
+        <div class="m-card__img">
+            {% include "../../component/1-atom/a-img.twig" with {
+                imgUrl: cardImgUrl,
+                imgLazy: true
+            } %}
+        </div>
+    {% endif %}
+
+    {% if cardTitle %}
+        <h3 class="m-card__title h4">{{- cardTitle -}}</h3>
+    {% endif %}
+
+    {% if cardSubtitle %}
+        <p class="lead">{{- cardSubtitle -}}</p>
+    {% endif %}
+
+    {% if cardDesc %}
+        <p>{{- cardDesc -}}</p>
+    {% endif %}
+
+    {% if not cardUrl and cardLinks %}
+        {% include "../3-organism/o-paragraph--lien.twig" with { links: cardLinks } %}
+    {% endif %}
+
+{% if cardUrl %}
+    {% if cardHasArrow and not cardTarget %}
+        <div class="paragraph--lien">
+            {{ macro.svg("arrow-right") }}
+        </div>
+    {% endif %}
+    {% if cardHasArrow and cardTarget == "_blank" %}
+        <div class="paragraph--lien">
+            {{ macro.svg("external-link") }}
+        </div>
+    {% endif %}
+</a>
+{% else %}
+</div>
+{% endif %}

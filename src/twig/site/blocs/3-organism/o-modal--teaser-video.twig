@@ -1,0 +1,12 @@
+<!-- Modal pour les vidéos, à charger une seule fois en bas de page après le footer
+/!\ Respectez tous les ID car ils sont utilisés en JS
+-->
+{% embed  "o-modal.twig" with {
+    modalId: "modalVideoTeaser",
+    modalLabelId: "modalVideoLabelTeaser",
+    modalLabel: "Video"
+} %}
+    {% block modalBody %}
+        <div class="embed-responsive embed-responsive-16by9 mt-1" id="m-teaser__iframe"></div>
+    {% endblock %}
+{% endembed %}

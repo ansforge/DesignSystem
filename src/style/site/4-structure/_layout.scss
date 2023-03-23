@@ -47,6 +47,12 @@ iframe {
     width: 100%;
 }
 
+.container--small {
+    .container {
+        max-width: 82rem;
+    }
+}
+
 @include media-breakpoint-down(lg) {
     .container {
         padding-left: 2rem;
@@ -66,4 +72,17 @@ a[class*="bg"] {
 
 .search-backdrop {
     z-index: 10;
+}
+
+// Make children of columns have the same height
+//      <div class="row col--eq-height">
+.col--eq-height {
+    > * {
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+            width: 100%;
+        }
+    }
 }

@@ -1,0 +1,59 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Carte interactive' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-carte-interactive.css" type="text/css" media="screen"/>
+{% endblock %}
+{% block scripts_more %}
+    {{ parent() }}
+    <script type="text/javascript" src="./script/jvectormap.min.js"></script>
+    <script type="text/javascript" src="./script/bloc-o-carte-interactive.js"></script>
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title,
+            blockAccroche_text: "En cliquant sur une région dans la carte interactive, ou en validant son choix depuis la liste déroulante, le bloc bleu correspondant à la région s’affiche. Le contenu du bloc bleu est modifiable dans le JS du bloc Carte interactive."
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--carte-interactive.twig" with {
+                        paragCartelinks: [
+                            {
+                                link: "#",
+                                class: "region-link",
+                                color: "white",
+                                svgBefore: "angle-right",
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-o-carte-interactive.css" target="_blank" class="file-link">CSS du bloc {{ title }} (6,1Ko - CSS)</a></li>
+            </ul>
+            <p>Charger les JS suivants :</p>
+            <ul>
+                <li>JS du Système de Design</li>
+                <li><a href="./script/jvectormap.min.js" target="_blank" class="file-link">Librairie JS jvectormap (130,2Ko - JS)</a></li>
+                <li><a href="./script/bloc-o-carte-interactive.js" target="_blank" class="file-link">JS du bloc {{ title }} (7Ko - JS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

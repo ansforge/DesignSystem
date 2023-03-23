@@ -1,0 +1,42 @@
+.o-paragraph--fonctions-ans {
+    position: relative;
+
+    @media (min-width: 48em) {
+        display: flex;
+        align-items: center;
+        min-height: 44rem;
+    }
+
+    @media (min-width: 75em) {
+        min-height: 63rem;
+
+        h2 {
+            font-size: 5.2rem;
+            line-height: 1;
+        }
+    }
+}
+
+.o-paragraph--fonctions-ans__item {
+    position: relative;
+    z-index: 1;
+}
+
+.o-paragraph--fonctions-ans__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.3;
+
+    [data-contrast="high-c"] & {
+        opacity: 0.1;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

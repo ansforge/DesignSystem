@@ -22,7 +22,7 @@ $palette-colors: (
     "success":          $success,
     "info":             $info,
 
-    "white":    var(--white),
+    // "white":    var(--white), // color white is already in /site CSS
     "gray-100": var(--gray-100),
     "gray-200": var(--gray-200),
     "gray-300": var(--gray-300),

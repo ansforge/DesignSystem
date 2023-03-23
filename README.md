@@ -9,8 +9,8 @@ Framework CSS créé par les équipes front d'alterway.
 
 # Génération du projet
 
-- Installer NodeJS _(version projet : 12.4.0)_
-- Installer NPM _(version projet : 6.9.0)_
+- Installer NodeJS _(version projet : 10.24.1)_
+- Installer NPM _(version projet : 6.14.12)_
 - Lancer la commande :
 ```javascript
 npm install
@@ -72,6 +72,7 @@ Ex. du composant qui a pour class `.a-info` :
 A chaque mise à jour de version :
 - Mettre à jour la date de livraison et le numéro de version sur la page `index.twig`
 - Lister tous les nouveaux éléments et les modifications apportées par la version sur la page `sg-versions.twig`
-- Lancer la commande `gulp` pour générer tous les fichiers puis zipper la version (les éléments du dossier `__public/styleguide`) **en retirant les zip des anciennes versions**
+- Lancer la commande `gulp` pour générer tous les fichiers puis zipper la version (les éléments du dossier `__public/styleguide`) **en retirant les .zip des anciennes versions du dossier /zip**
+- Placer le nouveau fichier .zip dans le dossier `src/zip`
 - Vérifier le poids noté dans les twig de tous les fichiers zip. Vous obtiendrez ces informations dans la console en lançant la commande `gulp` (fonction zipSizes)
 - Taguer la branch master à chaque livraison de version

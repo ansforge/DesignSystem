@@ -1,14 +1,8 @@
-@charset "UTF-8";
+// Mixins, functions, variables
+@import './style-vars';
 
-@import './0-mixin/__index';
-@import './3-framework/bootstrap-4.5.3/functions';
-//
-
-@import './0-variable/var-custom';
-@import './0-variable/var-bootstrap';
-@import './3-framework/__index-vars';
+// Content
 @import './0-variable/var-theme';
-
 @import './styleguide/0-variable/__index';
 
 .sg {

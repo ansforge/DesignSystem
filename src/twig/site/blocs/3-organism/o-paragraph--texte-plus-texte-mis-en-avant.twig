@@ -1,0 +1,14 @@
+<div class="container paragraph-space">
+    <div class="row">
+        <div class="col-md-8 mb-3">
+            {% if textTitle %}<h2>{{ textTitle }}</h2>{% endif %}
+            {% if textContent %}<div class="wysiwyg mb-3">{{ textContent }}</div>{% endif %}
+            {% if links %}{% include "o-paragraph--lien.twig" %}{% endif %}
+        </div>
+        <div class="col-md-4">
+            <div class="rounded-lg top-left-radius-0 bg-primary text-white px-4 py-6">
+                <div class="wysiwyg">{{ cardContent }}</div>
+            </div>
+        </div>
+    </div>
+</div>

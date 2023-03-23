@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+// Mixins, functions
+@import './0-mixin/__index';
+@import './3-framework/bootstrap-4.5.3/functions';
+// Variables
+@import './0-variable/var-custom';
+@import './0-variable/var-bootstrap';
+@import './3-framework/__index-vars';
+
+$theme-colors: map-remove($theme-colors, "primary", "secondary", "success", "info", "warning", "danger", "light", "dark");

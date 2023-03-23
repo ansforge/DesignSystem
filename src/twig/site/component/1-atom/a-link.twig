@@ -27,8 +27,8 @@
     <button type="{{ item.btnType|default("button") }}" {%- if item.disabled %} disabled{% endif %} {% for attr, value in item.attributes %} {{ attr }}="{{ value }}"{% endfor %}
     {% endif -%}
         class="{# Styles: plain / ghost #}
+            {%- if item.style %}btn btn--{{ item.style }}{% endif -%}
             {%- if item.class %} {{ item.class }}{% endif -%}
-            {%- if item.style %} btn btn--{{ item.style }}{% endif -%}
 
             {# Colors: see $project-colors (primary, brand-2, white...) #}
             {%- if item.color %} btn--{{ item.color }}{% endif -%}

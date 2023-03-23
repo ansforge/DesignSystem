@@ -10,33 +10,7 @@
  *      - socialRel: Rel of the link
  */
 #}
-{% set socials = [
-    {
-        socialName: "linkedin",
-        socialLink: "http://linkedin.com",
-        socialTarget: "_blank",
-        socialRel: "nofollow"
-    },
-    {
-        socialName: "twitter",
-        socialLink: "http://twitter.com",
-        socialTarget: "_blank",
-        socialRel: "nofollow"
-    },
-    {
-        socialName: "youtube",
-        socialLink: "http://youtube.com",
-        socialTarget: "_blank",
-        socialRel: "nofollow"
-    },
-    {
-        socialName: "rss",
-        socialLink: "#",
-        socialTarget: "_blank",
-        socialRel: "nofollow"
-    }
-] %}
-
+{% if socials %}
 <div class="m-social">
     <ul class="m-social__list">
         {% for item in socials %}
@@ -53,3 +27,4 @@
         {% endfor %}
     </ul>
 </div>
+{% endif %}

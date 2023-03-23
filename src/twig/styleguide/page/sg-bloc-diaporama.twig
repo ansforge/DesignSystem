@@ -1,0 +1,71 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Diaporama' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-global-sliders.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-diaporama.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-diaporama.css" type="text/css" />
+{% endblock %}
+{% block scripts_more %}
+    {{ parent() }}
+    <script type="text/javascript" src="./script/tiny-slider.js"></script>
+    <script type="text/javascript" src="./script/bloc-o-diaporama.js"></script>
+    <script type="text/javascript" src="./script/bloc-global-sliders.js"></script>
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--diaporama.twig" with {
+                        diaporamaItems: [
+                            {
+                                diaporamaItemTitle: title,
+                                diaporamaItemImgUrl: "https://picsum.photos/790/444",
+                            },
+                            {
+                                diaporamaItemTitle: "Primum igitur quid bonum sit id quod omnium philosophorum sententia tale",
+                                diaporamaItemImgUrl: "https://picsum.photos/790/444",
+                            },
+                            {
+                                diaporamaItemTitle: "Primum igitur quid bonum sit id quod omnium philosophorum sententia tale debet esse quam ob aliquam causam ista quae sine. Primum igitur quid bonum sit id quod omnium philosophorum sententia tale debet esse quam ob aliquam causam ista quae sine.",
+                                diaporamaItemImgUrl: "https://picsum.photos/790/444",
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-global-sliders.css" target="_blank" class="file-link">CSS globale pour les sliders (3,8Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-diaporama.css" target="_blank" class="file-link">CSS de la carte Diaporama (0,73Ko - CSS)</a></li>
+                <li><a href="./style/bloc-o-diaporama.css" target="_blank" class="file-link">CSS du bloc {{ title }} (0,30Ko - CSS)</a></li>
+            </ul>
+            <p>Charger les JS suivants :</p>
+            <ul>
+                <li>JS du Système de Design</li>
+                <li><a href="./script/tiny-slider.js" target="_blank" class="file-link">Librairie JS tiny-slider (32,4Ko - JS)</a></li>
+                <li><a href="./script/bloc-o-diaporama.js" target="_blank" class="file-link">JS du bloc {{ title }} (0,12Ko - JS)</a></li>
+                <li><a href="./script/bloc-global-sliders.js" target="_blank" class="file-link">JS global pour les sliders (1,2Ko - JS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

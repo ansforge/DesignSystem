@@ -1,0 +1,93 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Liste de fichiers' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-file.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-liste-fichiers.css" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--files.twig" with {
+                        paragFilesTitle: title ~ " (< 3 éléments)",
+                        paragFilesDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugiat adipisicing sit anim ullamco proident.
+                            Do consequat velit culpa ipsum et minim proident eiusmod consectetur tempor occaecat minim dolore.",
+                        paragFilesLinks: [
+                            {
+                                fileLink: "document.pdf",
+                                fileTitle: "Document lorem ipsum",
+                                fileInfo: "PDF - 48 Ko"
+                            },
+                            {
+                                fileLink: "document.pdf",
+                                fileTitle: "Formulaire de demande d’attribution de carte de personnels de structure",
+                                fileInfo: "PDF - 48 Ko"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--files.twig" with {
+                        paragFilesTitle: title ~ " (> 3 éléments)",
+                        paragFilesDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugiat adipisicing sit anim ullamco proident.
+                            Do consequat velit culpa ipsum et minim proident eiusmod consectetur tempor occaecat minim dolore.",
+                        paragFilesLinks: [
+                            {
+                                fileLink: "document.pdf",
+                                fileTitle: "Document lorem ipsum",
+                                fileInfo: "PDF - 48 Ko"
+                            },
+                            {
+                                fileLink: "document.pdf",
+                                fileTitle: "Formulaire de demande d’attribution de carte de personnels de structure",
+                                fileInfo: "PDF - 48 Ko"
+                            },
+                            {
+                                fileLink: "document.pdf",
+                                fileTitle: "Document lorem ipsum",
+                                fileInfo: "PDF - 48 Ko"
+                            },
+                            {
+                                fileLink: "document.pdf",
+                                fileTitle: "Formulaire de demande d’attribution de carte de personnels de structure",
+                                fileInfo: "PDF - 48 Ko"
+                            },
+                            {
+                                fileLink: "document.pdf",
+                                fileTitle: "Document lorem ipsum",
+                                fileInfo: "PDF - 48 Ko"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-file.css" target="_blank" class="file-link">CSS de la carte Fichier (2,4Ko - CSS)</a></li>
+                <li><a href="./style/bloc-o-liste-fichiers.css" target="_blank" class="file-link">CSS du bloc {{ title }} (0,27Ko - CSS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

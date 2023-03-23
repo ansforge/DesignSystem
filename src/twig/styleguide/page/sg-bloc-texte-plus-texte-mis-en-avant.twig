@@ -1,0 +1,65 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Texte plus texte mis en avant' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--texte-plus-texte-mis-en-avant.twig" with {
+                        textTitle: title,
+                        textContent: "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugiat adipisicing sit anim ullamco proident.
+                            Do consequat velit culpa ipsum et minim proident eiusmod consectetur tempor occaecat minim dolore.</p>
+                            <ul>
+                                <li>Lorem ipsum</li>
+                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem
+                                    doloremque exercitationem.</li>
+                            </ul>
+                            <p> Magna exercitation excepteur ad pariatur officia incididunt est dolore irure. Proident enim minim labore ad
+                            proident occaecat aute voluptate. Consequat aliqua velit esse aliquip Lorem ipsum. Excepteur dolor eiusmod do mollit amet nulla
+                            cupidatat consequat.
+                            Ipsum amet exercitation sunt pariatur occaecat cillum tempor reprehenderit in incididunt consectetur mollit. Sit ullamco nisi minim
+                            adipisicing aliquip dolore Lorem velit nostrud id laboris enim non. Sunt ex et cillum laborum ipsum pariatur ad consectetur sint.</p>",
+                        links: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "#",
+                                text: "Lien interne"
+                            }
+                        ],
+                        hasHighlightedTextCard: true,
+                        cardContent: "<h3>Lorem ipsum dolor sit amet</h3>
+                            <ul>
+                                <li>Lorem ipsum</li>
+                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                <li>Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercit-ationem.</li>
+                            </ul>"
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

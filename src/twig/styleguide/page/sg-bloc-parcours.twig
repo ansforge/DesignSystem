@@ -1,0 +1,109 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Parcours' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-parcours.css" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--parcours.twig" with {
+                        paragPathItemTitle: title,
+                        paragPathItemNumber: "01",
+                        paragPathItemsParags: [
+                            {
+                                textContent: "<p><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing elit. Ipsum fugiat adipisicing sit anim ullamco proident.
+                                Do consequat velit culpa ipsum et minim proident eiusmod consectetur tempor occaecat minim dolore.</p>
+                                <ul>
+                                    <li>Lorem ipsum</li>
+                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem
+                                        doloremque exercitationem.</li>
+                                </ul>"
+                            },
+                            {
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien externe",
+                                        target: "_blank"
+                                    }
+                                ]
+                            },
+                            {
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "document.pdf",
+                                        text: "Lien vers un document (poids, type)"
+                                    }
+                                ]
+                            },
+                            {
+                                textContent: "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugiat adipisicing sit anim ullamco proident.
+                                Do consequat velit culpa ipsum et minim proident eiusmod consectetur tempor occaecat minim dolore.</p>
+                                <ul>
+                                    <li>Lorem ipsum</li>
+                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem
+                                        doloremque exercitationem.</li>
+                                </ul>"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--parcours.twig" with {
+                        paragPathItemTitle: title ~ " - sans chiffre",
+                        paragPathItemsParags: [
+                            {
+                                textContent: "<p><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing elit. Ipsum fugiat adipisicing sit anim ullamco proident.
+                                Do consequat velit culpa ipsum et minim proident eiusmod consectetur tempor occaecat minim dolore.</p>"
+                            },
+                            {
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ]
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-o-parcours.css" target="_blank" class="file-link">CSS du bloc {{ title }} (1,4Ko - CSS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

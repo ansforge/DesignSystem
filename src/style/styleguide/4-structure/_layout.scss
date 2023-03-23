@@ -51,19 +51,6 @@ main {
     }
 }
 
-// Make children of columns have the same height
-//      <div class="row col--eq-height">
-.col--eq-height {
-    > * {
-        display: flex;
-        flex-wrap: wrap;
-
-        > * {
-            width: 100%;
-        }
-    }
-}
-
 @include media-breakpoint-down(md) {
     .nav-is-open {
         overflow: hidden;

@@ -10,5 +10,6 @@
     {% endif %}
 
     {# accroche #}
-    <p>{{ blockAccroche_text }}</p>
+    {% if blockAccroche_text %}<p>{{ blockAccroche_text }}</p>{% endif %}
+    {% if blockAccroche_text_div %}<div class="wysiwyg">{{ blockAccroche_text_div }}</div>{% endif %}
 </div>
