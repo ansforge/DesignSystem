@@ -144,7 +144,7 @@ generate_package:
     - sudo chown -R docker:docker .
     # Build package
     - |
-      zip -qr ${PACKAGES_NAME} web \
+      zip -qr ${PACKAGES_NAME} web/site web/styleguide \
       -x \*\*/node_modules/\*
   artifacts:
     paths:
