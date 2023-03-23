@@ -11,7 +11,7 @@ set -e
 
 source "${PROJECT_ROOT}/.docksal/commands/helpers"
 
-cd "${DOCROOT_PATH}"
+cd "${PROJECT_ROOT}"
 
 #-------------------------- Execution --------------------------------
 
