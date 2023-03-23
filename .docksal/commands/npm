@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+#: exec_target = node
+
+## Execute npm commands
+##
+## Usage: fin npm
+
+# Abort if anything fails
+set -e
+
+source "${PROJECT_ROOT}/.docksal/commands/helpers"
+
+cd "${DOCROOT_PATH}"
+
+#-------------------------- Execution --------------------------------
+
+npm ${@}

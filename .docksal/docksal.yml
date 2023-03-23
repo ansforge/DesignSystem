@@ -8,3 +8,16 @@ services:
       - "${VIRTUAL_HOST}:${DOCKSAL_HOST_IP}"
     labels:
       - io.docksal.virtual-host=${VIRTUAL_HOST},*.${VIRTUAL_HOST},${VIRTUAL_HOST}.*
+
+  # Compile sources
+  node:
+    image: ${NODE_IMAGE}
+    volumes:
+      - project_root:/var/www:rw,nocopy,cached  # Project root volume
+    labels:
+      - io.docksal.user=node
+      - io.docksal.shell=sh
+      - io.docksal.project-root=${PROJECT_ROOT}
+    environment:
+     - PROJECT_ROOT=/var/www
+    command: tail -F anything

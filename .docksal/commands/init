@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+## Initialize stack and site (full reset)
+##
+## Usage: fin init
+
+# Abort if anything fails
+set -e
+
+source "${PROJECT_ROOT}/.docksal/commands/helpers"
+
+#-------------------------- Execution --------------------------------
+
+# Stack initialization
+echo -e "${green_bg} Step 1 ${NC}${green} Initializing stack...${NC}"
+fin project reset -f
+
+# Site initialization
+echo -e "${green_bg} Step 2 ${NC}${green} Initializing site...${NC}"
+
+time -p compile
+
+echo -e "${green_bg} DONE! ${NC}${green} Completed all initialization steps.${NC}"
+
+#-------------------------- END: Execution --------------------------------
