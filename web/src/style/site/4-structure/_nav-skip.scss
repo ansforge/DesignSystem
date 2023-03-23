@@ -1,0 +1,28 @@
+// Skip links navigation A11y
+.nav-skip {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    padding: 0.8rem 3rem;
+    font-size: 1.6rem;
+    background-color: $white;
+    border-bottom: solid 0.1rem $border-color;
+    transform: translateY(-100%);
+    opacity: 0;
+
+    &:focus-within {
+        position: relative;
+        transform: translateY(0);
+        opacity: 1;
+        z-index: $zindex-fixed + 1;
+    }
+
+    li {
+        margin-right: 4rem;
+    }
+
+    a {
+        @include link-inverse();
+    }
+}

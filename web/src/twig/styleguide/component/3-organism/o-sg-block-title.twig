@@ -1,0 +1,15 @@
+<div class="o-sg-block-title">
+    {# subTitle #}
+    {% if blockSubTitle %} <p class="o-sg-block-title__subtitle">{{ blockSubTitle }}</p> {% endif %}
+
+    {# the title #}
+    {% if blockTitle %}
+        <h{%- if h_title %}{{ h_title }}{%else%}1{%endif%}>
+            {{- blockTitle -}}
+        </h{%- if h_title %}{{ h_title }}{% else %}1{% endif -%}>
+    {% endif %}
+
+    {# accroche #}
+    {% if blockAccroche_text %}<p>{{ blockAccroche_text }}</p>{% endif %}
+    {% if blockAccroche_text_div %}<div class="wysiwyg">{{ blockAccroche_text_div }}</div>{% endif %}
+</div>

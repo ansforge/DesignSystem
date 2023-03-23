@@ -1,0 +1,244 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Logotype' %}
+
+{% block main %}
+
+<div class="sg-container-content">
+    {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+        blockSubTitle: "Guide de style",
+        blockTitle: title,
+        blockAccroche_text: "Le logotype aide nos utilisateurs à identifier notre marque lorsqu'ils utilisent nos services. Il doit avoir la meilleure lisibilité possible. Plusieurs versions du logotype sont à prévoir en fonction du contexte."
+    } %}
+
+    <div class="sg-block-space">
+        <h2>Logotype « en-tête »</h2>
+        <p>C'est le logotype destiné à la partie <code>&lt;header&gt;</code>. Il comprend toujours la baseline. </p>
+        <p>Les logotypes de la partie <code>&lt;header&gt;</code> comprennent obligatoirement :</p>
+        <div class="wysiwyg">
+            <ul>
+                <li>le logotype de l'ANS&nbsp;;</li>
+                <li>le logotype du Ministère (obligatoire, conformément à la <a href="https://www.gouvernement.fr/charte/charte-graphique-les-fondamentaux/le-bloc-marque" target="_blank">charte graphique de l'État</a>).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="sg-block-space">
+        <h3>Version desktop</h3>
+        <h4>Logotype de l'ANS</h4>
+        <p>Taille minimale pour le format desktop : 166 × 50 px. La zone de securité correspond à la largeur de la goutte constituant le bas de la lettre "S" du logo.</p>
+
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/logotype/Logo-ANS-header-desktop.png',
+                imgSrcset: 'img/logotype/Logo-ANS-header-desktop@2x.png 2x',
+                imgAlt: '',
+                imgWidth: '490',
+                imgHeight: '203',
+                imgLazy: true
+            } %}
+    </div>
+
+    <div class="sg-block-space">
+            <h4>Logotype du Ministère</h4>
+            <p>Taille standard&nbsp;: 107 × 62 px. La zone de securité autour correspond à la hauteur du bloc Marianne.</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/logotype/Logo-MINISTERE-header-desktop.png',
+                imgSrcset: 'img/logotype/Logo-MINISTERE-header-desktop@2x.png 2x',
+                imgAlt: '',
+                imgWidth: '378',
+                imgHeight: '204',
+                imgLazy: true
+            } %}
+        </div>
+
+
+        <div class="sg-block-space">
+            <h4>Mise en situation</h4>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+            {% block embedToInclude %}
+            <span class="mr-3">
+                {% include "../../site/component/1-atom/a-img.twig" with {
+                    imgUrl: 'img/logo-ministere.svg',
+                    imgAlt: 'Ministère de la Santé et de la Prévention - Liberté égalité fraternité',
+                    imgWidth: '107',
+                    imgHeight: '62',
+                    imgLazy: true
+                } %}
+            </span>
+            <span>
+                {% include "../../site/component/1-atom/a-img.twig" with {
+                    imgUrl: 'img/logo-ANS.svg',
+                    imgAlt: 'Agence du Numérique en Santé',
+                    imgWidth: '166',
+                    imgHeight: '50',
+                    imgLazy: true
+                } %}
+            </span>
+            {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Version mobile</h3>
+
+            <h4>Logotype ANS</h4>
+
+            <p>Taille minimale pour le format mobile : 116 × 35 px. La zone de securité correspond à la largeur de la goutte constituant le bas de la lettre "S" du logo.</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/logotype/Logo-ANS-header-mobile.png',
+                imgSrcset: 'img/logotype/Logo-ANS-header-mobile@2x.png 2x',
+                imgAlt: '',
+                imgWidth: '346',
+                imgHeight: '134',
+                imgLazy: true
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h4>Logotype du Ministère</h4>
+
+            <p>Taille standard&nbsp;: 76 × 44 px. La zone de securité autour correspond à la hauteur du bloc Marianne.</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/logotype/Logo-MINISTERE-header-mobile.png',
+                imgSrcset: 'img/logotype/Logo-MINISTERE-header-mobile@2x.png 2x',
+                imgAlt: '',
+                imgWidth: '260',
+                imgHeight: '128',
+                imgLazy: true
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h4>Mise en situation</h4>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+            {% block embedToInclude %}
+            <span class="mr-2">
+                {% include "../../site/component/1-atom/a-img.twig" with {
+                    imgUrl: 'img/logo-ministere.svg',
+                    imgAlt: 'Ministère de la Santé et la Prévention - Liberté égalité fraternité',
+                    imgWidth: '76',
+                    imgHeight: '44',
+                    imgLazy: true
+                } %}
+            </span>
+            <span>
+                {% include "../../site/component/1-atom/a-img.twig" with {
+                    imgUrl: 'img/logo-ANS.svg',
+                    imgAlt: 'Agence du Numérique en Santé',
+                    imgWidth: '116',
+                    imgHeight: '35',
+                    imgLazy: true
+                } %}
+            </span>
+            {% endblock %}
+            {% endembed %}
+        </div>
+
+
+        <div class="sg-block-space">
+            <h2>Logotype « pied de page »</h2>
+            <p>Les logotypes de la partie <code>&lt;footer&gt;</code> comprennent obligatoirement :</p>
+            <div class="wysiwyg">
+                <ul>
+                    <li>le logotype de l'ANS en format carré&nbsp;;</li>
+                    <li>le logotype du Ministère (obligatoire, conformément à la <a href="https://www.gouvernement.fr/charte/charte-graphique-les-fondamentaux/le-bloc-marque" target="_blank">charte graphique de l'État</a>).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Logotype de l'ANS</h3>
+            <p>Taille standard&nbsp;: 106 × 74 px. La zone de securité correspond à la largeur de la goutte constituant le bas de la lettre "S" du logo.</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/logotype/Logo-ANS-footer.png',
+                imgSrcset: 'img/logotype/Logo-ANS-footer@2x.png 2x',
+                imgAlt: '',
+                imgWidth: '393',
+                imgHeight: '245',
+                imgLazy: true
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Logotype du Ministère</h3>
+            <p>Taille standard&nbsp;: 133 × 77 px. La zone de securité autour correspond à la hauteur du bloc Marianne.</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/logotype/Logo-MINISTERE-footer.png',
+                imgSrcset: 'img/logotype/Logo-MINISTERE-footer@2x.png 2x',
+                imgAlt: '',
+                imgWidth: '378',
+                imgHeight: '204',
+                imgLazy: true
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Mise en situation</h3>
+
+            <p>Les deux logotypes doivent systématiquement être agencés dans cet ordre&nbsp;:</p>
+            <div class="wysiwyg">
+                <ul>
+                    <li>à gauche, celui du Ministère&nbsp;;</li>
+                    <li>à droite, celui de l'ANS.</li>
+                </ul>
+            </div>
+            <p>Les deux logotypes doivent respecter leurs zones de sécurité respectives, et doivent être alignés en hauteur.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+            {% block embedToInclude %}
+            <span class="mr-3">
+                {% include "../../site/component/1-atom/a-img.twig" with {
+                    imgUrl: 'img/logo-ministere.svg',
+                    imgAlt: 'Ministère de la Santé et de la Prévention - Liberté égalité fraternité',
+                    imgWidth: '133',
+                    imgHeight: '77',
+                    imgLazy: true
+                } %}
+            </span>
+            <span>
+                {% include "../../site/component/1-atom/a-img.twig" with {
+                    imgUrl: 'img/logo-ANS-footer.svg',
+                    imgAlt: 'Agence du Numérique en Santé',
+                    imgWidth: '106',
+                    imgHeight: '74',
+                    imgLazy: true
+                } %}
+            </span>
+            {% endblock %}
+            {% endembed %}
+
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Favicon</h2>
+            <p>C'est l'image simplifiée qui apparaît dans la barre des favoris ou sur les onglets du navigateur.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+            {% block embedToInclude %}
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/logotype/Favicon.svg',
+                imgAlt: 'favicon',
+                imgWidth: '128',
+                imgHeight: '128',
+                imgLazy: true
+            } %}
+            {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Ressources</h2>
+            <div class="wysiwyg">
+                <p>Vous pouvez télécharger tous les logotypes et favicon nécessaires à la création de plateformes digitales en cliquant sur le lien ci-dessous :</p>
+                {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                    fileUrl: "zip/logotype.zip",
+                    fileName: "Logotypes et favicon",
+                    fileWeight: "1 Mo",
+                    fileType: "ZIP"
+                } %}
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

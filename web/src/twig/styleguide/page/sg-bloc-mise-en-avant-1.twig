@@ -1,0 +1,391 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Mise en avant 1' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-global-sliders.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-video.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-mise-en-avant-1.css" type="text/css" />
+{% endblock %}
+{% block scripts_more %}
+    {{ parent() }}
+    <script type="text/javascript" src="./script/tiny-slider.js"></script>
+    <script type="text/javascript" src="./script/bloc-m-video.js"></script>
+    <script type="text/javascript" src="./script/bloc-o-mise-en-avant-1.js"></script>
+    <script type="text/javascript" src="./script/bloc-global-sliders.js"></script>
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            <h2>{{ title }} - avec une image</h2>
+            <p>Taille de l'image : largeur maximum 585px</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--text-media.twig" with {
+                        paragTextMedia: [
+                            {
+                                paragTextMediaTitle: title ~ " - Image à gauche",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ],
+                                paragTextMediaImage: "https://picsum.photos/585/329",
+                                imgWidth: 585,
+                                imgHeight: 329,
+                                paragTextMediaLeft: true
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--text-media.twig" with {
+                        paragTextMedia: [
+                            {
+                                paragTextMediaTitle: title ~ " - Image à droite",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ],
+                                paragTextMediaImage: "https://picsum.photos/585/329",
+                                imgWidth: 585,
+                                imgHeight: 329,
+                                paragTextMediaRight: true
+                            }
+                        ],
+                        paragTextMediaInfoTitle: "Attention",
+                        paragTextMediaInfoWysiwyg: "<p>Prêter votre carte CPS vous expose au risque d’usurpation de votre identité de professionnel de santé. Prêter votre carte CPS vous expose au risque qu’un individu tiers, en votre nom, consulte ou signe des documents de santé.</p>"
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} - avec une image - Option Goutte</h2>
+            <p>Taille de l'image : 482*446</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--text-media.twig" with {
+                        paragTextMedia: [
+                            {
+                                paragTextMediaTitle: title ~ " - Image à gauche + Option Goutte",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien externe",
+                                        target: "_blank"
+                                    }
+                                ],
+                                paragTextMediaImage: "https://picsum.photos/482/446",
+                                imgWidth: 482,
+                                imgHeight: 446,
+                                paragTextMediaLeft: true,
+                                paragTextMediaStyle: 'clip'
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--text-media.twig" with {
+                        paragTextMedia: [
+                            {
+                                paragTextMediaTitle: title ~ " - Image à droite + Option Goutte",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien externe",
+                                        target: "_blank"
+                                    }
+                                ],
+                                paragTextMediaImage: "https://picsum.photos/482/446",
+                                imgWidth: 482,
+                                imgHeight: 446,
+                                paragTextMediaStyle: 'clip'
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+        <div class="sg-block-space">
+            <h2>{{ title }} - avec une vidéo</h2>
+            <p>Taille de l'image : 585*329</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--text-media.twig" with {
+                        paragTextMedia: [
+                            {
+                                paragTextMediaTitle: title ~ " - Vidéo à droite",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ],
+                                paragTextMediaVideo: "https://www.youtube-nocookie.com/embed/pgzTn5yR3M8",
+                                teaserVideoTitle: "Nom de la vidéo (obligatoire)",
+                                teaserVideoImg: "https://picsum.photos/585/329",
+                                imgWidth: 585,
+                                imgHeight: 329,
+                                paragTextMediaRight: true
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--text-media.twig" with {
+                        paragTextMedia: [
+                            {
+                                paragTextMediaTitle: title ~ " - Vidéo à gauche",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien externe",
+                                        target: "_blank"
+                                    }
+                                ],
+                                paragTextMediaVideo: "https://www.youtube-nocookie.com/embed/pgzTn5yR3M8",
+                                teaserVideoTitle: "Nom de la vidéo (obligatoire)",
+                                teaserVideoImg: "https://picsum.photos/585/329",
+                                imgWidth: 585,
+                                imgHeight: 329,
+                                paragTextMediaLeft: true
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+
+            <p>La vidéo s'ouvre dans une modale. Il faut charger le HTML de la modale <b>une seule fois</b> en bas de page, après le footer. Respectez tous les ID car ils sont utilisés dans le JS.</p>
+            <div class="o-sg-prism o-sg-prism__code">
+                <pre><code class="language-markup">
+                    &lt;div class="modal fade" id="modalVideoTeaser" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="modalVideoLabelTeaser"&gt;
+                        &lt;div class="modal-dialog modal-dialog-centered" role="document"&gt;
+                            &lt;div class="modal-content"&gt;
+                                &lt;div class="modal-header"&gt;
+                                    &lt;h1 class="modal-title" id="modalVideoLabelTeaser"&gt;Video&lt;/h1&gt;
+                                    &lt;button type="button" data-dismiss="modal" class="btn btn--close btn--icon-only"&gt;
+                                        &lt;svg class="svg-icon svg-close" aria-hidden="true" focusable="false"&gt;
+                                            &lt;use xlink:href="svg-icons/icon-sprite.svg#close"&gt;&lt;/use&gt;
+                                        &lt;/svg&gt;
+                                        &lt;span class="sr-only"&gt;Fermer : Video&lt;/span&gt;
+                                    &lt;/button&gt;
+                                &lt;/div&gt;
+                                &lt;div class="modal-body"&gt;
+                                    &lt;div class="embed-responsive embed-responsive-16by9 mt-1" id="m-teaser__iframe"&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} - Slider</h2>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--text-media.twig" with {
+                        paragTextMedia: [
+                            {
+                                paragTextMediaTitle: title ~ " - Slider",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ],
+                                paragTextMediaImage: "https://picsum.photos/585/329",
+                                imgWidth: 585,
+                                imgHeight: 329,
+                                paragTextMediaRight: true
+                            },
+                            {
+                                paragTextMediaTitle: title ~ " - Image à gauche + Option Goutte",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien externe",
+                                        target: "_blank"
+                                    }
+                                ],
+                                paragTextMediaImage: "https://picsum.photos/482/446",
+                                imgWidth: 482,
+                                imgHeight: 446,
+                                paragTextMediaLeft: true,
+                                paragTextMediaStyle: 'clip'
+                            },
+                            {
+                                paragTextMediaTitle: title ~ " - Vidéo à droite",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ],
+                                paragTextMediaVideo: "https://www.youtube-nocookie.com/embed/pgzTn5yR3M8",
+                                teaserVideoTitle: "Nom de la vidéo (obligatoire)",
+                                teaserVideoImg: "https://picsum.photos/585/329",
+                                imgWidth: 585,
+                                imgHeight: 329,
+                                paragTextMediaRight: true
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} - Fond gris</h2>
+            <p>Taille de l'image : largeur maximum 535px</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--text-media.twig" with {
+                        paragTextMedia: [
+                            {
+                                paragTextBgGray: true,
+                                paragTextMediaTitle: title ~ " - Fond gris",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ],
+                                paragTextMediaImage: "https://picsum.photos/535/302",
+                                imgWidth: 535,
+                                imgHeight: 302,
+                                paragTextMediaLeft: true
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--text-media.twig" with {
+                        paragTextMedia: [
+                            {
+                                paragTextBgGray: true,
+                                paragTextMediaTitle: title ~ " - Fond gris - Image à gauche",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ],
+                                paragTextMediaImage: "https://picsum.photos/535/302",
+                                imgWidth: 535,
+                                imgHeight: 302,
+                                paragTextMediaLeft: true
+                            },
+                            {
+                                paragTextBgGray: true,
+                                paragTextMediaTitle: title ~ " - Fond gris - Image à  droite",
+                                paragTextMediaDesc: "<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>",
+                                links: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ],
+                                paragTextMediaImage: "https://picsum.photos/535/302",
+                                imgWidth: 535,
+                                imgHeight: 302,
+                                paragTextMediaRight: true
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-global-sliders.css" target="_blank" class="file-link">CSS globale pour les sliders (3,8Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-video.css" target="_blank" class="file-link">CSS de la carte Vidéo (0,76Ko - CSS)</a></li>
+                <li><a href="./style/bloc-o-mise-en-avant-1.css" target="_blank" class="file-link">CSS du bloc {{ title }} (3Ko - CSS)</a></li>
+            </ul>
+            <p>Charger les JS suivants :</p>
+            <ul>
+                <li>JS du Système de Design</li>
+                <li><a href="./script/tiny-slider.js" target="_blank" class="file-link">Librairie JS tiny-slider (32,4Ko - JS)</a></li>
+                <li><a href="./script/bloc-m-video.js" target="_blank" class="file-link">JS de la carte Vidéo (0,64Ko - JS)</a></li>
+                <li><a href="./script/bloc-o-mise-en-avant-1.js" target="_blank" class="file-link">JS du bloc {{ title }} (0,13Ko - JS)</a></li>
+                <li><a href="./script/bloc-global-sliders.js" target="_blank" class="file-link">JS global pour les sliders (1,2Ko - JS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block modal %}
+    {{ parent() }}
+    {% include "../../site/blocs/3-organism/o-modal--teaser-video.twig" %}
+{% endblock %}

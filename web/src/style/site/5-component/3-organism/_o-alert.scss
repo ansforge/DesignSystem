@@ -1,0 +1,62 @@
+.o-alert {
+    position: relative;
+    margin-top: 4rem;
+    margin-bottom: $alert-margin-bottom;
+    padding: $alert-padding-y $alert-padding-x;
+    background-color: $white;
+    border: $alert-border-width solid $border-color;
+    @include border-radius($alert-border-radius);
+    border-top-left-radius: 0;
+
+    p {
+        margin-bottom: 0;
+    }
+
+    .btn--close {
+        position: absolute;
+        top: 0.5rem;
+        right: 1.5rem;
+
+        svg {
+            width: 0.8rem;
+        }
+    }
+}
+
+.o-alert__title {
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: $fw-semiBold;
+}
+
+.o-alert__icon {
+    position: absolute;
+    top: -0.6rem;
+    left: -1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.1rem;
+    height: 6.6rem;
+    clip-path: path('M30.376 66h-.002C13.6 66 0 52.36 0 35.532V0c2.375 2.652 7.143 4.91 16.823 5.064h13.553c16.775 0 30.374 13.64 30.374 30.468C60.75 52.36 47.151 66 30.376 66');
+    background-color: var(--alert-icon-bg);
+    color: var(--white);
+
+    svg {
+        font-size: 2.6rem;
+    }
+}
+
+.o-alert--error {
+    --alert-icon-bg: #{$danger};
+}
+.o-alert--warning {
+    --alert-icon-bg: #{$warning};
+}
+.o-alert--info {
+    --alert-icon-bg: #{$info};
+}
+.o-alert--success {
+    --alert-icon-bg: #{$success};
+}

@@ -1,0 +1,26 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Tableau' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "Très pratiques pour structurer des informations nombreuses et/ou complexes, les tableaux présentent certaines particularités qu'il faut prendre en considération."
+        } %}
+        <h2>Tableau de base</h2>
+        <p>En principe, un tableau classique se composera d'une balise <code>table</code>, découpée en un <code>thead</code> et un <code>tbody</code> et légendée par un <code>caption</code>.</p>
+
+        <div class="sg-block-space">
+            {% include "../component/3-organism/o-sg-prism.twig" with {
+                twigToInclude: '../../../site/component/2-molecule/m-table.twig'
+            } %}
+        </div>
+
+        <h2>Accessibilité et tableaux complexes</h2>
+        <p>Pour des techniques plus avancées d'usage des tableaux et les règles d'accessibilité, consultez la <a href="https://developer.mozilla.org/fr/docs/Learn/HTML/Tables/Advanced" target="_blank">page MDN sur les tableaux HTML</a>.</p>
+    </div>
+
+{% endblock %}

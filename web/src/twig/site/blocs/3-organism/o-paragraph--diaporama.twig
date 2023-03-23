@@ -1,0 +1,15 @@
+{% if diaporamaItems %}
+    <div class="paragraph-space o-paragraph--diaporama container--small">
+        <div class="container">
+            <div class="o-paragraph--diaporama__slider">
+                {% for item in diaporamaItems %}
+                    {% include "../2-molecule/m-diaporama-item.twig" with {
+                        diaporamaItemTitle: item.diaporamaItemTitle,
+                        diaporamaItemImgUrl: item.diaporamaItemImgUrl,
+                        diaporamaItemFractionalNumber: loop.index ~ '/' ~ diaporamaItems|length
+                    } %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}

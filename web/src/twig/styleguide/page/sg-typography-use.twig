@@ -1,0 +1,195 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Usages' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Guide de style - Typographie",
+            blockTitle: title,
+            blockAccroche_text: "Les règles d'usage typographiques sont importantes aussi bien du point de vue du confort de lecture que du respect de la sémantique."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Longueur des lignes</h2>
+            <p>Les lignes trop longues sont difficiles à lire et réduisent l'attention. Afin de faciliter la lecture, il est recommandé d'avoir des textes qui utilisent maximum 8 colonnes de la grille.</p>
+
+            {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                imgUrl: 'img/typo/Typo-longueur.png',
+                imgSrcset: 'img/typo/Typo-longueur@2x.png 2x',
+                imgAlt: "exemples de lignes de texte sur 4, 6, 8 et 10 colonnes",
+                imgWidth: '730',
+                imgHeight: '520',
+                imgLazy: true,
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Hiérarchisation</h2>
+            <p>La hiérarchisation des balises de titres (Hn) est un point crucial, aussi bien en matière de référencement que d'accessibilité, et même de lisibilité de la page pour l'utilisateur. Le <code>H1</code> doit toujours être le premier titre de la page, auquel ne peut faire suite qu'un <code>H2</code>. Un <code>H2</code> ne peut à son tour se subdiviser qu'en <code>H3</code>, et ainsi de suite.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/typo/Typo-hierarchisation-DO.png',
+                        imgSrcset: 'img/typo/Typo-hierarchisation-DO@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '500',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Un <code>H1</code> est le titre de page, et le contenu de la page est subdivisé grâce à deux <code>H2</code>"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/typo/Typo-hierarchisation-DONT.png',
+                        imgSrcset: 'img/typo/Typo-hierarchisation-DONT@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '500',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Le premier titre est un <code>H2</code><br>le <code>H1</code> est en milieu de page<br>Le <code>H3</code> vient directement après le <code>H1</code>"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Alignement des textes</h2>
+            <p>Deux modes de justification du texte sont permises : ferré à gauche et centré.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/typo/Typo-alignement-DO.png',
+                        imgSrcset: 'img/typo/Typo-alignement-DO@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '440',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Texté ferré à gauche<br>Texte centré"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/typo/Typo-alignement-DONT.png',
+                        imgSrcset: 'img/typo/Typo-alignement-DONT@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '440',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Aligné à droite<br>Justifié"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Retour à la ligne</h2>
+            <p>Les retours à la ligne forcés sont à éviter, tout comme la césure dans un mot.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/typo/Typo-retour-DO.png',
+                        imgSrcset: 'img/typo/Typo-retour-DO@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '280',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Texte déployé de façon naturelle"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/typo/Typo-retour-DONT.png',
+                        imgSrcset: 'img/typo/Typo-retour-DONT@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '280',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "1. Césure <br>2. Retour à la ligne forcé"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Capitales</h2>
+            <p>L'emploi des lettres capitales n'est pas souhaitable hormis dans certains cas particuliers (surtitres et acronymes), car elles ne sont pas faciles à lire.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/typo/Typo-capitales-DO.png',
+                        imgSrcset: 'img/typo/Typo-capitales-DO@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '350',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Texte en bas de casse (sauf surtitre et acronyme)"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/typo/Typo-capitales-DONT.png',
+                        imgSrcset: 'img/typo/Typo-capitales-DONT@2x.png 2x',
+                        imgAlt: "[TODO Edito] ",
+                        imgWidth: '330',
+                        imgHeight: '350',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Texte en capitales"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Couleur de texte</h2>
+            <p>Les classes utilitaires ne doivent pas être utilisées de façon à contrevenir au guide de style. Par exemple, les couleurs des sous-titres <code>Hn</code> ne doivent pas être modifiées.</p>
+
+            <div class="row col--eq-height">
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/typo/Typo-couleurs-DO.png',
+                        imgSrcset: 'img/typo/Typo-couleurs-DO@2x.png 2x',
+                        imgAlt: "Texte courant et sous-titres conformes aux couleurs du guide de style",
+                        imgWidth: '330',
+                        imgHeight: '350',
+                        imgLazy: true,
+                        doDontStatus: 'do',
+                        doDontText: "Texte courant et sous-titres conformes aux couleurs du guide de style"
+                    } %}
+                </div>
+                <div class="col-md">
+                    {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                        imgUrl: 'img/typo/Typo-couleurs-DONT.png',
+                        imgSrcset: 'img/typo/Typo-couleurs-DONT@2x.png 2x',
+                        imgAlt: "Couleurs de sous-titres surchargées<br>Graisse modifiée",
+                        imgWidth: '330',
+                        imgHeight: '350',
+                        imgLazy: true,
+                        doDontStatus: 'dont',
+                        doDontText: "Couleurs de sous-titres surchargées<br>Graisse modifiée"
+                    } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p>Afin de permettre aux utilisateurs malvoyants d'augmenter la taille du texte seul de 200%, le texte et ses éléments conteneurs ne doivent comporter que des tailles relatives (<code>rem</code>, <code>%</code>, <code>em</code>), et donc non pas exprimées en <code>px</code>.</p>
+            <p>Par ailleurs, un contraste suffisant est à respecter entre le texte et son fond, en tenant compte de la <code>font-size</code>. Certains outils comme <a href="https://color.review/" target="_blank">color.review</a> permettent de mesurer facilement ce contraste.</p>
+        </div>
+    </div>
+
+{% endblock %}

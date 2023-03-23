@@ -1,0 +1,24 @@
+<button type="button" class="m-organisation m-card text-center rounded-md top-left-radius-0 m-card--img-bg bg-primary text-white m-card--has-arrow" data-toggle="modal" data-target="#{{ modalOrgaNumber }}">
+    {% if cardImgUrl %}
+        <span class="m-card__img">
+            {% include "../../component/1-atom/a-img.twig" with {
+                imgUrl: cardImgUrl,
+                imgWidth: 270,
+                imgHeight: 370,
+                imgLazy: true
+            } %}
+        </span>
+    {% endif %}
+
+    {% if cardTitle %}
+        <span class="m-card__title h4">{{- cardTitle -}}</span>
+    {% endif %}
+
+    {% if cardFunction %}
+        <span class="m-card__function">{{- cardFunction -}}</span>
+    {% endif %}
+
+    <span class="paragraph--lien">
+        {{ macro.svg("arrow-right") }}
+    </span>
+</button>

@@ -1,0 +1,23 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Introduction' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title,
+            blockAccroche_text: "Cette section présente les blocs qui ont été développés sur le site esante.gouv.fr"
+        } %}
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Blocs</h2>
+
+            <p>Vous trouverez sur chaque page les fichiers CSS et JS nécessaires au bon affichage du bloc.</p>
+            <p>Certains fichiers peuvent être utiles pour plusieurs blocs, <strong>veillez à ne les charger qu'une seule fois sur votre site en respectant l'ordre indiqué</strong> sur chaque page.</p>
+            <p>Par exemple, le fichier <a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a> est nécessaire à tous les blocs, il doit être chargé qu'une seule fois, avant les autres fichiers CSS spécifiques aux blocs.</p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+.m-organisation {
+    &.m-card--img-bg {
+        padding-top: calc(220/270*100%); // ratio of the available space (height divided by width)
+
+        .m-card__img {
+            border-top-left-radius: 0;
+        }
+    }
+
+    .m-card__title {
+        margin-bottom: 0;
+        color: inherit;
+    }
+
+    > * {
+        width: 100%;
+    }
+
+    .m-card__function {
+        margin-bottom: 1rem;
+    }
+}
+
+.modal--orga {
+    .modal-dialog {
+        max-width: 117rem;
+    }
+
+    .modal-content {
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .btn--close {
+        z-index: 1;
+
+        @media (min-width: 48em) {
+            &,
+            &:hover,
+            &:active {
+                color: var(--white);
+            }
+        }
+    }
+
+    .m-quote {
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+    }
+
+    .m-quote blockquote p {
+        color: inherit;
+    }
+}

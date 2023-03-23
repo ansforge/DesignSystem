@@ -1,0 +1,25 @@
+.rounded-md {
+    border-radius: var(--border-radius-md) !important;
+}
+
+.top-left-radius-0 {
+    border-top-left-radius: 0 !important;
+}
+.top-right-radius-0 {
+    border-top-right-radius: 0 !important;
+}
+.bottom-right-radius-0 {
+    border-bottom-right-radius: 0 !important;
+}
+.bottom-left-radius-0 {
+    border-bottom-left-radius: 0 !important;
+}
+
+a[class*="border"] {
+    transition: border 250ms ease;
+
+    &:hover,
+    &:focus {
+        border-color: var(--gray-700) !important;
+    }
+}

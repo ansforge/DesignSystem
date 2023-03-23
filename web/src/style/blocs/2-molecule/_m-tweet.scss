@@ -1,0 +1,33 @@
+.m-tweet {
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    > p {
+        a {
+            color: var(--primary);
+        }
+    }
+}
+
+.m-tweet-account-name {
+    margin-top: 0.5rem;
+}
+
+.m-tweet-account-img {
+    overflow: hidden;
+    width: 5.5rem;
+    height: 5.5rem;
+
+    img {
+        @include img-cover;
+    }
+}
+
+.m-tweet-content {
+    color: var(--body-color-darker);
+}

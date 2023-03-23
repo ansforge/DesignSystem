@@ -1,0 +1,49 @@
+.m-sg-file {
+    display: inline-flex;
+    align-items: center;
+    line-height: normal;
+
+    svg {
+        font-size: 2.2rem;
+        color: $gray-600;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.m-sg-file__icon {
+    margin-right: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: 6rem;
+    background-color: $gray-200;
+    border-radius: 0.5rem;
+}
+
+.m-sg-file__content {
+    margin-right: 6rem;
+}
+
+.m-sg-file__title {
+    font-weight: $fw-medium;
+    color: var(--body-color-darker);
+}
+
+.m-sg-file__info {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.4rem;
+
+    &:not(:last-child)::after {
+        content: "";
+        margin: 0.2rem 1rem 0 1rem;
+        width: 0.3rem;
+        height: 0.3rem;
+        background-color: currentColor;
+        border-radius: 50%;
+    }
+}

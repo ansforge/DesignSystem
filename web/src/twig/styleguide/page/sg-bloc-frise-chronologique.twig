@@ -1,0 +1,100 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Frise chronologique' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-global-sliders.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-frise-chronologique.css" type="text/css" />
+{% endblock %}
+{% block scripts_more %}
+    {{ parent() }}
+    <script type="text/javascript" src="./script/tiny-slider.js"></script>
+    <script type="text/javascript" src="./script/bloc-o-frise-chronologique.js"></script>
+    <script type="text/javascript" src="./script/bloc-global-sliders.js"></script>
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true, prismBgWhite: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--timeline.twig" with {
+                        paragTimelineTitle: title,
+                        paragTimeline: [
+                            {
+                                paragTimelineDate: "2018",
+                                paragTimelineDesc: "Torquem detraxit hosti et quidem rerum hic tenetur a sapiente delectus ut de quo enim ad  et ultimum bonorum",
+                                paragTimelineLink: [
+                                    {
+                                        link: "#",
+                                        svgBefore: "angle-right",
+                                        text: "Lien interne",
+                                    }
+                                ]
+                            },
+                            {
+                                paragTimelineDate: "2019",
+                                paragTimelineLink: [
+                                    {
+                                        link: "#",
+                                        svgBefore: "angle-right",
+                                        text: "Lien interne",
+                                    }
+                                ]
+                            },
+                            {
+                                paragTimelineDate: "2020",
+                                paragTimelineDesc: "Torquem detraxit hosti et quidem rerum hic tenetur a sapiente delectus ut de quo enim ad  et ultimum bonorum",
+                                paragTimelineLink: [
+                                    {
+                                        link: "#",
+                                        svgBefore: "angle-right",
+                                        text: "Lien interne",
+                                    }
+                                ]
+                            },
+                            {
+                                paragTimelineDate: "2021",
+                                paragTimelineDesc: "Torquem detraxit hosti et quidem rerum hic tenetur a sapiente delectus ut de quo enim ad  et ultimum bonorum",
+                                paragTimelineLink: [
+                                    {
+                                        link: "#",
+                                        svgBefore: "angle-right",
+                                        text: "Lien interne",
+                                    }
+                                ]
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-global-sliders.css" target="_blank" class="file-link">CSS globale pour les sliders (3,8Ko - CSS)</a></li>
+                <li><a href="./style/bloc-o-frise-chronologique.css" target="_blank" class="file-link">CSS du bloc {{ title }} (0,50Ko - CSS)</a></li>
+            </ul>
+            <p>Charger les JS suivants :</p>
+            <ul>
+                <li>JS du Système de Design</li>
+                <li><a href="./script/tiny-slider.js" target="_blank" class="file-link">Librairie JS tiny-slider (32,4Ko - JS)</a></li>
+                <li><a href="./script/bloc-o-frise-chronologique.js" target="_blank" class="file-link">JS du bloc {{ title }} (0,12Ko - JS)</a></li>
+                <li><a href="./script/bloc-global-sliders.js" target="_blank" class="file-link">JS global pour les sliders (1,2Ko - JS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<a href="{{ fileUrl }}" class="m-sg-file bg-white border rounded p-2" {%- if fileTarget %} target="{{ fileTarget }}"{% endif -%}>
+    <div class="m-sg-file__icon">{% if fileIsNotDownload %}{{ macro.svg("link") }}{% else %}{{ macro.svg("file") }}{% endif %}</div>
+    <div class="m-sg-file__content">
+        <p class="m-sg-file__title">{{ fileName }}</p>
+        {% if not fileIsNotDownload %}
+            <p class="m-sg-file__info m-sg-file__date">
+                {% if fileDate %}
+                    {{ fileDate }}
+                {% else %}
+                    {{ "now"|date("j M Y", "Europe/Paris") }}
+                {% endif %}
+            </p>
+        {% endif %}
+        {% if fileWeight %}
+            <p class="m-sg-file__info m-sg-file__weight"><span class="sr-only">poids : </span>{{ fileWeight }}</p>
+        {% endif %}
+        {% if fileType %}
+            <p class="m-sg-file__info m-sg-file__type"><span class="sr-only">type : </span>{{ fileType }}</p>
+        {% endif %}
+    </div>
+</a>

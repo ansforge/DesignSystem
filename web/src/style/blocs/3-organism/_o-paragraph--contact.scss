@@ -1,0 +1,19 @@
+.o-paragraph--contact {
+    padding: 6.5rem;
+    @include esante-petal();
+
+    img {
+        display: block;
+        margin: auto;
+    }
+
+    @media (min-width: 48em) {
+        padding: 4rem 10rem 4rem 4rem;
+
+        // petal
+        &::before {
+            right: -2.5rem;
+            left: auto;
+        }
+    }
+}

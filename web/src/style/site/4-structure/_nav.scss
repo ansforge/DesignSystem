@@ -1,0 +1,328 @@
+.header-principal__nav {
+    .navbar-toggler {
+        border: 0;
+    }
+
+    .navbar-toggler-close {
+        display: block;
+        margin-right: -1.5rem;
+        margin-left: auto;
+    }
+
+    .nav-top {
+        font-size: 1.6rem;
+
+        a {
+            @include link-inverse;
+        }
+
+        .external-link:after {
+            background-size: 1.2rem;
+        }
+    }
+
+    .nav-item,
+    .collapse-wrapper:not(.collapse-wrapper--search) {
+        position: relative; // needed to position collapse menu
+    }
+
+    .navbar,
+    .collapse-wrapper--search {
+        position: static; // search collapse is fullscreen, need to remove position from parents
+    }
+
+    .navbar-nav {
+        .nav-title {
+            display: block;
+            line-height: 1.3;
+            font-weight: $fw-medium;
+            color: var(--body-color-darker);
+        }
+
+        .nav-link {
+            display: block;
+            width: 100%;
+            padding: 0;
+            line-height: 1.3;
+            text-align: left;
+            transition: color 250ms ease;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: var(--primary);
+            }
+        }
+
+        [aria-expanded] {
+            position: relative;
+            padding-right: 1.5rem;
+
+            @include arrow(after) {
+                position: absolute;
+                top: 3rem;
+                right: 0;
+                transition: transform 250ms ease;
+            }
+        }
+
+        [aria-expanded="true"] {
+            &::after {
+                transform: rotate(-180deg);
+            }
+        }
+
+        .is-active > .nav-link {
+            color: var(--primary);
+        }
+    }
+
+    // Lvl 1
+    .nav-lvl--1 {
+        > .nav-item {
+            > .nav-link {
+                font-weight: $fw-medium;
+            }
+        }
+    }
+
+    // Lvl 2
+    .nav-lvl--2 {
+        > .nav-item {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+
+            > .nav-link {
+                font-weight: $fw-medium;
+            }
+        }
+
+        // Lvl 3 and more
+        ul {
+            margin-top: 0.6rem;
+            padding-left: 2rem;
+
+            > .nav-item {
+                padding-top: 0.6rem;
+
+                &:not(:last-child) {
+                    padding-bottom: 0.6rem;
+                }
+            }
+        }
+    }
+
+    // Lvl 2 and more
+    .navbar-nav:not(.nav-lvl--1) {
+        display: block;
+
+        .nav-link {
+            position: relative;
+            padding-left: 1.8rem;
+
+            @include arrow() {
+                position: absolute;
+                top: 1rem;
+                left: 0;
+                transform: rotate(-90deg);
+            }
+        }
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
+    .nav-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 31rem;
+        padding: 1rem 3rem;
+        background-color: $white;
+        border: 0.1rem solid $border-color;
+        border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) var(--border-radius-sm);
+        box-shadow: var(--box-shadow);
+    }
+
+    .nav-collapse--right:not(.nav-collapse--search) {
+        right: 0;
+        left: auto;
+        margin-top: 0.9rem;
+        padding: 2.5rem;
+        border-radius: var(--border-radius-sm) 0 var(--border-radius-sm) var(--border-radius-sm);
+    }
+
+    .nav-collapse--search {
+        left: 0;
+        right: 0;
+        padding: 0 0 4rem 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+
+        .container {
+            display: block;
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        .navbar {
+            position: static;
+        }
+
+        .navbar-collapse {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1.5rem $nav-mobile-padding-x 6.2rem $nav-mobile-padding-x;
+            z-index: $zindex-fixed;
+            overflow-y: auto;
+            background-color: $white;
+        }
+
+        .nav-top {
+            padding: 1rem 0;
+
+            a {
+                display: block;
+                padding: 0.5rem 0;
+            }
+        }
+
+        // Lvl 1
+        .nav-lvl--1 {
+            > li {
+                border-bottom: 0.1rem solid $border-color;
+
+                > .nav-link {
+                    padding-top: 2rem;
+                    padding-bottom: 2rem;
+                }
+            }
+
+            .nav-collapse {
+                position: static;
+                min-width: 0;
+                width: auto;
+                padding: 0;
+                border: 0;
+                box-shadow: none;
+            }
+        }
+
+        // Lvl 2
+        .nav-lvl--2 {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+
+        .nav-right {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            flex-wrap: wrap;
+            background-color: $white;
+            border-top: 0.1rem solid $border-color;
+            z-index: $zindex-fixed + 1;
+
+            li {
+                @include aw-make-col-value(50%);
+                padding: 0.5rem 0;
+                text-align: center;
+                border-bottom: 0.1rem solid $border-color;
+
+                &:nth-child(even) {
+                    border-left: 0.1rem solid $border-color;
+                }
+            }
+
+            .nav-collapse {
+                bottom: 100%;
+                top: auto;
+                left: 1rem;
+                right: auto;
+
+                margin-bottom: 1rem;
+                border-radius: var(--border-radius-sm) var(--border-radius-sm) var(--border-radius-sm) 0;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .nav-top {
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+
+            li:not(:last-child) {
+                margin-right: 2.4rem;
+            }
+        }
+
+        // Lvl 1
+        .nav-lvl--1 {
+            > .nav-item {
+                margin-right: 2rem;
+
+                > .nav-link {
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    border-bottom: 0.3rem solid transparent;
+                }
+
+                &.is-active > .nav-link {
+                    border-bottom-color: var(--primary);
+                }
+            }
+        }
+
+        // Lvl 2
+        .nav-lvl--2 {
+            > .nav-item {
+                padding-top: 1.9rem;
+                padding-bottom: 1.9rem;
+
+                &:not(:last-child) {
+                    border-bottom: 0.1rem solid $border-color;
+                }
+            }
+        }
+
+        .navbar-nav {
+            [aria-expanded]:after {
+                top: 2rem;
+            }
+
+            .nav-collapse {
+                margin-top: 1.9rem;
+            }
+
+            .nav-item:last-child {
+                .nav-collapse {
+                    right: 0;
+                    left: auto;
+                    border-radius: var(--border-radius-sm) 0 var(--border-radius-sm) var(--border-radius-sm);
+                }
+            }
+        }
+
+        .nav-collapse.show:not(.nav-collapse--search) {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+    }
+
+    @include media-breakpoint-up(xxl) {
+        // Lvl 1
+        .nav-lvl--1 > .nav-item {
+            margin-right: 4rem;
+        }
+    }
+}

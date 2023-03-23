@@ -1,0 +1,56 @@
+{#
+/**
+ * Link (<a> or <button>)
+ *
+ * Options:
+ *  - link: href of the <a> (not available for <button>)
+ *  - target: target of the <a> (not available for <button>)
+ *  - style: plain / ghost
+ *  - styleArrow: add an icon arrow
+ *  - styleArrowPosition: position of the arrow (left/right). Default 'right'
+ *  - color: see $project-colors (primary, brand-2, white...)
+ *  - size: xs / sm / lg. Default empty
+ *  - text: text of the <a> or <button>
+ *  - textAccessBefore: add an additional text only for screen readers BEFORE text
+ *  - textAccessAfter: add an additional text only for screen readers AFTER text
+ *  - iconBefore: icon name. Add an icon BEFORE text via the font icon
+ *  - svgBefore: icon name. Add an icon BEFORE text via the SVG sprite
+ *  - iconAfter: icon name. Add an icon AFTER text via the font icon
+ *  - svgAfter: icon name. Add an icon AFTER text via the SVG sprite
+ *  - iconOnly: boolean. Default false. True only if the <a> or <button> is only an icon visually
+ */
+#}
+{% for item in links %}
+    {%- if item.link %}
+    <a href="{{- item.link -}}" {%- if item.target %} target="{{ item.target }}"{% endif %}
+    {% else %}
+    <button type="{{ item.btnType|default("button") }}" {%- if item.disabled %} disabled{% endif %} {% for attr, value in item.attributes %} {{ attr }}="{{ value }}"{% endfor %}
+    {% endif -%}
+        class="{# Styles: plain / ghost #}
+            {%- if item.style %}btn btn--{{ item.style }}{% endif -%}
+            {%- if item.class %} {{ item.class }}{% endif -%}
+
+            {# Colors: see $project-colors (primary, brand-2, white...) #}
+            {%- if item.color %} btn--{{ item.color }}{% endif -%}
+
+            {# Size: xs / sm / lg #}
+            {%- if item.size %} btn-{{ item.size }}{% endif -%}
+
+            {# Icons #}
+            {%- if item.iconOnly %} btn--icon-only{% endif -%}
+            {%- if (item.iconBefore or item.svgBefore) and not item.iconOnly %} btn--icon-before{% endif -%}
+            {%- if (item.iconAfter or item.svgAfter) and not item.iconOnly %} btn--icon-after{% endif -%}
+        ">
+        {%- if item.iconBefore %}<span class="icon {{ item.iconBefore }}" aria-hidden="true"></span>{% endif -%}
+        {%- if item.svgBefore %}{{ macro.svg(item.svgBefore) }}{% endif -%}
+        {%- if item.textAccessBefore %}<span class="sr-only">{{- item.textAccessBefore -}}</span>{% endif -%}
+        {{- item.text -}}
+        {%- if item.textAccessAfter %}<span class="sr-only">{{- item.textAccessAfter -}}</span>{% endif -%}
+        {%- if item.iconAfter %}<span class="icon {{ item.iconAfter }}" aria-hidden="true"></span>{% endif -%}
+        {%- if item.svgAfter %}{{ macro.svg(item.svgAfter) }}{% endif -%}
+    {%- if item.link -%}
+    </a>
+    {%- else -%}
+    </button>
+    {%- endif -%}
+{% endfor %}

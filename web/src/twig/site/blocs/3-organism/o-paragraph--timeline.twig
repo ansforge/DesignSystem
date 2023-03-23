@@ -1,0 +1,24 @@
+<div class="paragraph-space o-paragraph--timeline">
+    <div class="container">
+        <div class="paragraph__header row mb-4">
+            <div class="col-8 col-sm-9 col-md-10 col-lg-8">
+                {% if paragTimelineTitle %}
+                    <h2>{{ paragTimelineTitle }}</h2>
+                {% endif %}
+            </div>
+        </div>
+        <div class="o-paragraph--timeline__slider">
+            {% for item in paragTimeline %}
+                <div class="o-paragraph--timeline__item mb-3">
+                    {% if item.paragTimelineDate %}<p class="o-paragraph--timeline__date text-primary fw-bold">{{ item.paragTimelineDate }}</p>{% endif %}
+                    {% if item.paragTimelineDesc %}<p class="o-paragraph--timeline__desc mb-1 pr-sm-3">{{ item.paragTimelineDesc }}</p>{% endif %}
+                    {% if item.paragTimelineLink %}
+                        {% include "o-paragraph--lien.twig" with {
+                            links: item.paragTimelineLink
+                        }%}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

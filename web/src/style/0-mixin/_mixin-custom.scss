@@ -1,0 +1,128 @@
+// Custom mixins used only in this project
+
+// *
+// * Add an arrow into a pseudo element (before/after)
+// *
+// * @param $position: Position of the arrow. Default before
+// * @param $color: Color of the arrow. Default primary
+// *
+// * @example
+// *  @include arrow()
+// *  @include arrow(after)
+// *
+@mixin arrow($position: before, $color: $primary) {
+    &:#{$position} {
+        content: "";
+        display: block;
+        width: 0.6rem;
+        height: 0.6rem;
+        background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$color}' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M18.712 24.837l12.143-11.994A3.937 3.937 0 0032 10.056a3.93 3.93 0 00-6.718-2.787l-9.356 9.157-9.207-9.207a3.834 3.834 0 00-2.787-1.145A3.932 3.932 0 000 10.006a3.928 3.928 0 001.145 2.787l11.994 11.994a3.982 3.982 0 005.574 0v.05z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        // Include any extra rules supplied for the pseudo-element
+        @content;
+    }
+}
+
+// *
+// * Add icons into a background image
+// *
+// * @param $icon: Icon name
+// * @param $color: Color of the icon
+// *
+// * @example
+// *  @include svg-css-icon(download);
+// *
+@mixin svg-css {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 1.4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@mixin svg-css-icon($icon, $color) {
+    @if ($icon == "external-link") {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='#{$color}' d='M14.4 4.8a1.6 1.6 0 110 3.2H4.8a1.6 1.6 0 00-1.6 1.6v17.6a1.6 1.6 0 001.6 1.6h17.6a1.6 1.6 0 001.6-1.6v-9.6a1.6 1.6 0 113.2 0v9.6a4.8 4.8 0 01-4.8 4.8H4.8A4.8 4.8 0 010 27.2V9.6a4.8 4.8 0 014.8-4.8zm16-4.8h.031a2.1 2.1 0 01.112.006l.096.011a1.325 1.325 0 01.187.04 1.598 1.598 0 01.349.142l.058.034a1.529 1.529 0 01.298.236l-.145-.128a1.603 1.603 0 01.379.426l.034.059a2.242 2.242 0 01.086.181 1.82 1.82 0 01.057.168c.01.034.018.069.025.104l.015.084c.012.077.018.157.018.238l-.006-.138.005.086.001.052v9.6a1.6 1.6 0 11-3.2 0V5.463L13.931 20.332a1.6 1.6 0 01-2.112.133l-.151-.133a1.6 1.6 0 010-2.263L26.534 3.2H20.8a1.6 1.6 0 01-1.589-1.413L19.2 1.6A1.6 1.6 0 0120.8 0z'/%3E%3C/svg%3E");
+    }
+    @if ($icon == "mail") {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='#{$color}' d='M27.636 2.909A4.373 4.373 0 0132 7.273v17.455a4.373 4.373 0 01-4.364 4.364H4.363a4.373 4.373 0 01-4.364-4.364V7.273a4.373 4.373 0 014.364-4.364h23.273zm1.455 7.157l-12.257 8.581a1.453 1.453 0 01-1.668 0L2.909 10.068v14.66c0 .797.658 1.455 1.455 1.455h23.273c.797 0 1.455-.658 1.455-1.455V10.066zm-1.455-4.248H4.363c-.564 0-1.059.33-1.3.806l12.936 9.055 12.936-9.055a1.463 1.463 0 00-1.3-.806z'/%3E%3C/svg%3E");
+    }
+    @if ($icon == "download") {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='#{$color}' d='M29.091 21.818c.803 0 1.455.651 1.455 1.455v4.364a4.364 4.364 0 01-4.364 4.364H5.818a4.364 4.364 0 01-4.364-4.364v-4.364a1.455 1.455 0 012.91 0v4.364c0 .803.651 1.455 1.455 1.455h20.364c.803 0 1.455-.651 1.455-1.455v-4.364c0-.803.651-1.455 1.455-1.455zM16 0c.803 0 1.455.651 1.455 1.455v16.851l3.335-3.334a1.455 1.455 0 011.92-.121l.137.121a1.455 1.455 0 010 2.057l-5.818 5.818a1.63 1.63 0 01-.131.117l-.031.024a1.38 1.38 0 01-.251.149l-.075.033c-.029.012-.058.022-.087.032l-.067.02c-.031.009-.063.016-.095.023l-.076.013a1.39 1.39 0 01-.216.016l.124-.005a.942.942 0 01-.076.004l-.048.001-.048-.001c-.025-.001-.051-.002-.077-.005-.031-.003-.062-.006-.091-.011l-.075-.013a1.011 1.011 0 01-.095-.023l-.067-.02c-.029-.009-.057-.02-.086-.031a1.483 1.483 0 01-.326-.182 1.528 1.528 0 01-.163-.14l.131.117a1.319 1.319 0 01-.131-.117L9.154 17.03a1.455 1.455 0 012.057-2.057l3.335 3.334V1.456c0-.746.562-1.361 1.285-1.445z'/%3E%3C/svg%3E");
+    }
+    @if ($icon == "arrow-right") {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='#{$color}' d='M18.299 4.076a1.778 1.778 0 012.514 0L31.48 14.743a1.668 1.668 0 01.26.332 1.382 1.382 0 01.093.173l.04.092a1.914 1.914 0 01.091.303A1.764 1.764 0 0132 16l-.006-.152c.003.031.004.062.005.092l.001.059-.001.059a1.583 1.583 0 01-.019.205l-.016.092a1.507 1.507 0 01-.053.198 1.474 1.474 0 01-.078.198c-.017.037-.036.073-.055.109a2.03 2.03 0 01-.127.197 1.79 1.79 0 01-.172.199l.142-.161-.012.015-.13.145-10.667 10.667a1.778 1.778 0 01-2.514-2.514l7.63-7.634-24.151.002a1.778 1.778 0 01-1.766-1.57l-.012-.207c0-.982.796-1.778 1.778-1.778l24.151-.002-7.63-7.63a1.779 1.779 0 01-.148-2.347z'/%3E%3C/svg%3E");
+    }
+}
+@mixin svg-css-icon-change-color($icon) {
+    &::after {
+        @include svg-css-icon($icon, $primary);
+    }
+
+    .text-white &::after,
+    &.btn--style1::after {
+        @include svg-css-icon($icon, $white);
+    }
+}
+
+// **** Mixins ANS esante
+// *
+// * Add icons into a background image
+// *
+// * @param $icon-size: Icon size
+// * @param $color: Color of the icon
+// * @param $color: Color of the icon
+// *
+// * @example
+// *  @include esante-svg-css-icon(download);
+// *
+@mixin esante-svg-css($icon-size) {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: $icon-size;
+    height: $icon-size;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@mixin esante-svg-css-icon($icon, $color) {
+    @if ($icon == "arrow-right") {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='#{$color}' d='M18.299 4.076a1.778 1.778 0 012.514 0L31.48 14.743a1.668 1.668 0 01.26.332 1.382 1.382 0 01.093.173l.04.092a1.914 1.914 0 01.091.303A1.764 1.764 0 0132 16l-.006-.152c.003.031.004.062.005.092l.001.059-.001.059a1.583 1.583 0 01-.019.205l-.016.092a1.507 1.507 0 01-.053.198 1.474 1.474 0 01-.078.198c-.017.037-.036.073-.055.109a2.03 2.03 0 01-.127.197 1.79 1.79 0 01-.172.199l.142-.161-.012.015-.13.145-10.667 10.667a1.778 1.778 0 01-2.514-2.514l7.63-7.634-24.151.002a1.778 1.778 0 01-1.766-1.57l-.012-.207c0-.982.796-1.778 1.778-1.778l24.151-.002-7.63-7.63a1.779 1.779 0 01-.148-2.347z'/%3E%3C/svg%3E");
+    }
+    @if ($icon == "arrow-slider") {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 16'%3E%3Cpath fill='#{$color}' d='M8.554 13.294L3.02 7.759 8.53 2.13c.36-.357.466-.892.271-1.362A1.251 1.251 0 007.635 0c-.33 0-.64.126-.875.357L.364 6.861a1.274 1.274 0 00-.006 1.777l6.425 6.425c.234.234.548.363.886.363a1.241 1.241 0 001.247-1.258 1.212 1.212 0 00-.362-.874'/%3E%3C/svg%3E");
+    }
+    @if ($icon == "angle-down") {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='#{$color}' d='M18.712 24.837l12.143-11.994A3.937 3.937 0 0032 10.056a3.93 3.93 0 00-6.718-2.787l-9.356 9.157-9.207-9.207a3.834 3.834 0 00-2.787-1.145A3.932 3.932 0 000 10.006a3.928 3.928 0 001.145 2.787l11.994 11.994a3.982 3.982 0 005.574 0v.05z'/%3E%3C/svg%3E");
+    }
+}
+
+// *
+// * Add image with petals
+// *
+// * @example
+// *  @include  esante-petal;
+// *
+@mixin esante-petal() {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        left: -3rem;
+        width: 7.5rem;
+        height: 9.5rem;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 106 134'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M40.501 134H40.5C18.132 134 0 115.813 0 93.376V46c3.166 3.537 9.524 6.548 22.43 6.752h18.071C62.868 52.752 81 70.939 81 93.376S62.868 134 40.501 134' fill='%231D71B8'/%3E%3Cpath d='M85 46c11.598 0 21-9.507 21-21.235V0c-1.642 1.849-4.939 3.423-11.63 3.53H85c-11.598 0-21 9.506-21 21.235C64 36.493 73.402 46 85 46' fill='%23D20050'/%3E%3C/g%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+
+        @media (min-width: 62em) {
+            top: 4.7rem;
+            left: -2.5rem;
+            width: 10.6rem;
+            height: 13.4rem;
+        }
+    }
+}

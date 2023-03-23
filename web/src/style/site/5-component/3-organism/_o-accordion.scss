@@ -1,0 +1,79 @@
+.js-accordion {
+    margin-bottom: $paragraph-margin-bottom;
+}
+
+.o-accordion__title {
+    margin: 0;
+    font-size: inherit;
+
+    &:not(:first-child) {
+        margin-top: 2rem;
+    }
+}
+
+.js-accordion__header {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+
+    padding: $accordion-padding-y 4.5rem $accordion-padding-y $accordion-padding-x;
+    font-size: 2rem;
+    font-weight: $fw-medium;
+    color: var(--body-color, $body-color);
+    background-color: var(--white, $white);
+    border: solid 0.1rem var(--border-color, $border-color);
+    border-radius: var(--border-radius);
+
+    transition: color 250ms ease, background-color 250ms ease;
+
+    svg {
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        transform: translateY(-50%);
+        width: 0.8rem;
+        color: var(--gray-600, $gray-600);
+        transition: transform 250ms ease;
+        pointer-events: none;
+    }
+
+    &[aria-expanded="true"] {
+        color: var(--primary, $primary);
+        background-color: var(--gray-100, $gray-100);
+        border-bottom-color: transparent;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        svg {
+            color: var(--primary, $primary);
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+
+    @include hover-focus {
+        color: var(--primary, $primary);
+    }
+}
+
+.js-accordion__panel {
+    padding: 0 $accordion-padding-x 3rem $accordion-padding-x;
+    background-color: var(--gray-100, $gray-100);
+    border: solid 0.1rem var(--border-color, $border-color);
+    border-top-width: 0;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+    &[aria-hidden="true"] {
+        display: none;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .js-accordion__header {
+        padding-right: 9rem;
+
+        svg {
+            right: 4rem;
+        }
+    }
+}

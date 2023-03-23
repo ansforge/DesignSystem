@@ -1,0 +1,197 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Prise en main des versions et gestion de fichiers' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Charte éditoriale",
+            blockTitle: title,
+        } %}
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Accès au back-office et modification des contenus</h2>
+
+            <h3>Gestion des droits et module de révision</h3>
+            <p>Ce <strong>module de révision des contenus</strong> a été développé en 2022 dans le back-office du site pour permettre au responsable de service de modifier les contenus dont il est l’auteur pour ensuite en demander la publication directement, par voie de notification, à l’équipe de la Direction de la Communication.</p>
+            <p><strong>Toute demande de droit d’accès</strong> au back-office est à effectuer par e-mail à la Direction de la Communication, joignable à l’adresse suivante : <a href="mailto:ans-publications@esante.gouv.fr">ans-publications@esante.gouv.fr</a></p>
+            <p>Ainsi, le profil <strong>ANS contributeur</strong> peut mettre à jour son contenu sur le site. Il est également <strong>responsable du contenu</strong> à mettre en ligne (visuels mis en ligne, chiffres clés à jour, dates actualisées, etc.). L’équipe des validateurs de contenus de la Direction de la Communication sont en charge de publier les mises à jour dans le respect du planning éditorial commun à toute l’Agence.</p>
+
+            <h4>Ce que peut faire le profil contributeur ANS dans le back-office</h4>
+            <ul>
+                <li>modifier un contenu <strong>dont il est l'auteur</strong>,</li>
+                <li>supprimer un contenu <strong>dont il est l'auteur</strong>,</li>
+                <li>accéder au module de révision d'un coutenu qu'il en soit l'auteur ou non,</li>
+                <li>ajouter/modifier/supprimer des médias <strong>dont il est l'auteur</strong>,</li>
+                <li>modifier les taxonomies (ex.: ajout de nouveaux termes).</li>
+            </ul>
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h3>Les différentes étapes pour modifier un nouveau contenu</h3>
+            <p>Pour trouver le contenu dont vous êtes l’auteur, il convient de saisir le titre (« <b lang="en">Title</b> ») de votre page, filtrer si nécessaire par le « <b>Type de contenu</b> ».</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgClass: "mb-3",
+                imgUrl: 'img/charte/back-office-01.png',
+                imgAlt: "",
+                imgWidth: '1186',
+                imgHeight: '439',
+                imgLazy: true,
+            } %}
+            <p>Puis actionner le bouton « <b>Modifier</b> ».</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgClass: "mb-3",
+                imgUrl: 'img/charte/back-office-02.png',
+                imgAlt: "",
+                imgWidth: '1117',
+                imgHeight: '248',
+                imgLazy: true,
+            } %}
+            <p>Vous accéderez ainsi au contenu de votre <span lang="en">webpage</span>, réparti sur différents blocs graphiques qu’il vous faut déplier pour les « <b>Modifier</b> ».</p>
+
+            <p>Le chapeau introductif de votre page ou « <b lang="en">Header</b> » se compose idéalement des éléments suivants :</p>
+            <ul>
+                <li>un titre (obligatoire),</li>
+                <li>un sous-titre (facultatif),</li>
+                <li>des mots-clés,</li>
+                <li>une image,</li>
+                <li>une brève description.</li>
+            </ul>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgClass: "mb-3",
+                imgUrl: 'img/charte/back-office-03.png',
+                imgAlt: "",
+                imgWidth: '950',
+                imgHeight: '903',
+                imgLazy: true,
+            } %}
+
+            <p>Le corps du texte est désigné ici par le Contenu (« <b lang="en">Content</b> ») de la page qu’il vous faut mettre à jour. Une fonctionnalité de type <strong>glisser-déposer</strong>, va vous permettre de déplacer l’ordre visuel des blocs de contenus dans la page.</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgClass: "mb-3",
+                imgUrl: 'img/charte/back-office-04.png',
+                imgAlt: "",
+                imgWidth: '952',
+                imgHeight: '684',
+                imgLazy: true,
+            } %}
+
+            <p>Par défaut, les contenus modifiés par le profil <strong>ANS contributeur</strong> ont le statut « <b>Brouillon</b> ». Ce dernier n’est pas publié ni signalé au profil <strong>ANS validateur</strong>. Il faut pour cela sélectionner le statut « <b>A valider</b> » afin d’activer la demande de publication qui restera en attente de validation.</p>
+            <h4>Envoi d’une notification au validateur depuis le back-office</h4>
+            <p>Une fois le contenu créé ou modifié, <strong>le validateur reçoit un email</strong> l’informant qu’un contributeur a créé un nouveau contenu ou modifié un contenu existant.</p>
+            <p>Le validateur peut également accéder à la liste des contenus à modérer depuis le BO en cliquant sur l’entrée « <b lang="en">Moderated content</b> » ou en ciblant les contenus avec le statut « <b lang="en">Unpublished</b> ».</p>
+            <p>Avant de publier un contenu, <strong>le validateur doit relire le contenu</strong> et y apporter des modifications si besoin.</p>
+
+            <p>Le <strong>module de révision</strong> est accessible depuis l’onglet « <b>Révision</b> » permet à <strong>tous les profils autorisés</strong> (qu’il soit ANS contributeur ou ANS validateur) de visualiser dans le détail les modifications apportées à un contenu. Pour cela, l’utilisateur peut comparer la version actuelle avec une version antérieure de son choix.</p>
+            <p>Par défaut, la version actuelle est toujours sélectionnée.</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgClass: "mb-3",
+                imgUrl: 'img/charte/back-office-05.png',
+                imgAlt: "",
+                imgWidth: '957',
+                imgHeight: '795',
+                imgLazy: true,
+            } %}
+
+            <p>Les modifications sont listées par composant puis par champ.</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgClass: "mb-3",
+                imgUrl: 'img/charte/back-office-05bis.png',
+                imgAlt: "",
+                imgWidth: '1018',
+                imgHeight: '788',
+                imgLazy: true,
+            } %}
+            <p><i>NB : ce module est majoritairement utilisé par le validateur qui peut accéder aux modifications effectuées avant de publier un contenu.</i></p>
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h3>Module de gestion des fichiers et médias</h3>
+            <p><b>Objectif :</b><br>Permettre aux contributeurs d’ajouter et de remplacer des médias existants sans changer le nom du média dans le back-office.</p>
+
+            <h4>Les différentes étapes pour gérer un média dans le back-office</h4>
+
+            <h5>Etape 1 : Créer un media</h5>
+
+            <ul>
+                <li>cliquer sur Contenu > <span lang="en">Media Table</span> > Ajouter un Média,<br>
+                    {% include "../../site/component/1-atom/a-img.twig" with {
+                        imgClass: "mb-2 mt-1",
+                        imgUrl: 'img/charte/back-office-06.png',
+                        imgAlt: "",
+                        imgWidth: '405',
+                        imgHeight: '147',
+                        imgLazy: true,
+                    } %}
+                </li>
+                <li>choisir le type de média à créer,<br>
+                    {% include "../../site/component/1-atom/a-img.twig" with {
+                        imgClass: "mb-2 mt-1",
+                        imgUrl: 'img/charte/back-office-07.png',
+                        imgAlt: "",
+                        imgWidth: '411',
+                        imgHeight: '465',
+                        imgLazy: true,
+                    } %}
+                </li>
+                <li>renseigner les champs et ajouter le média,</li>
+                <li>enregistrer.</li>
+            </ul>
+
+            <h5>Étape 2 : Remplacer un fichier ou media dans le back-office</h5>
+            <ul>
+                <li>cliquer sur Contenu > Fichiers,</li>
+                <li>identifier le média à remplacer et cliquer sur « Remplacer »,</li>
+                <li>dans le champ « Remplacement » ajouter le média à remplacer,</li>
+                <li>enregistrer.</li>
+            </ul>
+            <p>NB : les médias doivent être du même format. Un fichier au format PDF ne peut remplacer une image par exemple.</p>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgClass: "mb-3",
+                imgUrl: 'img/charte/back-office-08.png',
+                imgAlt: "",
+                imgWidth: '1316',
+                imgHeight: '733',
+                imgLazy: true,
+            } %}
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgClass: "mb-3",
+                imgUrl: 'img/charte/back-office-09.png',
+                imgAlt: "",
+                imgWidth: '622',
+                imgHeight: '386',
+                imgLazy: true,
+            } %}
+
+            <h5>Étape 3 : Procéder à la vérification</h5>
+            <ol>
+                <li>cliquer sur le nom du média pour l’afficher dans un nouvel onglet puis :
+                    <ul>
+                        <li>vider ses caches (Ctrl + F5),</li>
+                        <li>vérifier que le nouveau média s'affiche bien,</li>
+                        <li>vérifier que le nom du média est inchangé dans le BO.</li>
+                    </ul>
+                </li>
+                <li>si le média est contribué sur une page :
+                    <ul>
+                        <li>se rendre sur la page en question,</li>
+                        <li>vider ses caches (Ctrl + F5),</li>
+                        <li>vérifier que le nouveau média s'affiche bien,</li>
+                        <li>vérifier que le nom du média est inchangé dans le BO.</li>
+                    </ul>
+                </li>
+            </ol>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgClass: "mb-3",
+                imgUrl: 'img/charte/back-office-09.png',
+                imgAlt: "",
+                imgWidth: '622',
+                imgHeight: '386',
+                imgLazy: true,
+            } %}
+
+        </div>
+    </div>
+
+{% endblock %}

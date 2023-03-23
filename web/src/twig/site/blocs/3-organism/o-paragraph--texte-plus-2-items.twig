@@ -1,0 +1,36 @@
+<div class="container paragraph-space">
+    <div class="row">
+        <div class="col-md mb-3">
+            <div class="wysiwyg pt-4">
+                {% if paragTitle %}<h2>{{ paragTitle }}</h2>{% endif %}
+                {% if paragDesc %}<div class="wysiwyg mb-3">{{ paragDesc }}</div>{% endif %}
+                {% if links %}{% include "o-paragraph--lien.twig" %}{% endif %}
+            </div>
+        </div>
+
+        {% if cards %}
+            {% for item in cards %}
+                <div class="col-md mb-3">
+                    {% include "../2-molecule/m-card.twig" with {
+                        bgColor: item.bgColor,
+                        textAlignment: item.textAlignment,
+                        cardRadiusRounded: item.cardRadiusRounded,
+                        cardRadiusDrop: item.cardRadiusDrop,
+                        cardHasArrow: item.cardHasArrow,
+
+                        cardUrl: item.cardUrl,
+                        cardTarget: item.cardTarget,
+                        cardTitle: item.cardTitle,
+                        cardSubtitle: item.cardSubtitle,
+                        cardDesc: item.cardDesc,
+                        cardLinks: item.cardLinks,
+
+                        cardImgUrl: item.cardImgUrl,
+                        cardImgTop: item.cardImgTop,
+                        cardImgBg: item.cardImgBg
+                    } %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

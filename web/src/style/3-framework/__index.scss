@@ -1,0 +1,47 @@
+/*
+ * Bootstrap v4.5.3 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors
+ * Copyright 2011-2020 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// see __index-vars.scss
+// @import "bootstrap-4.5.3/functions";
+// @import "bootstrap-4.5.3/variables";
+// @import "bootstrap-4.5.3/mixins";
+
+// @import "bootstrap-4.5.3/root";
+@import "bootstrap-4.5.3/reboot";
+@import "bootstrap-4.5.3/type";
+@import "bootstrap-4.5.3/images";
+@import "bootstrap-4.5.3/code";
+@import "bootstrap-4.5.3/grid";
+@import "bootstrap-4.5.3/tables";
+@import "bootstrap-4.5.3/forms";
+// @import "bootstrap-4.5.3/buttons"; // copy and use only what's needed in component/1-atom/a-btn-bootstrap.scss
+@import "bootstrap-4.5.3/transitions";
+@import "bootstrap-4.5.3/dropdown";
+// @import "bootstrap-4.5.3/button-group";
+@import "bootstrap-4.5.3/input-group";
+@import "bootstrap-4.5.3/custom-forms";
+@import "bootstrap-4.5.3/nav";
+@import "bootstrap-4.5.3/navbar";
+// @import "bootstrap-4.5.3/card";
+@import "bootstrap-4.5.3/breadcrumb";
+@import "bootstrap-4.5.3/pagination";
+// @import "bootstrap-4.5.3/badge";
+// @import "bootstrap-4.5.3/jumbotron";
+// @import "bootstrap-4.5.3/alert";
+// @import "bootstrap-4.5.3/progress";
+// @import "bootstrap-4.5.3/media";
+// @import "bootstrap-4.5.3/list-group";
+// @import "bootstrap-4.5.3/close";
+// @import "bootstrap-4.5.3/toasts";
+@import "bootstrap-4.5.3/modal";
+@import "bootstrap-4.5.3/tooltip";
+// @import "bootstrap-4.5.3/popover";
+// @import "bootstrap-4.5.3/carousel";
+// @import "bootstrap-4.5.3/spinners";
+
+// __index-utilities.scss
+// __index-print.scss

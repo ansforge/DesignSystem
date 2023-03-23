@@ -1,0 +1,17 @@
+[class*="svg-icon"] {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+[class*="svg-angle"] {
+    width: 0.6rem;
+}

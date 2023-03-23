@@ -1,0 +1,106 @@
+{% if bannerHome %}
+<!-- SVG pour les formes/pétales. A ajouter seulement une fois dans la page -->
+<svg class="d-block" aria-hidden="true" focusable="false" height="0" width="0">
+    <defs>
+        <clipPath id="banner-home-01">
+            <path d="M102.2 201.5C46 201.5.5 156.5.5 101S46 .5 102.2.5c53.3 0 86.8 31.3 98.7 89.7 7.8 38.8 33.5 83.6 77.6 111.3h-35.9z"/>
+        </clipPath>
+        <clipPath id="banner-home-02">
+            <path d="M.3 135.4C.3 60.9 60 .5 133.6.5 207.3.5 267 60.9 267 135.4c0 70.8-41.5 115.3-119.1 131.1C96.5 276.9 37 311 .3 369.5v-47.6z"/>
+        </clipPath>
+        <clipPath id="banner-home-03">
+            <path d="M0 206.7C0 108.8 80.4 29.5 179.5 29.5h80.2c57.2-.9 85.4-14.1 99.4-29.5v206.7c0 97.9-80.4 177.3-179.5 177.3h-.1C80.4 384 0 304.6 0 206.7z"/>
+        </clipPath>
+        <clipPath id="banner-home-04">
+            <path d="M376.8 189v1.4c0 195.2-158.1 353.4-353 353.4H.8V189C.8 85.1 85 .8 188.8.8s188 84.3 188 188.2z"/>
+        </clipPath>
+    </defs>
+</svg>
+{% endif %}
+
+{% if not bannerHome and bannerImg %}
+<!-- SVG pour les formes/pétales. A ajouter seulement une fois dans la page -->
+<svg class="d-block" aria-hidden="true" focusable="false" height="0" width="0">
+    <defs>
+        <clipPath id="banner-1">
+            <path d="M695.29 -0.12C729.18 124.56 716.75 273.17 658 445.72C632.28 417.11 580.63 392.75 475.78 391.1L328.99 391.1C147.29 391.1 0 243.98 0 62.47C0 48.2 1.99 27.34 5.96 -0.12C465.51 -0.12 695.29 -0.12 695.29 -0.12Z"/>
+        </clipPath>
+    </defs>
+</svg>
+{% endif %}
+
+<div class="o-banner
+    {%- if bannerHome %} o-banner--home{% endif -%}
+    {%- if bannerImg %} o-banner--has-image{% endif -%}
+    {%- if breadcrumb %} o-banner--has-breadcrumb{% endif -%}
+">
+    <div class="container">
+        {% if breadcrumb %}
+            {% include "../../component/3-organism/o-breadcrumb.twig" %}
+        {% endif %}
+
+        <div class="o-banner__content">
+            {% if bannerSubtitle %}
+                <p class="subtitle">{{- bannerSubtitle -}}</p>
+            {% endif %}
+
+            {% if bannerTitle %}
+                <h1>{{- bannerTitle -}}</h1>
+            {% endif %}
+
+            {% if bannerDesc %}
+                <p class="lead">{{- bannerDesc -}}</p>
+            {% endif %}
+
+            {% if bannerText %}
+                <p>{{- bannerText -}}</p>
+            {% endif %}
+
+            {% if bannerLinks %}
+                {% include "o-paragraph--lien.twig" with { links: bannerLinks } %}
+            {% endif %}
+
+            {% if bannerShareItems %}
+                <div class="o-banner__share-links d-none d-lg-inline-flex">
+                    <ul class="list-unstyled d-lg-inline-flex">
+                        {% for item in bannerShareItems %}
+                            {% if item.link %}
+                                <li>
+                                    <a href="{{ item.link }}" target="_blank" class="o-banner__share-item border rounded-lg">
+                                        {% if item.name | lower == "facebook" %}{{ macro.svg("facebook") }}
+                                        {% elseif item.name | lower == "twitter" %}{{ macro.svg("twitter") }}
+                                        {% elseif item.name | lower == "linkedin" %}{{ macro.svg("linkedin") }}
+                                        {% elseif item.name | lower == "email" %}{{ macro.svg("mail") }}
+                                        {% endif %}
+                                        <span class="sr-only">Partager {%- if item.name | lower == "email" %} par {% else %} sur {% endif -%} {{ item.name | capitalize }}</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% if bannerImg %}
+        <div class="o-banner__img d-none d-lg-block">
+            {% if bannerImg is iterable %}
+                {% for item in bannerImg %}
+                    <div class="o-banner__clip o-banner__clip--{{ loop.index }}">
+                        {% include "../../component/1-atom/a-img.twig" with {
+                            imgUrl: item.imgUrl,
+                            imgWidth: item.imgWidth,
+                            imgHeight: item.imgHeight
+                        } %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="o-banner__clip">
+                    {% include "../../component/1-atom/a-img.twig" with {
+                        imgUrl: bannerImg
+                    } %}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,22 @@
+<div class="paragraph-space o-paragraph--fonctions-ans text-white bg-black">
+    <div class="container">
+        <div class="row">
+            {% for item in paragFonction %}
+                <div class="col-md-4">
+                    <div class="o-paragraph--fonctions-ans__item px-lg-3">
+                        {% if item.paragFonctionTitle %}<h2>{{ item.paragFonctionTitle }}</h2>{% endif %}
+                        {% if item.paragFonctionDesc %}<p>{{ item.paragFonctionDesc }}</p>{% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% if paragFonctionImgUrl %}
+        <div class="o-paragraph--fonctions-ans__img">
+            {% include "../../component/1-atom/a-img.twig" with {
+                imgUrl: paragFonctionImgUrl,
+                imgLazy: true
+            } %}
+        </div>
+    {% endif %}
+</div>

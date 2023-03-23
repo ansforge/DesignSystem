@@ -1,0 +1,78 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Centre de Support' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "",
+            blockTitle: title,
+            blockAccroche_text: "Vous souhaitez signaler un bug, soumettre une demande de création de composant ou nous faire des suggestions ? Veuillez remplir ce formulaire."
+        } %}
+
+        <div>
+            <p class="fz-16">Les champs marqués d’un * sont obligatoires</p>
+
+            <form action="./php/submit-form.php" method="post">
+                <div class="form-box">
+                    <h2 class="form-box__title">Votre demande concerne :</h2>                     
+                    
+                    <div class="form-group">
+                        <fieldset>               
+                            <div class="custom-radio-box">
+                                {{ form.radio('contactDemande', null, 'Un bug ou un problème de sécurité', {'id': 'contactDemande1', 'inline': true, 'value': 'bug/sécurité', "required": "required"}) }}
+                                {{ form.radio('contactDemande', null, "La création d'un composant ou une évolution", {'id': 'contactDemande2', 'inline': true, 'value': 'évolution/création-composant', "required": "required"}) }}
+                                {{ form.radio('contactDemande', null, 'Une question', {'id': 'contactDemande3', 'inline': true, 'value': 'question', "required": "required"}) }}
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.label('contactNom', "Nom", true) }}
+                        {{ form.text('contactNom', null, {"required": "required"}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.label('contactPrenom', "Prénom", true) }}
+                        {{ form.text('contactPrenom', null, {"required": "required"}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.label('contactEmail', "Adresse mail (ex.: jean@gmail.com)", true) }}
+                        {{ form.email('contactEmail', null, {"required": "required"}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {% set selectValues = {
+                            '0': 'Sélectionnez votre direction',
+                            'DIRCOM': 'DIRCOM',
+                            'DPE': 'DPE',
+                            'DEII': 'DEII',
+                            'DOPS': 'DOPS',
+                            'DETEX': 'DETEX',
+                            'SG': 'Secrétariat Général'
+                        } %}
+
+                        {{ form.label('contactDirection', "Direction", true) }}
+                        {{ form.select('contactDirection', selectValues, null, {"required": "required"}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.label('contactObjet', "Objet", true) }}
+                        {{ form.text('contactObjet', null, {"required": "required"}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.label('contactMessage', "Message", true) }}
+                        {{ form.textarea('contactMessage', null, {"required": "required"}) }}
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="submit" class="btn btn--plain btn--primary">Envoyez <span class="sr-only">votre demande</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

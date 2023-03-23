@@ -1,0 +1,17 @@
+{% if typo_hierarchisation %}
+<div class="o-sg-typo-hierarchisation__wrapper">
+	<ul class="o-sg-typo-hierarchisation">
+		{% for item in typo_hierarchisation %}
+			<li class="o-sg-typo-hierarchisation__item">
+				{% if item.title %}
+					<span class="fw-regular-i">{{ item.title }} : </span>
+				{% endif %}
+
+				{% if item.value %}
+					<span class="fw-bold-i">{{ item.value }}</span>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endif %}

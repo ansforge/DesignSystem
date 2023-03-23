@@ -1,0 +1,15 @@
+<div class="o-sg-prism__options">
+    <div class='table-responsive'>
+        <table class="table table-bordered">
+            <caption class="h4">{{ componentInfosTitle }} <span class="sr-only">du composant {{ componentName }}</span></caption>
+            <tbody>
+                {% for item in componentInfos %}
+                <tr>
+                    <th scope="row">{{ item.name }}</th>
+                    <td>{{ item.value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

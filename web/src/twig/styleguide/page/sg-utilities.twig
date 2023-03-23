@@ -1,0 +1,344 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Class utilitaires' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Utilitaires",
+            blockTitle: title,
+            blockAccroche_text: 'Il s\'agit de class utiles pour construire soi-même des composants sans avoir recours à la création de règles CSS spécifiques.'
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Les couleurs</h2>
+
+            <h3>Les couleurs de texte</h3>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="text-primary">.text-primary</div>
+                    <div class="text-white bg-default">.text-white</div>
+                    <div class="text-default">.text-default</div>
+                    <div class="text-brand-2">.text-brand-2</div>
+                {% endblock %}
+            {% endembed %}
+
+            <h3>Les couleurs de fond</h3>
+            <p>Elles peuvent s'appliquer aussi bien à du texte qu'à des blocs.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="bg-primary text-white">.bg-primary</div>
+                    <div class="bg-white text-dark">.bg-white</div>
+                    <div class="bg-default text-white">.bg-default</div>
+                    <div class="bg-brand-2 text-white">.bg-brand-2</div>
+                    <div class="bg-gray-100">.bg-gray-100</div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Les textes</h2>
+
+            <h3>Les alignements</h3>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p class="text-left">Texte aligné à gauche. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint velit, delectus debitis vel exercitationem minus. Ducimus fugiat sit voluptatum hic harum rerum velit cumque, voluptatem, ea natus quas? Velit, rerum?</p>
+                    <p class="text-center">Texte centré. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae quaerat similique, nihil beatae ducimus excepturi hic voluptatem illum quibusdam eius incidunt pariatur, nesciunt tenetur? Tempore accusamus ab amet quasi.</p>
+                {% endblock %}
+            {% endembed %}
+
+            <h3>Les graisses</h3>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p class="fw-regular">Book (400)</p>
+                    <p class="fw-medium">Medium (500)</p>
+                    <p class="fw-semiBold">Demi (600)</p>
+                    <p class="fw-bold">Bold (700)</p>
+                {% endblock %}
+            {% endembed %}
+
+            <h3>Les transformations</h3>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p class="text-uppercase">Texte en capitale</p>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Les faux titres</h2>
+            <p>Le but de ces classes est de donner à une portion de texte une apparence de titre ou sous-titre, mais sans lui en conférer la valeur sémantique (c'est donc sans effet pour les lecteurs d'écran ou sur le référencement, par exemple).</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <p class="h1">Style h1</p>
+                    <p class="h2">Style h2</p>
+                    <p class="h3">Style h3</p>
+                    <p class="h4">Style h4</p>
+                    <p class="h5">Style h5</p>
+                    <p class="h6">Style h6</p>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Le séparateur</h2>
+            <p>Les séparateurs horizontaux sont par défaut des éléments sémantiques, qui dès lors sont annoncés par les lecteurs d'écran.</p>
+            <div class="wysiwyg">
+                <ul>
+                    <li>Si vous utilisez un séparateur pour diviser sémantiquement votre contenu (changement de thématique par exemple), laissez-le tel quel.</li>
+                    <li>Dans tous les autres cas (donc à but purement décoratif), ajoutez un <code class="language-plaintext">aria-hidden="true"</code> afin qu'il ne soit pas vocalisé.</li>
+                </ul>
+            </div>
+
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <h3>Séparateur avec sémantique</h3>
+                    <hr>
+
+                    <h3>Séparateur sans sémantique</h3>
+                    <hr aria-hidden="true">
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+
+        <div class="sg-block-space">
+            <h2>Les bordures et radius</h2>
+
+            <p>Un fond blanc a été ajouté dans les exemples pour une meilleure visibilité.</p>
+
+            <div class="sg-demo sg-demo--border">
+                {% embed "../component/3-organism/o-sg-prism.twig" %}
+                    {% block embedToInclude %}
+                        <div class="border"></div>
+
+                        <!-- Radius size -->
+                        <div class="border rounded"></div>
+                        <div class="border rounded-sm"></div>
+                        <div class="border rounded-md"></div>
+                        <div class="border rounded-lg"></div>
+                        {# <div class="border rounded-circle"></div> #}
+
+                        {# <div class="border-top"></div>
+                        <div class="border-right"></div>
+                        <div class="border-bottom"></div>
+                        <div class="border-left"></div> #}
+
+                        {# <div class="border border-primary"></div>
+                        <div class="border border-white"></div>
+                        <div class="border border-success"></div>
+                        <div class="border border-danger"></div>
+                        <div class="border border-warning"></div>
+                        <div class="border border-info"></div> #}
+                    {% endblock %}
+                {% endembed %}
+
+                <p>Pour supprimer le radius d'un angle : </p>
+
+                {% embed "../component/3-organism/o-sg-prism.twig" %}
+                    {% block embedToInclude %}
+                        <!-- Supprimer le radius haut gauche -->
+                        <div class="border rounded-md top-left-radius-0"></div>
+                        <!-- Supprimer le radius haut droit -->
+                        <div class="border rounded-md top-right-radius-0"></div>
+                        <!-- Supprimer le radius bas droit -->
+                        <div class="border rounded-md bottom-right-radius-0"></div>
+                        <!-- Supprimer le radius bas gauche -->
+                        <div class="border rounded-md bottom-left-radius-0"></div>
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Les ombres</h2>
+            <p>Ces classes font appel à la propriété <code class="language-plaintext">box-shadow</code>.</p>
+            <div class="sg-demo sg-demo--border">
+                {% embed "../component/3-organism/o-sg-prism.twig" %}
+                    {% block embedToInclude %}
+                        <div class="shadow"></div>
+                        <div class="shadow-lg"></div>
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Les espacements</h2>
+            <p><a href="https://getbootstrap.com/docs/4.5/utilities/spacing/">Extrait de Bootstrap</a></p>
+            <p>Le nom des classes est élaboré selon le format <code class="language-plaintext">{property}{sides}-{size}</code> pour <code class="language-plaintext">xs</code> et <code class="language-plaintext">{property}{sides}-{breakpoint}-{size}</code> pour <code class="language-plaintext">sm</code>, <code class="language-plaintext">md</code>, <code class="language-plaintext">lg</code>, et <code class="language-plaintext">xl</code>.</p>
+            <p>Où <em>property</em> peut être :</p>
+            <ul>
+            <li>soit <code class="language-plaintext">m</code> - pour les classes qui établissent le <code class="language-plaintext">margin</code></li>
+            <li>soit <code class="language-plaintext">p</code> - pour les classes qui établissent le <code class="language-plaintext">padding</code></li>
+            </ul>
+            <p>Où <em>sides</em> peut être l'une de ces valeurs :</p>
+            <ul>
+            <li><code class="language-plaintext">t</code> - pour les classes qui fixent le <code class="language-plaintext">margin-top</code> ou <code class="language-plaintext">padding-top</code></li>
+            <li><code class="language-plaintext">b</code> - pour les classes qui fixent le <code class="language-plaintext">margin-bottom</code> ou <code class="language-plaintext">padding-bottom</code></li>
+            <li><code class="language-plaintext">l</code> - pour les classes qui fixent le <code class="language-plaintext">margin-left</code> ou <code class="language-plaintext">padding-left</code></li>
+            <li><code class="language-plaintext">r</code> - pour les classes qui fixent le <code class="language-plaintext">margin-right</code> ou <code class="language-plaintext">padding-right</code></li>
+            <li><code class="language-plaintext">x</code> - pour les classes qui fixent le aussi bien le <code class="language-plaintext">*-left</code> que le <code class="language-plaintext">*-right</code></li>
+            <li><code class="language-plaintext">y</code> - pour les classes qui fixent le aussi bien le <code class="language-plaintext">*-top</code> que le <code class="language-plaintext">*-bottom</code></li>
+            <li>rien - ces classes fixent alors un <code class="language-plaintext">margin</code> ou un un <code class="language-plaintext">padding</code> sur les 4 côtés de l'élément.</li>
+            </ul>
+            <p>Où <em>size</em> peut être l'une de ces valeurs :</p>
+            <ul>
+            <li><code class="language-plaintext">0</code> - pour les classes qui éliminent totalement le <code class="language-plaintext">margin</code> ou le <code class="language-plaintext">padding</code> en le fixant à <code class="language-plaintext">0</code></li>
+            <li><code class="language-plaintext">1</code> - pour les classes qui fixent un <code class="language-plaintext">margin</code> ou un <code class="language-plaintext">padding</code> de <code class="language-plaintext">10px</code></li>
+            <li><code class="language-plaintext">2</code> - pour les classes qui fixent un <code class="language-plaintext">margin</code> ou un <code class="language-plaintext">padding</code> de <code class="language-plaintext">20px</code></li>
+            <li><code class="language-plaintext">3</code> - pour les classes qui fixent un <code class="language-plaintext">margin</code> ou un <code class="language-plaintext">padding</code> de <code class="language-plaintext">30px</code></li>
+            <li><code class="language-plaintext">4</code> - pour les classes qui fixent un <code class="language-plaintext">margin</code> ou un <code class="language-plaintext">padding</code> de <code class="language-plaintext">40px</code></li>
+            <li><code class="language-plaintext">5</code> - pour les classes qui fixent un <code class="language-plaintext">margin</code> ou un <code class="language-plaintext">padding</code> de <code class="language-plaintext">50px</code></li>
+            <li><code class="language-plaintext">6</code> - pour les classes qui fixent un <code class="language-plaintext">margin</code> ou un <code class="language-plaintext">padding</code> de <code class="language-plaintext">60px</code></li>
+            <li><code class="language-plaintext">auto</code> - pour les classes qui fixent le <code class="language-plaintext">margin</code> à auto</li>
+            </ul>
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Les paddings</h3>
+            <p>Voici des cas concrets d'utilisation des classes utilitaires de <code class="language-plaintext">padding</code> :</p>
+            <div class="sg-demo sg-demo--padding">
+                {% embed "../component/3-organism/o-sg-prism.twig" %}
+                    {% block embedToInclude %}
+                        <div class="border p-1">Padding 1</div>
+                        <div class="border p-2">Padding 2</div>
+                        <div class="border p-3">Padding 3</div>
+                        <div class="border p-4">Padding 4</div>
+                        <div class="border p-5">Padding 5</div>
+                        <div class="border p-6">Padding 6</div>
+
+                        <hr>
+
+                        <div class="border py-1">Padding vertical 1</div>
+                        <div class="border py-2">Padding vertical 2</div>
+                        <div class="border py-3">Padding vertical 3</div>
+                        <div class="border py-4">Padding vertical 4</div>
+                        <div class="border py-5">Padding vertical 5</div>
+                        <div class="border py-6">Padding vertical 6</div>
+
+                        <hr>
+
+                        <div class="border pt-1">Padding top 1</div>
+                        <div class="border pt-2">Padding top 2</div>
+                        <div class="border pt-3">Padding top 3</div>
+                        <div class="border pt-4">Padding top 4</div>
+                        <div class="border pt-5">Padding top 5</div>
+                        <div class="border pt-6">Padding top 6</div>
+
+                        <hr>
+
+                        <div class="border pb-1">Padding bottom 1</div>
+                        <div class="border pb-2">Padding bottom 2</div>
+                        <div class="border pb-3">Padding bottom 3</div>
+                        <div class="border pb-4">Padding bottom 4</div>
+                        <div class="border pb-5">Padding bottom 5</div>
+                        <div class="border pb-6">Padding bottom 6</div>
+
+                        <hr>
+
+                        <div class="border px-1">Padding horizontal 1</div>
+                        <div class="border px-2">Padding horizontal 2</div>
+                        <div class="border px-3">Padding horizontal 3</div>
+                        <div class="border px-4">Padding horizontal 4</div>
+                        <div class="border px-5">Padding horizontal 5</div>
+                        <div class="border px-6">Padding horizontal 6</div>
+
+                        <hr>
+
+                        <div class="border pl-1">Padding left 1</div>
+                        <div class="border pl-2">Padding left 2</div>
+                        <div class="border pl-3">Padding left 3</div>
+                        <div class="border pl-4">Padding left 4</div>
+                        <div class="border pl-5">Padding left 5</div>
+                        <div class="border pl-6">Padding left 6</div>
+
+                        <hr>
+
+                        <div class="border pr-1">Padding right 1</div>
+                        <div class="border pr-2">Padding right 2</div>
+                        <div class="border pr-3">Padding right 3</div>
+                        <div class="border pr-4">Padding right 4</div>
+                        <div class="border pr-5">Padding right 5</div>
+                        <div class="border pr-6">Padding right 6</div>
+                    {% endblock %}
+                {% endembed %}
+            </div>
+
+            <h3>Les margins</h3>
+            <p>Voici des cas concrets d'utilisation des classes utilitaires de <code class="language-plaintext">margin</code> :</p>
+            <div class="sg-demo sg-demo--margin">
+                {% embed "../component/3-organism/o-sg-prism.twig" %}
+                    {% block embedToInclude %}
+                        <div class="border m-1">Margin 1</div>
+                        <div class="border m-2">Margin 2</div>
+                        <div class="border m-3">Margin 3</div>
+                        <div class="border m-4">Margin 4</div>
+                        <div class="border m-5">Margin 5</div>
+                        <div class="border m-6">Margin 6</div>
+
+                        <hr>
+
+                        <div class="border my-1">Margin vertical 1</div>
+                        <div class="border my-2">Margin vertical 2</div>
+                        <div class="border my-3">Margin vertical 3</div>
+                        <div class="border my-4">Margin vertical 4</div>
+                        <div class="border my-5">Margin vertical 5</div>
+                        <div class="border my-6">Margin vertical 6</div>
+
+                        <hr>
+
+                        <div class="border mt-1">Margin top 1</div>
+                        <div class="border mt-2">Margin top 2</div>
+                        <div class="border mt-3">Margin top 3</div>
+                        <div class="border mt-4">Margin top 4</div>
+                        <div class="border mt-5">Margin top 5</div>
+                        <div class="border mt-6">Margin top 6</div>
+
+                        <hr>
+
+                        <div class="border mb-1">Margin bottom 1</div>
+                        <div class="border mb-2">Margin bottom 2</div>
+                        <div class="border mb-3">Margin bottom 3</div>
+                        <div class="border mb-4">Margin bottom 4</div>
+                        <div class="border mb-5">Margin bottom 5</div>
+                        <div class="border mb-6">Margin bottom 6</div>
+
+                        <hr>
+
+                        <div class="border mx-1">Margin horizontal 1</div>
+                        <div class="border mx-2">Margin horizontal 2</div>
+                        <div class="border mx-3">Margin horizontal 3</div>
+                        <div class="border mx-4">Margin horizontal 4</div>
+                        <div class="border mx-5">Margin horizontal 5</div>
+                        <div class="border mx-6">Margin horizontal 6</div>
+
+                        <hr>
+
+                        <div class="border ml-1">Margin left 1</div>
+                        <div class="border ml-2">Margin left 2</div>
+                        <div class="border ml-3">Margin left 3</div>
+                        <div class="border ml-4">Margin left 4</div>
+                        <div class="border ml-5">Margin left 5</div>
+                        <div class="border ml-6">Margin left 6</div>
+
+                        <hr>
+
+                        <div class="border mr-1">Margin right 1</div>
+                        <div class="border mr-2">Margin right 2</div>
+                        <div class="border mr-3">Margin right 3</div>
+                        <div class="border mr-4">Margin right 4</div>
+                        <div class="border mr-5">Margin right 5</div>
+                        <div class="border mr-6">Margin right 6</div>
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Remontées projets' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-remontee.css" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--projet-push.twig" with {
+                        paragProjetPushTitle: title,
+                        paragProjetPushDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, corporis consequatur sapiente sequi quasi molestias placeat ullam excepturi nobis voluptas veniam amet dolor eligendi odio numquam possimus? Qui, dignissimos fuga",
+                        teasers: [
+                            {
+                                teaserUrl: "#",
+                                teaserImgUrl: "https://picsum.photos/585/329",
+                                teaserTitle: "Nom projet ANS",
+                                teaserDesc: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>",
+                            },
+                            {
+                                teaserUrl: "#",
+                                teaserImgUrl: "https://picsum.photos/585/329",
+                                teaserTitle: "Nom projet ANS",
+                            }
+                        ],
+                        paragProjetPushLinks: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "#",
+                                text: "Lien interne"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-remontee.css" target="_blank" class="file-link">CSS de la carte Remontée (1,3Ko - CSS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{#
+/**
+ * Teaser Service
+ *
+ * Options:
+ *  - teaserTitle: text of the title
+ *  - teaserSubtitle: text of the subtitle
+ *  - teaserDesc: text of the description
+ *  - teaserLink: link of the teaser
+ */
+#}
+<article class="m-teaser--service mb-3">
+    <a href="{{ teaserLink }}" class="bg-gray-700 text-white rounded-md top-left-radius-0 text-center py-4 px-3">
+        {% if teaserTitle %}
+            <h3 class="m-teaser__title h4">{{- teaserTitle -}}</h3>
+        {% endif %}
+
+        {% if teaserSubtitle %}
+            <p class="subtitle">{{ teaserSubtitle }}</p>
+        {% endif %}
+
+        {% if teaserDesc %}
+            <div class="wysiwyg mb-3">{{- teaserDesc -}}</div>
+        {% endif %}
+
+        {{ macro.svg("arrow-right") }}
+    </a>
+</article>

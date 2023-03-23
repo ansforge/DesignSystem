@@ -1,0 +1,20 @@
+@media (min-width: 36em) {
+    .o-paragraph--diaporama {
+        .container {
+            position: relative;
+        }
+
+        .tns-controls {
+            position: absolute;
+            top: 50%;
+            left: 1.5rem;
+            right: 1.5rem;
+            transform: translate(0, -50%);
+            z-index: 1;
+        }
+
+        [data-controls="prev"] {
+            float: left;
+        }
+    }
+}

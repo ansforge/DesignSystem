@@ -1,0 +1,44 @@
+<div class="container paragraph-space">
+    <div class="row">
+        <div id="map" class="col-lg-8" style="height: 600px;"></div>
+        <div id="aside-content" class="col-lg-4">
+            <div id="region-select" class="form-group">
+                <label for="regions-list">Région :</label>
+                <div class="row">
+                    <div class="col-9">
+                        <select name="regions" id="regions-list" class="form-control">
+                            <option value="">- Sélectionner une région -</option>
+                            <option value="FR-X4">Grand Est</option>
+                            <option value="FR-X2">Nouvelle-Aquitaine</option>
+                            <option value="FR-X7">Auvergne-Rhône-Alpes</option>
+                            <option value="FR-X1">Bourgogne-Franche-Comté</option>
+                            <option value="FR-E">Bretagne</option>
+                            <option value="FR-F">Centre-Val de Loire</option>
+                            <option value="FR-H">Corse</option>
+                            <option value="FR-GP">Guadeloupe</option>
+                            <option value="FR-GF">Guyane</option>
+                            <option value="FR-J">Île-de-France</option>
+                            <option value="FR-X5">Occitanie</option>
+                            <option value="FR-MQ">Martinique</option>
+                            <option value="FR-YT">Mayotte</option>
+                            <option value="FR-X6">Hauts-de-France</option>
+                            <option value="FR-X3">Normandie</option>
+                            <option value="FR-R">Pays de la Loire</option>
+                            <option value="FR-U">Provence-Alpes-Côte-d'Azur</option>
+                            <option value="FR-RE">Réunion</option>
+                        </select>
+                    </div>
+                    <div class="col-3 pl-0">
+                        <button type="submit" id="region-sel-btn" class="btn btn--plain btn--primary">OK</button>
+                    </div>
+                </div>
+            </div>
+            <div id="region-infos" class="rounded-md top-left-radius-0 highlighted-text-card bg-primary text-white mt-5 px-3 py-4 d-none">
+                <h2 class="h4" id="region-title"></h2>
+                <p id="region-desc" class="mb-1"></p>
+                {% include "o-paragraph--lien.twig" with { links: paragCartelinks } %}
+            </div>
+        </div>
+    </div>
+</div>
+

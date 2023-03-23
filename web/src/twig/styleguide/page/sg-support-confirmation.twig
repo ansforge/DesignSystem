@@ -1,0 +1,33 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Confirmation d\'envoi de demande' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "",
+            blockTitle: title,
+            blockAccroche_text: "Votre demande a bien été transmise au support. 
+            <br>Celle-ci sera traitée dans les plus brefs délais."
+        } %}
+
+        <div>
+            <div class="form-box">
+                <h2 class="form-box__title">Rappel de votre demande</h2>                     
+                <div class="form-recap">
+                    <div class="form-recap-content">
+                        <p><span class="entitled">Type de demande : </span>{{ type }}</p>
+                        <p><span class="entitled">Nom : </span>{{ nom }}</p>
+                        <p><span class="entitled">Prénom : </span>{{ prenom }}</p>
+                        <p><span class="entitled">Adresse email : </span>{{ email }}</p>
+                        <p><span class="entitled">Direction : </span>{{ direction }}</p>
+                        <p><span class="entitled">Objet : </span>{{ objet }}</p>
+                        <p><span class="entitled">Message : </span>{{ message }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

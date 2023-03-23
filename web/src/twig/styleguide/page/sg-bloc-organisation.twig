@@ -1,0 +1,218 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Organisation' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <style>
+        {# Hide backdrop on this page because modal is below the backdrop #}
+        .modal-backdrop {display: none;}
+    </style>
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-card.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-citation.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-organisation.css" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--organisation.twig" with {
+                        paragOrgaTitle: title,
+                        paragOrgaDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, corporis consequatur sapiente sequi quasi molestias placeat ullam excepturi nobis voluptas veniam amet dolor eligendi odio numquam possimus? Qui, dignissimos fuga",
+                        cards: [
+                            {
+                                cardImgUrl: "https://picsum.photos/270/370",
+                                cardTitle: "Name",
+                                cardFunction: "Function",
+                                cardDirection: "Direction",
+                                cardModalWyswiyg: "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in, repellendus expedita veritatis sed ea illo debitis</p>",
+                                domaines: [
+                                    {
+                                        domaine: "Domaine 1",
+                                        sousdomaines: [
+                                            {
+                                                sousdomaines: "Sous domaine 1.1"
+                                            },
+                                            {
+                                                sousdomaines: "Sous domaine 1.2 adipisicing elit."
+                                            },
+                                            {
+                                                sousdomaines: "Sous domaine 1.3"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        domaine: "Domaine 2",
+                                        sousdomaines: [
+                                            {
+                                                sousdomaines: "Sous domaine 2.1 Lorem ipsum dolor sit amet"
+                                            },
+                                            {
+                                                sousdomaines: "Sous domaine 2.2"
+                                            },
+                                            {
+                                                sousdomaines: "Sous domaine 2.3"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                quoteFirstName: "Prénom",
+                                quoteLastName: "Nom",
+                                quoteJobTitle: "Function",
+                                quoteText: "<blockquote><p>Blockquote. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in,
+                                    repellendus expedita veritatis sed ea illo debitis quos aperiam nulla quasi corrupti. Praesentium minus
+                                    ab quis necessitatibus.</p></blockquote>",
+                                quoteImgUrl: "https://picsum.photos/142/133",
+                                quoteImgWidth: 142,
+                                quoteImgHeight: 133,
+                            },
+                            {
+                                cardImgUrl: "https://picsum.photos/270/370",
+                                cardTitle: "Annie Prévost",
+                                cardFunction: "Directrice générale de l'Agence du Numérique en Santé",
+                                cardDirection: "La Direction Expertise, Innovation et International",
+                                cardModalWyswiyg: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+                                    <ol>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum</li>
+                                    </ol>
+                                ',
+                                domaines: [
+                                    {
+                                        domaine: "Domaine 1",
+                                        sousdomaines: [
+                                            {
+                                                sousdomaines: "Sous domaine 1.1"
+                                            },
+                                            {
+                                                sousdomaines: "Sous domaine 1.2"
+                                            },
+                                            {
+                                                sousdomaines: "Sous domaine 1.3"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                quoteFirstName: "Prénom",
+                                quoteLastName: "Nom",
+                                quoteJobTitle: "Function",
+                                quoteText: "<blockquote><p>Blockquote. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in,
+                                    repellendus expedita veritatis sed ea illo debitis quos aperiam nulla quasi corrupti. Praesentium minus
+                                    ab quis necessitatibus.</p></blockquote>",
+                            },
+                            {
+                                cardImgUrl: "https://picsum.photos/270/370",
+                                cardTitle: "Annie Prévost",
+                                cardFunction: "Directrice générale de l'Agence du Numérique en Santé",
+                                cardDirection: "La Direction Expertise, Innovation et International",
+                                cardModalWyswiyg: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+                                    <ul>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum</li>
+                                    </ul>
+                                ',
+                                quoteFirstName: "Prénom",
+                                quoteLastName: "Nom",
+                                quoteJobTitle: "Function",
+                                quoteText: "<blockquote><p>Blockquote. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in,
+                                    repellendus expedita veritatis sed ea illo debitis quos aperiam nulla quasi corrupti. Praesentium minus
+                                    ab quis necessitatibus.</p></blockquote>",
+                                quoteImgUrl: "https://picsum.photos/142/133",
+                                quoteImgWidth: 142,
+                                quoteImgHeight: 133,
+                            },
+                            {
+                                cardImgUrl: "https://picsum.photos/270/370",
+                                cardTitle: "Annie Prévost",
+                                cardFunction: "Directrice générale de l'Agence du Numérique en Santé",
+                                cardDirection: "La Direction Expertise, Innovation et International",
+                                quoteFirstName: "Prénom",
+                                quoteLastName: "Nom",
+                                quoteJobTitle: "Function",
+                                quoteText: "<blockquote><p>Blockquote. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in,
+                                    repellendus expedita veritatis sed ea illo debitis quos aperiam nulla quasi corrupti. Praesentium minus
+                                    ab quis necessitatibus.</p></blockquote>",
+                                quoteImgUrl: "https://picsum.photos/142/133",
+                                quoteImgWidth: 142,
+                                quoteImgHeight: 133,
+                            },
+                            {
+                                cardImgUrl: "https://picsum.photos/270/370",
+                                cardTitle: "Annie Prévost",
+                                cardFunction: "Directrice générale de l'Agence du Numérique en Santé",
+                                cardDirection: "La Direction Expertise, Innovation et International",
+                                quoteFirstName: "Prénom",
+                                quoteLastName: "Nom",
+                                quoteJobTitle: "Function",
+                                quoteText: "<blockquote><p>Blockquote. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in,
+                                    repellendus expedita veritatis sed ea illo debitis quos aperiam nulla quasi corrupti. Praesentium minus
+                                    ab quis necessitatibus.</p></blockquote>",
+                                quoteImgUrl: "https://picsum.photos/142/133",
+                                quoteImgWidth: 142,
+                                quoteImgHeight: 133,
+                            },
+                            {
+                                cardImgUrl: "https://picsum.photos/270/370",
+                                cardTitle: "Annie Prévost",
+                                cardFunction: "Directrice générale de l'Agence du Numérique en Santé",
+                                cardDirection: "La Direction Expertise, Innovation et International",
+                                quoteFirstName: "Prénom",
+                                quoteLastName: "Nom",
+                                quoteJobTitle: "Function",
+                                quoteText: "<blockquote><p>Blockquote. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in,
+                                    repellendus expedita veritatis sed ea illo debitis quos aperiam nulla quasi corrupti. Praesentium minus
+                                    ab quis necessitatibus.</p></blockquote>",
+                                quoteImgUrl: "https://picsum.photos/142/133",
+                                quoteImgWidth: 142,
+                                quoteImgHeight: 133,
+                            },
+                            {
+                                cardImgUrl: "https://picsum.photos/270/370",
+                                cardTitle: "Annie Prévost",
+                                cardFunction: "Directrice générale de l'Agence du Numérique en Santé",
+                                cardDirection: "La Direction Expertise, Innovation et International",
+                                quoteFirstName: "Prénom",
+                                quoteLastName: "Nom",
+                                quoteJobTitle: "Function",
+                                quoteText: "<blockquote><p>Blockquote. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in,
+                                    repellendus expedita veritatis sed ea illo debitis quos aperiam nulla quasi corrupti. Praesentium minus
+                                    ab quis necessitatibus.</p></blockquote>",
+                                quoteImgUrl: "https://picsum.photos/142/133",
+                                quoteImgWidth: 142,
+                                quoteImgHeight: 133,
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Taille de l'image pour la carte {{ title }} : 270*370</p>
+            <p>Taille de l'image pour la citation : 142*133</p>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-card.css" target="_blank" class="file-link">CSS de la carte Card (3,4Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-citation.css" target="_blank" class="file-link">CSS d'une Citation (0,83Ko - CSS)</a></li>
+                <li><a href="./style/bloc-o-organisation.css" target="_blank" class="file-link">CSS du bloc {{ title }} (0,67Ko - CSS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

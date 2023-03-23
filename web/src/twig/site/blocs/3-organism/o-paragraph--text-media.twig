@@ -1,0 +1,73 @@
+<!-- SVG pour les formes/pétales. A ajouter seulement une fois dans la page -->
+<svg class="d-block" aria-hidden="true" focusable="false" height="0" width="0">
+    <defs>
+        <clipPath id="mask-mise-en-avant" clipPathUnits="objectBoundingBox">
+            <path d="M1,0.5 L1,0.5 C1,0.776,0.793,1,0.538,1 L0,1 C0.04,0.961,0.074,0.882,0.077,0.723 L0.077,0.5 C0.077,0.224,0.283,0,0.538,0 C0.793,0,1,0.224,1,0.5"/>
+        </clipPath>
+    </defs>
+</svg>
+
+<div class="paragraph-space o-paragraph--text-media__wrapper">
+    <div class="container">
+        <div class="o-paragraph--text-media__slider">
+            {% for item in paragTextMedia %}
+                <div class="o-paragraph--text-media__item {%- if item.paragTextBgGray %} bg-gray-100 rounded-md top-left-radius-0 p-3 p-sm-5{% endif -%}">
+                    <div class="o-paragraph--text-media
+                        {%- if item.paragTextMediaRight %} rightVisual{% endif -%}
+                        {%- if item.paragTextMediaLeft %} leftVisual{% endif -%}
+                    ">
+                        <div class="row align-items-center">
+                            <div class="col-md mb-3 mb-md-0">
+                                <div class="o-paragraph--text-media__content">
+                                    {% if item.paragTextMediaTitle %}<h2>{{ item.paragTextMediaTitle }}</h2>{% endif %}
+                                    {% if item.paragTextMediaDesc %}<div class="wysiwyg mb-3">{{ item.paragTextMediaDesc }}</div>{% endif %}
+                                    {% if item.links %}{% include "o-paragraph--lien.twig" with { links: item.links } %}{% endif %}
+                                </div>
+                            </div>
+                            {% if item.paragTextMediaImage or item.paragTextMediaVideo %}
+                                <div class="col-md o-paragraph--text-media__media_column">
+                                    <div class="o-paragraph--text-media__media
+                                        {%- if item.paragTextMediaStyle == "clip" %} is-clipped{% else %} rounded-md top-left-radius-0{% endif -%}
+                                    ">
+                                        <div class="o-paragraph--text-media__clip">
+                                            {% if item.paragTextMediaImage %}
+                                                {% include "../../component/1-atom/a-img.twig" with {
+                                                    imgUrl: item.paragTextMediaImage,
+                                                    imgLazy: true,
+                                                    imgWidth: item.imgWidth,
+                                                    imgHeight: item.imgHeight
+                                                } %}
+                                            {% endif %}
+                                            {% if item.paragTextMediaVideo %}
+                                                {# Pour que les teaser video fonctionnent,
+                                                    il faut charger le twig .o-modal--teaser-video dans {% block modal %} dans layout.twig
+                                                    (doit être présent une seule fois par page)
+                                                #}
+                                                {% include "../2-molecule/m-teaser--video.twig" with {
+                                                    teaserVideoUrl: item.paragTextMediaVideo,
+                                                    teaserVideoTitle: item.teaserVideoTitle,
+                                                    teaserVideoImg: item.teaserVideoImg,
+                                                    imgWidth: item.imgWidth,
+                                                    imgHeight: item.imgHeight
+                                                } %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if paragTextMediaInfoTitle or paragTextMediaInfoWysiwyg %}
+        <div class="o-paragraph--text-media__info bg-gray-100 rounded-sm border mt-4 py-4 px-2 text-center">
+            <div class="col-md-10 col-lg-9 text-center mx-auto">
+                {% if paragTextMediaInfoTitle %}<h3 class="title--icon justify-content-center">{{ macro.svg("circle-info") }} {{ paragTextMediaInfoTitle }}</h3>{% endif %}
+                {% if paragTextMediaInfoWysiwyg %}<div class="wysiwyg">{{ paragTextMediaInfoWysiwyg }}</div>{% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

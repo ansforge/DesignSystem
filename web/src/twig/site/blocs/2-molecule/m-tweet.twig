@@ -1,0 +1,24 @@
+<div class="m-tweet rounded-md top-left-radius-0 mb-3 py-4 px-3 shadow-lg bg-white">
+    {# Tweet Logo + Account #}
+    <div class="m-tweet-account">
+        <div class="row">
+            {# Logo #}
+            {% if item.tweetLogoSrc %}
+            <div class="col-auto pr-0">
+                <div class="border rounded-lg m-tweet-account-img">
+                    <img src="{{ item.tweetLogoSrc }}" width="55" height="55" alt="" loading="lazy">
+                </div>
+            </div>
+            {% endif %}
+            {# Account #}
+            <div class="col">
+                {% if item.tweetAccountName %}<p class="mb-0 h6 m-tweet-account-name">{{ item.tweetAccountName }}</p>{% endif %}
+                {% if item.tweetAccount %}<p class="mb-2"><a href="{{ item.tweetAccountUrl }}">{{ item.tweetAccount }}</a></p>{% endif %}
+            </div>
+        </div>
+    </div>
+    {# Tweet Content #}
+    {% if item.tweetContent %}<p class="mb-2 m-tweet-content">{{ item.tweetContent }}</p>{% endif %}
+    {# Tweet Date #}
+    {% if item.tweetDateHour %}<p class="mb-0 fz-16">{{ item.tweetDateHour }}</p>{% endif %}
+</div>

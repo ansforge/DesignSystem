@@ -1,0 +1,33 @@
+<div class="paragraph-space o-paragraph--service-push">
+    <div class="container">
+        <div class="paragraph__header row">
+            <div class="col-8 col-sm-9 col-md-10 col-lg-8">
+                {% if paragServicePushTitle %}<h2>{{ paragServicePushTitle }}</h2>{% endif %}
+                {% if paragServicePushDesc %}<p>{{ paragServicePushDesc }}</p>{% endif %}
+            </div>
+        </div>
+
+        {% if teasers %}
+            <div class="o-paragraph--service-push__teasers mt-4">
+                <div class="o-paragraph--service-push__slider col--eq-height mx-auto">
+                    {% for item in teasers %}
+                        {% include "../2-molecule/m-teaser--service.twig" with {
+                            teaserLink: item.teaserLink,
+                            teaserTitle: item.teaserTitle,
+                            teaserSubtitle: item.teaserSubtitle,
+                            teaserDesc: item.teaserDesc,
+                        } %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if paragServicePushLinks %}
+            <div class="paragraph__footer row justify-content-center mt-1">
+                <div class="col-md-10 col-lg-8 text-center">
+                    {% if paragServicePushLinks %}{% include "o-paragraph--lien.twig" with { links: paragServicePushLinks } %}{% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

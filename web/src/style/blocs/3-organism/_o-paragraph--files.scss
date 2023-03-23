@@ -1,0 +1,14 @@
+// One item
+.o-paragraph--files__item:only-child {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// More than or equal to 3 items
+@media (min-width: 62em) {
+    .o-paragraph--files__item:nth-last-child(n+3),
+    .o-paragraph--files__item:nth-last-child(n+3) ~ .o-paragraph--files__item {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+    }
+}

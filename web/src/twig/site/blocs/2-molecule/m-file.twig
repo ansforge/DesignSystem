@@ -1,0 +1,9 @@
+<a href="{{ fileLink }}" class="m-file bg-gray-100 rounded-sm">
+    {% if fileTitle %}
+        <p class="m-file__title h4 mb-1">{{- fileTitle -}}</p>
+    {% endif %}
+
+    {% if fileInfo %}
+        <p class="m-file__info text-primary mb-0">{{- fileInfo -}}</p>
+    {% endif %}
+</a>

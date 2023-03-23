@@ -1,0 +1,46 @@
+.o-sg-typo-block {
+    margin-bottom: 4rem;
+    padding: 4rem 6rem;
+    color: $black;
+    background-color: $gray-100;
+    border: solid 0.1rem $border-color;
+    border-radius: 1.8rem;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.o-sg-typo-block__title {
+    font-size: 3rem;
+    font-family: $font-futura-bold;
+    font-weight: $fw-bold;
+}
+
+.o-sg-typo-block__list {
+    font-size: 1.6rem;
+}
+
+.o-sg-typo-block__caracteres {
+    font-size: 2rem;
+    @include hyphens();
+}
+
+@include media-breakpoint-up(md) {
+    .o-sg-typo-block__row {
+        @include aw-make-row(9rem);
+        flex-wrap: nowrap;
+    }
+
+    .o-sg-typo-block__col {
+        @include aw-make-col-ready(9rem);
+
+        &:nth-child(odd) {
+            @include aw-make-col-value(24rem);
+            border-right: solid 0.1rem $border-color;
+        }
+        &:nth-child(even) {
+            @include aw-make-col-value(calc(100% - 24rem));
+        }
+    }
+}

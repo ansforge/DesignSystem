@@ -1,0 +1,322 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Palette de couleurs' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Guide de style - Couleurs",
+            blockTitle: title,
+            blockAccroche_text: "L'identité visuelle d'un site est constituée d'éléments facilement reconnaissables et associés à celui-ci. La palette de couleurs en est un élément essentiel, issu du travail de conception UX/UI. Ces couleurs prédéfinies sont déclinées en plusieurs catégories en fonction de leur rôle."
+        } %}
+
+        {# Couleurs primaires #}
+        <div class="sg-block-space">
+            <h2>Couleurs primaires</h2>
+            <p>C'est la couleur prédominante du site.</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-palette.twig" with {
+                palette: [
+                    {
+                        title: "Primary Darker",
+                        hex: "#0F3F68",
+                        class:"primary-darker"
+                    },
+                    {
+                        title: "Primary Dark",
+                        hex: "#155891",
+                        class:"primary-dark"
+                    },
+                    {
+                        title: "Primary",
+                        hex: "#1D71B8",
+                        class:"primary"
+                    }
+                ]
+            } %}
+        </div>
+
+        {# Couleurs secondaires #}
+        <div class="sg-block-space">
+            <h2>Couleurs secondaires</h2>
+            <p>Il s'agit là de la couleur qui vient soit se combiner avec la couleur principale, soit en alternative de celle-ci dans des contextes particuliers.</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-palette.twig" with {
+                palette: [
+                    {
+                        title: "Secondary",
+                        hex: "#D20050",
+                        class:"secondary"
+                    }
+                ]
+            } %}
+        </div>
+
+        {# Couleurs neutres #}
+        <div class="sg-block-space">
+            <h2>Couleurs neutres</h2>
+            <p>Plutôt réservées aux textes, aux couleurs d'arrière-plan, aux bordures et aux séparateurs, elles se veulent plus discrètes et sont en principe des niveaux de gris.</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-palette.twig" with {
+                palette: [
+                    {
+                        title: "Black",
+                        hex: "#343852",
+                        class:"black"
+                    },
+                    {
+                        title: "Gray-800",
+                        hex: "#464C6D",
+                        class:"gray-800"
+                    },
+                    {
+                        title: "Gray-700",
+                        hex: "#697097",
+                        class:"gray-700"
+                    },
+                    {
+                        title: "Gray-600",
+                        hex: "#969CBB",
+                        class:"gray-600"
+                    },
+                    {
+                        title: "Gray-500",
+                        hex: "#C5C8DA",
+                        class:"gray-500"
+                    },
+                    {
+                        title: "Gray-400",
+                        hex: "#DEE0EA",
+                        class:"gray-400"
+                    },
+                    {
+                        title: "Gray-300",
+                        hex: "#EDEEF3",
+                        class:"gray-300"
+                    },
+                    {
+                        title: "Gray-200",
+                        hex: "#F2F3F7",
+                        class:"gray-200"
+                    },
+                    {
+                        title: "Gray-100",
+                        hex: "#F8F9FB",
+                        class:"gray-100"
+                    },
+                    {
+                        title: "White",
+                        hex: "#FFFFFF",
+                        class:"white"
+                    }
+                ]
+            } %}
+        </div>
+
+        {# Couleurs fonctionnelles #}
+        <div class="sg-block-space">
+            <h2>Couleurs fonctionnelles</h2>
+            <p>Les couleurs fonctionnelles ne sont pas propres au site, mais représentent des cas de figure universellement rencontrés quelle que soit la plateforme (erreur, succès, etc.).</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-palette.twig" with {
+                palette: [
+                    {
+                        title: "Error",
+                        hex: "#D20024",
+                        class:"danger"
+                    },
+                    {
+                        title: "Warning",
+                        hex: "#E69215",
+                        class:"warning"
+                    },
+                    {
+                        title: "Success",
+                        hex: "#9AB938",
+                        class:"success"
+                    },
+                    {
+                        title: "Information",
+                        hex: "#369AEE",
+                        class:"info"
+                    },
+                ]
+            } %}
+        </div>
+
+        {# Couleurs illustratives #}
+        <div class="sg-block-space">
+            <h2>Couleurs illustratives</h2>
+            <p>Ce sont des couleurs complémentaires, pouvant servir à la réalisation d’illustration, de schéma et de graphique. Leurs utilisations sur des composants ou sur du texte est interdit.</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-palette.twig" with {
+                palette: [
+                    {
+                        title: "Green Darker",
+                        hex: "#184737",
+                        class: "i-green-darker"
+                    },
+                    {
+                        title: "Green Dark",
+                        hex: "#316E58",
+                        class: "i-green-dark"
+                    },
+                    {
+                        title: "Green",
+                        hex: "#368E6E",
+                        class: "i-green"
+                    },
+                    {
+                        title: "Green Light",
+                        hex: "#4EC79C",
+                        class: "i-green-light"
+                    },
+                    {
+                        title: "Green Lighter",
+                        hex: "#A3E6CE",
+                        class: "i-green-lighter"
+                    },
+                    {
+                        title: "Orange Darker",
+                        hex: "#8B5612",
+                        class: "i-orange-darker"
+                    },
+                    {
+                        title: "Orange Dark",
+                        hex: "#BC771F",
+                        class: "i-orange-dark"
+                    },
+                    {
+                        title: "Orange",
+                        hex: "#F29A2B",
+                        class: "i-orange"
+                    },
+                    {
+                        title: "Orange Light",
+                        hex: "#FFC882",
+                        class: "i-orange-light"
+                    },
+                    {
+                        title: "Orange Lighter",
+                        hex: "#FFE9CE",
+                        class: "i-orange-lighter"
+                    },
+                    {
+                        title: "Yellow Darker",
+                        hex: "#B4A300",
+                        class: "i-yellow-darker"
+                    },
+                    {
+                        title: "Yellow Dark",
+                        hex: "#E1CE16",
+                        class: "i-yellow-dark"
+                    },
+                    {
+                        title: "Yellow",
+                        hex: "#FAE832",
+                        class: "i-yellow"
+                    },
+                    {
+                        title: "Yellow Light",
+                        hex: "#FFF58C",
+                        class: "i-yellow-light"
+                    },
+                    {
+                        title: "Yellow Lighter",
+                        hex: "#FFFBD1",
+                        class: "i-yellow-lighter"
+                    },
+                    {
+                        title: "Purple Darker",
+                        hex: "#3E305B",
+                        class: "i-purple-darker"
+                    },
+                    {
+                        title: "Purple Dark",
+                        hex: "#5E4C84",
+                        class: "i-purple-dark"
+                    },
+                    {
+                        title: "Purple",
+                        hex: "#957EC6",
+                        class: "i-purple"
+                    },
+                    {
+                        title: "Purple Light",
+                        hex: "#DAC8FF",
+                        class: "i-purple-light"
+                    },
+                    {
+                        title: "Purple Lighter",
+                        hex: "#EEE6FF",
+                        class: "i-purple-lighter"
+                    },
+                    {
+                        title: "Pink Darker",
+                        hex: "#751F51",
+                        class: "i-pink-darker"
+                    },
+                    {
+                        title: "Pink Dark",
+                        hex: "#AD4180",
+                        class: "i-pink-dark"
+                    },
+                    {
+                        title: "Pink",
+                        hex: "#EA74B9",
+                        class: "i-pink"
+                    },
+                    {
+                        title: "Pink Light",
+                        hex: "#FFC7E8",
+                        class: "i-pink-light"
+                    },
+                    {
+                        title: "Pink Lighter",
+                        hex: "#FFF2F9",
+                        class: "i-pink-lighter"
+                    },
+                    {
+                        title: "Red Darker",
+                        hex: "#6F0000",
+                        class: "i-red-darker"
+                    },
+                    {
+                        title: "Red Dark",
+                        hex: "#A00000",
+                        class: "i-red-dark"
+                    },
+                    {
+                        title: "Red",
+                        hex: "#E11414",
+                        class: "i-red"
+                    },
+                    {
+                        title: "Red Light",
+                        hex: "#FF5555",
+                        class: "i-red-light"
+                    },
+                    {
+                        title: "Red Lighter",
+                        hex: "#FFA6A6",
+                        class: "i-red-lighter"
+                    }
+                ]
+            } %}
+        </div>
+
+        {# Accessibilité #}
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p>L'utilisation des couleurs est soumise à des règles d'accessibilité assez strictes, ayant notamment trait à un niveau minimal de constraste entre le texte et le fond pour les utilisateurs malvoyants.<p>
+            <p><strong>Ressources externes</strong>:</p>
+            <ul>
+                <li><a href="https://www.tanaguru.com/contrastes-couleurs-regles-accessibilite/" target="_blank" class=" btn--icon-before"><svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use></svg>Contrastes de couleurs de texte : pour qui et selon quelles règles d’accessibilité ?</a></li>
+                <li><a href="https://stephaniewalter.design/fr/blog/accessibilite-et-couleurs-outils-et-ressources-pour-concevoir-des-produits-accessible/" target="_blank" class=" btn--icon-before"><svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use></svg>Accessibilité et couleurs : outils et ressources pour concevoir des produits accessibles</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+{% endblock %}

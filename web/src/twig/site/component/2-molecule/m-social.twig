@@ -1,0 +1,30 @@
+{#
+/**
+ * Social medias
+ *
+ * Options:
+ *  - socials: list of social medias. For each:
+ *      - socialName: Name of social media. Mandatory
+ *      - socialLink: Href to social media. Mandatory
+ *      - socialTarget: Target of the link
+ *      - socialRel: Rel of the link
+ */
+#}
+{% if socials %}
+<div class="m-social">
+    <ul class="m-social__list">
+        {% for item in socials %}
+        <li class="m-social__item">
+            <a class="m-social__link" href="{{ item.socialLink }}"
+                {%- if item.socialTarget %} target="{{ item.socialTarget }}"{% endif -%}
+                {%- if item.socialRel %} rel="{{ item.socialRel }}"{% endif -%}>
+                <div class="m-social__icon">
+                    {{ macro.svg(item.socialName) }}
+                </div>
+                <span class="sr-only">{{ item.socialName }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

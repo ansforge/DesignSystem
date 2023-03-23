@@ -1,0 +1,22 @@
+{#
+/**
+ * Diaporama slide
+ *
+ * Options:
+ *  - diaporamaItemTitle: text of the title
+ *  - diaporamaItemImgUrl: text of the description
+ *  - diaporamaItemFractionalNumber: fractional number of slide (2/7).
+ */
+#}
+<article class="m-diaporama">
+    {% include "../../component/1-atom/a-img.twig" with {
+        imgUrl: diaporamaItemImgUrl,
+        imgWidth: 790,
+        imgHeight: 444,
+        imgLazy: true
+    } %}
+    <div class="m-diaporama__content">
+        <p class="m-diaporama__pager mb-0"><span class="sr-only">élément</span> {{ diaporamaItemFractionalNumber }}</p>
+        <p class="m-diaporama__desc mb-0">{{ diaporamaItemTitle }}</p>
+    </div>
+</article>

@@ -1,0 +1,68 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Fil twitter' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-tweet.css" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--twitter.twig" with {
+                        paragTwitterTitle: title,
+                        paragTwitterBtnHref: "#",
+                        paragTwitterBtnLabel: "Suivre",
+                        tweetItems: [
+                            {
+                                tweetLogoSrc: "https://picsum.photos/55/55",
+                                tweetAccountName: "GIP e-Santé Centre-Val de Loire",
+                                tweetAccount: "@GIPeSanteCentre",
+                                tweetAccountLink: "#",
+                                tweetContent: "Lorem ipsum dolor <a href=\"#\">#consequat</a> sit amet consectetur adipisicing elit. Ipsum fugiat adipisicing sit anim ullamco proident.
+                                                Do consequat velit culpa ipsum et minim proident eiusmod consectetur tempor occaecat minim dolore.",
+                                tweetDateHour: "5 novembre 2022 - 14h12"
+                            },
+                            {
+                                tweetAccountName: "GIP e-Santé Centre-Val de Loire",
+                                tweetAccount: "@GIPeSanteCentre",
+                                tweetContent: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugiat adipisicing sit anim ullamco proident.
+                                                Do consequat velit.",
+                                tweetDateHour: "21 octobre 2022 - 08h37"
+                            },
+                            {
+                                tweetLogoSrc: "https://picsum.photos/55/55",
+                                tweetAccountName: "GIP e-Santé Centre-Val de Loire",
+                                tweetAccount: "@GIPeSanteCentre",
+                                tweetContent: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum fugiat adipisicing sit anim ullamco proident.
+                                                Do consequat velit culpa ipsum et minim proident eiusmod consectetur tempor occaecat minim dolore.",
+                                tweetDateHour: "4 mai 2022 - 12h28"
+                            },
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-tweet.css" target="_blank" class="file-link">CSS de la carte Twitter (0,35Ko - CSS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

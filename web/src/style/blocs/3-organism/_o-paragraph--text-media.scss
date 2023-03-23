@@ -1,0 +1,139 @@
+.o-paragraph--text-media__media {
+    overflow: hidden;
+
+    img {
+        display: block;
+        margin: auto;
+    }
+
+    &.rounded-md {
+        img {
+            width: 100%;
+        }
+    }
+
+    &.is-clipped {
+        position: relative;
+        overflow: hidden;
+        margin: auto;
+        max-width: 48.1rem;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0); // fix Safari: need translate3d() to works correctly
+        }
+
+        .o-paragraph--text-media__clip {
+            background-color: var(--primary);
+            clip-path: url(#mask-mise-en-avant);
+            overflow: hidden; // fix Safari: need to add overflow: hidden with clip-path
+
+            // aspect ratio
+            &::before {
+                content: "";
+                display: block;
+                padding-top: calc(445/481*100%); // ratio of the available space (height divided by width)
+            }
+        }
+
+        // petal
+        &::after {
+            content: "";
+            position: absolute;
+            top: 18%;
+            left: 0;
+            width: 9.4rem;
+            height: 8.7rem;
+            background-color: var(--brand-2);
+            transform: translate3d(0, 0, 0) scaleX(-1); // fix Safari: need translate3d() to works correctly
+            clip-path: url(#mask-mise-en-avant);
+            overflow: hidden; // fix Safari: need to add overflow: hidden with clip-path
+        }
+
+        .leftVisual & {
+            transform: translate3d(0, 0, 0) scaleX(-1); // fix Safari: need translate3d() to works correctly
+
+            img {
+                transform: translate3d(-50%, -50%, 0) scaleX(-1);
+            }
+        }
+    }
+}
+
+.o-paragraph--text-media__item.image-small {
+    .o-paragraph--text-media__media_column {
+        flex: 0 0 27rem;
+        max-width: 27rem;
+    }
+}
+
+@media (min-width: 48em) {
+    .o-paragraph--text-media {
+        &.rightVisual {
+            .o-paragraph--text-media__content {
+                padding-right: 3rem;
+
+                .o-paragraph--text-media__item.bg-gray-100 & {
+                    padding-right: 1.5rem;
+                }
+            }
+        }
+        &.leftVisual {
+            > .row {
+                flex-direction: row-reverse;
+            }
+
+            .o-paragraph--text-media__content {
+                padding-left: 3rem;
+
+                .o-paragraph--text-media__item.bg-gray-100 & {
+                    padding-left: 1.5rem;
+                }
+            }
+        }
+    }
+
+    // slider
+    .o-paragraph--text-media__wrapper {
+        .tns-controls {
+            position: absolute;
+            top: calc(50% - 2.5rem); // half button height
+            left: 0;
+            right: 0;
+            height: 5rem;
+        }
+
+        [data-controls="prev"],
+        [data-controls="next"] {
+            position: absolute;
+            z-index: 1;
+        }
+
+        [data-controls="prev"] {
+            left: 1rem;
+        }
+
+        [data-controls="next"] {
+            right: 1rem;
+        }
+    }
+
+    // if slider is active, add spaces for control buttons
+    .o-paragraph--text-media__slider.tns-slider {
+        .rightVisual .o-paragraph--text-media__content {
+            padding-left: 7.5rem;
+        }
+        .leftVisual .o-paragraph--text-media__content {
+            padding-right: 7.5rem;
+        }
+
+        .o-paragraph--text-media__item.bg-gray-100 .rightVisual .o-paragraph--text-media__content {
+            padding-left: 2.5rem;
+        }
+        .o-paragraph--text-media__item.bg-gray-100 .leftVisual .o-paragraph--text-media__content {
+            padding-right: 2.5rem;
+        }
+    }
+}

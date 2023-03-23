@@ -1,0 +1,51 @@
+.o-widget-access__intro {
+    margin-bottom: 1.5rem;
+    font-family: inherit;
+    font-weight: $fw-medium;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--body-color-darker);
+}
+
+.o-widget-access {
+    @include clearfix();
+    min-width: 30.5rem;
+
+    legend {
+        margin: 0.8rem 1rem 0 0;
+        font-size: 1.6rem;
+        color: inherit;
+        font-weight: normal;
+    }
+
+    fieldset > * {
+        float: left;
+        width: auto;
+    }
+
+    .form-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .o-widget-access__label {
+        margin-left: 0;
+        cursor: pointer;
+    }
+
+    input:checked ~ label {
+        @include aw-button-variant(
+            $default-color: var(--white), $default-background: var(--primary), $default-border: var(--primary),
+            $hover-color: var(--white), $hover-background: var(--primary-dark), $hover-border: var(--primary-dark),
+            $active-color: var(--white), $active-background: var(--primary-darker), $active-border: var(--primary-darker),
+            $outline-color: var(--primary)
+        );
+    }
+
+    .o-widget-access__option:first-of-type label {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .o-widget-access__option:not(:first-of-type) label {
+        border-bottom-left-radius: 0;
+    }
+}

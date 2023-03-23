@@ -1,0 +1,62 @@
+{#
+/**
+ * Teaser Multi News
+ *
+ * Options:
+ *  - teaserType: type of the teaser
+ *  - teaserTypeLabel: type label of the teaser
+ *  - teaserImgUrl: url of the image of the teaser
+ *  - teaserDate: date of the teaser
+ *  - teaserTitle: title of the teaser
+ *  - teaserDesc: description of the teaser
+ *  - teaserLink: link of the teaser
+ */
+#}
+<article class="m-teaser m-teaser--news mb-3 col--eq-height">
+    <a href="{{ teaserLink }}" class="bg-white border rounded-md top-left-radius-0">
+        <div class="m-teaser__img">
+            {% if teaserImgUrl %}
+                {% include "../../component/1-atom/a-img.twig" with {
+                    imgUrl: teaserImgUrl,
+                    imgLazy: true
+                } %}
+            {% endif %}
+        </div>
+
+        <div class="m-teaser__content">
+            {% if teaserTitle %}
+                <h3 class="m-teaser__title h4 mb-1">{{- teaserTitle -}}</h3>
+            {% endif %}
+
+            {% if teaserType or teaserDate %}
+                <div class="m-teaser__info d-flex flex-wrap align-items-center order-first">
+                    {% if teaserType %}
+                        <p class="m-teaser__type rounded-lg mt-2 ml-2 mb-0 text-uppercase
+                            {%- if teaserType == 'news' %} bg-primary text-white
+                            {%- elseif teaserType == 'press-release' %} bg-black text-white
+                            {%- elseif teaserType == 'event' %} bg-brand-2 text-white
+                            {%- elseif teaserType == 'webinar' %} bg-gray-700 text-white
+                            {%- endif -%}
+                        ">
+                            {{- teaserTypeLabel -}}
+                        </p>
+                    {% endif %}
+
+                    {% if teaserDate %}
+                        <p class="m-teaser__date mb-1
+                            {%- if teaserType == 'event' %} fw-semiBold text-brand-2
+                            {%- elseif teaserType == 'webinar' %} fw-semiBold
+                            {%- endif -%}
+                        ">
+                            {{- teaserDate -}}
+                        </p>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if teaserDesc %}
+                <div class="wysiwyg mb-2">{{- teaserDesc -}}</div>
+            {% endif %}
+        </div>
+    </a>
+</article>

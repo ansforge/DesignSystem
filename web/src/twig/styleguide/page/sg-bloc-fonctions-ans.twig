@@ -1,0 +1,57 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Fonctions ANS' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-fonctions-ans.css" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--fonctions-ans.twig" with {
+                        paragFonction: [
+                            {
+                                paragFonctionTitle: "Régulateur",
+                                paragFonctionDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, repudiandae."
+                            },
+                            {
+                                paragFonctionTitle: "Opérateur",
+                                paragFonctionDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, repudiandae."
+                            },
+                            {
+                                paragFonctionTitle: "Promoteur, Valorisateur",
+                                paragFonctionDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, repudiandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, repudiandae."
+                            }
+                        ],
+                        paragFonctionImgUrl: "https://picsum.photos/1440/630",
+                        imgWidth: 1440,
+                        imgHeight: 630
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-o-fonctions-ans.css" target="_blank" class="file-link">CSS du bloc {{ title }} (0,64Ko - CSS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

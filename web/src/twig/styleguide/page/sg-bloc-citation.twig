@@ -1,0 +1,131 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Citation' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-global-sliders.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-m-citation.css" type="text/css" />
+{% endblock %}
+{% block scripts_more %}
+    {{ parent() }}
+    <script type="text/javascript" src="./script/tiny-slider.js"></script>
+    <script type="text/javascript" src="./script/bloc-o-citation.js"></script>
+    <script type="text/javascript" src="./script/bloc-global-sliders.js"></script>
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-paragraph--quotes.twig" with {
+                        quotes: [
+                            {
+                                quoteFirstName: "Prénom",
+                                quoteLastName: "Nom",
+                                quoteJobTitle: "Fonction",
+                                quoteText: "<blockquote><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in,
+                                    repellendus expedita veritatis sed ea illo debitis quos aperiam nulla quasi corrupti. Praesentium minus
+                                    ab quis necessitatibus.</p></blockquote>",
+                                quoteSocials: [
+                                    {
+                                        socialName: "linkedin",
+                                        socialLink: "http://linkedin.com",
+                                        socialTarget: "_blank",
+                                        socialRel: "nofollow"
+                                    }
+                                ],
+                                quoteLinks: [
+                                    {
+                                        link: "#",
+                                        svgBefore: "angle-right",
+                                        text: "Lien externe",
+                                        target: "_blank"
+                                    }
+                                ]
+                            },
+                            {
+                                quoteFirstName: "Prénom",
+                                quoteLastName: "Nom",
+                                quoteJobTitle: "Fonction",
+                                quoteText: "<blockquote><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in,
+                                    repellendus expedita veritatis sed ea illo debitis quos aperiam nulla quasi corrupti. Praesentium minus
+                                    ab quis necessitatibus.</p></blockquote>",
+                                quoteImgUrl: "https://picsum.photos/142/133",
+                                quoteImgWidth: 142,
+                                quoteImgHeight: 133,
+                                quoteLinks: [
+                                    {
+                                        style: "style1",
+                                        color: "white",
+                                        link: "#",
+                                        text: "Lien interne"
+                                    }
+                                ]
+                            },
+                            {
+                                quoteFirstName: "Prénom",
+                                quoteLastName: "Nom",
+                                quoteJobTitle: "Fonction",
+                                quoteText: "<blockquote><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, suscipit ex cumque in,
+                                    repellendus expedita veritatis sed ea illo debitis quos aperiam nulla quasi corrupti. Praesentium minus
+                                    ab quis necessitatibus.</p></blockquote>",
+                                quoteImgUrl: "https://picsum.photos/142/133",
+                                quoteImgWidth: 142,
+                                quoteImgHeight: 133,
+                                quoteSocials: [
+                                    {
+                                        socialName: "linkedin",
+                                        socialLink: "http://linkedin.com",
+                                        socialTarget: "_blank",
+                                        socialRel: "nofollow"
+                                    },
+                                    {
+                                        socialName: "twitter",
+                                        socialLink: "http://twitter.com",
+                                        socialTarget: "_blank",
+                                        socialRel: "nofollow"
+                                    },
+                                    {
+                                        socialName: "facebook",
+                                        socialLink: "http://facebook.com",
+                                        socialTarget: "_blank",
+                                        socialRel: "nofollow"
+                                    }
+                                ],
+                            },
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Taille de l'image : 142*133</p>
+            <p>Charger les CSS suivantes :</p>
+            <ul>
+                <li>CSS du Système de Design</li>
+                <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                <li><a href="./style/bloc-global-sliders.css" target="_blank" class="file-link">CSS globale pour les sliders (3,8Ko - CSS)</a></li>
+                <li><a href="./style/bloc-m-citation.css" target="_blank" class="file-link">CSS d'une Citation (0,83Ko - CSS)</a></li>
+            </ul>
+            <p>Charger les JS suivants :</p>
+            <ul>
+                <li>JS du Système de Design</li>
+                <li><a href="./script/tiny-slider.js" target="_blank" class="file-link">Librairie JS tiny-slider (32,4Ko - JS)</a></li>
+                <li><a href="./script/bloc-o-citation.js" target="_blank" class="file-link">JS du bloc {{ title }} (0,12Ko - JS)</a></li>
+                <li><a href="./script/bloc-global-sliders.js" target="_blank" class="file-link">JS global pour les sliders (1,2Ko - JS)</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

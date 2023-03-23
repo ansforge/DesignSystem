@@ -1,0 +1,341 @@
+{% extends "../../_layout.twig" %}
+
+{% set title = 'Composants divers' %}
+
+{% block main %}
+
+    {# Reprise des composants en copiant le code fourni dans le design system #}
+    <div class="container">
+
+        {# Zone titre + chapô #}
+        <div class="row justify-content-center text-center mb-4">
+            <div class="col-md-10 col-lg-8">
+                <p class="subtitle">Surtitre. Lorem ipsum dolor</p>
+                <h1>{{ title }}</h1>
+                <p class="lead">Chapô. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis itaque dolores alias iste hic, exercitationem perspiciatis beatae quaerat possimus doloribus maiores, cum aut ullam optio voluptatum <a href="#" target="_blank">veritatis assumenda</a> a odio?</p>
+            </div>
+        </div>
+
+        {# Zone titre + chapô #}
+        <h2>Class utilitaires</h2>
+        <p class="lead">Création de composants à partir de class utilitaires.</p>
+        <h2 class="h3 mb-3 text-center">H2 avec les class utilitaires .h3 + .mb-3</h2>
+
+        {# Class utilitaires #}
+        <div class="row">
+            <div class="col-md-4">
+                <a href="formulaire.html" target="_blank" class="bg-white border rounded-md top-left-radius-0 p-3 text-center mb-3">
+                    <img src="https://picsum.photos/283/100" alt="Destination du lien">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="formulaire.html" target="_blank" class="bg-white border rounded-md top-left-radius-0 p-3 text-center mb-3">
+                    <img src="https://picsum.photos/83/83" alt="" class="mb-2">
+                    <h3 class="h5">Habilitations des Gestionnaires ARS (GARS)</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-white border rounded-md top-left-radius-0 p-3 mb-3">
+                    <div class="text-center">
+                        <img src="https://picsum.photos/83/83" alt="" class="mb-2">
+                        <h3 class="h5">Habilitations des Gestionnaires ARS (GARS)</h3>
+                        <p>Habilitation des GARS à l’enregistrement du personnel de santé.</p>
+                    </div>
+
+                    <ul>
+                        <li class="mb-1"><a href="#" class=" btn--icon-before"><svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use></svg>Quod maxime consuevit    </a></li>
+                        <li class="mb-1"><a href="#" target="_blank" class=" btn--icon-before"><svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use></svg>Lorem, ipsum dolor sit amet consectetur adipisicing elit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bg-primary text-white border rounded-md top-left-radius-0 p-3 mb-3">
+                    <h3>Test links colors</h3>
+
+                    <p><a href="#"    class=" btn--icon-before"><svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use></svg>Lien interne</a>                    </p>
+                    <p><a href="#" target="_blank"    class=" btn--icon-before"><svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use></svg>Lien externe</a>                    </p>
+                    <p><a href="mailto:test@test.fr"    class=" btn--icon-before"><svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use></svg>Lien mailto</a>                    </p>
+                    <p><a href="document.pdf"    class=" btn--icon-before"><svg class="svg-icon svg-angle-right" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#angle-right"></use></svg>Lien vers un document (poids - type)</a>                    </p>
+
+                    <p><a href="#"    class=" btn btn--style1 btn--white">Lien interne</a></p>
+                    <p><a href="#" target="_blank"    class=" btn btn--style1 btn--white">Lien externe</a></p>
+                    <p><a href="mailto:test@test.fr"    class=" btn btn--style1 btn--white">Lien mailto</a></p>
+                    <p><a href="document.pdf"    class=" btn btn--style1 btn--white">Lien vers un document Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab distinctio labore voluptate quod (poids - type)</a></p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bg-primary text-white border rounded-md top-left-radius-0 p-3 mb-3">
+                    <h3>Test listes colors</h3>
+
+                    <div class="wysiwyg">
+                        <ul>
+                            <li>le niveau 1 est une ul</li>
+                            <li>les éléments d'une liste dans une phrase commencent par une minuscule et se terminent par une virgule, sauf le dernier élément qui, s'il termine la phrase, prend un point.
+                                <ol>
+                                    <li>Le niveau 2 est une ol</li>
+                                    <li>Avec du texte long, pouvant s'écouler sur plusieurs lignes. Les éléments d'une liste formée de plusieurs phrases se comportent comme des alinéas (majuscule en début, point à la ﬁn).
+                                        <ul>
+                                            <li>Troisième niveau (ul)
+                                                <ul>
+                                                    <li>Lorem ipsum
+                                                        <ol>
+                                                            <li>Quatrième niveau (ol)</li>
+                                                            <li>Lorem ipsum</li>
+                                                        </ol>
+                                                    </li>
+                                                    <li>Lorem ipsum</li>
+                                                    <li>Lorem ipsum</li>
+                                                </ul>
+                                            </li>
+                                            <li>Troisième niveau</li>
+                                            <li>Troisième niveau</li>
+                                        </ul>
+                                    </li>
+                                    <li>deuxième item de niveau 2</li>
+                                </ol>
+                            </li>
+                            <li>dernier item de niveau 1</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr aria-hidden="true">
+
+        <h2>Modale</h2>
+
+        <!-- Bouton d'ouverture de la modale -->
+        <button type="button"  data-toggle="modal" data-target="#modal1"    class=" btn btn--plain btn--primary">Composant modal</button>
+
+        <!-- Il est conseillé de placer toutes les modales à la fin de la balise body -->
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="modal1Label">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title" id="modal1Label">Titre de la modale</h1>
+                        <button type="button"  data-dismiss="modal"    class=" btn btn--close btn--icon-only"><svg class="svg-icon svg-close" aria-hidden="true" focusable="false"><use xlink:href="svg-icons/icon-sprite.svg#close"></use></svg><span class="sr-only">Fermer : Titre de la modale</span>    </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam corrupti obcaecati nobis nihil illo. Quo dicta consequatur a repellendus expedita sapiente impedit molestias laborum quisquam error sequi blanditiis, quas sit?</p>
+
+                        <form>
+                            <div class="form-group">
+                                <label for="formInputModal">Input label</label>
+                                <input class="form-control" name="formInputModal" type="text" id="formInputModal"/>
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="button" class=" btn btn--ghost btn--default">Bouton secondaire</button>
+                                <button type="submit" class=" btn btn--plain btn--primary">Bouton primaire</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr aria-hidden="true">
+
+        <h2>Listes</h2>
+        <div class="wysiwyg">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis sed rem, nostrum totam quo id quisquam autem iure dolorem possimus ea aspernatur dolore voluptates ut dolorum fugit atque harum magnam.</p>
+            <ul>
+                <li>Lorem ipsum</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                <li>Lorem ipsum</li>
+                <li>Lorem ipsum</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis sed rem, nostrum totam quo id quisquam autem iure dolorem possimus ea aspernatur dolore voluptates ut dolorum fugit atque harum magnam.</p>
+            <ol>
+                <li>Lorem ipsum</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                <li>Lorem ipsum</li>
+                <li>Lorem ipsum</li>
+            </ol>
+            <ul>
+                <li>Lorem ipsum</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.
+                    <ul>
+                        <li>Lorem ipsum
+                            <ul>
+                                <li>Lorem ipsum
+                                    <ul>
+                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                                        <li>Lorem ipsum</li>
+                                    </ul>
+                                </li>
+                                <li>Lorem ipsum</li>
+                                <li>Lorem ipsum</li>
+                            </ul>
+                        </li>
+                        <li>Lorem ipsum
+                            <ul>
+                                <li>Lorem ipsum</li>
+                                <li>Lorem ipsum</li>
+                                <li>Lorem ipsum</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Lorem ipsum</li>
+                <li>Lorem ipsum</li>
+            </ul>
+            <ol>
+                <li>Premier item</li>
+                <li>Deuxième item</li>
+                <li>Troisième item Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                <li>Quatrième item</li>
+                <li>Cinquième item
+                    <ol>
+                        <li>Premier</li>
+                        <li>Deuxième
+                            <ol>
+                                <li>Premier</li>
+                                <li>Deuxième</li>
+                                <li>Troisième Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                            </ol>
+                        </li>
+                        <li>Troisième</li>
+                    </ol>
+                </li>
+                <li>Sixième item</li>
+                <li>Septième item</li>
+            </ol>
+            <ul>
+                <li>le niveau 1 est une ul</li>
+                <li>les éléments d'une liste dans une phrase commencent par une minuscule et se terminent par une virgule, sauf le dernier élément qui, s'il termine la phrase, prend un point.
+                    <ol>
+                        <li>Le niveau 2 est une ol</li>
+                        <li>Avec du texte long, pouvant s'écouler sur plusieurs lignes. Les éléments d'une liste formée de plusieurs phrases se comportent comme des alinéas (majuscule en début, point à la ﬁn).
+                            <ul>
+                                <li>Troisième niveau (ul)
+                                    <ul>
+                                        <li>Lorem ipsum
+                                            <ol>
+                                                <li>Quatrième niveau (ol)</li>
+                                                <li>Lorem ipsum</li>
+                                            </ol>
+                                        </li>
+                                        <li>Lorem ipsum</li>
+                                        <li>Lorem ipsum</li>
+                                    </ul>
+                                </li>
+                                <li>Troisième niveau</li>
+                                <li>Troisième niveau</li>
+                            </ul>
+                        </li>
+                        <li>deuxième item de niveau 2</li>
+                    </ol>
+                </li>
+                <li>dernier item de niveau 1</li>
+            </ul>
+        </div>
+
+        <hr aria-hidden="true">
+
+        <h2>Tableau</h2>
+        {# Code HTML from prod: https://esante.gouv.fr/interoperabilite/ci-sis/espace-publication #}
+        <table>
+            <thead>
+                <tr>
+                    <th>Métier</th>
+                    <th>Document</th>
+                    <th class="numeric">Version</th>
+                    <th class="numeric">Statut</th>
+                    <th class="numeric">Publication</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-primary">
+                    <td data-title="Métier">Volet de référence</td>
+                    <td data-title="Document"><a href="/volet-de-reference-modeles-de-contenus-cda">Modèles de contenus CDA</a>&nbsp;</td>
+                    <td class="numeric" data-title="Version">2.4</td>
+                    <td data-title="Statut">Validé</td>
+                    <td class="numeric" data-title="Publication">19/01/2021</td>
+                </tr>
+                <tr>
+                    <td data-title="Métier">Volet</td>
+                    <td data-title="Document"><a href="/volet-anesthesie-reanimation">ANEST – Anesthésie Réanimation</a></td>
+                    <td class="numeric" data-title="Version">2021.01</td>
+                    <td data-title="Statut">Validé</td>
+                    <td class="numeric" data-title="Publication">21/06/2021</td>
+                </tr>
+                <tr class="table-primary">
+                    <td data-title="Métier">Volet</td>
+                    <td data-title="Document"><a href="/volet-avc-accident-vasculaire-cerebral">AVC - Accident vasculaire cérébral</a>&nbsp;</td>
+                    <td class="numeric" data-title="Version">2.2</td>
+                    <td data-title="Statut">Validé</td>
+                    <td class="numeric" data-title="Publication">03/04/2019</td>
+                </tr>
+                <tr>
+                    <td data-title="Métier">Volet</td>
+                    <td data-title="Document"><a href="/volet-cr-gm-compte-rendu-de-genetique-moleculaire">CANCER-CR-GM – Compte-rendu de génétique moléculaire</a>&nbsp;</td>
+                    <td class="numeric" data-title="Version">2021.01</td>
+                    <td data-title="Statut">En concertation</td>
+                    <td class="numeric" data-title="Publication">12/05/2021</td>
+                </tr>
+                <tr>
+                    <td data-title="Métier">Volet</td>
+                    <td data-title="Document"><a href="/volet-frcp-fiche-de-reunion-de-concertation-pluridisciplinaire">CANCER-FRCP - Fiche de Réunion de Concertation Pluridisciplinaire</a></td>
+                    <td class="numeric" data-title="Version">2021.01</td>
+                    <td data-title="Statut">En concertation</td>
+                    <td class="numeric" data-title="Publication">22/06/2021</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr aria-hidden="true">
+
+        <h2>Accordéon</h2>
+        <div class="js-accordion" data-accordion-prefix-classes="o" data-accordion-multiselectable="none">
+            <h3 class="js-accordion__header">Accordion 01<svg class="svg-icon svg-angle-down" aria-hidden="true" focusable="false">
+                    <use xlink:href="svg-icons/icon-sprite.svg#angle-down"></use>
+                </svg>
+            </h3>
+
+            <div class="js-accordion__panel">
+                <div class="wysiwyg">
+                    <h2>H2 lorem ipsum</h2>
+                    <h3>H3 lorem ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+                    <ul>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                    </ul>
+                    <ol>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi libero labore aut minima laborum illo aliquid quidem doloremque exercitationem vero praesentium harum, blanditiis quam fuga expedita ipsam, molestiae deleniti.</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                    </ol>
+
+                </div>
+            </div>
+            <h3 class="js-accordion__header">Accordion 02 Lorem ipsum dolor sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit<svg class="svg-icon svg-angle-down" aria-hidden="true" focusable="false">
+                    <use xlink:href="svg-icons/icon-sprite.svg#angle-down"></use>
+                </svg>
+            </h3>
+
+            <div class="js-accordion__panel">
+                <div class="wysiwyg">
+                    <p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+                    <p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+                    <p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+                </div>
+            </div>
+            <h3 class="js-accordion__header">Accordion 03<svg class="svg-icon svg-angle-down" aria-hidden="true" focusable="false">
+                    <use xlink:href="svg-icons/icon-sprite.svg#angle-down"></use>
+                </svg>
+            </h3>
+
+            <div class="js-accordion__panel">
+                <div class="wysiwyg">
+                    <p>Eveniet a illum in, laborum amet quia nesciunt nisi odio ex. Impedit tenetur corrupti obcaecati, totam adipisci similique vel est alias placeat!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

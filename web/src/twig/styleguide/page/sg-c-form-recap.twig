@@ -1,0 +1,74 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Bloc récapitulatif' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: "Lorsque l'utilisateur a rempli un formulaire en plusieurs pages, un bloc récapitulatif doit lui permettre de vérifier l'exactitude de l'ensemble des informations qu'il a fournies avant la soumission définitive."
+        } %}
+
+        <div class="sg-block-space">
+            <p>Ne pas confondre le bloc récapitulatif avec les <a href="sg-c-form-group-champs.html">groupes de champs sémantiques</a>. N'étant pas des champs de saisie, les différents thèmes ne doivent pas être englobés des <code>fieldset</code>. Ils peuvent en revanche être structurés par sous-titres (<code>Hn</code>) classiques.
+            <br><a href="https://checklists.opquast.com/fr/assurance-qualite-web/lors-de-la-saisie-dun-formulaire-reparti-sur-plusieurs-pages-un-recapitulatif-global-est-affiche-avant-lenvoi-definitif" target="_blank">Lors de la saisie d'un formulaire réparti sur plusieurs pages, un récapitulatif global est affiché avant l'envoi définitif (Opquast)</a></p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    <div class="form-box">
+                        <h2 class="form-box__title">Récapitulatif du formulaire</h2>
+
+                        <div class="form-recap">
+                            <div class="form-recap-content">
+                                <p><span class="entitled">Profession sélectionnée : </span>Psychomotricien</p>
+                                <p><span class="entitled">Nom d'exercice : </span>Tobard</p>
+                                <p><span class="entitled">Prénom d'exercice : </span>Fabienne</p>
+                                <p><span class="entitled">Adresse d'expédition : </span>51 avenue Antoine Borrel - 73700 Bourg-Saint-Maurice</p>
+                            </div>
+                        </div>
+
+                        <div class="form-recap">
+                            <h3 class="form-recap-title">
+                                <span class="title">Profession</span>
+                            </h3>
+                            <div class="form-recap-content">
+                                <p><span class="entitled">Profession sélectionnée : </span>Psychomotricien</p>
+                                <p><span class="entitled">Nom d'exercice : </span>Tobard</p>
+                                <p><span class="entitled">Prénom d'exercice : </span>Fabienne</p>
+                            </div>
+                        </div>
+
+                        <div class="form-recap">
+                            <h3 class="form-recap-title">
+                                <span class="title">Diplôme</span>
+                            </h3>
+                            <div class="form-recap-content">
+                                <p><span class="entitled">Justificatif : </span>Diplôme de psychomotricien</p>
+                                <p><span class="entitled">Obtenu le : </span>30 juin 2019</p>
+                                <p><span class="entitled">Lieu de formation : </span>Île-de-France</p>
+                                <p>
+                                    {% include "../../site/component/1-atom/a-link.twig" with {
+                                        links: [
+                                            {
+                                                link: "#",
+                                                svgBefore: "angle-right",
+                                                text: "Voir le diplôme"
+                                            }
+                                        ]
+                                    } %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h3 class="title--icon">{{ macro.svg('circle-info') }} En cas d'information inexacte</h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime, sunt vitae quibusdam accusantium facere <a href="#" target="_blank">Rem, eveniet, atque asperiores sed quisquam quis esse</a></p>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

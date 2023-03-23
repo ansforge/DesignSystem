@@ -1,0 +1,37 @@
+.wysiwyg {
+    + .o-sg-prism { margin-top: 4rem; }
+
+    + p,
+    +h2,
+    + h3 {
+        margin-top: 3rem;
+    }
+
+    .ol--figcaption {
+        margin-left: 0;
+
+        > li {
+            padding-left: 3rem;
+
+            &:before {
+                content: counter(list,decimal);
+                top: 0.3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2rem;
+                height: 2rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: var(--white);
+                background-color: var(--primary);
+                border-radius: 100%;
+            }
+        }
+    }
+
+    dt {
+        float: left;
+        margin-right: 0.5rem;
+    }
+}

@@ -1,0 +1,14 @@
+<div class="paragraph-space o-paragraph--faq-push">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                {% if paragPushFaqTitle %}<h2>{{ paragPushFaqTitle }}</h2>{% endif %}
+                {% if paragPushFaqDesc %}<p>{{ paragPushFaqDesc }}</p>{% endif %}
+                {% if links %}{% include "o-paragraph--lien.twig" %}{% endif %}
+            </div>
+            <div class="col-md">
+                {% include "../../component/3-organism/o-accordion.twig" %}
+            </div>
+        </div>
+    </div>
+</div>

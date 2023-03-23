@@ -1,0 +1,88 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Comment utiliser le Système de Design&nbsp;?' %}
+
+{% block main %}
+
+<div class="sg-container-content">
+    {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+        blockSubTitle: "Pour commencer",
+        blockTitle: title,
+        blockAccroche_text: "Le Système de Design a pour but de réunir en un seul endroit l'ensemble des composants et des modèles de conception de l'interface. Pour ce faire, il liste notamment les éléments graphiques et visuels (layouts, composants, codes couleur...).<br/>Il permet donc de concevoir et réaliser un design parfaitement homogène sur toute l'interface.
+        Le Système de Design s'articule autour de 3 briques : le guide de style, les composants et les classes utilitaires. Grâce à ces 3 briques, vous êtes libre de créer un élément d'interface."
+    } %}
+
+    <div class="sg-block-space">
+        <h2>Les 3 axes du Système de Design</h2>
+        <h3>Le guide de style</h3>
+        <p>Il fixe les éléments de la charte relatifs aux couleurs, aux tailles de police, aux icônes, etc. </p>
+
+        <h3>Les composants</h3>
+        <div class="wysiwyg">
+            <p>Un composant est un ensemble d'éléments agencés, conformément au guide de style, et de façon immuable. Cela implique que : </p>
+            <ul>
+                <li>On peut assembler des composants les uns avec les autres.</li>
+                <li>En revanche, il est interdit de modifier un composant.</li>
+                <li>De même, il est interdit de recréer un composant existant (via des classes utilitaires par exemple).</li>
+            </ul>
+        </div>
+
+        <h3>Les classes utilitaires</h3>
+        <p>Il s'agit de classes CSS permettant de créer des éléments d'interface.<br />La combinaison de classes utilitaires offre de grandes possibilités de composition d'éléments conformes au guide de style.</p>
+        <p>En revanche, elles ne doivent jamais être utilisées pour recréer un composant qui existe déjà.</p>
+
+    </div>
+
+    <div class="sg-block-space">
+        <h2>Mise en application</h2>
+
+        <div class="row col--eq-height">
+            <div class="col-md">
+                {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                    imgUrl: 'img/typo/Typo-start-DO.png',
+                    imgSrcset: 'img/typo/Typo-start-DO@2x.png 2x',
+                    imgAlt: "Exemple correct",
+                    imgWidth: '330',
+                    imgHeight: '280',
+                    imgLazy: true,
+                    doDontStatus: 'do',
+                    doDontText: "Règles natives du guide de style"
+                } %}
+            </div>
+            <div class="col-md">
+                {% include "../../styleguide/component/3-organism/o-sg-do-dont.twig" with {
+                    imgUrl: 'img/typo/Typo-start-DONT.png',
+                    imgSrcset: 'img/typo/Typo-start-DONT@2x.png 2x',
+                    imgAlt: "Contre-exemple",
+                    imgWidth: '330',
+                    imgHeight: '280',
+                    imgLazy: true,
+                    doDontStatus: 'dont',
+                    doDontText: "1. H2 surchargé en bleu<br>2. Label déplacé <br>3. Couleur du bouton surchargée"
+                } %}
+            </div>
+        </div>
+    </div>
+
+    <div class="sg-block-space wysiwyg">
+        <h2>Sites Internet qui ont recours au Système de Design de l'ANS</h2>
+        <p>La liste suivante recense les sites Internet qui utilisent le Système de Design de l'Agence du Numérique en Santé. Cette liste est régulièrement mise à jour.</p>
+
+        <ul>
+            <li><a href="https://esante.gouv.fr" target="_blank">https://esante.gouv.fr</a></li>
+            <li><a href="https://industriels.esante.gouv.fr" target="_blank">https://industriels.esante.gouv.fr</a></li>
+            <li><a href="https://ue.esante.gouv.fr" target="_blank">https://ue.esante.gouv.fr</a></li>
+        </ul>
+
+        <h3>Processus en cours</h3>
+        <ul>
+            <li><a href="https://smt.esante.gouv.fr" target="_blank">https://smt.esante.gouv.fr</a></li>
+            <li><a href="https://www.cyberveille-sante.gouv.fr" target="_blank">https://www.cyberveille-sante.gouv.fr</a></li>
+            <li><a href="https://validation-enreg.esante.gouv.fr" target="_blank">https://validation-enreg.esante.gouv.fr</a></li>
+            <li><a href="https://convergence.esante.gouv.fr" target="_blank">https://convergence.esante.gouv.fr</a></li>
+            <li><a href="https://ecoscore-appli.esante.gouv.fr" target="_blank">https://ecoscore-appli.esante.gouv.fr</a></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

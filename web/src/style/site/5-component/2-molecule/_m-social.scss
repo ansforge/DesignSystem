@@ -1,0 +1,27 @@
+.m-social__list {
+    @include aw-make-row();
+    gap: 0 2rem;
+
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+.m-social__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.4rem;
+
+    &.external-link:after {
+        display: none;
+    }
+
+    .svg-rss {
+        font-size: 1.5rem;
+    }
+}
+
+.m-social__icon {
+    line-height: 1;
+}

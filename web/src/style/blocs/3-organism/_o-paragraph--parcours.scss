@@ -1,0 +1,80 @@
+.o-paragraph--parcours {
+    position: relative;
+
+    &.has-number {
+        display: flex;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 5rem;
+            bottom: calc(var(--paragraph-space) * -1 + 2rem);
+            left: 1.7rem;
+            width: 0.2rem;
+            background-color: var(--gray-400);
+            z-index: -1;
+        }
+    }
+
+    &__petal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 2rem;
+        margin-top: -0.3rem;
+        flex: 0 0 3.6rem;
+        width: 3.6rem;
+        height: 3.6rem;
+        font-family: $font-futura-bold;
+        font-size: 1.6rem;
+        color: var(--white);
+        background-color: var(--gray-800);
+        border-radius: 100%;
+        outline: solid 0.1rem var(--gray-800);
+        outline-style: dashed;
+        outline-offset: 0.3rem;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    .paragraph--lien {
+        margin-top: 2rem;
+
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    @media (min-width: 62em) {
+        &.has-number {
+            display: flex;
+
+            &::before {
+                top: 10rem;
+                left: 8.5rem;
+                bottom: calc(var(--paragraph-space) * -1 + 3.4rem);
+            }
+        }
+
+        &__petal {
+            margin-top: -1rem;
+            margin-right: 7.5rem;
+            margin-left: 4.2rem;
+            flex: 0 0 8.4rem;
+            height: 8.4rem;
+            width: 8.4rem;
+            font-size: 3.4rem;
+            outline-offset: 0.8rem;
+        }
+    }
+}
+
+.o-paragraph--parcours__wrapper:last-of-type {
+    .has-number {
+        &::before {
+            bottom: 0;
+        }
+    }
+}

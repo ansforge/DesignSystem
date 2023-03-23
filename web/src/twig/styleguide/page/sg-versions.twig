@@ -1,0 +1,172 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Versions' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockTitle: title,
+        } %}
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Version 1.0.8 - 16/03/2023</h2>
+
+            <ul>
+                <li>Ajout de la partie Blocs esante</li>
+                <li>Page Pictogrammes : ajout de 9 pictogrammes illustratifs</li>
+            </ul>
+            <p>Téléchargez cette version en cliquant ci-dessous :</p>
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/ans-design-system-v1.0.8.zip",
+                fileName: "Design System ANS v1.0.8",
+                fileDate: "16 Mars 2023",
+                fileWeight: "7.7 Mo",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Version 1.0.7 - 08/12/2022</h2>
+
+            <ul>
+                <li>Charte éditoriale : corrections</li>
+                <li>Charte éditoriale : ajout des recommandations éditoriales</li>
+                <li>Page Pictogrammes : ajout de 2 pictogrammes illustratifs</li>
+                <li>Modification de l'adresse postale de l'ANS</li>
+            </ul>
+            <p>Téléchargez cette version en cliquant ci-dessous :</p>
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/ans-design-system-v1.0.7.zip",
+                fileName: "Design System ANS v1.0.7",
+                fileDate: "08 Déc 2022",
+                fileWeight: "7.6 Mo",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Version 1.0.6 - 08/11/2022</h2>
+
+            <ul>
+                <li>Ajout de la partie Charte éditoriale</li>
+                <li>Page Pictogrammes : Ajout de 2 pictogrammes illustratifs</li>
+                <li>Page Pictogrammes : Ajout de 2 pictogrammes fonctionnels</li>
+                <li>Page Comment utiliser le Système de Design : Ajout des sites internet qui ont recours au Système de Design de l'ANS</li>
+            </ul>
+            <p>Téléchargez cette version en cliquant ci-dessous :</p>
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/ans-design-system-v1.0.6.zip",
+                fileName: "Design System ANS v1.0.6",
+                fileDate: "08 Nov 2022",
+                fileWeight: "7.6 Mo",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Version 1.0.5 - 26/09/2022</h2>
+            <ul>
+                <li>Page Logotype : Ajout des logos aux formats jpg/png dans le fichier logotype.zip</li>
+                <li>Page Support : Modifications des textes dans le formulaire de contact</li>
+                <li>Page Pied de page : Mise à jour des libellés des liens du pied de page</li>
+                <li>Page Versions : Ajout du téléchargement des anciennes versions</li>
+                <li>Page Gestionnaire de consentement : Nouveau composant</li>
+                <li>Page Palette de couleurs : Ajout des couleurs illustratives</li>
+                <li>Page Case à cocher et radio : Ajout de la variante "Radio sous forme de bouton"</li>
+                <li>Page Pictogrammes : Ajout de 4 pictogrammes fonctionnels</li>
+                <li>Page Pictogrammes : Ajout de 2 pictogrammes illustratifs</li>
+            </ul>
+            <p>Téléchargez cette version en cliquant ci-dessous :</p>
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/ans-design-system-v1.0.5.zip",
+                fileName: "Design System ANS v1.0.5",
+                fileDate: "26 Sept 2022",
+                fileWeight: "5.5 Mo",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Version 1.0.4 - 10/06/2022</h2>
+            <ul>
+                <li>Page Pictogrammes : Rangement des pictogrammes illustratifs par section</li>
+                <li>Page Support : Ajout d'un formulaire de contact</li>
+                <li>Page Pictogrammes : Ajout de 7 pictogrammes fonctionnels</li>
+                <li>Page Pictogrammes : Ajout de 2 pictogrammes illustratifs</li>
+                <li>Page Logotype : Mise à jour du logo du Ministère de la Santé et de la Prévention</li>
+                <li>Composant En-tête : Mise à jour du logo du Ministère de la Santé et de la Prévention</li>
+                <li>Composant Pied de page : Mise à jour du logo du Ministère de la Santé et de la Prévention</li>
+                <li>Page designers : Ajout du lien vers la librairie sketch</li>
+            </ul>
+            <p>Téléchargez cette version en cliquant ci-dessous :</p>
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/ans-design-system-v1.0.4.zip",
+                fileName: "Design System ANS v1.0.4",
+                fileDate: "10 Jun 2022",
+                fileWeight: "3.4 Mo",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Version 1.0.3 - 04/04/2022</h2>
+            <ul>
+                <li>Page Pictogrammes : Ajout de nouveaux pictogrammes illustratifs et fonctionnels</li>
+                <li>Page En-tête : Ajout d'une liste de lien dans le Déroulant du compte</li>
+                <li>Navigation desktop : Emphase de l'entrée de menu active</li>
+                <li>Navigation mobile : Position du bouton de fermeture à droite</li>
+                <li>Page Onglets : Nouveau composant</li>
+            </ul>
+            <p>Téléchargez cette version en cliquant ci-dessous :</p>
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/ans-design-system-v1.0.3.zip",
+                fileName: "Design System ANS v1.0.3",
+                fileDate: "04 Apr 2022",
+                fileWeight: "3.3 Mo",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Version 1.0.2 - 18/03/2022</h2>
+            <ul>
+                <li>Page Comment utiliser le Système de Design</li>
+                <li>Page Designer : Ajout du lien vers la librairie sketch + Mode d'emploi</li>
+                <li>Page Logotype : Restructuration page + Nouvelle version logo ANS Desktop & Mobile + Ajout logo Ministère header </li>
+                <li>Page Utilisations couleurs : Suppression des espaces en trop dans la colonne Noms + ajout d'une introduction</li>
+                <li>Page Typographie Usages : Ajout du cas "couleur de texte"</li>
+                <li>Page Icônes : Renommage en page Pictogrammes + Mise à jour des icônes + création des fichiers zip</li>
+                <li>Page Boutons : Traduction des textes</li>
+                <li>Page En-tête : Ajout de la Marianne + changement du logo ANS + ajout de l'ombre portée + évolution du responsive</li>
+                <li>Page Liens : Suppression du lien "CTA rose" et du lien "souligné"</li>
+                <li>Page Liens : Évolution du style du lien "mis en exergue"</li>
+                <li>Page Bloc récapitulatif : Changement de l'icône alert en couleur primaire</li>
+                <li>Page Class utilitaires : Ajout des graisses de typographie</li>
+                <li>Page Widget accessibilité : Amélioration de l'accessibilité</li>
+            </ul>
+            <p>Téléchargez cette version en cliquant ci-dessous :</p>
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/ans-design-system-v1.0.2.zip",
+                fileName: "Design System ANS v1.0.2",
+                fileDate: "18 Mar 2022",
+                fileWeight: "3 Mo",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Version 1.0.1 - 05/10/2021</h2>
+            <p>Initiation du Système de Design de l'ANS</p>
+            <p>Téléchargez cette version en cliquant ci-dessous :</p>
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/ans-design-system-v1.0.1.zip",
+                fileName: "Design System ANS v1.0.1",
+                fileDate: "05 Oct 2021",
+                fileWeight: "1.4 Mo",
+                fileType: "ZIP"
+            } %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Bouton d\'ajout' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: "Bouton destiné à l'ajout d'un champ supplémentaire dans un formulaire."
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/1-atom/a-link.twig" with {
+                        links: [
+                            {
+                                style: "add",
+                                svgBefore: "circle-cross",
+                                text: "Ajouter lorem ipsum",
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

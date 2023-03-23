@@ -1,0 +1,552 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Pictogrammes' %}
+{% set pictosSprite = [
+    "access",
+    "angle-down",
+    "angle-left",
+    "angle-right",
+    "angle-up",
+    "arrow-down",
+    "arrow-left",
+    "arrow-right",
+    "arrow-up",
+    "arrow-up-right",
+    "arrow-down-right",
+    "attached-file",
+    "archive",
+    "archive-box",
+    "calendar",
+    "check",
+    "circle-alert",
+    "circle-check",
+    "circle-cross",
+    "circle-info",
+    "circle-less",
+    "circle-plus",
+    "close",
+    "comments",
+    "double-angle-left",
+    "double-angle-right",
+    "download",
+    "duplicate",
+    "edit",
+    "equal",
+    "external-link",
+    "eye",
+    "facebook",
+    "file",
+    "file-text",
+    "filter",
+    "folder",
+    "instagram",
+    "link",
+    "linkedin",
+    "mail",
+    "mapmarker",
+    "maximize",
+    "menu",
+    "minimize",
+    "more",
+    "notification",
+    "pause",
+    "photo",
+    "play",
+    "print",
+    "question-circle",
+    "refresh",
+    "reset",
+    "restore",
+    "rss",
+    "save",
+    "search",
+    "setting",
+    "share",
+    "slider-left",
+    "slider-right",
+    "square-less",
+    "square-plus",
+    "star",
+    "table-sort",
+    "telephone",
+    "time",
+    "trash",
+    "twitter",
+    "upload",
+    "user",
+    "valid",
+    "view-projection",
+    "view-results",
+    "warning",
+    "youtube",
+] %}
+{% set pictosIllustratifs = [
+    {
+        title: "Profils",
+        icons: [
+            {
+                url: "Cible_Medecine_de_ville.svg",
+                name: "Professionel libéral",
+            },
+            {
+                url: "Cible_Infirmier.svg",
+                name: "Infirmier",
+            },
+            {
+                url: "Cible_Etablissement_medico-social.svg",
+                name: "Établissement médico-social",
+            },
+            {
+                url: "Cible_Biologie_medicale.svg",
+                name: "Biologie médicale",
+            },
+            {
+                url: "Cible_Etablissement_de_sante.svg",
+                name: "Établissement de santé",
+            },
+            {
+                url: "Cible_Centre_de_radiologie.svg",
+                name: "Centre de radiologie",
+            },
+            {
+                url: "Cible_Entrepreneur_startup.svg",
+                name: "Entrepreneur,<br>Start-up",
+            },
+            {
+                url: "Cible_Patient.svg",
+                name: "Patient",
+            },
+            {
+                url: "Cible_Industriel.svg",
+                name: "Industriel",
+            },
+            {
+                url: "Institutionnel.svg",
+                name: "Institutionnel",
+            },
+            {
+                url: "Cible_Officine.svg",
+                name: "Officine",
+            },
+            {
+                url: "Acces_aux_soins.svg",
+                name: "Accès aux soins",
+            },
+            {
+                url: "Messagerie.svg",
+                name: "Messagerie",
+            },
+            {
+                url: "Ambassadeurs.svg",
+                name: "Ambassadeurs",
+            },
+            {
+                url: "Chirurgien-Dentiste.svg",
+                name: "Chirurgien Dentiste",
+            },
+            {
+                url: "Grands-Publics.svg",
+                name: "Grands Publics",
+            },
+            {
+                url: "Masseur-Kinesitherapeute.svg",
+                name: "Masseur Kinésithérapeute",
+            },
+            {
+                url: "Orthophoniste.svg",
+                name: "Orthophoniste",
+            },
+            {
+                url: "Orthoptiste.svg",
+                name: "Orthoptiste",
+            },
+            {
+                url: "Paramedical.svg",
+                name: "Paramédical",
+            },
+            {
+                url: "Pedicure-Podologue.svg",
+                name: "Pédicure Podologue",
+            },
+            {
+                url: "Sage-femme.svg",
+                name: "Sage-femme",
+            }
+        ]
+    },
+    {
+        title: "Offres",
+        icons: [
+            {
+                url: "Offres_Cybersecurite.svg",
+                name: "Cybersécurité",
+            },
+            {
+                url: "Offres_Authentification.svg",
+                name: "Authentification",
+            },
+            {
+                url: "Offres_Accompagnement_SI.svg",
+                name: "Accompagnement SI",
+            },
+            {
+                url: "Offres_Portails_generiques.svg",
+                name: "Portails génériques",
+            },
+            {
+                url: "Offres_Europe.svg",
+                name: "Europe",
+            },
+            {
+                url: "Offres_International.svg",
+                name: "International",
+            },
+            {
+                url: "Offres_Referentiels.svg",
+                name: "Référentiels",
+            },
+            {
+                url: "Offres_Services_nationaux.svg",
+                name: "Services nationaux",
+            },
+            {
+                url: "Offres_Repertoire.svg",
+                name: "Répertoire",
+            }
+        ]
+    },
+    {
+        title: "Serviciels",
+        icons: [
+            {
+                url: "Enregistrer_professionnel.svg",
+                name: "Enregistrer un professionnel",
+            },
+            {
+                url: "Voir_le_dossier_professionnel.svg",
+                name: "Voir le dossier professionnel",
+            },
+            {
+                url: "Voir_nouvelles_demandes.svg",
+                name: "Voir les nouvelles demandes",
+            },
+            {
+                url: "Voir_toutes_les_demandes.svg",
+                name: "Voir toutes les demandes",
+            },
+            {
+                url: "Carte_CPS.svg",
+                name: "Carte CPS",
+            },
+            {
+                url: "Certificats_logiciels.svg",
+                name: "Certificats logiciels",
+            },
+            {
+                url: "Cesser_une_activite.svg",
+                name: "Cesser une activité",
+            },
+            {
+                url: "Changement_dactivite.svg",
+                name: "Changer d’activité",
+            },
+            {
+                url: "Declarer_une_activite.svg",
+                name: "Déclarer une activité",
+            },
+            {
+                url: "Etablissements_de_sante.svg",
+                name: "Habilitations des GAE",
+            },
+            {
+                url: "Commander_carte_CPS.svg",
+                name: "Commander une carte CPS",
+            },
+            {
+                url: "Consulter_carte_CPS.svg",
+                name: "Consulter la carte CPS",
+            },
+            {
+                url: "Consulter_mes_demandes_en_cours.svg",
+                name: "Consulter mes demandes en cours",
+            },
+            {
+                url: "Expedition.svg",
+                name: "Expédition",
+            },
+            {
+                url: "Faire_opposition.svg",
+                name: "Faire opposition",
+            },
+            {
+                url: "Habilitations_gestionnaires.svg",
+                name: "Habilitations des gestionnaires ARS",
+            },
+            {
+                url: "Preparation.svg",
+                name: "Préparation",
+            },
+            {
+                url: "Recuperer_code_secret.svg",
+                name: "Récupérer le code secret",
+            },
+            {
+                url: "Telechargement_attestations.svg",
+                name: "Téléchargement d’attestations",
+            },
+            {
+                url: "Voir_mes_activites_professionnelles.svg",
+                name: "Voir mes activités professionnelles",
+            }
+        ]
+    },
+    {
+        title: "Données et graphiques",
+        icons: [
+            {
+                url: "Charts-Batons.svg",
+                name: "Bâtons",
+            },
+            {
+                url: "Charts-Barres.svg",
+                name: "Barres",
+            },
+            {
+                url: "Charts-Aires.svg",
+                name: "Aires",
+            },
+            {
+                url: "Charts-Compose.svg",
+                name: "Composés",
+            },
+            {
+                url: "Charts-Courbes.svg",
+                name: "Courbes",
+            },
+            {
+                url: "Charts-Pyramide.svg",
+                name: "Pyramide",
+            },
+            {
+                url: "Charts-Pictogrammes.svg",
+                name: "Pictogramme",
+            },
+            {
+                url: "Charts-Bulles.svg",
+                name: "Bulles",
+            },
+            {
+                url: "Charts-Nuage.svg",
+                name: "Nuage",
+            },
+            {
+                url: "Charts-Anneau.svg",
+                name: "Anneau",
+            },
+            {
+                url: "Charts-Camembert.svg",
+                name: "Camembert",
+            },
+            {
+                url: "Charts-Polaire.svg",
+                name: "Polaire",
+            },
+            {
+                url: "Charts-Radar.svg",
+                name: "Radar",
+            },
+            {
+                url: "Charts-KPI.svg",
+                name: "KPI",
+            },
+            {
+                url: "Charts-Semantique.svg",
+                name: "Sémantique",
+            },
+            {
+                url: "Charts-Tableau.svg",
+                name: "Tableau",
+            },
+            {
+                url: "Tree-Map.svg",
+                name: "Tree Map",
+            },
+            {
+                url: "Charts-Liste.svg",
+                name: "Liste",
+            },
+            {
+                url: "Charts-Indicateurs.svg",
+                name: "Indicateurs",
+            },
+            {
+                url: "Charts-Carte.svg",
+                name: "Carte",
+            }
+        ]
+    },
+    {
+        title: "Autres",
+        icons: [
+            {
+                url: "Autres_Agence_Bureaux.svg",
+                name: "Agence, bureaux",
+            },
+            {
+                url: "Autres_Besoin_daide.svg",
+                name: "Besoin d’aide",
+            },
+            {
+                url: "Autres_Cafe_The.svg",
+                name: "Café, thé",
+            },
+            {
+                url: "Autres_Cafeteria.svg",
+                name: "Caféteria",
+            },
+            {
+                url: "Autres_Calendrier.svg",
+                name: "Calendrier",
+            },
+            {
+                url: "Autres_Contact.svg",
+                name: "Contact",
+            },
+            {
+                url: "Autres_Courrier.svg",
+                name: "Courrier",
+            },
+            {
+                url: "Autres_Documents.svg",
+                name: "Documents",
+            },
+            {
+                url: "Autres_Evenement_Conference.svg",
+                name: "Événement, conférence",
+            },
+            {
+                url: "Autres_Formation.svg",
+                name: "Formation",
+            },
+            {
+                url: "Autres_Horaires.svg",
+                name: "Horaire",
+            },
+            {
+                url: "Autres_Informatique.svg",
+                name: "Informatique",
+            },
+            {
+                url: "Autres_Interview.svg",
+                name: "Interview",
+            },
+            {
+                url: "Autres_Intranet.svg",
+                name: "Intranet",
+            },
+            {
+                url: "Autres_Laptop.svg",
+                name: "Laptop",
+            },
+            {
+                url: "Autres_Localisation.svg",
+                name: "Localisation",
+            },
+            {
+                url: "Autres_Mail.svg",
+                name: "Mail",
+            },
+            {
+                url: "Autres_Newsletter.svg",
+                name: "Newsletter",
+            },
+            {
+                url: "Autres_Replay.svg",
+                name: "Replay",
+            },
+            {
+                url: "Autres_Ressources_humaines.svg",
+                name: "Ressources humaines",
+            },
+            {
+                url: "Autres_Telephone.svg",
+                name: "Téléphone",
+            },
+            {
+                url: "Autres_Teletravail.svg",
+                name: "Télétravail",
+            },
+            {
+                url: "Autres_Visio.svg",
+                name: "Visioconférence",
+            },
+            {
+                url: "Autres_Webinaires.svg",
+                name: "Webinaires",
+            },
+            {
+                url: "Autres_Orienteur.svg",
+                name: "Orienteur",
+            },
+            {
+                url: "Autres_Certification.svg",
+                name: "Certification",
+            }
+        ]
+    }
+] %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Guide de style",
+            blockTitle: title,
+            blockAccroche_text: "Dans ce Système de Design, on distingue deux catégories de pictogrammes en fonction des usages."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Pictogrammes fonctionnels</h2>
+            <p>Les pictogrammes fonctionnels sont des symboles visuels qui accompagnent l’utilisateur dans ses actions et qui aident à sa compréhension de l’interface.</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-svg-icons.twig" with {
+                icons: pictosSprite|sort
+            } %}
+
+            <p>Vous pouvez télécharger toutes les pictogrammes fonctionnels :</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/pictogrammes-fonctionnels.zip",
+                fileName: "Pictogrammes fonctionnels",
+                fileWeight: "34 Ko",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Pictogrammes illustratifs</h2>
+            <p>Les pictogrammes illustratifs permettent de dynamiser la présentation générale de la page et d’attirer l’attention de l’utilisateur sur une action importante à mener.</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-list-img.twig" with {
+                items: pictosIllustratifs,
+                itemsPath: 'img/pictogrammes-illustratifs/',
+                itemsSize: 'lg'
+            } %}
+
+            <p>Vous pouvez télécharger toutes les pictogrammes illustratifs :</p>
+
+            {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                fileUrl: "zip/pictogrammes-illustratifs.zip",
+                fileName: "Pictogrammes illustratifs",
+                fileWeight: "409 Ko",
+                fileType: "ZIP"
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p>Quel que soit l'objectif du pictogramme (décoratif, informatif), il faut ajouter un <code>aria-hidden="true"</code> à la balise qui l'affiche, afin d'empêcher les lecteurs d’écran de la prendre en compte.</p>
+        </div>
+    </div>
+
+{% endblock %}

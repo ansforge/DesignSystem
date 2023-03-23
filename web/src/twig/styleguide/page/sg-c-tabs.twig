@@ -1,0 +1,66 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Onglets' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            <h2>{{ title }} par défaut</h2>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-tabs.twig" with {
+                        tabs: [
+                            {
+                                tabId: "tabs-01",
+                                tabTitle: "Onglet 01",
+                                tabContent: "<!-- Contenu de l'onglet 01 -->"
+                            },
+                            {
+                                tabId: "tabs-02",
+                                tabTitle: "Onglet 02",
+                                tabContent: "<!-- Contenu de l'onglet 02 -->"
+                            },
+                            {
+                                tabId: "tabs-03",
+                                tabTitle: "Onglet 03",
+                                tabContent: "<!-- Contenu de l'onglet 03 -->"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>{{ title }} avec option « Check »</h2>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-tabs.twig" with {
+                        tabsHasCheck: true,
+                        tabs: [
+                            {
+                                tabId: "tabs-check-01",
+                                tabTitle: "Onglet 01",
+                                tabContent: "<!-- Contenu de l'onglet 01 -->"
+                            },
+                            {
+                                tabId: "tabs-check-02",
+                                tabTitle: "Onglet 02",
+                                tabContent: "<!-- Contenu de l'onglet 02 -->"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

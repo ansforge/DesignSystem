@@ -1,0 +1,152 @@
+<footer class="footer footer-principal" role="contentinfo">
+    <div class="footer__region1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 text-center text-md-left">
+                    {% include "logos.twig" with {
+                        logos: [
+                            {
+                                logoUrl: "img/logo-ministere.svg",
+                                logoAlt: "Ministère de la Santé et de la Prévention",
+                                logoHref: "https://solidarites-sante.gouv.fr",
+                                logoTarget: "_blank",
+                                logoRel: "nofollow",
+                                logoWidth: "133",
+                                logoHeight: "77",
+                                logoLazyload: true
+                            },
+                            {
+                                logoUrl: "img/logo-ANS-footer.svg",
+                                logoAlt: "Agence du Numérique en Santé",
+                                logoHref: "https://esante.gouv.fr/",
+                                logoTarget: "_blank",
+                                logoRel: "nofollow",
+                                logoWidth: "106",
+                                logoHeight: "74",
+                                logoLazyload: true
+                            }
+                        ]
+                    } %}
+                </div>
+                <div class="col-md-6 col-lg-3 text-center text-md-left">
+                    <p class="footer__title">
+                       <strong> Agence du Numérique en Santé</strong>
+                       <br> 2-10 Rue d'Oradour-sur-Glane
+                       <br> 75015 Paris
+                    </p>
+
+                    {% include "../component/2-molecule/m-social.twig" with {
+                        socials: [
+                            {
+                                socialName: "linkedin",
+                                socialLink: "http://linkedin.com",
+                                socialTarget: "_blank",
+                                socialRel: "nofollow"
+                            },
+                            {
+                                socialName: "twitter",
+                                socialLink: "http://twitter.com",
+                                socialTarget: "_blank",
+                                socialRel: "nofollow"
+                            },
+                            {
+                                socialName: "youtube",
+                                socialLink: "http://youtube.com",
+                                socialTarget: "_blank",
+                                socialRel: "nofollow"
+                            },
+                            {
+                                socialName: "rss",
+                                socialLink: "#",
+                                socialTarget: "_blank",
+                                socialRel: "nofollow"
+                            }
+                        ]
+                    } %}
+                </div>
+                <div class="col-6 col-lg-3">
+                    {% include "footer-list.twig" with {
+                        footerListItems: [
+                            {
+                                link: "#",
+                                text: "Carrières",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "Espace presse",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "Marchés publics",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "Inscrivez-vous à la newsletter",
+                                icon: "angle-right"
+                            }
+                        ]
+                    } %}
+                </div>
+                <div class="col-6 col-lg-3">
+                    {% include "footer-list.twig" with {
+                        footerListItems: [
+                            {
+                                link: "#",
+                                text: "Documentations",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "Webinaires",
+                                icon: "angle-right"
+                            },
+                            {
+                                link: "#",
+                                text: "Contactez-nous",
+                                icon: "angle-right"
+                            }
+                        ]
+                    } %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer__region2">
+        <div class="container">
+            <div class="footer-contentinfo">
+                {% include "footer-list.twig" with {
+                    footerListInline: true,
+                    footerListItems: [
+                        {
+                            link: "#",
+                            text: "Ministère de la Santé et de la Prévention",
+                            target: "_blank"
+                        },
+                        {
+                            link: "#",
+                            text: "Legifrance.gouv.fr",
+                            target: "_blank"
+                        },
+                        {
+                            link: "#",
+                            text: "Service-public.fr",
+                            target: "_blank"
+                        },
+                        {
+                            link: "#",
+                            text: "Mentions légales"
+                        },
+                        {
+                            link: "#",
+                            text: "Déclaration d’accessibilité"
+                        }
+                    ]
+                } %}
+            </div>
+        </div>
+    </div>
+</footer>

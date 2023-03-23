@@ -1,0 +1,22 @@
+<div class="container paragraph-space">
+    <div class="o-paragraph--image-texte-cta-3 bg-white rounded-md top-left-radius-0
+        {%- if paraImgTextCtaPositionRight %} position--right{% endif -%}
+        {%- if paraImgTextCtaPositionLeft %} position--left{% endif -%}
+    ">
+        <div class="o-paragraph--image-texte-cta-3__content">
+            {% if paraImgTextCtaTitle %}<h2>{{ paraImgTextCtaTitle }}</h2>{% endif %}
+            {% if paraImgTextCtaDesc %}<div class="wysiwyg mb-3">{{ paraImgTextCtaDesc }}</div>{% endif %}
+            {% if links %}{% include "o-paragraph--lien.twig" %}{% endif %}
+        </div>
+        {% if paraImgTextCtaImage %}
+            <div class="o-paragraph--image-texte-cta-3__img">
+                {% include "../../component/1-atom/a-img.twig" with {
+                    imgUrl: paraImgTextCtaImage,
+                    imgLazy: true,
+                    imgWidth: 1200,
+                    imgHeight: 400
+                } %}
+            </div>
+        {% endif %}
+    </div>
+</div>

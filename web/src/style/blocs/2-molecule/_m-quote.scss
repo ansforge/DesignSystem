@@ -1,0 +1,63 @@
+blockquote {
+    max-width: 87rem;
+    margin: auto;
+    margin-bottom: 2rem;
+    padding: 0 1.5rem;
+    text-align: center;
+
+    p {
+        font-size: 2.25rem;
+        line-height: 3rem;
+        color: var(--body-color-darker);
+
+        &::before,
+        &::after {
+            font-size: 3rem;
+            color: var(--brand-2);
+        }
+
+        &::before {
+            content: '« ';
+        }
+
+        &::after {
+            content: ' »';
+        }
+    }
+}
+
+.m-quote {
+    &__img {
+        width: 10rem;
+
+        &--clip {
+            width: 14.2rem;
+            height: 13.3rem;
+            clip-path: url(#mask-mise-en-avant);
+
+            img {
+                @include img-cover;
+            }
+        }
+    }
+
+    blockquote {
+        margin-top: 2rem;
+
+        p {
+            font-weight: bold;
+            color: var(--primary);
+            line-height: 1.5;
+
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    .m-social__list {
+        display: inline-flex;
+        margin-bottom: 0;
+    }
+}

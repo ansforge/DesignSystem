@@ -1,0 +1,41 @@
+// Already have a nav-skip in site folder
+// // Skip links navigation A11y
+// .nav-skip {
+//     @include clearAfter;
+
+//     position: fixed;
+//     top: 1rem;
+//     left: 1rem;
+//     z-index: $zindex-fixed + 1;
+
+//     width: 20rem;
+
+//     a, button {
+//         position: relative;
+//         overflow: hidden;
+//         height: 0;
+
+//         display: block;
+//         padding-left: 1rem;
+//         padding-right: 1rem;
+
+//         font-size: 1.6rem;
+//         text-align: center;
+//         text-decoration: none;
+
+//         background-color: $white;
+//         color: $black;
+
+//         &:focus,
+//         &:hover,
+//         &:active {
+//             padding-top: 1rem;
+//             padding-bottom: 1rem;
+//             height: auto;
+//         }
+
+//         &:focus {
+//             outline-offset: -0.3rem;
+//         }
+//     }
+// }

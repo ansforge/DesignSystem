@@ -1,0 +1,374 @@
+label,
+legend {
+    margin-left: $form-space-shift;
+    font-weight: $fw-medium;
+    color: var(--body-color-darker);
+}
+
+legend {
+    font-size: 2rem;
+}
+
+textarea {
+    min-height: 12rem;
+}
+
+select.form-control {
+    $select-icon-space: 2.6rem;
+    $select-icon-width: 0.8rem;
+    appearance: none;
+    padding-right: $select-icon-width + $select-icon-space*2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='#{$gray-600}' d='M18.712 24.837l12.143-11.994A3.937 3.937 0 0032 10.056a3.93 3.93 0 00-6.718-2.787l-9.356 9.157-9.207-9.207a3.834 3.834 0 00-2.787-1.145A3.932 3.932 0 000 10.006a3.928 3.928 0 001.145 2.787l11.994 11.994a3.982 3.982 0 005.574 0v.05z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - #{$select-icon-space}) center;
+    background-size: $select-icon-width;
+}
+
+// Remove default arrow in Internet Explorer 10 and 11
+select::-ms-expand {
+  display: none;
+}
+
+input[type="date"] {
+    // Position calendar picker on the input (Chrome)
+    &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-left: -$input-padding-x*0.5;
+        z-index: 1;
+        opacity: 0.000001;
+    }
+}
+
+.form-group--date .form-group-wrap {
+    max-width: 29rem;
+}
+
+.description {
+    margin-left: $form-space-shift;
+    margin-bottom: $form-group-margin-bottom;
+    padding-top: $form-feedback-margin-top;
+    font-size: $form-feedback-font-size;
+    line-height: 1.3;
+}
+
+// Invalid
+.is-invalid {
+    &, label {
+        color: $form-feedback-invalid-color;
+    }
+}
+
+.is-invalid select,
+select.is-invalid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='#{$form-feedback-invalid-color}' d='M18.712 24.837l12.143-11.994A3.937 3.937 0 0032 10.056a3.93 3.93 0 00-6.718-2.787l-9.356 9.157-9.207-9.207a3.834 3.834 0 00-2.787-1.145A3.932 3.932 0 000 10.006a3.928 3.928 0 001.145 2.787l11.994 11.994a3.982 3.982 0 005.574 0v.05z'/%3E%3C/svg%3E");
+}
+
+.custom-control-input.is-invalid:checked ~ .custom-control-label:before,
+.was-validated .custom-control-input:invalid:checked ~ .custom-control-label:before {
+    background-color: $form-feedback-invalid-color;
+    border-color: $form-feedback-invalid-color;
+}
+
+// Custom control - checkbox and radio
+.custom-control-inline {
+    display: inline-block;
+    vertical-align: top;
+
+    .description {
+        margin-left: 0;
+    }
+}
+
+.custom-control-label {
+    margin-left: 0;
+    color: inherit;
+    font-weight: inherit;
+}
+
+.custom-control {
+    margin-left: $form-space-shift;
+    margin-bottom: 0.5rem;
+
+    .description {
+        margin-bottom: 0;
+    }
+
+    &:not(.custom-control-inline) {
+        .description {
+            margin-left: 0;
+        }
+    }
+}
+
+// Improve accessibility of hidden input checkbox/radio
+input.custom-control-input {
+    top: ($font-size-base * $line-height-base - $custom-control-indicator-size) / 2;
+    width: $custom-control-indicator-size;
+    height: $custom-control-indicator-size;
+    opacity: 0.00001;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.custom-control-input:disabled {
+    &:checked ~ .custom-control-label::before {
+        border-color: $custom-control-indicator-border-color;
+    }
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label:before {
+    background-color: $custom-control-indicator-checked-color;
+    color: $custom-control-indicator-checked-bg;
+}
+
+.custom-checkbox .custom-control-input:checked:disabled ~ .custom-control-label:after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='#{$primary}' d='M3.035 15.632a1.778 1.778 0 00-2.514 2.514l8.889 8.889c.694.694 1.82.694 2.514 0L31.48 7.479a1.778 1.778 0 00-2.514-2.514L10.667 23.264l-7.632-7.632z'/></svg>");
+}
+
+// Components
+.form-group-wrap {
+    $form-group-wrap-icon-width: 2rem;
+    $form-group-wrap-icon-space-x: 2.2rem;
+
+    position: relative;
+    display: flex;
+
+    > svg {
+        position: absolute;
+        top: 1.5rem;
+        width: $form-group-wrap-icon-width;
+        height: $form-group-wrap-icon-width;
+        color: $input-group-addon-color;
+        pointer-events: none;
+    }
+
+    button {
+        flex-shrink: 0; // button cannot be shrunk
+    }
+
+    &--left {
+        > svg {
+            left: $form-group-wrap-icon-space-x;
+        }
+
+        .form-control {
+            padding-left: $form-group-wrap-icon-space-x*2 + $form-group-wrap-icon-width;
+        }
+    }
+
+    &--right {
+        > svg {
+            right: $form-group-wrap-icon-space-x;
+        }
+
+        .form-control {
+            padding-right: $form-group-wrap-icon-space-x*2 + $form-group-wrap-icon-width;
+        }
+    }
+}
+
+.form-box {
+    --form-box-margin: 4rem 0;
+    --form-box-padding: 7rem 3rem;
+
+    position: relative;
+    margin: var(--form-box-margin);
+    padding: var(--form-box-padding);
+    background-color: $white;
+    border-radius: 0 $border-radius-lg $border-radius-lg $border-radius-lg;
+    border: .1rem solid var(--gray-400, $gray-400);
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        left: -3rem;
+        width: 7.5rem;
+        height: 9.5rem;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 106 134'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M40.501 134H40.5C18.132 134 0 115.813 0 93.376V46c3.166 3.537 9.524 6.548 22.43 6.752h18.071C62.868 52.752 81 70.939 81 93.376S62.868 134 40.501 134' fill='%231D71B8'/%3E%3Cpath d='M85 46c11.598 0 21-9.507 21-21.235V0c-1.642 1.849-4.939 3.423-11.63 3.53H85c-11.598 0-21 9.506-21 21.235C64 36.493 73.402 46 85 46' fill='%23D20050'/%3E%3C/g%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+    }
+
+    @include media-breakpoint-up(lg) {
+        --form-box-margin: 6rem 0;
+        --form-box-padding: 7rem 10rem;
+
+        &::before {
+            top: 4.7rem;
+            left: -2.5rem;
+            width: 10.6rem;
+            height: 13.4rem;
+        }
+    }
+}
+
+.form-box__title {
+    margin-left: $form-space-shift;
+    margin-bottom: 2rem;
+    font-size: 2.4rem;
+    font-family: $font-futura-bold;
+    font-weight: $fw-bold;
+    line-height: $headings-line-height;
+
+    // position <legend> element
+    // https://stackoverflow.com/questions/29652337/prevent-the-fieldset-elements-border-from-going-through-the-legend-element
+    float: left;
+    + * {
+        clear: both;
+    }
+
+    + p {
+        margin-left: $form-space-shift;
+    }
+}
+
+.form-recap {
+    margin-top: 2rem;
+    margin-left: $form-space-shift;
+
+    .entitled {
+        font-weight: $fw-semiBold;
+        color: var(--body-color-darker);
+    }
+
+    p {
+        margin-bottom: 0.3rem;
+    }
+
+    .form-recap-title {
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+        font-family: $font-futura-bold;
+        line-height: 1.3;
+        color: var(--primary);
+        border-bottom: solid 0.1rem $border-color;
+
+        .title {
+            display: inline-block;
+            transform: translateY(0.7rem);
+            padding-right: 1rem;
+            background-color: $white;
+        }
+    }
+}
+
+.custom-radio-box {
+    padding-left: $form-space-shift;
+
+    .custom-control {
+        margin: 1.5rem 0 0 0;
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .custom-control-input:checked + label {
+        color: $primary;
+        border-color: $primary;
+    }
+
+    .custom-control-label {
+        display: block;
+        height: 100%;
+        border: 0.1rem solid $input-border-color;
+        border-radius: 0 $border-radius $border-radius $border-radius;
+        padding: 2.5rem 3rem 2.5rem 2rem;
+        font-size: 1.6rem;
+        font-weight: $fw-medium;
+        line-height: 1.25;
+        background-color: $white;
+
+        &:before,
+        &:after {
+            left: auto;
+            right: 1.4rem;
+            top: 1.4rem;
+        }
+    }
+
+    @include media-breakpoint-up(sm) {
+        @include aw-make-row(1.2rem);
+
+        > .custom-control {
+            @include aw-make-col-ready(1.2rem);
+            @include aw-make-col-value(33.333%);
+        }
+    }
+}
+
+.search-group {
+    border: 0.1rem solid $input-border-color;
+    border-radius: $input-border-radius $btn-border-radius $btn-border-radius $input-border-radius;
+
+    > .form-control,
+    > .form-control:not(:first-child) {
+        border: none;
+        border-radius: $input-border-radius;
+    }
+
+    button {
+        margin-top: -$input-border-width;
+        margin-right: -$input-border-width;
+    }
+
+    &:focus-within {
+        border-color: $input-focus-border-color;
+    }
+}
+
+.custom-radio-button {
+    margin-left: $form-space-shift;
+    display: flex;
+    flex-wrap: wrap;
+
+    .custom-control {
+        margin: 1.5rem 0 0 0;
+        padding-left: 0;
+    }
+
+    .custom-control-input {
+        @include sr-only;
+    }
+
+    label {
+        @extend .btn;
+        @extend .btn-sm;
+
+        &::before,
+        &::after {
+            content: none;
+        }
+
+        @include aw-button-variant(
+            $default-color: var(--primary), $default-background: transparent, $default-border: var(--primary),
+            $hover-color: var(--white), $hover-background: var(--primary-dark), $hover-border: var(--primary-dark),
+            $active-color: var(--white), $active-background: var(--primary-darker), $active-border: var(--primary-darker),
+            $outline-color: var(--primary)
+        );
+    }
+
+    input:checked ~ label {
+        @include aw-button-variant(
+            $default-color: var(--white), $default-background: var(--primary), $default-border: var(--primary),
+            $hover-color: var(--white), $hover-background: var(--primary-dark), $hover-border: var(--primary-dark),
+            $active-color: var(--white), $active-background: var(--primary-darker), $active-border: var(--primary-darker),
+            $outline-color: var(--primary)
+        );
+    }
+
+    .custom-control:first-of-type label {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .custom-control:not(:first-of-type):not(:last-child) label {
+        border-radius: 0;
+    }
+    .custom-control:not(:first-of-type) label {
+        border-bottom-left-radius: 0;
+    }
+}

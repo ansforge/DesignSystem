@@ -1,0 +1,35 @@
+<div class="paragraph-space o-paragraph--projet-push">
+    <div class="container">
+        <div class="paragraph__header row justify-content-center">
+            <div class="col-md-10 col-lg-8 text-center">
+                {% if paragProjetPushTitle %}<h2>{{ paragProjetPushTitle }}</h2>{% endif %}
+                {% if paragProjetPushDesc %}<p>{{ paragProjetPushDesc }}</p>{% endif %}
+            </div>
+        </div>
+
+        {% if teasers %}
+            <div class="o-paragraph--projet-push__teasers row col--eq-height mt-4">
+                {% for item in teasers %}
+                    <div class="mb-3 col-sm-6">
+                        {% include "../2-molecule/m-teaser.twig" with {
+                            teaserUrl: item.teaserUrl,
+                            teaserImgUrl: item.teaserImgUrl,
+                            imgWidth: 585,
+                            imgHeight: 329,
+                            teaserTitle: item.teaserTitle,
+                            teaserDesc: item.teaserDesc,
+                        } %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if paragProjetPushLinks %}
+            <div class="paragraph__footer row justify-content-center mt-1">
+                <div class="col-md-10 col-lg-8 text-center">
+                    {% if paragProjetPushLinks %}{% include "o-paragraph--lien.twig" with { links: paragProjetPushLinks } %}{% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

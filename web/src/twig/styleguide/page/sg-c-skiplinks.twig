@@ -1,0 +1,34 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = "Liens d'accès rapide" %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: 'Lien en tout début de page qui permet a minima d’accéder au contenu principal.'
+        } %}
+
+        <div class="sg-block-space mt-0">
+            {# https://a11y-guidelines.orange.com/fr/articles/liens-evitement/ <br>
+            https://www.accede-web.com/notices/html-et-css/navigation-au-clavier/mettre-en-place-un-lien-devitement/ <br>
+            https://gouvfr.atlassian.net/wiki/spaces/DB/pages/260014417/Liens%2Bd%2Bvitement%2B-%2BSkiplinks #}
+
+            <p>Un lien d’évitement du type « Aller au contenu » doit systématiquement être présent sur chaque page afin de faciliter la navigation au clavier.
+            <br>Ce lien doit être le premier élément interactif dans le code HTML, donc notamment le premier élément focusable.
+            <br>Il s’agit d’un lien interne qui doit permettre un accès direct au minimum au contenu principal de la page et/ou au moteur de recherche.</p>
+
+            <p>La solution la plus répandue est une série de liens, visuellement positionnés tout en haut de page, et placés juste après l’ouverture de la balise <code>body</code>. Chaque lien pointe vers une région, ou toute autre partie importante de la page. Ils sont généralement définis avec une taille de police plus petite que le corps du texte ou par défaut cachés et rendus visibles, lors de la navigation clavier, à la prise de focus.</p>
+            <p>Vous pouvez avoir un aperçu de ces liens en naviguant au clavier tout en haut de la page.</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/structure/nav-skip.twig" %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

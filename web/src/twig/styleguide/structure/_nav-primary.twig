@@ -1,0 +1,328 @@
+{% include "navbar-nav.twig" with {
+    navItems: [
+        {
+            text: "Pour commencer",
+            hasChild: [
+                {
+                    text: "Comment utiliser le DS",
+                    link: "sg-start.html"
+                },
+                {
+                    text: "Pour les designers",
+                    link: "sg-kit-designers.html"
+                },
+                {
+                    text: "Pour les développeurs",
+                    link: "sg-kit-developers.html"
+                }
+            ]
+        },
+        {
+            text: "Charte éditoriale",
+            hasChild: [
+                {
+                    text: "Recommandations éditoriales",
+                    link: "sg-charte-1.html"
+                },
+                {
+                    text: "Prise en main des versions et gestion de fichiers",
+                    link: "sg-charte-4.html"
+                },
+                {
+                    text: "Type de contenus & éléments",
+                    link: "sg-charte-2.html"
+                },
+                {
+                    text: "SEO & Webmarketing",
+                    link: "sg-charte-3.html"
+                }
+            ]
+        },
+        {
+            text: "Guide de style",
+            hasChild: [
+                {
+                    text: "Identité visuelle",
+                    link: "sg-identite-visuelle.html"
+                },
+                {
+                    text: "Logotype",
+                    link: "sg-logo.html"
+                },
+                {
+                    text: "Grilles",
+                    link: "sg-grid.html"
+                },
+                {
+                    text: "Couleurs",
+                    hasChild: [
+                        {
+                            text: "Palette de couleurs",
+                            link: "sg-colors.html"
+                        },
+                        {
+                            text: "Utilisations",
+                            link: "sg-use-colors.html"
+                        }
+                    ]
+                },
+                {
+                    text: "Typographie",
+                    hasChild: [
+                        {
+                            text: "Typographie",
+                            link: "sg-typography.html"
+                        },
+                        {
+                            text: "Usages",
+                            link: "sg-typography-use.html"
+                        }
+                    ]
+                },
+                {
+                    text: "Pictogrammes",
+                    link: "sg-c-icons.html"
+                }
+            ]
+        },
+        {
+            text: "Composants",
+            hasChild: [
+                {
+                    text: "Liens d'accès rapide",
+                    link: "sg-c-skiplinks.html"
+                },
+                {
+                    text: "Boutons",
+                    link: "sg-c-buttons.html"
+                },
+                {
+                    text: "Formulaire",
+                    hasChild: [
+                        {
+                            text: "Champs de saisie",
+                            link: "sg-c-form-input.html"
+                        },
+                        {
+                            text: "Zone de texte",
+                            link: "sg-c-form-textarea.html"
+                        },
+                        {
+                            text: "Liste déroulante",
+                            link: "sg-c-form-select.html"
+                        },
+                        {
+                            text: "Case à cocher et radio",
+                            link: "sg-c-form-check.html"
+                        },
+                        {
+                            text: "Groupe de champs",
+                            link: "sg-c-form-group-champs.html"
+                        },
+                        {
+                            text: "Stepper",
+                            link: "sg-c-stepper.html"
+                        },
+                        {
+                            text: "Bouton d'ajout",
+                            link: "sg-c-form-button-add.html"
+                        },
+                        {
+                            text: "Bloc récapitulatif",
+                            link: "sg-c-form-recap.html"
+                        },
+                        {
+                            text: "Champs de recherche",
+                            link: "sg-c-form-search.html"
+                        },
+                        {
+                            text: "Usages",
+                            link: "sg-c-form-use.html"
+                        },
+                        {
+                            text: "Accessibilité",
+                            link: "sg-c-form-access.html"
+                        }
+                    ]
+                },
+                {
+                    text: "Listes",
+                    link: "sg-c-lists.html"
+                },
+                {
+                    text: "Liens",
+                    link: "sg-c-links.html"
+                },
+                {
+                    text: "Tableau",
+                    link: "sg-c-table.html"
+                },
+                {
+                    text: "En-tête",
+                    link: "sg-c-header.html"
+                },
+                {
+                    text: "Pied de page",
+                    link: "sg-c-footer.html"
+                },
+                {
+                    text: "Pagination",
+                    link: "sg-c-pagination.html"
+                },
+                {
+                    text: "Messages de statut",
+                    link: "sg-c-messages.html"
+                },
+                {
+                    text: "Barre de progression",
+                    link: "sg-c-progress-bar.html"
+                },
+                {
+                    text: "Widget d'accessibilité",
+                    link: "sg-c-widget-access.html"
+                },
+                {
+                    text: "Infobulle",
+                    link: "sg-c-tooltip.html"
+                },
+                {
+                    text: "Modale",
+                    link: "sg-c-modal.html"
+                },
+                {
+                    text: "Accordéon",
+                    link: "sg-c-accordeon.html"
+                },
+                {
+                    text: "Fil d'ariane",
+                    link: "sg-c-breadcrumb.html"
+                },
+                {
+                    text: "Onglets",
+                    link: "sg-c-tabs.html"
+                },
+                {
+                    text: "Gestionnaire de consentement",
+                    link: "sg-c-cookies.html"
+                }
+            ]
+        },
+        {
+            text: "Blocs esante",
+            hasChild: [
+                {
+                    text: "Introduction",
+                    link: "sg-bloc.html"
+                },
+                {
+                    text: "Bannière",
+                    link: "sg-bloc-banner.html"
+                },
+                {
+                    text: "Carte interactive",
+                    link: "sg-bloc-carte-interactive.html"
+                },
+                {
+                    text: "Chiffres clés",
+                    link: "sg-bloc-chiffres-cles.html"
+                },
+                {
+                    text: "Citation",
+                    link: "sg-bloc-citation.html"
+                },
+                {
+                    text: "Colonnes 2/3/4/5",
+                    link: "sg-bloc-colonnes.html"
+                },
+                {
+                    text: "Contact",
+                    link: "sg-bloc-contact.html"
+                },
+                {
+                    text: "Contacts",
+                    link: "sg-bloc-contacts.html"
+                },
+                {
+                    text: "Diaporama",
+                    link: "sg-bloc-diaporama.html"
+                },
+                {
+                    text: "Fil twitter",
+                    link: "sg-bloc-fil-twitter.html"
+                },
+                {
+                    text: "Fonctions ANS",
+                    link: "sg-bloc-fonctions-ans.html"
+                },
+                {
+                    text: "Frise chronologique",
+                    link: "sg-bloc-frise-chronologique.html"
+                },
+                {
+                    text: "Liste de fichiers",
+                    link: "sg-bloc-liste-fichiers.html"
+                },
+                {
+                    text: "Mise en avant 1",
+                    link: "sg-bloc-mise-en-avant-1.html"
+                },
+                {
+                    text: "Mise en avant 2",
+                    link: "sg-bloc-mise-en-avant-2.html"
+                },
+                {
+                    text: "Mise en avant 3",
+                    link: "sg-bloc-mise-en-avant-3.html"
+                },
+                {
+                    text: "Organisation",
+                    link: "sg-bloc-organisation.html"
+                },
+                {
+                    text: "Parcours",
+                    link: "sg-bloc-parcours.html"
+                },
+                {
+                    text: "Remontées des FAQ",
+                    link: "sg-bloc-remontees-faq.html"
+                },
+                {
+                    text: "Remontées diverses",
+                    link: "sg-bloc-remontees-diverses.html"
+                },
+                {
+                    text: "Remontées multiple",
+                    link: "sg-bloc-remontees-multiple.html"
+                },
+                {
+                    text: "Remontées projets",
+                    link: "sg-bloc-remontees-projets.html"
+                },
+                {
+                    text: "Remontées services",
+                    link: "sg-bloc-remontees-services.html"
+                },
+                {
+                    text: "Texte plus 2 items",
+                    link: "sg-bloc-texte-plus-2-items.html"
+                },
+                {
+                    text: "Texte plus texte mis en avant",
+                    link: "sg-bloc-texte-plus-texte-mis-en-avant.html"
+                },
+            ]
+        },
+        {
+            text: "Class utilitaires",
+            link: "sg-utilities.html"
+        },
+        {
+            text: "Support",
+            link: "sg-support.html"
+        },
+        {
+            text: "Versions",
+            link: "sg-versions.html"
+        }
+    ]
+} %}

@@ -1,0 +1,23 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Fil d\'Ariane' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: 'Le fil d’Ariane est un système de navigation secondaire qui indique à l’utilisateur sa position courante dans l\'arborescence du site.'
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-breadcrumb.twig" %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

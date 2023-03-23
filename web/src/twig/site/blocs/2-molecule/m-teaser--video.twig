@@ -1,0 +1,20 @@
+{#
+/**
+ * Teaser video
+ *
+ * Options:
+ *  - teaserVideoUrl: url of the iframe
+ *  - teaserVideoImg: url of the image
+ *  - teaserVideoTitle: title of the video
+ */
+#}
+{# Pour que les teaser video fonctionnent,
+    il faut charger le twig .o-modal--teaser-video dans {% block modal %} dans layout.twig
+    (doit être présent une seule fois par page)
+#}
+<button type="button" class="m-teaser--video" data-toggle="modal" data-target="#modalVideoTeaser" aria-label="Voir la vidéo {{ teaserVideoTitle }}" data-iframe-title="{{ teaserVideoTitle }}" data-iframe-url="{{ teaserVideoUrl }}">
+    {% include "../../component/1-atom/a-img.twig" with {
+        imgUrl: teaserVideoImg,
+        imgLazy: true
+    } %}
+</button>

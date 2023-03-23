@@ -1,0 +1,173 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Bannière' %}
+
+{% block styles_more %}
+    {{ parent() }}
+    <link rel="stylesheet" href="./style/bloc-global.css" type="text/css" />
+    <link rel="stylesheet" href="./style/bloc-o-banner.css" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Blocs",
+            blockTitle: title,
+            blockAccroche_text: "La bannière se situe en haut de page, elle comporte le titre H1."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Bannière - page d'accueil</h2>
+
+            <p>Taille des images :</p>
+            <div class="wysiwyg">
+                <ul>
+                    <li>en bas à gauche : 279*202,</li>
+                    <li>en haut à gauche : 267*370,</li>
+                    <li>au centre : 360*384,</li>
+                    <li>à droite : 377*544.</li>
+                </ul>
+            </div>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-banner.twig" with {
+                        bannerHome: true,
+                        bannerTitle: "Bannière - page d'accueil",
+                        bannerText: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, quod quae explicabo sunt deleniti qui quibusdam asperiores veritatis libero id cum, blanditiis iusto.",
+                        bannerLinks: [
+                            {
+                                style: "style1",
+                                color: "white",
+                                link: "#",
+                                text: "Lien mis en exergue"
+                            }
+                        ],
+                        bannerImg: [
+                            {
+                                imgUrl:"img/blocs/banner-home-01.jpg",
+                                imgWidth: 279,
+                                imgHeight: 202
+                            },
+                            {
+                                imgUrl:"img/blocs/banner-home-02.jpg",
+                                imgWidth: 267,
+                                imgHeight: 370
+                            },
+                            {
+                                imgUrl:"img/blocs/banner-home-03.png",
+                                imgWidth: 360,
+                                imgHeight: 384
+                            },
+                            {
+                                imgUrl:"img/blocs/banner-home-04.png",
+                                imgWidth: 377,
+                                imgHeight: 544
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Bannière - pages internes</h2>
+
+            <h3>Bannière sans image</h3>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-banner.twig" with {
+                        breadcrumb: true,
+                        bannerSubtitle: "Surtitre",
+                        bannerTitle: "Bannière sans image",
+                        bannerText: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, quod quae explicabo sunt deleniti qui quibusdam asperiores veritatis libero id cum, blanditiis iusto.",
+                        bannerDesc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                        bannerShareItems: [
+                            {
+                                name: "facebook",
+                                link: "#"
+                            },
+                            {
+                                name: "twitter",
+                                link: "#"
+                            },
+                            {
+                                name: "linkedin",
+                                link: "#"
+                            },
+                            {
+                                name: "email",
+                                link: "#"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Bannière avec image</h3>
+            <p>Taille de l'image : 714*446</p>
+
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    {% include "../../site/blocs/3-organism/o-banner.twig" with {
+                        breadcrumb: true,
+                        bannerSubtitle: "Surtitre",
+                        bannerTitle: "Bannière avec image",
+                        bannerText: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, quod quae explicabo sunt deleniti qui quibusdam asperiores veritatis libero id cum, blanditiis iusto.",
+                        bannerDesc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                        bannerImg: "img/blocs/banner-01.jpg",
+                        imgWidth: 714,
+                        imgHeight: 446,
+                        bannerShareItems: [
+                            {
+                                name: "facebook",
+                                link: "#"
+                            },
+                            {
+                                name: "twitter",
+                                link: "#"
+                            },
+                            {
+                                name: "linkedin",
+                                link: "#"
+                            },
+                            {
+                                name: "email",
+                                link: "#"
+                            }
+                        ]
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space wysiwyg">
+            <h2>Mise en place</h2>
+            <p>Ce bloc doit être collé visuellement au <code>&lt;header&gt;</code>. Pour ce faire :
+            <ul>
+                <li>charger les CSS suivantes :
+                    <ul>
+                        <li>CSS du Système de Design</li>
+                        <li><a href="./style/bloc-global.css" target="_blank" class="file-link">CSS globale pour les blocs (1,9Ko - CSS)</a></li>
+                        <li><a href="./style/bloc-o-banner.css" target="_blank" class="file-link">CSS du bloc {{ title }} (6,1Ko - CSS)</a></li>
+                    </ul>
+                </li>
+                <li>le placer en première position de la balise <code>&lt;main&gt;</code>,</li>
+                <li>modifier la variable CSS <code>--main-margin-top</code>, elle doit avoir pour valeur 0 :
+                    <div class="o-sg-prism o-sg-prism__code my-1">
+                        <pre><code class="language-css">
+                            :root {
+                                --main-margin-top: 0;
+                            }
+                        </code></pre>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

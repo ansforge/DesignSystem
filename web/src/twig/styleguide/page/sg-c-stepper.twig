@@ -1,0 +1,32 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Stepper' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: "Le stepper est une barre de navigation qui guide les utilisateurs à travers les étapes d'une tâche. Lorsqu'une tâche donnée est compliquée ou a une certaine séquence dans la série de sous-tâches, nous pouvons la décomposer en plusieurs étapes pour faciliter les choses."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Stepper par défaut</h2>
+            <p>Le stepper est généralement placé en haut du <code>main</code>.</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-stepper.twig" %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+
+
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p>Un texte alternatif précisant le nom de l'étape en cours et son rang dans la liste des étapes est nécessaire. Attention à bien modifier les textes masqués qui sont restitués par les lecteurs d'écran, et à préciser si l'étape est en cours ou validée.</p>
+        </div>
+    </div>
+
+{% endblock %}

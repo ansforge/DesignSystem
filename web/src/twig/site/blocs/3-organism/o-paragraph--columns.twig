@@ -1,0 +1,54 @@
+<div class="paragraph-space o-paragraph--columns
+    {%- if paragColumnsBgGray %} bg-gray-100{% endif -%}
+    {%- if paragColumnsBgDrop %} bg-drop{% endif -%}
+">
+    <div class="container">
+        <div class="paragraph__header row justify-content-center">
+            <div class="col-md-10 col-lg-8 text-center">
+                {% if paragColumnsTitle %}<h2>{{ paragColumnsTitle }}</h2>{% endif %}
+                {% if paragColumnsDesc %}<p>{{ paragColumnsDesc }}</p>{% endif %}
+            </div>
+        </div>
+
+        {% if cards %}
+            <div class="o-paragraph--columns__cards row col--eq-height mt-4">
+                {% for item in cards %}
+                    <div class="mb-3
+                        {%- if paragColumnsby2 %} col-sm-6{% endif -%}
+                        {%- if paragColumnsby3 %} col-sm-6 col-lg-4{% endif -%}
+                        {%- if paragColumnsby4 %} col-sm-6 col-lg-3{% endif -%}
+                        {%- if paragColumnsby5 %} col-sm-6 col-md-4 aw-col-lg-20{% endif -%}
+                    ">
+                        {% include "../2-molecule/m-card.twig" with {
+                            bgColor: item.bgColor,
+                            textAlignment: item.textAlignment,
+                            cardRadiusRounded: item.cardRadiusRounded,
+                            cardRadiusDrop: item.cardRadiusDrop,
+                            cardHasArrow: item.cardHasArrow,
+
+                            cardUrl: item.cardUrl,
+                            cardTarget: item.cardTarget,
+                            cardTitle: item.cardTitle,
+                            cardSubtitle: item.cardSubtitle,
+                            cardDesc: item.cardDesc,
+                            cardLinks: item.cardLinks,
+
+                            cardImgUrl: item.cardImgUrl,
+                            cardImgTop: item.cardImgTop,
+                            cardImgBg: item.cardImgBg
+                        } %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if paragColumnsTextBottom or paragColumnsLinks %}
+            <div class="paragraph__footer row justify-content-center mt-1">
+                <div class="col-md-10 col-lg-8 text-center">
+                    {% if paragColumnsLinks %}{% include "o-paragraph--lien.twig" with { links: paragColumnsLinks } %}{% endif %}
+                    {% if paragColumnsTextBottom %}<p>{{ paragColumnsTextBottom }}</p>{% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

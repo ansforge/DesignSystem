@@ -1,0 +1,23 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Champ de recherche' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants - Formulaire",
+            blockTitle: title,
+            blockAccroche_text: "Il s'agit d'une balise <code>&lt;input type='search'&gt;</code>."
+        } %}
+
+        <div class="sg-block-space">
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {%- include "../../site/component/2-molecule/m-search-group.twig" %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

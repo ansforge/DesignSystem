@@ -1,0 +1,31 @@
+<nav aria-label="Pagination" role="navigation">
+    <ul class="pagination justify-content-center align-items-center">
+        <li class="page-item page-prev">
+            <a class="page-link" href="#" title="Page précédente">
+                {{ macro.svg('angle-left')}}
+                <span class="sr-only">Page précédente</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#"><span class="sr-only">Page</span> 1</a>
+        </li>
+        <li class="page-item active" aria-current="page">
+            <span class="page-link"><span class="sr-only">Page courante</span> 2</span>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#"><span class="sr-only">Page</span> 3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#"><span class="sr-only">Page</span> 4</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#"><span class="sr-only">Page</span> 5</a>
+        </li>
+        <li class="page-item page-next">
+            <a class="page-link" href="#" title="Page suivante">
+                {{ macro.svg('angle-right')}}
+                <span class="sr-only">Page suivante</span>
+            </a>
+        </li>
+    </ul>
+</nav>

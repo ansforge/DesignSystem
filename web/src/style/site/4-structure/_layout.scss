@@ -1,0 +1,88 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.js-off {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background-color: var(--body-bg);
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    color: var(--body-color);
+    background-color: var(--body-bg);
+
+    @include media-breakpoint-down(md) {
+        &.nav-is-open {
+            overflow: hidden;
+        }
+    }
+}
+
+main {
+    padding-top: var(--main-margin-top);
+    padding-bottom: var(--main-margin-bottom);
+}
+
+p:empty {
+    display: none;
+}
+
+figure,
+.figure {
+    display: block;
+    margin: 0; // reset bootstrap
+}
+
+iframe {
+    display: block;
+    width: 100%;
+}
+
+.container--small {
+    .container {
+        max-width: 82rem;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+a[class*="bg"] {
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.search-backdrop {
+    z-index: 10;
+}
+
+// Make children of columns have the same height
+//      <div class="row col--eq-height">
+.col--eq-height {
+    > * {
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+            width: 100%;
+        }
+    }
+}

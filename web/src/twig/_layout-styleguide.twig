@@ -1,0 +1,24 @@
+{% extends "_layout.twig" %}
+
+{% set siteName = 'Design System ANS' %}
+{% set isStyleguide = true %}
+{% set bodyclass = 'layout-navLeft' %}
+
+{% block styles_more %}
+    <link rel="stylesheet" href="./style/styleguide.css" type="text/css" />
+{% endblock %}
+
+{% block scripts_more %}
+    <script type="text/javascript" src="./script/prism.js"></script>
+    <script type="text/javascript" src="./script/styleguide.min.js"></script>
+{% endblock %}
+
+{% block navskip %}
+    {% include "./styleguide/structure/nav-skip.twig" %}
+{% endblock %}
+
+{% block header %}
+    {% include "./styleguide/structure/header.twig" %}
+{% endblock %}
+
+{% block footer %}{% endblock %}

@@ -1,0 +1,32 @@
+//  *
+//  * Egal img full size
+//  *
+//  * @mixin
+//  * @example
+//  *  @include img-fluide;
+//  *
+
+// make img responsive
+@mixin img-fluide
+{
+  max-width: 100%;
+  height: auto;
+}
+
+// make img responsive full width
+@mixin img-full
+{
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  height: auto;
+}
+
+// make <img> behave like background-image cover
+@mixin img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

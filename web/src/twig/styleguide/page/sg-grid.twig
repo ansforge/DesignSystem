@@ -1,0 +1,97 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Grilles' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Guide de style",
+            blockTitle: title,
+            blockAccroche_text: "Le système de grilles est un élément fondamental d'un site web moderne. C'est une armature facilitant l'organisation du contenu de la page. Elle est utile aussi bien pour le designer et le développeur (conception et création facilitées) que pour le visiteur (espacement harmonieux entre les différents blocs)."
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Grille UI</h2>
+            <p>Des largeurs de blocs et de gouttières entre ceux-ci sont prédéfinies en fonction de chaque point de rupture (ou breakpoint).</p>
+
+            <h3>Desktop 1200 px</h3>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/grid/Grid-1200.png',
+                imgSrcset: 'img/grid/Grid-1200@2x.png 2x',
+                imgAlt: '',
+                imgWidth: '765',
+                imgHeight: '92',
+                imgLazy: true
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Desktop 960 px</h3>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/grid/Grid-960.png',
+                imgSrcset: 'img/grid/Grid-960@2x.png 2x',
+                imgAlt: '',
+                imgWidth: '620',
+                imgHeight: '92',
+                imgLazy: true
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Tablet 768 px</h3>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/grid/Grid-768.png',
+                imgSrcset: 'img/grid/Grid-768@2x.png 2x',
+                imgAlt: '',
+                imgWidth: '487',
+                imgHeight: '92',
+                imgLazy: true
+            } %}
+        </div>
+
+        <div class="sg-block-space">
+            <h3>Mobile 375 px</h3>
+            {% include "../../site/component/1-atom/a-img.twig" with {
+                imgUrl: 'img/grid/Grid-375.png',
+                imgSrcset: 'img/grid/Grid-375@2x.png 2x',
+                imgAlt: '',
+                imgWidth: '240',
+                imgHeight: '92',
+                imgLazy: true
+            } %}
+        </div>
+
+
+        <div class="sg-block-space">
+            <h2>Développer en utilisant la grille</h2>
+            <p>Toute page doit être construite en se basant sur la grille Bootstrap.</p>
+            <p>Certaines règles doivent être respectées :</p>
+            <div class="wysiwyg">
+                <ul>
+                    <li>Lorsque la grille est utilisée, elle doit toujours être contenue dans un <code>div.container</code>.</li>
+                    <li>La largeur maximale de ce conteneur est fixée à <code>123rem</code>. Cela signifie que même sur un écran d'ordinateur très large, le contenu ne dépassera jamais cette largeur.</li>
+                    <li>Si (et seulement si) la grille contient des colonnes, alors elles doivent être englobées dans un <code>div.row</code>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Grille Bootstrap</h2>
+            <p>La grille ANS est basée sur la grille Bootstrap 4.5, qui dispose d'une abondante documentation et est extrêmement bien prise en charge. <a href="https://getbootstrap.com/docs/4.5/layout/grid/" target="_blank">Accédez à la documentation Grille sur Bootstrap</a>.</p>
+            <p>Elle est utilisée pour construire les pages et assembler les composants entre eux. Exemple :</p>
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismLarge: true } %}
+                {% block embedToInclude %}
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-8 text-center">
+                            <h1>Titre h1</h1>
+                            <p class="lead">Chapô. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis itaque dolores alias iste hic, exercitationem perspiciatis beatae quaerat possimus doloribus maiores, cum aut ullam optio voluptatum veritatis assumenda a odio?</p>
+                            <p class="fz-16">Le symbole * indique les champs obligatoires</p>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}

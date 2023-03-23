@@ -1,0 +1,38 @@
+.m-teaser--video {
+    position: relative;
+    display: block;
+    width: 100%;
+
+    &:focus {
+        outline-color: var(--white);
+        outline-offset: -5px;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        width: 3.7rem;
+        height: 4.8rem;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 37 48'%3E%3Cpath d='M7.931 1.74l26.343 19.063A5 5 0 0134.136 29L7.794 46.75A5 5 0 010 42.602V5.79a5 5 0 017.931-4.05z' fill='%23FFF'/%3E%3C/svg%3E");
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: var(--gray-800);
+        opacity: 0.5;
+    }
+}
