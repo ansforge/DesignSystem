@@ -65,8 +65,8 @@ Ex. du composant qui a pour class `.a-info` :
 # Mise à jour de version
 
 A chaque mise à jour de version :
-- Mettre à jour la date de livraison et le numéro de version sur la page `index.twig`
-- Lister tous les nouveaux éléments et les modifications apportées par la version sur la page `sg-versions.twig`
+- Mettre à jour la date de livraison et le numéro de version sur la page `web/src/twig/styleguide/page/index.twig`
+- Lister tous les nouveaux éléments et les modifications apportées par la version sur la page `web/src/twig/styleguide/page/sg-versions.twig`
 - Lancer la commande `fin gulp` pour générer tous les fichiers puis zipper la version (les éléments du dossier `web/styleguide`) **en retirant les .zip des anciennes versions du dossier /zip**
 - Placer le nouveau fichier .zip dans le dossier `web/src/zip`
 - Vérifier le poids noté dans les twig de tous les fichiers zip. Vous obtiendrez ces informations dans la console en lançant la commande `fin gulp` (fonction zipSizes)
