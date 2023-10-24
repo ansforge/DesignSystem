@@ -1,0 +1,29 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Designers' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Pour commencer",
+            blockTitle: title
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Lien vers la librairie Sketch</h2>
+            <p>À ce jour, nous mettons à disposition une librairie Sketch, dans laquelle on pourra retrouver les composants graphiques utilisés dans ce Système de Design&nbsp;:</p>
+
+            <div class="wysiwyg">
+                {% include "../../styleguide/component/2-molecule/m-sg-file.twig" with {
+                    fileIsNotDownload: true,
+                    fileUrl: "/zip/LIBRAIRIE-ANS-SKETCH.zip",
+                    fileTarget: "_blank",
+                    fileName: "Librairie ANS - Sketch",
+                } %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,1 +1,7 @@
 .idea
+
+node_modules
+
+# Generated folders by gulp compilation
+site
+styleguide
