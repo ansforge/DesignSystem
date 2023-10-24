@@ -14,9 +14,9 @@ Pour la première fois
 fin init
 ```
 
-Pour mettre à jour votre site
+Pour recompiler le guide de style
 ```
-fin update-site
+fin compile
 ```
 
 Pour lancer la commande manuellement :

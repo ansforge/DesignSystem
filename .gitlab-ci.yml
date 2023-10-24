@@ -124,7 +124,7 @@ generate_package:
     - .tags_rules
   script:
     - |
-      cat <<EOT >> ./web/version.json
+      cat <<EOT >> ./version.json
       {
         "project": "${CI_PROJECT_NAME}",
         "build_date": "$(date +"%Y-%m-%d %H:%M:%S %Z")",
@@ -139,7 +139,7 @@ generate_package:
     - sudo chown -R docker:docker .
     # Build package
     - |
-      zip -qr ${PACKAGES_NAME} web/site web/styleguide web/version.json \
+      zip -qr ${PACKAGES_NAME} site styleguide version.json \
       -x \*\*/node_modules/\*
   artifacts:
     paths:
