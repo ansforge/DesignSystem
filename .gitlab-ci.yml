@@ -45,8 +45,8 @@ build:site:
     - ./node_modules/.bin/gulp
   artifacts:
     paths:
-      - web/site
-      - web/styleguide
+      - site
+      - styleguide
     expire_in: 1 hour
 
 ################################################################################
