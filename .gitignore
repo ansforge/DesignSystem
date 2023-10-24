@@ -2,5 +2,6 @@
 
 node_modules
 
-web/site
-web/styleguide
+# Generated folders by gulp compilation
+site
+styleguide

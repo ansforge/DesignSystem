@@ -48,9 +48,9 @@ const
 |--------------------------------------------------------------------------
 */
 const target = {
-    'src': './web/src/',
-    'buildSite': './web/site/',
-    'buildStyleguide': './web/styleguide/',
+    'src': './src/',
+    'buildSite': './site/',
+    'buildStyleguide': './styleguide/',
 };
 // File paths
 const files = {
@@ -309,7 +309,7 @@ function assets(){
         target.src + 'img/logo-ANS-footer.svg',
         target.src + 'img/logo-ANS.svg',
         target.src + 'img/logo-ministere.svg',
-    ],  {base: 'web/src/img'}) // defines a base to keep folder structure: https://stackoverflow.com/questions/35845039/how-base-option-affects-gulp-src-gulp-dest/35848322#35848322
+    ],  {base: 'src/img'}) // defines a base to keep folder structure: https://stackoverflow.com/questions/35845039/how-base-option-affects-gulp-src-gulp-dest/35848322#35848322
         .pipe(dest(target.buildSite + 'img'));
 
     const assetsImgStyleguide = src(files.imgToWatch)
