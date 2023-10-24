@@ -30,7 +30,7 @@ echo_yellow () { echo -e "${yellow}$1${NC}"; }
 # Compile SCSS
 compile ()
 {
-  echo_green "Compiling"
+  #echo_green "Compiling"
   fin gulp
 }
 
