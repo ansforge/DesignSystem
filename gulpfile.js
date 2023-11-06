@@ -49,8 +49,7 @@ const
 */
 const target = {
     'src': './src/',
-    'buildFolder': './__public/',
-    'buildSite': './__public/site/',
+    'buildSite': './site/',
     'buildStyleguide': './docs/',
 };
 // File paths
@@ -101,7 +100,7 @@ var svgSpriteconfig = {
 */
 // Clean task: delete generated files
 function clean(){
-    return del(target.buildFolder);
+    return del([target.buildSite, target.buildStyleguide]);
 }
 
 // Twig task: compiles the .twig files into .html
@@ -310,7 +309,7 @@ function assets(){
         target.src + 'img/logo-ANS-footer.svg',
         target.src + 'img/logo-ANS.svg',
         target.src + 'img/logo-ministere.svg',
-    ],  {base: './src/img/'}) // defines a base to keep folder structure: https://stackoverflow.com/questions/35845039/how-base-option-affects-gulp-src-gulp-dest/35848322#35848322
+    ],  {base: 'src/img'}) // defines a base to keep folder structure: https://stackoverflow.com/questions/35845039/how-base-option-affects-gulp-src-gulp-dest/35848322#35848322
         .pipe(dest(target.buildSite + 'img'));
 
     const assetsImgStyleguide = src(files.imgToWatch)
