@@ -1,0 +1,10 @@
+# Variables template:
+# @see https://docs.gitlab.com/ee/ci/variables
+# @see https://docs.gitlab.com/ee/ci/yaml/#variables
+variables:
+  GIT_DEPTH: 10
+
+# Packaging
+.package_variables:
+  variables:
+    PACKAGE_REGISTRY_URL: "https://git.kleegroup.com/api/v4/projects/313/packages/generic/esante"
