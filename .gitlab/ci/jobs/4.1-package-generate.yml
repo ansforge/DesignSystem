@@ -5,7 +5,7 @@
     - !reference [.build_rules, rules]
   script:
     - |
-      cat <<EOT >> ./web/version.json
+      cat <<EOT >> ./version.json
       {
         "project": "${CI_PROJECT_NAME}",
         "build_date": "$(date +"%Y-%m-%d %H:%M:%S %Z")",
@@ -19,7 +19,7 @@
     # Build package
     - |
       apk add zip
-      zip -qr ${PACKAGES_NAME} site styleguide version.json \
+      zip -qr ${PACKAGE_NAME} site styleguide version.json \
       -x \*\*/node_modules/\*
   artifacts:
     paths:
