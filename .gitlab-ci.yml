@@ -1,170 +1,44 @@
 ################################################################################
-# Gitlab CI integration for Drupal 9.
+# Gitlab CI integration for Esante.
 ################################################################################
 
 include:
-  - '/.gitlab/ci/base.yml'
-  - '/.gitlab/ci/images.yml'
-  - '/.gitlab/ci/variables.yml'
-  - '/.gitlab/ci/rules.yml'
-  - '/.gitlab/ci/deploy.yml'
-  - '/.gitlab/ci/jira.yml'
+  - local: .gitlab/ci/jobs/*.yml # Include abstract jobs to be extended
+  - local: .gitlab/ci/fragments/*.yml # Include any non-job yml fragments
 
 default:
-  image: docksal/cli:php8.1
   tags:
     - ans-g2-g3
 
 ################################################################################
 # Stages.
 ################################################################################
-
-# Order is important fo dependency!
+# Order is important for dependencies!
 stages:
   - build
-  - audits
-  - tests
-  - deploy
-  - jira
-  - release
   - lint
+  - audits
+  - packaging
+  - deploy
+  - external
 
 ################################################################################
 # Build job.
 ################################################################################
-
-build:site:
-  stage: build
-  needs: []
-  extends:
-    - .node_image
-    - .build_rules
-  before_script:
-    - npm ci
-  script:
-    - ./node_modules/.bin/gulp
-  artifacts:
-    paths:
-      - site
-      - styleguide
-    expire_in: 1 hour
-
-################################################################################
-# Code quality jobs.
-################################################################################
-
-# Sonar
-#sonar:
-#  extends:
-#    - .sonar
-#  rules:
-#    - !reference [.git_interne, rules]
-#    - !reference [.merge_request, rules]
-
-#owasp_dependency_check:
-#  extends:
-#    - .owasp_dependency_check
-
-#sonar_full:
-#  stage: audits
-#  extends:
-#    - .sonar
-#  needs: ["owasp_dependency_check"]
-#  rules:
-#    - !reference [.git_interne, rules]
-#    - !reference [.develop, rules]
-#    - !reference [.tags, rules]
+site-build:
+  extends: [ .site:build, .node12-image ]
 
 ################################################################################
 # Code linter & Test jobs.
 ################################################################################
-
-#css-lint:
-#  stage: tests
-#  needs: []
-#  extends:
-#    - .css-lint
-#    - .to_merge_css
-#  variables:
-#    FOLDER: g_nius
+site-lint:
+  extends: [ .site:lint, .node12-image]
 
 ################################################################################
-# Deploy
+# Packaging
 ################################################################################
+package_generate:
+  extends: [ .package:generate ]
 
-# RUI SANTE
-#deploy_rui_sante:
-#  stage: deploy
-#  needs: ["composer", "css-build"]
-#  dependencies: ["composer", "css-build"]
-#  extends:
-#    - .sante_variables
-#    - .ssh
-#    - .rui_sante_rules
-#    - .deploy
-#  variables:
-#    GIT_STRATEGY: none
-#    ENV_IP: $RUI_IP
-#    ENV_USER: $RUI_USER
-#  environment:
-#    name: $RUI_NAME
-#    url: $RUI_URL
-
-
-################################################################################
-# Release
-################################################################################
-
-generate_package:
-  stage: build
-  needs: ["build:site"]
-  dependencies: ["build:site"]
-  extends:
-    - .ressources_variables
-    - .tags_rules
-  script:
-    - |
-      cat <<EOT >> ./version.json
-      {
-        "project": "${CI_PROJECT_NAME}",
-        "build_date": "$(date +"%Y-%m-%d %H:%M:%S %Z")",
-        "deploy_date": "",
-        "version": "${CI_COMMIT_TAG}",
-        "env": "",
-        "machine": "",
-        "job_name": "${CI_JOB_NAME}"
-      }
-      EOT
-    # Fix ownership
-    - sudo chown -R docker:docker .
-    # Build package
-    - |
-      zip -qr ${PACKAGES_NAME} site styleguide version.json \
-      -x \*\*/node_modules/\*
-  artifacts:
-    paths:
-      - $PACKAGES_NAME
-
-upload_package:
-  stage: release
-  needs: ["generate_package"]
-  dependencies: ["generate_package"]
-  extends:
-    - .ressources_variables
-    - .tags_rules
-  script:
-    - 'curl -k --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file ${PACKAGES_NAME} "${PACKAGE_REGISTRY_URL}${PACKAGES_NAME}"'
-
-generate_release:
-  stage: release
-  needs: ["upload_package"]
-  dependencies: ["upload_package"]
-  extends:
-    - .ressources_variables
-    - .tags_rules
-  script:
-    - |
-      curl -k --header 'Content-Type: application/json' \
-      --header "JOB-TOKEN: $CI_JOB_TOKEN" \
-      --data '{ "name": "Release Ressources '$CI_COMMIT_TAG'", "tag_name": "'${CI_COMMIT_TAG}'", "description": "Release '${CI_COMMIT_TAG}'", "assets": { "links": [ { "name": "'${PACKAGES_NAME}'", "url": "'${PACKAGE_REGISTRY_URL}${PACKAGES_NAME}'"} ] } }' \
-      --request POST "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/releases"
+package_upload:
+  extends: [ .package:upload ]
