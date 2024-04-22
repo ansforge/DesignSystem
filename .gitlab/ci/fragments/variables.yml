@@ -7,4 +7,4 @@ variables:
 # Packaging
 .package_variables:
   variables:
-    PACKAGE_REGISTRY_URL: "https://git.kleegroup.com/api/v4/projects/315/packages/generic/esante-ressources"
+    PACKAGE_REGISTRY_URL: "https://git.kleegroup.com/api/v4/projects/315/packages/generic/ressources"

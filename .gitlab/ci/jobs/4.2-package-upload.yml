@@ -8,3 +8,7 @@
     - apk add curl
     - echo "${PACKAGE_REGISTRY_URL}/${RELEASE_NAME}/${PACKAGE_NAME}"
     - 'curl --header "PRIVATE-TOKEN: $EXTERNAL_GIT_TOKEN" --upload-file ${PACKAGE_NAME} "${PACKAGE_REGISTRY_URL}/${RELEASE_NAME}/${PACKAGE_NAME}"'
+  release:
+    name: 'Ressources $RELEASE_NAME'
+    tag_name: '$RELEASE_NAME'
+    ref: '$CI_COMMIT_SHA'
