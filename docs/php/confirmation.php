@@ -315,6 +315,10 @@
                 </li>
 
                 <li class="nav-item common-nav-item">
+                  <a class="nav-link" href="sg-support.html">Support</a>
+                </li>
+
+                <li class="nav-item common-nav-item">
                   <a class="nav-link" href="sg-versions.html">Versions</a>
                 </li>
               </ul>
