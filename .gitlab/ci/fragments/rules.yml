@@ -15,7 +15,7 @@
 
 .syncho-github-ans:
   rules:
-    - if: $CI_COMMIT_BRANCH == "syncho-github-ans"
+    - if: $CI_COMMIT_BRANCH == "synchro-github-ans"
 
 # new tag
 .tags:

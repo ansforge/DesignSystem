@@ -12,8 +12,11 @@
     - git config --global user.email "${GITLAB_USER_EMAIL}"
     - git checkout -b temp-branch
     - git rm -r --cached .
+    - git add .gitignore
     - git add *
     - git commit -m "Synchro Klee ANS"
     - git remote add github-ans https://root:$GITHUB_TOKEN@$GITHUB_URL
-    #- git push github-ans temp-branch:main-klee
+    - git pull github-ans main-klee
+    - git push github-ans temp-branch:main-klee
+    - git checkout synchro-github-ans
     - git branch -D temp-branch
