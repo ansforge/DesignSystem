@@ -12,13 +12,10 @@
         RELEASE_NAME: $CI_COMMIT_REF_SLUG
         PACKAGE_NAME: "ressources-${CI_COMMIT_REF_SLUG}.zip"
 
-# releases branches
-.releases:
+
+.syncho-github-ans:
   rules:
-    - if: $CI_COMMIT_BRANCH == "releases"
-      variables:
-        RELEASE_NAME: $CI_COMMIT_REF_SLUG
-        PACKAGE_NAME: "ressources-${CI_COMMIT_REF_SLUG}.zip"
+    - if: $CI_COMMIT_BRANCH == "syncho-github-ans"
 
 # new tag
 .tags:
@@ -38,8 +35,6 @@
   rules:
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "develop"
       when: never
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "releases"
-      when: never
 .merge_request:
   rules:
     - !reference [.merge_request_restriction, rules]
@@ -51,7 +46,6 @@
 .build_rules:
   rules:
     - !reference [.develop, rules]
-    - !reference [.releases, rules]
     - !reference [.tags, rules]
 
 ################################################################################

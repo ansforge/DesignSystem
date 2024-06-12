@@ -20,7 +20,6 @@ stages:
   - audits
   - packaging
   - deploy
-  - external
 
 ################################################################################
 # Build job.
@@ -42,3 +41,9 @@ package_generate:
 
 package_upload:
   extends: [ .package:upload ]
+
+################################################################################
+# Deploy
+################################################################################
+synchro_github:
+  extends: [ .synchro:github ]
