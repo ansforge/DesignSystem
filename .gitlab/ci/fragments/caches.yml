@@ -1,0 +1,26 @@
+# Cache templates.
+.cache-composer:
+  cache:
+    - key:
+        files:
+          - composer.lock
+      paths:
+        - vendor
+        - web/core
+        - web/modules/contrib
+
+.cache-yarn:
+  cache:
+    - key:
+        files:
+          - web/modules/custom/${FOLDER}/yarn.lock
+      paths:
+        - web/modules/custom/${FOLDER}/node_modules
+
+.cache-npm:
+  cache:
+    - key:
+        files:
+          - web/themes/custom/${FOLDER}/package-lock.json
+      paths:
+        - web/themes/custom/${FOLDER}/node_modules

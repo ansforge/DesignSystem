@@ -1,0 +1,27 @@
+.package:generate:
+  stage: packaging
+  needs: [ "site-build" ]
+  rules:
+    - !reference [.build_rules, rules]
+  script:
+    - |
+      cat <<EOT >> ./version.json
+      {
+        "project": "${CI_PROJECT_NAME}",
+        "build_date": "$(date +"%Y-%m-%d %H:%M:%S %Z")",
+        "deploy_date": "",
+        "version": "${RELEASE_NAME}",
+        "env": "",
+        "machine": "",
+        "job_name": "${CI_JOB_NAME}"
+      }
+      EOT
+    # Build package
+    - |
+      apk add zip
+      zip -qr ${PACKAGE_NAME} site styleguide version.json \
+      -x \*\*/node_modules/\*
+  artifacts:
+    paths:
+      - $PACKAGE_NAME
+    expire_in: 1 day

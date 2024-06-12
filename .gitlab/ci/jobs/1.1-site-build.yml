@@ -1,0 +1,15 @@
+.site:build: # abstract
+  stage: build
+  needs: []
+  extends:
+    - .cache-npm
+  rules:
+    - !reference [ .build_rules, rules ]
+  script:
+    - npm ci
+    - ./node_modules/.bin/gulp
+  artifacts:
+    paths:
+      - site
+      - styleguide
+    expire_in: 1 hour

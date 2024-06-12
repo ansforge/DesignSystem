@@ -1,0 +1,54 @@
+{
+  "@type": "MessageCard",
+  "@context": "https://schema.org/extensions",
+  "themeColor": "{{color}}",
+  "summary": "Deploy success",
+  "sections": [
+    {
+      "activityTitle": "{{activityTitle}}",
+      "activitySubtitle": "{{activitySubtitle}}",
+      "activityImage": "{{activityImage}}",
+      "facts": [
+        {
+          "name": "Environnement",
+          "value": "{{env}}"
+        },
+        {
+          "name": "Durée",
+          "value": "{{duration}}"
+        },
+        {
+          "name": "Etat",
+          "value": "{{state}}"
+        }
+      ],
+      "markdown": true,
+      "potentialAction": [
+        {
+          "@type": "OpenUri",
+          "name": "Détails du job",
+          "targets": [
+            {
+              "os": "default",
+              "uri": "{{job_url}}"
+            }
+          ]
+        },
+        {
+          "@type": "OpenUri",
+          "name": "Liste des US déployées",
+          "targets": [
+            {
+              "os": "default",
+              "uri": "{{us_list}}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "activityTitle": "{{jiraTitle}}",
+      "activitySubtitle": "{{jiraSubtitle}}"
+    }
+  ]
+}
