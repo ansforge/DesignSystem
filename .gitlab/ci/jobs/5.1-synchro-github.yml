@@ -5,18 +5,22 @@
   rules:
     - !reference [.syncho-github-ans, rules]
   variables:
-    GITHUB_TOKEN: #add to gitlab variables when fix
     GITHUB_URL: github.com/ansforge/DesignSystem.git
   script:
+    - apk add git
     - git config --global user.name "${GITLAB_USER_NAME}"
     - git config --global user.email "${GITLAB_USER_EMAIL}"
-    - git checkout -b temp-branch
+    - git checkout -B temp-branch
     - git rm -r --cached .
     - git add .gitignore
     - git add *
     - git commit -m "Synchro Klee ANS"
-    - git remote add github-ans https://root:$GITHUB_TOKEN@$GITHUB_URL
-    - git pull github-ans main-klee
+    - git remote set-url github-ans https://root:$GITHUB_TOKEN@$GITHUB_URL
+    - rm -fr ".git/rebase-merge"
+    - git pull --no-rebase --no-edit github-ans main-klee
     - git push github-ans temp-branch:main-klee
+    - git clean -f
+    - git clean -df
     - git checkout synchro-github-ans
     - git branch -D temp-branch
+    - git remote rm github-ans
