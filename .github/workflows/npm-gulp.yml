@@ -27,8 +27,8 @@ jobs:
     - name: Create Pull Request
       # You may pin to the exact commit or the version.
       # uses: peter-evans/create-pull-request@18f7dc018cc2cd597073088f7c7591b9d1c02672
-      uses: peter-evans/create-pull-request@v3.14.0
-      #with:
+      uses: peter-evans/create-pull-request
+      #with: // Ok Version 6.1.0 
         # GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)
         #token: 
         # optional, default is ${{ github.token }}
