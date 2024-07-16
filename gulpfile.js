@@ -50,7 +50,7 @@ const
 const target = {
     'src': './src/',
     'buildSite': './site/',
-    'buildStyleguide': './docs/',
+    'buildStyleguide': './styleguide/',
 };
 // File paths
 const files = {
