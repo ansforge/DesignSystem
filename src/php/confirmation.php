@@ -29,7 +29,7 @@
     </ul>
   </nav>
   <div class="body-wrapper layout-navLeft">
-    <header class="header sg-header-principal" role="banner">
+    <header class="header header-principal sg-header-principal" role="banner">
       <div class="sg-header-principal--left">
         <div class="sg-header-principal__logo">
           <div class="logos">
