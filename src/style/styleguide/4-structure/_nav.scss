@@ -1,4 +1,5 @@
-.sg-header-principal__nav {
+.sg-header-principal__nav,
+.sg-menu-slide-bar {
     .navbar-toggler {
         width: var(--sg-header-height);
         height: var(--sg-header-height);
@@ -37,6 +38,7 @@
     }
 
     .navbar-nav {
+
         // Hover
         .nav-link {
             width: 100%;
@@ -71,9 +73,10 @@
 
         // Active
         .is-active {
+
             &,
             &.show {
-                > .nav-link {
+                >.nav-link {
                     font-weight: $fw-semiBold;
                     color: var(--primary);
                     background-color: $gray-200;
@@ -94,10 +97,10 @@
     .nav-lvl--1 {
         padding: 3rem 1.8rem;
 
-        > li {
+        >li {
             margin-bottom: 2rem;
 
-            > .nav-link {
+            >.nav-link {
                 font-size: 2rem;
                 font-weight: $fw-semiBold;
                 color: $black;
