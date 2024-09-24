@@ -16,5 +16,5 @@
   release:
     name: 'Ressources $RELEASE_NAME'
     description: 'Ressources Package'
-    tag_name: '$RELEASE_NAME'
+    tag_name: "Ressource::$RELEASE_NAME"
     ref: '$CI_COMMIT_SHA'
