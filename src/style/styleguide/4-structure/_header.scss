@@ -1,5 +1,10 @@
 .sg-header-principal {
-    position: relative;
+    position: relative; // position relative needed for z-index to works in case position sticky isn't supported by the browser
+    /* autoprefixer: off */
+    position: -webkit-sticky;
+    position: sticky;
+    /* autoprefixer: on */
+    top: 0;
     display: flex;
     justify-content: space-between;
 
