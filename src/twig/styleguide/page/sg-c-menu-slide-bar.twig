@@ -1,0 +1,28 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Menu latéral slide bar' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "Le menu latéral permet aux utilisateurs de naviguer entre les différentes pages d’une rubrique ou d’un même thème.
+        Le menu latéral est un système de navigation vertical présentant une liste de liens placée à côté du contenu (à gauche ou à droite de la page) et donnant accès jusqu'à 3 niveaux d’arborescence."
+        } %}
+
+
+        <div class="sg-block-space">
+            {% include "../component/3-organism/o-sg-prism.twig" with {
+                twigToInclude: '../../../site/component/3-organism/o-menu-side-bar.twig'
+            } %}
+           
+        </div>
+
+         <div class="sg-block-space">
+            <h2>Version mobile</h2>
+            </div>
+    </div>
+
+{% endblock %}
