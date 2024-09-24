@@ -11,16 +11,16 @@
 }
 
 $palette-colors: (
-    "primary":          var(--primary),
-    "primary-dark":     var(--primary-dark),
-    "primary-darker":   var(--primary-darker),
+    "primary": var(--primary),
+    "primary-dark": var(--primary-dark),
+    "primary-darker": var(--primary-darker),
 
-    "secondary":        var(--brand-2),
+    "secondary": var(--brand-2),
 
-    "danger":           $danger,
-    "warning":          $warning,
-    "success":          $success,
-    "info":             $info,
+    "danger": $danger,
+    "warning": $warning,
+    "success": $success,
+    "info": $info,
 
     // "white":    var(--white), // color white is already in /site CSS
     "gray-100": var(--gray-100),
@@ -31,7 +31,7 @@ $palette-colors: (
     "gray-600": var(--gray-600),
     "gray-700": var(--gray-700),
     "gray-800": var(--gray-800),
-    "black":    var(--black),
+    "black": var(--black),
 
     "i-green-darker": #184737,
     "i-green-dark": #316E58,
@@ -66,3 +66,4 @@ $palette-colors: (
 );
 
 $prism-component-max-width: 57rem;
+$box-shadow-lg: 0 1.5rem 4rem rgba(52, 56, 82, .1);

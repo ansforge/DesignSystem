@@ -5,6 +5,7 @@
 
     border-bottom: solid 0.1rem $border-color;
     background-color: $white;
+    box-shadow: var(--box-shadow-lg);
 }
 
 .sg-header-principal--left,
@@ -57,6 +58,7 @@
 }
 
 @include media-breakpoint-down(md) {
+
     // the logo is centered
     .sg-header-principal--left {
         @include aw-make-col-auto();
