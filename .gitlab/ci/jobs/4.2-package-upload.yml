@@ -4,6 +4,8 @@
   extends: .package_variables
   rules:
   - !reference [.build_rules, rules]
+  variables:
+    ADDITIONAL_CA_CERT_BUNDLE: ${CI_KLEE_CA_CERTIFICATE_PATH}
   before_script:
     - apk add curl
     - curl --location --output /usr/local/bin/release-cli "https://gitlab.com/api/v4/projects/gitlab-org%2Frelease-cli/packages/generic/release-cli/latest/release-cli-linux-amd64"
