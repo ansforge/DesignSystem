@@ -6,7 +6,7 @@
   - !reference [.build_rules, rules]
   before_script:
     - apk add curl
-    - curl --location --output /usr/local/bin/release-cli "qrelease-cli-linux-amd64"
+    - curl --location --output /usr/local/bin/release-cli "https://gitlab.com/api/v4/projects/gitlab-org%2Frelease-cli/packages/generic/release-cli/latest/release-cli-linux-amd64"
     - sudo chmod +x /usr/local/bin/release-cli
   script: # upload to git externe packages
     - echo "${PACKAGE_REGISTRY_URL}/${RELEASE_NAME}/${PACKAGE_NAME}"
