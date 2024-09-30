@@ -125,3 +125,23 @@
         }
     }
 }
+
+.sg-menu-slide-bar {
+    display: block;
+    width: var(--sg-nav-left-width);
+    background-color: $white;
+    border-right: .1rem solid var(--gray-400, #dee0ea);
+
+    .fr-sidemenu__inner {
+        width: 100%;
+    }
+}
+
+/* in design system */
+.o-sg-prism {
+    .sg-menu-slide-bar {
+        .navbar-collapse {
+            position: initial;
+        }
+    }
+}
