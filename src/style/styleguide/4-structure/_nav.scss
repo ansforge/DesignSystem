@@ -160,6 +160,10 @@
             &[aria-expanded="false"]+.fr-collapse {
                 display: none;
 
+                @include media-breakpoint-up(lg) {
+                    display: block;
+                }
+
             }
         }
     }
