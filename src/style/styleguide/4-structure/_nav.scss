@@ -126,14 +126,38 @@
     }
 }
 
+/* specifications for slide menu component */
 .sg-menu-slide-bar {
     display: block;
-    width: var(--sg-nav-left-width);
     background-color: $white;
     border-right: .1rem solid var(--gray-400, #dee0ea);
 
-    .fr-sidemenu__inner {
+    .navbar-collapse {
         width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            width: var(--sg-nav-left-width);
+        }
+
+        .navbar-toggler {
+            width: 100%;
+            font-size: inherit;
+
+            .navbar-toggler-close {
+                display: none;
+            }
+
+            &[aria-expanded="true"] {
+                .navbar-toggler-close {
+                    display: inline-block;
+                    color: $white;
+                }
+            }
+
+            &[aria-expanded="false"]+.fr-collapse {
+                display: none;
+            }
+        }
     }
 }
 
