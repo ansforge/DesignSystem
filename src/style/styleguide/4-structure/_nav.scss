@@ -143,19 +143,23 @@
             width: 100%;
             font-size: inherit;
 
-            .navbar-toggler-close {
-                display: none;
+            &[aria-expanded="true"] {
+                svg {
+                    transform: rotate(-90deg);
+                }
             }
 
-            &[aria-expanded="true"] {
-                .navbar-toggler-close {
-                    display: inline-block;
-                    color: $white;
+            &[aria-expanded="false"] {
+                svg {
+                    width: 0.8rem;
+                    margin-left: auto;
+                    transition: transform 250ms ease;
                 }
             }
 
             &[aria-expanded="false"]+.fr-collapse {
                 display: none;
+
             }
         }
     }
