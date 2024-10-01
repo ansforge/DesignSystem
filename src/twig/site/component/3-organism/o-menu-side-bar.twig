@@ -18,7 +18,6 @@
                 <li class="nav-item common-nav-item">
                     <button class="nav-link" aria-expanded="false" aria-controls="fr-sidemenu-item-0" data-toggle="collapse" data-target="#fr-sidemenu-item-0">
                     Niveau 1
-                    {%- if item.isActive %} <span class="sr-only">(page courante)</span>{% endif -%}
                     {{ macro.svg("angle-down") }}
                     </button>
                     <div class="nav-collapse collapse" id="fr-sidemenu-item-0" data-fr-js-collapse="true" data-fr-js-sidemenu-section-actionee="true" style="--collapse: -304px;">
@@ -29,7 +28,6 @@
                         <li class="nav-item common-nav-item" data-fr-js-sidemenu-item="true">
                             <button class="nav-link" aria-expanded="false" aria-controls="fr-sidemenu-item-0-sub" data-toggle="collapse" data-target="#fr-sidemenu-item-0-sub">
                                 Niveau 2
-                                {%- if item.isActive %} <span class="sr-only">(page courante)</span>{% endif -%}
                                 {{ macro.svg("angle-down") }}
                             </button>
                             <div class="nav-collapse collapse" id="fr-sidemenu-item-0-sub" data-fr-js-collapse="true" data-fr-js-sidemenu-section-actionee="true" style="--collapse: -304px;">
