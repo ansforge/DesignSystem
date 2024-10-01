@@ -1,6 +1,10 @@
-.sg-header-principal__nav {
+.sg-menu-slide-bar {
+    display: block;
+    background-color: $white;
+    border-right: .1rem solid var(--gray-400, #dee0ea);
+
     .navbar-toggler {
-        width: var(--sg-header-height);
+        width: 100%;
         height: var(--sg-header-height);
 
         background-color: var(--primary);
@@ -10,30 +14,62 @@
         border: 0;
         border-right: solid 0.1rem;
         border-radius: 0;
-    }
 
-    .navbar-toggler-close {
-        display: block;
-        margin-left: auto;
-        width: 5rem;
-        height: 5rem;
-        color: $gray-800;
+        font-size: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 3.7rem;
 
-        @include hover-focus {
-            color: var(--primary);
+        @include media-breakpoint-up(lg) {
+            display: none;
+        }
+
+        &[aria-expanded="true"] {
+            svg {
+                transition: transform 250ms ease;
+                margin-left: 1rem;
+            }
+        }
+
+        &[aria-expanded="false"] {
+            svg {
+                width: 0.8rem;
+                margin-left: 1rem;
+                transform: rotate(-90deg);
+            }
+        }
+
+        &[aria-expanded="false"]+.fr-collapse {
+            display: none;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+
         }
     }
 
     .navbar-collapse {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: $zindex-fixed;
-        overflow-y: auto;
-
+        width: 100%;
+        position: relative;
         background-color: $white;
+
+        @include media-breakpoint-up(lg) {
+            width: var(--sg-nav-left-width);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: $zindex-fixed;
+            overflow-y: auto;
+        }
+    }
+
+    // Optionnal title (DSFR structure)
+    .menu-slide-bar__title {
+        margin: 3rem .5rem 0 3.7rem;
     }
 
     .navbar-nav {
@@ -121,6 +157,16 @@
 
         .navbar-nav {
             display: block;
+        }
+    }
+}
+
+/* in design system only */
+.o-sg-prism {
+    .sg-menu-slide-bar {
+        .navbar-collapse {
+            position: initial;
+            z-index: 1;
         }
     }
 }
