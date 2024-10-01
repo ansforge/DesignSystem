@@ -1,6 +1,7 @@
 <div class="sg-menu-slide-bar">
     <nav class="navbar navbar-expand-lg navbar-light" role="navigation" aria-label="Menu latéral" data-fr-js-sidemenu-actionee="true">
         <div class="fr-sidemenu__inner navbar-collapse">
+            {# mobile button #}
             <button data-toggle="collapse" data-target="#fr-sidemenu-wrapper"
             class="navbar-toggler menu-slide-bar__toggle"
             aria-controls="fr-sidemenu-wrapper"
@@ -12,6 +13,7 @@
             <div class="fr-collapse" id="fr-sidemenu-wrapper" data-fr-js-collapse="true">
                 {# optionnal title #}
                 <h3 class="menu-slide-bar__title" id="fr-sidemenu-title">Titre de rubrique</h3>
+                {# menu list #}
                 <ul class="navbar-nav nav-lvl--1">
                 <li class="nav-item common-nav-item">
                     <button class="nav-link" aria-expanded="false" aria-controls="fr-sidemenu-item-0" data-toggle="collapse" data-target="#fr-sidemenu-item-0">
@@ -25,7 +27,17 @@
                         <a class="nav-link" href="#" target="_self" data-fr-js-sidemenu-link-actionee="true">Accès direct niveau 2</a>
                         </li>
                         <li class="nav-item common-nav-item" data-fr-js-sidemenu-item="true">
-                        <a class="nav-link" href="#" target="_self" data-fr-js-sidemenu-link-actionee="true">Accès direct niveau 2</a>
+                            <button class="nav-link" aria-expanded="false" aria-controls="fr-sidemenu-item-2" data-toggle="collapse" data-target="#fr-sidemenu-item-2">
+                                Niveau 2
+                                {%- if item.isActive %} <span class="sr-only">(page courante)</span>{% endif -%}
+                                {{ macro.svg("angle-down") }}
+                            </button>
+                            <div class="nav-collapse collapse" id="fr-sidemenu-item-2" data-fr-js-collapse="true" data-fr-js-sidemenu-section-actionee="true" style="--collapse: -304px;">
+                            <ul class="navbar-nav nav-lvl--2" data-fr-js-sidemenu-list="true">
+                                <li class="nav-item common-nav-item" data-fr-js-sidemenu-item="true">
+                                    <a class="nav-link" href="#" target="_self" data-fr-js-sidemenu-link-actionee="true">Accès direct niveau 3</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item common-nav-item" data-fr-js-sidemenu-item="true">
                         <a class="nav-link" href="#" target="_self" data-fr-js-sidemenu-link-actionee="true">Accès direct niveau 2</a>
