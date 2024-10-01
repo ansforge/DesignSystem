@@ -144,18 +144,27 @@
         .navbar-toggler {
             width: 100%;
             font-size: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 3.7rem;
+
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
 
             &[aria-expanded="true"] {
                 svg {
-                    transform: rotate(-90deg);
+                    transition: transform 250ms ease;
+                    margin-left: 1rem;
                 }
             }
 
             &[aria-expanded="false"] {
                 svg {
                     width: 0.8rem;
-                    margin-left: auto;
-                    transition: transform 250ms ease;
+                    margin-left: 1rem;
+                    transform: rotate(-90deg);
                 }
             }
 
@@ -168,14 +177,20 @@
 
             }
         }
+
+        /* optionnal title */
+        .menu-slide-bar__title {
+            margin: 3rem .5rem 0 3.7rem;
+        }
     }
 }
 
-/* in design system */
+/* in design system only */
 .o-sg-prism {
     .sg-menu-slide-bar {
         .navbar-collapse {
             position: initial;
+            z-index: 1;
         }
     }
 }
