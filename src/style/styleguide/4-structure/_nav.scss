@@ -132,11 +132,13 @@
     background-color: $white;
     border-right: .1rem solid var(--gray-400, #dee0ea);
 
-    .navbar-collapse {
+    .navbar .navbar-collapse {
         width: 100%;
+        position: relative;
 
         @include media-breakpoint-up(lg) {
             width: var(--sg-nav-left-width);
+            position: fixed;
         }
 
         .navbar-toggler {
