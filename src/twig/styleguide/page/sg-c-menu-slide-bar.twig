@@ -23,7 +23,19 @@
             <h2>Version mobile</h2>
             <p> En version mobile, le menu latéral est masqué par défaut et est remplacé par le bouton "Dans cette rubrique". Au clic sur ce dernier, le menu se déplie et affiche l’ensemble de la liste de liens. 
             </p>
-            </div>
+            {% embed "../component/3-organism/o-sg-prism.twig" with { prismCollapse: false } %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/1-atom/a-img.twig" with {
+                        imgUrl: 'img/blocs/menu-slide-bar.jpg',
+                        imgSrcset: 'img/blocs/menu-slide-bar.jpg',
+                        imgAlt: 'Menu latéral',
+                        imgWidth: '376',
+                        imgHeight: '168',
+                        imgLazy: true
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
     </div>
 
 {% endblock %}
