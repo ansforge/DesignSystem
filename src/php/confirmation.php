@@ -279,6 +279,10 @@
                         </li>
 
                         <li class="nav-item common-nav-item">
+                          <a class="nav-link" href="sg-c-messages-cta.html">Messages avec CTA</a>
+                        </li>
+                        
+                        <li class="nav-item common-nav-item">
                           <a class="nav-link" href="sg-c-progress-bar.html">Barre de progression</a>
                         </li>
 

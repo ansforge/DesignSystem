@@ -37,4 +37,18 @@
             }
         ]
     } %}
+
+     {% if cta and ctaStyle and ctaText and ctaColor %}
+        <div class="d-flex justify-content-end mt-2">
+            {%- include "../1-atom/a-link.twig" with {
+                links: [
+                    {
+                        style: ctaStyle,
+                        color: ctaColor,
+                        text: ctaText,
+                    }
+                ]
+            } -%}
+        </div>
+    {% endif %}
 </div>

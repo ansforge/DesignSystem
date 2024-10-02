@@ -1,0 +1,89 @@
+{% extends "../../_layout-styleguide.twig" %}
+
+{% set title = 'Messages avec CTA' %}
+
+{% block main %}
+
+    <div class="sg-container-content">
+        {% include "../../styleguide/component/3-organism/o-sg-block-title.twig" with {
+            blockSubTitle: "Composants",
+            blockTitle: title,
+            blockAccroche_text: "Ces messages, qui doivent être rapidement identifiés par l'utilisateur, utilisent les <a href='sg-colors.html'>couleurs fonctionnelles</a> communes à la plupart des sites. <br> Ce composant hérite de toutes les propriétés du composant <a href='sg-c-messages.html'>Messages de statut</a> et les boutons ont les mêmes propriétes que le composant <a href='sg-c-buttons.html'>Boutons</a>"
+        } %}
+
+        <div class="sg-block-space">
+            <h2>Message d'erreur avec CTA primaire</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-alert.twig" with {
+                        alertType: "error",
+                        alertTitle: "Error message",
+                        alertText: "Probabo inquit modo dixi constituto ut ad eam non numquam eius modi tempora incidunt ut calere ignem nivem esse ratione intellegi",
+                        cta: true,
+                        ctaStyle: "plain",
+                        ctaColor: "primary",
+                        ctaText: "Bouton primaire",
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Message d'attention avec CTA alternatif</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-alert.twig" with {
+                        alertType: "warning",
+                        alertTitle: "Warning message",
+                        alertText: "Probabo inquit modo dixi constituto ut ad eam non numquam eius modi tempora incidunt ut calere ignem nivem esse ratione intellegi",
+                        cta: true,
+                        ctaStyle: "ghost",
+                        ctaColor: "primary",
+                        ctaText: "Bouton primaire alternatif",
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Message d'information avec CTA secondaire</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-alert.twig" with {
+                        alertType: "info",
+                        alertTitle: "info message",
+                        alertText: "Probabo inquit modo dixi constituto ut ad eam non numquam eius modi tempora incidunt ut calere ignem nivem esse ratione intellegi",
+                        cta: true,
+                        ctaStyle: "ghost",
+                        ctaColor: "default",
+                        ctaText: "Bouton secondaire",
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Message de réussite avec CTA primaire</h2>
+            {% embed "../component/3-organism/o-sg-prism.twig" %}
+                {% block embedToInclude %}
+                    {% include "../../site/component/3-organism/o-alert.twig" with {
+                        alertType: "success",
+                        alertTitle: "Success message",
+                        alertText: "Probabo inquit modo dixi constituto ut ad eam non numquam eius modi tempora incidunt ut calere ignem nivem esse ratione intellegi",
+                        cta: true,
+                        ctaStyle: "plain",
+                        ctaColor: "primary",
+                        ctaText: "Bouton primaire",
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="sg-block-space">
+            <h2>Accessibilité</h2>
+            <p>Si le message informe de la réussite, du résultat d’une action ou bien de l’état d’une application, ajouter un <code>role=”status”</code>.</p>
+            <p>Si le message présente une suggestion, ou avertit de l’existence d’une erreur, ajouter un <code>role=”alert”</code>. </p>
+        </div>
+    </div>
+
+{% endblock %}
