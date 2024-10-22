@@ -20,7 +20,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: 16.15.1
+        node-version: 18
 
     - name: Build
       run: npm install
