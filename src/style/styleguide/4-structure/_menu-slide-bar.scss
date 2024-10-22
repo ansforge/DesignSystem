@@ -1,0 +1,172 @@
+.sg-menu-slide-bar {
+    display: block;
+    background-color: $white;
+    border-right: .1rem solid var(--gray-400, #dee0ea);
+
+    .navbar-toggler {
+        width: 100%;
+        height: var(--sg-header-height);
+
+        background-color: var(--primary);
+        color: var(--white);
+        outline-color: var(--white);
+
+        border: 0;
+        border-right: solid 0.1rem;
+        border-radius: 0;
+
+        font-size: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 3.7rem;
+
+        @include media-breakpoint-up(lg) {
+            display: none;
+        }
+
+        &[aria-expanded="true"] {
+            svg {
+                transition: transform 250ms ease;
+                margin-left: 1rem;
+            }
+        }
+
+        &[aria-expanded="false"] {
+            svg {
+                width: 0.8rem;
+                margin-left: 1rem;
+                transform: rotate(-90deg);
+            }
+        }
+
+        &[aria-expanded="false"]+.fr-collapse {
+            display: none;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+
+        }
+    }
+
+    .navbar-collapse {
+        width: 100%;
+        position: relative;
+        background-color: $white;
+
+        @include media-breakpoint-up(lg) {
+            width: var(--sg-nav-left-width);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: $zindex-fixed;
+            overflow-y: auto;
+        }
+    }
+
+    // Optionnal title (DSFR structure)
+    .menu-slide-bar__title {
+        margin: 3rem .5rem 0 3.7rem;
+    }
+
+    .navbar-nav {
+
+        // Hover
+        .nav-link {
+            width: 100%;
+            padding: 0.5rem 1.9rem;
+            text-align: left;
+            text-decoration: none;
+            color: $body-color;
+            border-radius: 0.9rem;
+
+            transition: color 250ms ease, background-color 250ms ease, border-color 250ms ease;
+        }
+
+        [aria-expanded] {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            svg {
+                width: 0.8rem;
+                margin-left: auto;
+
+                transition: transform 250ms ease;
+            }
+        }
+
+        [aria-expanded="false"] {
+            svg {
+                transform: rotate(-90deg);
+            }
+        }
+
+        // Active
+        .is-active {
+
+            &,
+            &.show {
+                >.nav-link {
+                    font-weight: $fw-semiBold;
+                    color: var(--primary);
+                    background-color: $gray-200;
+                    // border-color: var(--primary);
+
+                    @include hover {
+                        color: var(--primary);
+                    }
+                }
+            }
+        }
+
+        ul {
+            margin-left: 1rem;
+        }
+    }
+
+    .nav-lvl--1 {
+        padding: 3rem 1.8rem;
+
+        >li {
+            margin-bottom: 2rem;
+
+            >.nav-link {
+                font-size: 2rem;
+                font-weight: $fw-semiBold;
+                color: $black;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .navbar-collapse {
+            display: block !important;
+            top: calc(var(--sg-header-height) + 0.1rem);
+            width: var(--sg-nav-left-width);
+            border-right: solid 0.1rem $border-color;
+        }
+
+        .navbar-toggler-close {
+            display: none;
+        }
+
+        .navbar-nav {
+            display: block;
+        }
+    }
+}
+
+/* in design system only */
+.o-sg-prism {
+    .sg-menu-slide-bar {
+        .navbar-collapse {
+            position: initial;
+            z-index: 1;
+        }
+    }
+}

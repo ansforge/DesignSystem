@@ -1,10 +1,16 @@
 .sg-header-principal {
-    position: relative;
+    position: relative; // position relative needed for z-index to works in case position sticky isn't supported by the browser
+    /* autoprefixer: off */
+    position: -webkit-sticky;
+    position: sticky;
+    /* autoprefixer: on */
+    top: 0;
     display: flex;
     justify-content: space-between;
 
     border-bottom: solid 0.1rem $border-color;
     background-color: $white;
+    box-shadow: var(--box-shadow-lg);
 }
 
 .sg-header-principal--left,
@@ -57,6 +63,7 @@
 }
 
 @include media-breakpoint-down(md) {
+
     // the logo is centered
     .sg-header-principal--left {
         @include aw-make-col-auto();
