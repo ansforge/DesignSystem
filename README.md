@@ -86,8 +86,8 @@ Ex. du composant qui a pour class `.a-info` :
 # Gestion des css
 
 La css style-ans.css est la css principale du site.
-La css styleguide.css concerne que le guide de style et écrase style-ans.css.
-En cas de modification ou de création de composant il est important donc de modifier les fichiers de twig/site et non pas twig/styleguide.
+La css styleguide.css concerne le guide de style et écrase style-ans.css pour des styles spécifiques au site guide de style.
+En cas de modification ou de création de composant pour le site esante il est important donc de modifier les fichiers scss de style/site et non pas style/styleguide.
 
 ---
 
