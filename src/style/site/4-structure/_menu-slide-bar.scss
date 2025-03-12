@@ -54,17 +54,6 @@
         width: 100%;
         position: relative;
         background-color: $white;
-
-        @include media-breakpoint-up(lg) {
-            width: var(--sg-nav-left-width);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: $zindex-fixed;
-            overflow-y: auto;
-        }
     }
 
     // Optionnal title (DSFR structure)
