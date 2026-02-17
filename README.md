@@ -92,3 +92,7 @@ Après que le tag ai été validé par l'ANS sur les environnement OVH (préprod
 
 - Créer une MR de develop au niveau du tag vers la branche "synchro-github-ans"
 - Le push vers github se fait via un job "synchro_github" manuel.
+
+## Déploiement des pages Github
+
+Merge request vers Github-pages
