@@ -95,4 +95,4 @@ Après que le tag ai été validé par l'ANS sur les environnement OVH (préprod
 
 ## Déploiement des pages Github
 
-Merge request vers Github-pages
+Merge request vers Github-pages automatique et push du site.
