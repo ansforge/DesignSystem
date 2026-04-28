@@ -6,10 +6,6 @@ include:
   - local: .gitlab/ci/jobs/*.yml # Include abstract jobs to be extended
   - local: .gitlab/ci/fragments/*.yml # Include any non-job yml fragments
 
-default:
-  tags:
-    - ans-g2-g3
-
 ################################################################################
 # Stages.
 ################################################################################
