@@ -78,8 +78,8 @@ fin npm install
 A chaque mise à jour de version :
 
 - Modèle : X:Y:Z (ex: 1.9.0)
-- Mettre à jour la date de livraison et le numéro de version sur la page `index.twig`
-- Lister tous les nouveaux éléments et les modifications apportées par la version sur la page `sg-versions.twig`
+- Mettre à jour la date de livraison et le numéro de version sur la page `src/twig/styleguide/page/index.twig`
+- Lister tous les nouveaux éléments et les modifications apportées par la version sur la page `src/twig/styleguide/page/sg-versions.twig`
 - Lancer la commande `fin gulp` pour générer tous les fichiers puis zipper la version (les éléments du dossier `styleguide`) **en retirant les .zip des anciennes versions du dossier styleguide/zip**
     - ```cd styleguide && zip -r ../src/zip/ans-design-system-v1.0.1.zip .```
 - Vérifier le nouveau fichier .zip dans le dossier `src/zip`
