@@ -3,7 +3,7 @@
 // On donne le focus à la fenêtre du site et non au navigateur
 //
 // * * * * * * * * * * * * * * * * * * * *
-$(window).focus();
+$(globalThis).focus();
 
 // * * * * * * * * * * * * * * * * * * * *
 //
