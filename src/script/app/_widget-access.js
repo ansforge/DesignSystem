@@ -9,7 +9,7 @@ if (!Array.prototype.includes) {
         }
 
         // 1. Soit o égal à ? Object(cette valeur).
-        var o = Object(this);
+        var o = new Object(this);
 
         // 2. Soit len égal à ? Length(? Get(o, "length")).
         var len = o.length >>> 0;
@@ -32,7 +32,7 @@ if (!Array.prototype.includes) {
         var k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
 
         function sameValueZero(x, y) {
-          return x === y || (typeof x === 'number' && typeof y === 'number' && isNaN(x) && isNaN(y));
+          return x === y || (typeof x === 'number' && typeof y === 'number' && Number.isNaN(x) && Number.isNaN(y));
         }
 
         // 7. Répéter tant que k < len

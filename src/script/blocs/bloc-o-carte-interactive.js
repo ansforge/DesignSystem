@@ -110,8 +110,8 @@ $(document).ready(function () {
 
   if (
     typeof drupalSettings !== 'undefined' &&
-    typeof drupalSettings.asip !== 'undefined' &&
-    typeof drupalSettings.asip.map !== 'undefined' ) {
+    drupalSettings.asip !== undefined &&
+    drupalSettings.asip.map !== undefined ) {
     regionsData = drupalSettings.asip.map;
   }
 
