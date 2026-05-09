@@ -14,20 +14,20 @@ var fn_target_blank = function() {
         $(this).addClass('external-link');
 
         if ($(this).attr('aria-label')) {
-            var title = $(this).attr('aria-label').replace(/\s+/g, ' ').trim();
+            var title = $(this).attr('aria-label').replaceAll(/\s+/g, ' ').trim();
 
             $(this).attr('title', function() {
                 return title + targetBlankText
             });
         } else if ($(this).attr('title')) {
-            var title = $(this).attr('title').replace(/\s+/g, ' ').trim();
+            var title = $(this).attr('title').replaceAll(/\s+/g, ' ').trim();
 
             $(this).attr('title', function() {
                 return title + targetBlankText
             });
         } else {
             $(this).attr('title', function() {
-                return $(this).text().replace(/\s+/g, ' ').trim() + targetBlankText
+                return $(this).text().replaceAll(/\s+/g, ' ').trim() + targetBlankText
             });
         }
     });
