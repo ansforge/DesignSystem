@@ -16,7 +16,7 @@ $(function ($, win) {
             $(win).on("resize scroll", visPx);
         });
     };
-}(jQuery, window));
+}(jQuery, globalThis));
 
 var fn_keyfigure_animated = function () {
 
