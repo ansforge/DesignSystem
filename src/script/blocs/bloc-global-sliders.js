@@ -57,7 +57,7 @@ function sliderToggleHeaderAlign() {
 var fn_slider = function (componentName, componentSliderClass, controlsPosition, nbItems576, nbItems992, nbItems1200, gutter = 30) {
     var sliderElt = Array.from(document.querySelectorAll(componentName));
 
-    if(typeof(sliderElt) != 'undefined' && sliderElt != null) {
+    if(sliderElt !== undefined && sliderElt != null) {
         sliderElt.forEach(function (slider) {
             var parentElt = slider.querySelector(componentSliderClass);
             // console.log(parentElt)
